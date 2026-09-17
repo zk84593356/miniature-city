@@ -4,7 +4,7 @@
   "transforms": {
     "index.html": {
       "sourceSha256": "67f6a4bb472e34c679aecebe5e038f3dc347f64092f9fa207ec93d63bfa3372a",
-      "outputSha256": "d5290854af4dff6cdc135a8b058e161fab773dde8e6ecdfb3b9590133136855c",
+      "outputSha256": "2d85319523c919605fcbfde2a1b6f5c257e6d81db43431ba7dbc5f6f6c465739",
       "hits": {
         "P-NOTICE": 1,
         "P-META": 1,
@@ -17,12 +17,14 @@
         "P-BOOT-DETAIL-EN": 1,
         "P-LOADING": 1,
         "P-LOADING-EN": 1,
-        "P-LOADING-DETAIL": 1
+        "P-LOADING-DETAIL": 1,
+        "P-ASSET-JS-PATH": 1,
+        "P-ASSET-CSS-PATH": 1
       }
     },
     "assets/index-zfVzkv9E.js": {
       "sourceSha256": "bd2411b90aff0e56ec59467180f71fd8d9e0cc7f660666a8db2668a393072f5e",
-      "outputSha256": "8911e2c59f9eaa5e113cdfb95a1a29e2538051c6379d640a0bdc55856240e0bc",
+      "outputSha256": "3bb34c40d2e2cf717986b2a8529af4ba39acb0095d16ffb99cd457df03ea928c",
       "hits": {
         "P-BRAND": 1,
         "P-TITLE": 1,
@@ -42,5 +44,5 @@
       }
     }
   },
-  "generatedAt": "2026-09-17T07:52:53.955Z"
+  "generatedAt": "2026-09-17T08:32:28.504Z"
 }

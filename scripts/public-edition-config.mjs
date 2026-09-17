@@ -35,6 +35,18 @@ export const transforms = {
     { id: "P-LOADING", from: "一座城，山海之间。", to: "真实深圳，微缩呈现。", count: 1 },
     { id: "P-LOADING-EN", from: "A city between mountains and sea.", to: "Real Shenzhen, rendered in miniature.", count: 1 },
     { id: "P-LOADING-DETAIL", from: "正在展开深圳的海岸与山脊…", to: "正在载入深圳的城市图层…", count: 1 },
+    {
+      id: "P-ASSET-JS-PATH",
+      from: 'src="/assets/index-zfVzkv9E.js"',
+      to: 'src="./assets/index-zfVzkv9E.js"',
+      count: 1
+    },
+    {
+      id: "P-ASSET-CSS-PATH",
+      from: 'href="/assets/index-CJdN52Ic.css"',
+      to: 'href="./assets/index-CJdN52Ic.css"',
+      count: 1
+    },
   ],
   "assets/index-zfVzkv9E.js": [
     { id: "P-BRAND", from: "SHENZHEN IN MINIATURE", to: "MINIATURE CITY ATLAS", count: 1 },
@@ -51,7 +63,7 @@ export const transforms = {
     { id: "P-TAGLINE-I18N", from: '"越过天际线，走进这座城。":"Beyond the skyline, into the city."', to: '"真实地理，微缩呈现。":"Real geography, rendered in miniature."', count: 1 },
     { id: "P-TAGLINE", from: "<p>越过天际线，走进这座城。</p>", to: "<p>真实地理，微缩呈现。</p>", count: 1 },
     { id: "P-EXPORT-CREDIT", from: "© OpenStreetMap contributors · Shenzhen in Miniature", to: "© OpenStreetMap contributors · Miniature City Atlas", count: 1 },
-    { id: "P-CREDITS-LINK", from: "Mapzen Terrain</a></footer>", to: 'Mapzen Terrain</a><span> · </span><a href="/ATTRIBUTION.html" target="_blank" rel="noopener">数据与许可</a></footer>', count: 1 },
+    { id: "P-CREDITS-LINK", from: "Mapzen Terrain</a></footer>", to: 'Mapzen Terrain</a><span> · </span><a href="./ATTRIBUTION.html" target="_blank" rel="noopener">数据与许可</a></footer>', count: 1 },
   ],
 };
 
