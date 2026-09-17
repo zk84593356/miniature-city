@@ -1,0 +1,1 @@
+class el extends tn{constructor(e=null,t=1,n=1,s,a,r,o,l,c=Xt,h=Xt,d,u){super(null,r,o,l,c,h,s,a,d,u),this.isDataTexture=!0,this.image={data:e,width:t,height:n},this.generateMipmaps=!1,this.flipY=!1,this.unpackAlignment=1}}

@@ -1,0 +1,1 @@
+class Xe extends Rt{constructor(){super(),this.isGroup=!0,this.type="Group"}}const t0={type:"move"};

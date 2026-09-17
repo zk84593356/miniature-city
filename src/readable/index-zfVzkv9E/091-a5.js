@@ -1,0 +1,1 @@
+class a5 extends mn{constructor(e=[]){super(),this.isArrayCamera=!0,this.isMultiViewCamera=!1,this.cameras=e}}const k2=new vt;

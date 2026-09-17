@@ -1,0 +1,1 @@
+class Je extends on{constructor(e,t,n){super(new Float32Array(e),t,n)}}const s0=new ji,Fs=new R,zr=new R;

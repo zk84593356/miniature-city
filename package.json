@@ -1,0 +1,20 @@
+{
+  "name": "miniature-city-private-rebuild",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "serve": "node scripts/serve.mjs --side rebuild --root site --origin-host cityinminiatures.top --stub-ext-hosts static.cloudflareinsights.com --port 4173",
+    "site:build": "node scripts/build-site.mjs --config scripts/shell-config.mjs",
+    "verify": "npm run verify:site && npm run verify:source && npm run verify:tools",
+    "verify:site": "node scripts/build-site.mjs --config scripts/shell-config.mjs --check && node scripts/verify-shell.mjs --config scripts/shell-config.mjs",
+    "verify:source": "node scripts/verify-reassembly.mjs --dir src/readable --against site/assets",
+    "verify:tools": "node scripts/verify-zerodep.mjs",
+    "public:build": "node scripts/build-public.mjs",
+    "public:verify": "npm run public:build && node scripts/verify-public.mjs",
+    "public:serve": "node scripts/serve.mjs --side rebuild --root public-site --origin-host cityinminiatures.top --stub-ext-hosts static.cloudflareinsights.com --port 4174"
+  }
+}

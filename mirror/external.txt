@@ -1,0 +1,16 @@
+# NOTFILE — source citations, attribution links, namespace identifiers, or outbound anchors.
+www.openstreetmap.org
+en.wikipedia.org
+www.sz.gov.cn
+www.w3.org
+www.skyscrapercenter.com
+wtl.sz.gov.cn
+qh.sz.gov.cn
+sz.happyvalley.cn
+jcgt.org
+www.kpf.com
+www.cmskchp.com
+github.com
+
+# ACCEPTED-DEGRADATION — analytics beacon, not a reusable runtime asset.
+static.cloudflareinsights.com

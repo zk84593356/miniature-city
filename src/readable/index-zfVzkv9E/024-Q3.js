@@ -1,0 +1,1 @@
+class Q3 extends on{constructor(e,t,n){super(new Uint16Array(e),t,n)}}

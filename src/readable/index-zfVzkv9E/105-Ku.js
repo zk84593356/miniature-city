@@ -1,0 +1,1 @@
+class Ku{constructor(e,t,n){this.id=e,this.addr=n,this.cache=[],this.type=t.type,this.size=t.size,this.setValue=$u(t.type)}}

@@ -1,0 +1,7 @@
+#EXTM3U
+#EXT-X-TARGETDURATION:4
+#EXTINF:4.0,
+video0.ts
+#EXTINF:4.0,
+video1.ts
+#EXT-X-ENDLIST

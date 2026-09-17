@@ -1,0 +1,1 @@
+class V0{static triangulate(e,t,n=2){return T0(e,t,n)}}

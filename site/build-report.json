@@ -1,0 +1,13 @@
+{
+  "config": "scripts/shell-config.mjs",
+  "pages": [
+    {
+      "rel": "index.html",
+      "mirrorBytes": 3100,
+      "builtBytes": 3403,
+      "transforms": {
+        "T-NOINDEX": 1
+      }
+    }
+  ]
+}

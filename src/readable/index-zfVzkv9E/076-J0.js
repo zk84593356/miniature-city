@@ -1,0 +1,1 @@
+class J0 extends nn{constructor(e){super(e),this.isRawShaderMaterial=!0,this.type="RawShaderMaterial"}}

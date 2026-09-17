@@ -1,0 +1,34 @@
+{
+  "origin": "http://127.0.0.1:63544",
+  "mirroredAt": "2026-09-07T03:52:29.366Z",
+  "files": {
+    "http://127.0.0.1:63544/v/playlist.m3u8": {
+      "path": "v/playlist.m3u8",
+      "bytes": 76,
+      "sha256": "ca9314eef0bd2f53391edec8de311dba4f348847ca7303462e9b86f6e14e1579",
+      "type": "application/vnd.apple.mpegurl",
+      "source": "gapfill-video"
+    },
+    "http://127.0.0.1:63544/v/360p/video.m3u8": {
+      "path": "v/360p/video.m3u8",
+      "bytes": 93,
+      "sha256": "5ed196da975fdef129e9320a3c074676af1f9ce33566e3246db34eef640bc3e0",
+      "type": "application/vnd.apple.mpegurl",
+      "source": "gapfill-video"
+    },
+    "http://127.0.0.1:63544/v/360p/video0.ts": {
+      "path": "v/360p/video0.ts",
+      "bytes": 4,
+      "sha256": "56bb957d3ced42333d84b72891a0a5c7a02bd9dcd0cc30573c10497b95a9e137",
+      "type": "video/mp2t",
+      "source": "gapfill-video"
+    },
+    "http://127.0.0.1:63544/v/360p/video1.ts": {
+      "path": "v/360p/video1.ts",
+      "bytes": 4,
+      "sha256": "2b1e27891a1b6713ed5330fd0ec0e63cb574bdc90a84e40c765ae180f54d93ab",
+      "type": "video/mp2t",
+      "source": "gapfill-video"
+    }
+  }
+}

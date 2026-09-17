@@ -1,0 +1,152 @@
+{
+  "origin": "https://cityinminiatures.top",
+  "mirroredAt": "2026-09-16T14:11:22.228Z",
+  "files": {
+    "https://cityinminiatures.top/": {
+      "path": "index.html",
+      "bytes": 3100,
+      "sha256": "0aa68ad1e3c46214689e805f8efc78e11e8ad431c9142e34c7d801e66fc03acd",
+      "type": "text/html; charset=utf-8"
+    },
+    "https://cityinminiatures.top/__codex_missing_probe__": {
+      "path": "404.html",
+      "bytes": 79,
+      "sha256": "b9d9264c0b8f2875b6b02da292bf09db67f7e255aec4f07af0a7bb46fe97a4c8",
+      "type": "text/html (404 template)"
+    },
+    "https://cityinminiatures.top/assets/index-CJdN52Ic.css": {
+      "path": "assets\\index-CJdN52Ic.css",
+      "bytes": 24503,
+      "sha256": "0e001de2257f997199879b385448c707eda3abfc7e8d0b1640f92dd5b63fecf7",
+      "type": "text/css; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/assets/index-zfVzkv9E.js": {
+      "path": "assets\\index-zfVzkv9E.js",
+      "bytes": 1020907,
+      "sha256": "bd2411b90aff0e56ec59467180f71fd8d9e0cc7f660666a8db2668a393072f5e",
+      "type": "application/javascript; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/assets/traffic-Cw95n69J.js": {
+      "path": "assets\\traffic-Cw95n69J.js",
+      "bytes": 19604,
+      "sha256": "dc544a32c4ecdb4391082b1b7e96924a6b25f5b7236e89a49f0c2c6eba2ebb17",
+      "type": "application/javascript; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/audio/bay-breeze.mp3": {
+      "path": "audio\\bay-breeze.mp3",
+      "bytes": 7377792,
+      "sha256": "8cc44e13fa653d3618cb6e89e8072c6156901d9cd704439567fdd2b2cad61bf8",
+      "type": "audio/mpeg",
+      "profile": "std"
+    },
+    "https://cityinminiatures.top/data/activity.076c47374f6c.json": {
+      "path": "data\\activity.076c47374f6c.json",
+      "bytes": 9899,
+      "sha256": "076c47374f6c7a544d5542cc0621b2f978106e34eb194e31f40f1667d2f52bcc",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/buildings.154e3e0b73a0.json": {
+      "path": "data\\buildings.154e3e0b73a0.json",
+      "bytes": 2296483,
+      "sha256": "154e3e0b73a0f912e698d08fc213d62326a5856da92f34ecf24386f95f84ebb2",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/elevation.1fb0e5de0b0a.json": {
+      "path": "data\\elevation.1fb0e5de0b0a.json",
+      "bytes": 1136064,
+      "sha256": "1fb0e5de0b0acf512e4f26b0aa15ee0769d5ec8673a19f4a8bcfbf265e84ac31",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/geography.62cb8ed28b0f.json": {
+      "path": "data\\geography.62cb8ed28b0f.json",
+      "bytes": 985771,
+      "sha256": "62cb8ed28b0fe7d0434150286bcf27c4b6924ba0d010c1d564ad782179267f25",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/night-lighting.8e73a8b6b3f3.json": {
+      "path": "data\\night-lighting.8e73a8b6b3f3.json",
+      "bytes": 1586438,
+      "sha256": "8e73a8b6b3f36473b859d69e0c38cf7368de5fb3b07f01e88083963f34c53f00",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/terrain-buffers.d7448f9f8c14.bin": {
+      "path": "data\\terrain-buffers.d7448f9f8c14.bin",
+      "bytes": 3794964,
+      "sha256": "d7448f9f8c1482095649a2f71e50b27dc38f4ae6cbd094db4fa580131a4366ea",
+      "type": "application/octet-stream",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/terrain-meta.2a788207027b.json": {
+      "path": "data\\terrain-meta.2a788207027b.json",
+      "bytes": 227,
+      "sha256": "2a788207027b7205c798347b608e82e563f10ae469f505b789eb05ad19e5bb48",
+      "type": "application/json; charset=utf-8",
+      "profile": "std"
+    },
+    "https://cityinminiatures.top/data/traffic-demand.7b70bd13efe8.json": {
+      "path": "data\\traffic-demand.7b70bd13efe8.json",
+      "bytes": 59660,
+      "sha256": "7b70bd13efe849edbbe5d0c237d31c2c8fe5e8ec62afa14ffbd9933a5aec7ae7",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/traffic-meta.e4b4ee40e799.json": {
+      "path": "data\\traffic-meta.e4b4ee40e799.json",
+      "bytes": 2741642,
+      "sha256": "e4b4ee40e79914a86d88f5ad11f25c15b26440ba652eef9061fff7539bd6109a",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/surfaces.647933fc1440.json": {
+      "path": "data\\surfaces.647933fc1440.json",
+      "bytes": 4518142,
+      "sha256": "647933fc14403b98706e8c1374a81d1cd72b5411abd99826f8204dbf8f6123a3",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/traffic-points.b0b12d5d1d1e.bin": {
+      "path": "data\\traffic-points.b0b12d5d1d1e.bin",
+      "bytes": 1403520,
+      "sha256": "b0b12d5d1d1e96fd458fad71b92b1f95982c73a01b1341db057948eeb0d23f42",
+      "type": "application/octet-stream",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/urban-meta.ce5f75845c71.json": {
+      "path": "data\\urban-meta.ce5f75845c71.json",
+      "bytes": 4726,
+      "sha256": "ce5f75845c71553cc9ac12b4868bfef2c274697d088f670c114b4247fad8f194",
+      "type": "application/json; charset=utf-8",
+      "profile": "std",
+      "vary": "accept-encoding"
+    },
+    "https://cityinminiatures.top/data/urban-instances.455bffafcaaf.bin": {
+      "path": "data\\urban-instances.455bffafcaaf.bin",
+      "bytes": 1732816,
+      "sha256": "455bffafcaaf17341e12eb70153d66098015d17b7ee1c451d4dd2fbe46120f19",
+      "type": "application/octet-stream",
+      "profile": "std",
+      "vary": "accept-encoding"
+    }
+  }
+}

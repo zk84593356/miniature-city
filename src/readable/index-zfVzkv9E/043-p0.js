@@ -1,0 +1,1 @@
+class p0 extends As{constructor(e,t=Yn,n=Xi,s,a,r=Xt,o=Xt,l,c=fi){const h={width:e,height:e,depth:1},d=[h,h,h,h,h,h];super(e,e,t,n,s,a,r,o,l,c),this.image=d,this.isCubeDepthTexture=!0,this.isCubeTexture=!0}get images(){return this.image}set images(e){this.image=e}}

@@ -1,0 +1,49 @@
+{
+ "note": "Concatenative decomposition: parts joined in order reproduce the chunk byte-for-byte. verify-reassembly.mjs is the gate.",
+ "chunk": "..\\..\\site\\assets\\traffic-Cw95n69J.js",
+ "chunkSha256": "dc544a32c4ecdb4391082b1b7e96924a6b25f5b7236e89a49f0c2c6eba2ebb17",
+ "chunkBytes": 19604,
+ "acorn": "8.14.0",
+ "parts": [
+  {
+   "file": "000-imports.js",
+   "kind": "preamble",
+   "start": 0,
+   "end": 1207,
+   "startLine": 1,
+   "lines": 1,
+   "bytes": 1207,
+   "sha256": "d7c203cba1f016f6a2b27a16dcda91a2a679a617a8d2855ef1fa1ecfbf55a99d"
+  },
+  {
+   "file": "001-at.js",
+   "kind": "class",
+   "start": 1207,
+   "end": 11347,
+   "startLine": 2,
+   "lines": 5,
+   "bytes": 10206,
+   "sha256": "c7115d4d824a86cccbf506896f73bfbf8fd3522493f7e405fec3484d6b049b78"
+  },
+  {
+   "file": "002-ot.js",
+   "kind": "class",
+   "start": 11347,
+   "end": 19509,
+   "startLine": 6,
+   "lines": 3,
+   "bytes": 8162,
+   "sha256": "1a338e4c9718c88179b5542742437efbd9bc8abb351fa2232e3783b92dbe2c23"
+  },
+  {
+   "file": "003-exports.js",
+   "kind": "export",
+   "start": 19509,
+   "end": 19538,
+   "startLine": 8,
+   "lines": 2,
+   "bytes": 29,
+   "sha256": "99a36905d1e02da60e881b324252c35d47b69807055c40a6e86838bca7d45b36"
+  }
+ ]
+}

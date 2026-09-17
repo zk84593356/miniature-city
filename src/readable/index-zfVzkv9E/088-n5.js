@@ -1,0 +1,1 @@
+class n5 extends pl{constructor(){super(new P1(-5,5,5,-5,.5,500)),this.isDirectionalLightShadow=!0}}

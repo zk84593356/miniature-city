@@ -1,0 +1,1 @@
+class nl extends tn{constructor(e=[],t=Xi,n,s,a,r,o,l,c,h){super(e,t,n,s,a,r,o,l,c,h),this.isCubeTexture=!0,this.flipY=!1}get images(){return this.image}set images(e){this.image=e}}

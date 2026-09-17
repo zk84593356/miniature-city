@@ -1,0 +1,700 @@
+import {
+    L as Y,
+    I as z,
+    m as N,
+    B as k,
+    a as X,
+    M as E,
+    D as S,
+    b as $,
+    c as T,
+    S as J,
+    P as K,
+    O as H,
+    V as Q,
+    G as P,
+    d as A,
+    l as M,
+    e as b,
+    C as tt,
+    f as O,
+    g as et,
+    h as st
+} from "./index-zfVzkv9E.js";
+const it = {
+    commute: [
+        [0, .1],
+        [5, .1],
+        [6, .35],
+        [7, 1],
+        [9, 1],
+        [10, .45],
+        [12, .4],
+        [16, .5],
+        [18, .65],
+        [20, .25],
+        [23, .12],
+        [24, .1]
+    ],
+    return: [
+        [0, .1],
+        [5, .1],
+        [7, .4],
+        [9, .45],
+        [12, .4],
+        [16, .6],
+        [17, 1],
+        [19, 1],
+        [21, .35],
+        [23, .12],
+        [24, .1]
+    ],
+    local: [
+        [0, .15],
+        [5, .12],
+        [8, .45],
+        [12, .8],
+        [18, .85],
+        [21, .55],
+        [23, .2],
+        [24, .15]
+    ],
+    leisure: [
+        [0, .08],
+        [6, .08],
+        [8, .2],
+        [12, .6],
+        [18, .9],
+        [20, .65],
+        [23, .12],
+        [24, .08]
+    ],
+    freight: [
+        [0, .6],
+        [6, .65],
+        [8, .75],
+        [12, .85],
+        [18, .8],
+        [23, .65],
+        [24, .6]
+    ]
+};
+
+function nt(f, e, a) {
+    const t = (e % 24 + 24) % 24,
+        s = it[f];
+    let i = 1;
+    for (; i < s.length - 1 && s[i][0] < t;) i++;
+    const [n, o] = s[i - 1], [r, h] = s[i], c = (t - n) / (r - n);
+    let d = o + (h - o) * c * c * (3 - 2 * c);
+    return a === "weekend" && ((f === "commute" || f === "return") && (d *= .48), f === "local" && (d *= t >= 10 && t < 22 ? 1.15 : .95), f === "leisure" && (d *= t >= 10 && t < 20 ? 1.65 : .85)), d
+}
+
+function B(f, e, a) {
+    return f.weight * nt(f.purpose, f.leisureReturn ? e - 2 : e, a)
+}
+
+function W(f) {
+    let e = f >>> 0;
+    return () => (e = Math.imul(e, 1664525) + 1013904223 >>> 0, e / 4294967296)
+}
+const y = {
+    car: {
+        length: .046,
+        width: .02,
+        height: .016
+    },
+    bus: {
+        length: .072,
+        width: .024,
+        height: .03
+    },
+    truck: {
+        length: .07,
+        width: .024,
+        height: .03
+    }
+};
+class at {
+    constructor(e, a, t = 12, s = "weekday", i = !1) {
+        if (this.network = e, this.data = a, e.dataset !== a.dataset || e.version !== 1 || a.version !== 1) throw new Error("城市交通数据版本不一致，请重新加载完整版本。");
+        i && e.shuttle && (this.data = {
+            ...a,
+            itineraries: [...a.itineraries, {
+                id: "shekou-connection",
+                origin: 0,
+                destination: 0,
+                lanes: e.shuttle.lanes,
+                length: e.shuttle.length,
+                districts: ["nanshan"],
+                purpose: "local",
+                weight: 0,
+                managed: !0
+            }]
+        }), this.paths = e.lanes.map(n => new Y(n.points)), this.occupancy = e.lanes.map(() => []), this.reservations = e.junctions.map(() => []), this.passage = new Uint32Array(e.lanes.length), this.random = W(a.seed), this.routes = this.data.itineraries.map(n => {
+            const o = [0];
+            let r = 0;
+            for (let h = 0; h < n.lanes.length; h++) {
+                const c = n.lanes[h];
+                if (!e.lanes[c] || h && !e.lanes[n.lanes[h - 1]].next.includes(c)) throw new Error(`城市交通路线 ${n.id} 连接缺失。`);
+                o.push(o.at(-1) + this.paths[c].total), r += this.paths[c].total / e.lanes[c].speed
+            }
+            return {
+                starts: o,
+                total: o.at(-1),
+                duration: r,
+                large: n.lanes.every(h => e.lanes[h].truck),
+                rate: 0,
+                target: 0,
+                credit: 0,
+                threshold: 1
+            }
+        }), this.seed(t, s)
+    }
+    network;
+    data;
+    paths;
+    routes;
+    vehicles = [];
+    occupancy;
+    reservations;
+    passage;
+    pedestrianStops = [];
+    time = 0;
+    births = 0;
+    arrivals = 0;
+    initial = 0;
+    denied = 0;
+    capacityDenied = 0;
+    steps = 0;
+    updateMs = 0;
+    accumulator = 0;
+    nextId = 0;
+    random;
+    hour = 12;
+    day = "weekday";
+    reduced = !1;
+    locate(e) {
+        const a = this.routes[e.route];
+        let t = 0,
+            s = a.starts.length - 2;
+        for (; t < s;) {
+            const i = t + s + 1 >> 1;
+            a.starts[i] <= e.distance ? t = i : s = i - 1
+        }
+        e.index = t, e.lane = this.data.itineraries[e.route].lanes[t], e.s = e.distance - a.starts[t]
+    }
+    create(e, a, t) {
+        if (this.vehicles.length >= this.data.capacity) return this.capacityDenied++, !1;
+        const s = this.data.itineraries[e],
+            i = this.routes[e],
+            n = i.large && s.purpose === "freight" ? "truck" : i.large && this.random() < .085 ? "bus" : "car",
+            o = {
+                id: this.nextId++,
+                route: e,
+                kind: n,
+                distance: a,
+                previous: a,
+                index: 0,
+                lane: 0,
+                s: 0,
+                speed: 0,
+                preference: .87 + this.random() * .17,
+                waiting: 0,
+                travel: 0
+            };
+        this.locate(o);
+        const r = this.network.lanes[o.lane];
+        if (r.junction >= 0 || t && (o.s < .09 || this.paths[o.lane].total - o.s < .09)) return !1;
+        const h = y[n].length;
+        return this.occupancy[o.lane].some(c => Math.abs(c.s - o.s) < (h + y[c.kind].length) / 2 + .075) ? (this.denied++, !1) : (o.speed = t ? r.speed * o.preference : .01, this.vehicles.push(o), this.occupancy[o.lane].push(o), t || this.births++, !0)
+    }
+    seedShuttles() {
+        const e = this.data.itineraries.findIndex(t => t.managed),
+            a = this.network.shuttle;
+        if (!(e < 0 || !a))
+            for (let t = 0; t < 3; t++) {
+                const s = {
+                    id: this.nextId++,
+                    route: e,
+                    kind: "bus",
+                    distance: t === 1 ? a.cityDistance - 1 : a.homeDistance - (t === 2 ? .14 : 0),
+                    previous: t === 1 ? a.cityDistance - 1 : a.homeDistance - (t === 2 ? .14 : 0),
+                    index: 0,
+                    lane: 0,
+                    s: 0,
+                    speed: 0,
+                    preference: .94,
+                    waiting: 0,
+                    travel: 0,
+                    shuttle: {
+                        id: t,
+                        next: t === 1 ? a.cityDistance : a.homeDistance,
+                        held: t === 0
+                    }
+                };
+                this.locate(s), this.vehicles.push(s), this.occupancy[s.lane].push(s)
+            }
+    }
+    get shuttles() {
+        return this.vehicles.filter(e => e.shuttle)
+    }
+    releaseShuttle(e) {
+        const a = this.shuttles.find(t => t.shuttle.id === e);
+        !a || !a.shuttle.held || !this.network.shuttle || (a.shuttle.held = !1, a.shuttle.next = Math.abs(a.distance - this.network.shuttle.homeDistance) < .01 ? this.network.shuttle.cityDistance : this.network.shuttle.homeDistance)
+    }
+    seed(e, a) {
+        this.vehicles.length = 0, this.occupancy.forEach(i => i.length = 0), this.random = W(this.data.seed), this.nextId = 0, this.births = this.arrivals = this.initial = this.denied = this.capacityDenied = 0, this.time = 0, this.accumulator = 0, this.steps = 0, this.passage.fill(0), this.hour = e, this.day = a;
+        const t = this.routes.map((i, n) => B(this.data.itineraries[n], e, a) * i.duration),
+            s = Math.min(1, this.data.capacity * .85 / Math.max(1, t.reduce((i, n) => i + n, 0)));
+        for (let i = 0; i < this.routes.length; i++) {
+            const n = this.routes[i];
+            n.rate = n.target = B(this.data.itineraries[i], e, a), n.credit = this.random(), n.threshold = .7 + this.random() * .6;
+            const o = Math.ceil(t[i] * s);
+            for (let r = 0; r < o; r++) this.create(i, (r + .15 + this.random() * .7) / Math.max(1, o) * n.total, !0)
+        }
+        this.seedShuttles(), this.initial = this.vehicles.length
+    }
+    phase(e) {
+        const a = this.network.junctions[e];
+        if (!a.signal) return -1;
+        const t = (this.time + a.offset) % a.period,
+            s = a.period / 2;
+        return t % s >= s - 3 ? -2 : Math.floor(t / s)
+    }
+    allowed(e, a) {
+        const t = this.network.lanes[e];
+        if (t.junction < 0) return !0;
+        const s = this.network.junctions[t.junction],
+            i = s.movements[t.movement];
+        return this.reservations[s.id].some(n => n.vehicle === a && n.movement === t.movement) ? !0 : s.signal && this.phase(s.id) !== i.phase ? !1 : !this.reservations[s.id].some(n => n.vehicle !== a && i.conflicts.includes(n.movement))
+    }
+    reserve(e, a) {
+        const t = this.network.lanes[e];
+        t.junction >= 0 && this.reservations[t.junction].push({
+            movement: t.movement,
+            vehicle: a.id
+        })
+    }
+    leaderGap(e, a = e.index) {
+        const t = this.data.itineraries[e.route],
+            s = this.routes[e.route];
+        let i = 1 / 0;
+        for (let n = a; n < t.lanes.length; n++) {
+            const o = s.starts[n];
+            if (o - e.distance > .9) break;
+            const r = this.occupancy[t.lanes[n]];
+            for (const h of r) {
+                if (h.id === e.id) continue;
+                const c = o + h.s - e.distance;
+                c > 0 && (i = Math.min(i, c - (y[e.kind].length + y[h.kind].length) / 2))
+            }
+        }
+        if (e.shuttle && s.total - e.distance < .9)
+            for (let n = 0; n < t.lanes.length && s.starts[n] + s.total - e.distance < .9; n++)
+                for (const o of this.occupancy[t.lanes[n]]) o.id !== e.id && (i = Math.min(i, s.total - e.distance + s.starts[n] + o.s - (y[e.kind].length + y[o.kind].length) / 2));
+        return i
+    }
+    advance(e, a, t, s, i) {
+        if (i) {
+            !this.shuttles.length && (Math.abs(a - this.hour) > .001 || t !== this.day) && this.seed(a, t), this.reduced = !0;
+            return
+        }
+        if (this.reduced && (this.vehicles.forEach(r => r.previous = r.distance), this.accumulator = 0, this.reduced = !1), s) return;
+        this.hour = a, this.day = t, this.accumulator += Math.min(.3, Math.max(0, e));
+        const n = performance.now();
+        let o = 0;
+        for (; this.accumulator >= .1 && o < 3;) this.step(.1), this.accumulator -= .1, o++;
+        o && (this.updateMs = (performance.now() - n) / o)
+    }
+    step(e) {
+        this.time += e, this.steps++, this.occupancy.forEach(t => t.length = 0), this.reservations.forEach(t => t.length = 0);
+        for (const t of this.vehicles) {
+            this.occupancy[t.lane].push(t);
+            const s = this.data.itineraries[t.route],
+                i = this.routes[t.route];
+            this.reserve(t.lane, t);
+            for (let n = t.index + 1; n < s.lanes.length && i.starts[n] - t.distance < y[t.kind].length / 2 + .01; n++) this.reserve(s.lanes[n], t);
+            for (let n = t.index - 1; n >= 0 && t.distance - i.starts[n + 1] < y[t.kind].length / 2 + .012; n--) this.reserve(s.lanes[n], t)
+        }
+        this.occupancy.forEach(t => t.sort((s, i) => s.s - i.s));
+        const a = [...this.vehicles].sort((t, s) => (t.waiting || this.time + 1) - (s.waiting || this.time + 1) || t.id - s.id);
+        for (const t of a) {
+            const s = this.data.itineraries[t.route],
+                i = this.routes[t.route],
+                n = this.network.lanes[t.lane];
+            let o = this.leaderGap(t),
+                r = n.speed * t.preference;
+            if (t.shuttle) {
+                const p = (t.shuttle.next - t.distance + i.total) % i.total;
+                o = Math.min(o, t.shuttle.held ? .014 : p + .025)
+            }
+            for (let p = t.index; p < s.lanes.length; p++) {
+                const g = i.starts[p];
+                if (g - t.distance > .9) break;
+                for (const m of this.pedestrianStops)
+                    if (m.lane === s.lanes[p]) {
+                        const u = g + m.s - t.distance;
+                        u > y[t.kind].length / 2 + .025 && (o = Math.min(o, u - y[t.kind].length / 2 - .05))
+                    }
+            }
+            for (let p = t.index + 1; p < s.lanes.length; p++) {
+                const g = i.starts[p] - t.distance;
+                if (g > .8) break;
+                const m = this.network.lanes[s.lanes[p]];
+                if (r = Math.min(r, Math.sqrt(m.speed * m.speed + 2 * .035 * Math.max(0, g - .025))), m.junction < 0) continue;
+                const u = i.starts[p + 1],
+                    j = this.leaderGap(t, p + 1) - (u - t.distance);
+                if (!(this.reservations[m.junction].some(D => D.vehicle === t.id && D.movement === m.movement) || this.allowed(m.id, t.id) && j > y[t.kind].length / 2 + .025)) {
+                    o = Math.min(o, g - y[t.kind].length / 2 - .008);
+                    break
+                }
+                g < y[t.kind].length / 2 + t.speed * e + .025 && this.reserve(m.id, t)
+            }
+            const h = Math.min(r, Math.sqrt(2 * .035 * Math.max(0, o - .025))),
+                c = Math.max(-.04 * e, Math.min(.018 * e, h - t.speed));
+            t.speed = Math.max(0, t.speed + c);
+            const d = t.shuttle ? (t.shuttle.next - t.distance + i.total) % i.total : 1 / 0,
+                w = Math.max(0, Math.min(t.speed * e, o - .014, d));
+            w < t.speed * e && (t.speed = w / e), t.speed < .008 ? t.waiting || (t.waiting = this.time) : t.waiting = 0, t.travel = w
+        }
+        for (const t of a) {
+            const s = this.data.itineraries[t.route],
+                i = t.index;
+            t.previous = t.distance, t.distance += t.travel, t.shuttle && (t.distance >= this.routes[t.route].total && (t.distance -= this.routes[t.route].total, t.previous -= this.routes[t.route].total), Math.abs(t.distance - t.shuttle.next) < .003 && (t.distance = t.shuttle.next, t.speed = 0, t.shuttle.held = !0)), this.locate(t);
+            for (let n = i; n < t.index; n++) this.passage[s.lanes[n]]++
+        }
+        for (let t = this.vehicles.length - 1; t >= 0; t--) !this.vehicles[t].shuttle && this.vehicles[t].distance >= this.routes[this.vehicles[t].route].total && (this.vehicles.splice(t, 1), this.arrivals++);
+        this.occupancy.forEach(t => t.length = 0);
+        for (const t of this.vehicles) this.occupancy[t.lane].push(t);
+        for (let t = 0; t < this.routes.length; t++) {
+            const s = this.routes[t];
+            this.data.itineraries[t].managed || (s.target = B(this.data.itineraries[t], this.hour, this.day), s.rate += (s.target - s.rate) * (1 - Math.exp(-e * .15)), s.credit += s.rate * e, s.credit >= s.threshold && (this.create(t, 0, !1), s.credit = 0, s.threshold = .7 + this.random() * .6))
+        }
+    }
+    sample(e, a, t = !0) {
+        const s = this.routes[e.route];
+        let i = t ? e.previous + (e.distance - e.previous) * Math.min(1, this.accumulator / .1) : e.distance;
+        e.shuttle && (i = (i + s.total) % s.total);
+        let n = 0,
+            o = s.starts.length - 2;
+        for (; n < o;) {
+            const h = n + o + 1 >> 1;
+            s.starts[h] <= i ? n = h : o = h - 1
+        }
+        const r = this.data.itineraries[e.route].lanes[n];
+        return this.paths[r].sample(i - s.starts[n], a), r
+    }
+    metrics() {
+        const e = {},
+            a = {};
+        let t = 0;
+        for (const s of this.vehicles) {
+            const i = this.network.lanes[s.lane].district;
+            e[i] = (e[i] ?? 0) + 1, a[s.kind] = (a[s.kind] ?? 0) + 1, s.waiting && t++
+        }
+        return {
+            active: this.vehicles.length,
+            capacity: this.data.capacity,
+            initial: this.initial,
+            births: this.births,
+            arrivals: this.arrivals,
+            denied: this.denied,
+            capacityDenied: this.capacityDenied,
+            waiting: t,
+            districts: e,
+            kinds: a,
+            routeCount: this.routes.length,
+            time: this.time,
+            steps: this.steps,
+            updateMs: this.updateMs,
+            rate: this.routes.reduce((s, i) => s + i.rate, 0),
+            targetRate: this.routes.reduce((s, i) => s + i.target, 0),
+            positions: this.vehicles.slice(0, 10).map(s => ({
+                id: s.id,
+                route: this.data.itineraries[s.route].id,
+                lane: s.lane,
+                progress: s.distance,
+                speed: s.speed
+            }))
+        }
+    }
+}
+const R = ["#f4ead2", "#c99263", "#678c83", "#b0604c", "#aebfc2"].map(f => new st(f));
+
+function q(f) {
+    const e = new A({
+        color: f ?? "#ffffff",
+        roughness: .65
+    });
+    return e.onBeforeCompile = a => {
+        a.vertexShader = a.vertexShader.replace("#include <common>", `#include <common>
+attribute float instanceFade; varying float vTrafficFade;`).replace("#include <begin_vertex>", `#include <begin_vertex>
+vTrafficFade=instanceFade;`), a.fragmentShader = a.fragmentShader.replace("#include <common>", `#include <common>
+varying float vTrafficFade;`).replace("#include <clipping_planes_fragment>", `#include <clipping_planes_fragment>
+if(vTrafficFade<fract(sin(dot(floor(gl_FragCoord.xy),vec2(12.9898,78.233)))*43758.5453)) discard;`)
+    }, e
+}
+class ot {
+    constructor(e, a, t) {
+        this.network = a, this.simulation = t;
+        const s = t.data.capacity,
+            i = () => {
+                const r = new k(1, 1, 1);
+                return r.setAttribute("instanceFade", new X(new Float32Array(s), 1).setUsage(S)), r
+            };
+        this.body = new z(i(), q(), s), this.glass = new z(i(), q("#274f55"), s);
+        const n = N([-.0108, .0108].flatMap(r => [-.014, .014].map(h => new k(.005, .007, .008).translate(r, 0, h))));
+        n.setAttribute("instanceFade", new X(new Float32Array(s), 1)), this.wheels = new z(n, q("#37463e"), s), this.head = new z(i(), new E({
+            color: "#ffecc9"
+        }), s), this.tail = new z(i(), new E({
+            color: "#bc6651"
+        }), s);
+        for (const r of [this.body, this.glass, this.wheels, this.head, this.tail]) r.count = 0, r.frustumCulled = !1, r.instanceMatrix.setUsage(S), e.add(r);
+        this.body.setColorAt(0, R[0]), this.position = new Float32Array(s * 3), this.color = new Float32Array(s * 3), this.alpha = new Float32Array(s), this.direction = new Float32Array(s * 2);
+        const o = new $;
+        o.setAttribute("position", new T(this.position, 3).setUsage(S)), o.setAttribute("color", new T(this.color, 3).setUsage(S)), o.setAttribute("opacity", new T(this.alpha, 1).setUsage(S)), o.setAttribute("heading", new T(this.direction, 2).setUsage(S)), this.pointMaterial = new J({
+            transparent: !0,
+            depthWrite: !1,
+            depthTest: !0,
+            uniforms: {
+                uSize: {
+                    value: 2
+                },
+                uNight: {
+                    value: 0
+                }
+            },
+            vertexShader: `attribute vec3 color;attribute float opacity;attribute vec2 heading;uniform float uSize;varying vec3 vColor;varying float vAlpha;varying vec2 vDirection;
+    void main(){vec4 view=modelViewMatrix*vec4(position,1.);vec4 p=projectionMatrix*view;vec4 q=projectionMatrix*(view+modelViewMatrix*vec4(heading.x,0.,heading.y,0.)*.1);vDirection=normalize(q.xy/q.w-p.xy/p.w+vec2(.0000001));vColor=color;vAlpha=opacity;gl_Position=p;gl_PointSize=uSize;}`,
+            fragmentShader: `varying vec3 vColor;varying float vAlpha;varying vec2 vDirection;uniform float uNight;
+    void main(){vec2 p=(gl_PointCoord-vec2(.5))*vec2(1.,-1.);float along=dot(p,vDirection);float across=dot(p,vec2(-vDirection.y,vDirection.x));float edge=max(abs(along)/.48,abs(across)/.28);float a=(1.-smoothstep(.72,1.,edge))*vAlpha;if(a<.025)discard;vec3 c=mix(vColor,along>0.?vec3(1.,.91,.69):vec3(.64,.29,.20),uNight);gl_FragColor=vec4(c,a);}`
+        }), this.points = new K(o, this.pointMaterial), this.points.frustumCulled = !1, e.add(this.points), e.add(this.furnishing), this.addSignals(), this.addGateways(), this.addTunnelPortals()
+    }
+    network;
+    simulation;
+    body;
+    glass;
+    wheels;
+    head;
+    tail;
+    points;
+    pointMaterial;
+    position;
+    color;
+    alpha;
+    direction;
+    object = new H;
+    projected = new Q;
+    scratch = {
+        x: 0,
+        y: 0,
+        z: 0,
+        angle: 0,
+        pitch: 0
+    };
+    lights = [];
+    furnishing = new P;
+    visible = 0;
+    far = 0;
+    detailed = 0;
+    prepareMs = 0;
+    addSignals() {
+        const e = new A({
+                color: "#3a5448",
+                roughness: 1
+            }),
+            a = new A({
+                color: "#cfceb8",
+                roughness: 1
+            });
+        for (const t of this.network.junctions) {
+            if (!t.signal) continue;
+            const s = new Set;
+            for (const i of t.movements) {
+                if (s.has(i.from)) continue;
+                s.add(i.from);
+                const n = this.network.lanes[i.from],
+                    o = n.points,
+                    r = M(o, -2),
+                    h = M(o, -1),
+                    c = Math.atan2(h[0] - r[0], h[2] - r[2]),
+                    d = new P;
+                d.position.set(h[0] + Math.cos(c) * .025, h[1], h[2] - Math.sin(c) * .025), d.rotation.y = c;
+                const w = new b(new tt(.0015, .002, .045, 5), e);
+                w.position.y = .0225, d.add(w);
+                const p = new b(new k(.009, .02, .006), e);
+                p.position.set(0, .045, 0), d.add(p);
+                const g = new b(new O(.0023, 6, 4), new E({
+                    color: "#dd715b"
+                }));
+                g.position.set(0, .051, -.004), d.add(g);
+                const m = new b(new O(.0023, 6, 4), new E({
+                    color: "#9bcdb0"
+                }));
+                m.position.set(0, .04, -.004), d.add(m);
+                const u = new b(new k(.024, 7e-4, .004), a);
+                u.position.set(-.025, .002, -.034), d.add(u), this.furnishing.add(d), this.lights.push({
+                    junction: t.id,
+                    phase: i.phase,
+                    group: d,
+                    red: g,
+                    green: m
+                })
+            }
+        }
+    }
+    addGateways() {
+        const e = new A({
+                color: "#59796b",
+                roughness: .8
+            }),
+            a = new A({
+                color: "#b8c1aa",
+                roughness: 1
+            });
+        for (const t of this.network.portals) {
+            if (t.gateway === "local-access") continue;
+            const s = this.network.lanes[t.entryLane],
+                i = M(s.points, 0),
+                n = M(s.points, 1),
+                o = new P;
+            o.position.set(i[0], i[1], i[2]), o.rotation.y = Math.atan2(n[0] - i[0], n[2] - i[2]);
+            const r = new b(new k(.1, .007, .085), e);
+            r.position.set(-.024, .049, 0), o.add(r);
+            for (const h of [-.066, .018]) {
+                const c = new b(new k(.003, .047, .003), a);
+                c.position.set(h, .024, 0), o.add(c)
+            }
+            this.furnishing.add(o)
+        }
+    }
+    addTunnelPortals() {
+        const e = [],
+            a = [],
+            t = new Set,
+            s = new H,
+            i = (n, o, r, h, c, d, w) => {
+                const p = new k(o, r, h);
+                p.translate(c, d, w), p.applyMatrix4(s.matrix), n.push(p)
+            };
+        for (const n of this.network.junctions)
+            for (const o of n.movements) {
+                const r = this.network.lanes[o.from],
+                    h = this.network.lanes[o.to];
+                if (r.tunnel === h.tunnel) continue;
+                const c = h.tunnel ? h : r,
+                    d = h.tunnel ? M(c.points, 0) : M(c.points, -1),
+                    w = h.tunnel ? M(c.points, 1) : M(c.points, -2),
+                    p = c.way + ":" + Math.round(d[0] * 20) + ":" + Math.round(d[2] * 20);
+                if (!t.has(p)) {
+                    t.add(p), s.position.set(d[0], d[1], d[2]), s.rotation.set(0, Math.atan2(w[0] - d[0], w[2] - d[2]), 0), s.updateMatrix(), i(a, .056, .044, .002, 0, .022, 0), i(e, .072, .008, .015, 0, .048, 0);
+                    for (const g of [-.032, .032]) i(e, .008, .046, .015, g, .023, 0)
+                }
+            }
+        for (const [n, o] of [
+                [e, "#99ab97"],
+                [a, "#293f38"]
+            ]) {
+            if (!n.length) continue;
+            const r = N(n);
+            n.forEach(h => h.dispose()), r && this.furnishing.add(new b(r, new A({
+                color: o,
+                roughness: 1
+            })))
+        }
+    }
+    place(e, a, t, s, i, n, o, r, h, c) {
+        this.object.position.set(t, s, i), this.object.rotation.set(o, n, 0, "YXZ"), this.object.scale.set(r, h, c), this.object.updateMatrix(), e.setMatrixAt(a, this.object.matrix)
+    }
+    update(e, a, t, s, i) {
+        const n = performance.now();
+        let o = 0,
+            r = 0,
+            h = 0,
+            c = 0,
+            d = 0;
+        const w = t ? 400 : 1200,
+            p = this.body.geometry.getAttribute("instanceFade"),
+            g = this.glass.geometry.getAttribute("instanceFade"),
+            m = this.wheels.geometry.getAttribute("instanceFade");
+        for (const u of this.simulation.vehicles) {
+            if (u.shuttle) continue;
+            const j = this.simulation.sample(u, this.scratch),
+                L = this.network.lanes[j],
+                l = this.scratch;
+            if (L.tunnel) continue;
+            this.projected.set(l.x, l.y + .012, l.z).applyMatrix4(e.matrixWorldInverse);
+            const D = -this.projected.z;
+            if (D <= e.near) continue;
+            const v = y[u.kind],
+                _ = v.length * e.projectionMatrix.elements[5] * s / (2 * D);
+            if (this.projected.applyMatrix4(e.projectionMatrix), this.projected.z < -1 || this.projected.z > 1 || Math.abs(this.projected.x) > 1.02 || Math.abs(this.projected.y) > 1.02) continue;
+            d++;
+            const Z = this.simulation.routes[u.route].total - u.distance,
+                C = Math.min(1, u.distance / .025, Z / .025),
+                U = et.smoothstep(_, 1.6, 3.6),
+                G = R[u.kind === "bus" ? 2 : u.kind === "truck" ? 1 : u.id % R.length];
+            if (U < 1) {
+                const x = h++;
+                this.position.set([l.x, l.y + .014, l.z], x * 3), this.color.set([G.r, G.g, G.b], x * 3), this.alpha[x] = (1 - U) * C * .92, this.direction.set([Math.sin(l.angle), Math.cos(l.angle)], x * 2)
+            }
+            if (U <= 0) continue;
+            const I = o++;
+            if (this.place(this.body, I, l.x, l.y + v.height * .48, l.z, l.angle, l.pitch, v.width, v.height * .64, v.length), this.body.setColorAt(I, G), p.setX(I, U * C), _ > 5.5 && r < w) {
+                const x = r++,
+                    F = u.kind === "truck" ? v.length * .27 : 0;
+                this.place(this.glass, x, l.x + Math.sin(l.angle) * F, l.y + v.height * .85, l.z + Math.cos(l.angle) * F, l.angle, l.pitch, v.width * .83, v.height * .3, v.length * (u.kind === "truck" ? .2 : .58)), g.setX(x, C), this.place(this.wheels, x, l.x, l.y + .0035, l.z, l.angle, l.pitch, v.width / .02, 1, v.length / .046), m.setX(x, C)
+            }
+            if (a > .12 && _ > 3) {
+                const x = c++,
+                    F = Math.sin(l.angle) * v.length * .49,
+                    V = Math.cos(l.angle) * v.length * .49;
+                this.place(this.head, x, l.x + F, l.y + .01, l.z + V, l.angle, l.pitch, v.width * .7, .002, .0018), this.place(this.tail, x, l.x - F, l.y + .01, l.z - V, l.angle, l.pitch, v.width * .66, .002, .0018)
+            }
+        }
+        this.body.count = o, this.glass.count = this.wheels.count = r, this.head.count = this.tail.count = c;
+        for (const u of [this.body, this.glass, this.wheels, this.head, this.tail]) u.instanceMatrix.needsUpdate = !0;
+        this.body.instanceColor.needsUpdate = !0, p.needsUpdate = g.needsUpdate = m.needsUpdate = !0, this.points.geometry.setDrawRange(0, h);
+        for (const u of ["position", "color", "opacity", "heading"]) this.points.geometry.getAttribute(u).needsUpdate = !0;
+        this.pointMaterial.uniforms.uSize.value = 2.6 * i, this.pointMaterial.uniforms.uNight.value = a;
+        for (const u of this.lights) {
+            u.group.visible = e.position.distanceTo(u.group.position) < 22;
+            const j = this.simulation.phase(u.junction) === u.phase;
+            u.green.visible = j, u.red.visible = !j
+        }
+        this.visible = d, this.far = h, this.detailed = r, this.prepareMs = performance.now() - n
+    }
+}
+
+function ht(f, e, a, t = 12, s = "weekday") {
+    const i = new at(e, a, t, s, !0),
+        n = new ot(f, e, i);
+    return {
+        capacity: a.capacity,
+        simulation: i,
+        observe(o) {
+            const r = e.observations[o];
+            return r ? {
+                x: r.point[0],
+                y: r.point[1],
+                z: r.point[2],
+                ...r
+            } : void 0
+        },
+        metrics: () => ({
+            ...i.metrics(),
+            visible: n.visible,
+            far: n.far,
+            detailed: n.detailed,
+            prepareMs: n.prepareMs,
+            dataset: e.dataset
+        }),
+        update(o, r, h, c, d, w, p, g) {
+            i.advance(o, r, g, p, w), n.update(c, h, d, innerHeight, Math.min(devicePixelRatio, d ? 1 : 1.5))
+        }
+    }
+}
+export {
+    ht as createTraffic
+};

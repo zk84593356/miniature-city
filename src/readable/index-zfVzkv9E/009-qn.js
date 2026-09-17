@@ -1,0 +1,1 @@
+class qn extends Yc{constructor(e=1,t=1,n={}){super(e,t,n),this.isWebGLRenderTarget=!0}}

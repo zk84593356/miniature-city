@@ -1,0 +1,1 @@
+class j3 extends on{constructor(e,t,n){super(new Uint32Array(e),t,n)}}

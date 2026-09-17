@@ -1,0 +1,1 @@
+class t5 extends pl{constructor(){super(new mn(90,1,.5,500)),this.isPointLightShadow=!0}}
