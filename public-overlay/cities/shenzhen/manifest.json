@@ -10,12 +10,12 @@
   },
   "runtime": {
     "adapter": "legacy-runtime-v1",
-    "entry": "/assets/index-zfVzkv9E.js",
-    "trafficChunk": "/assets/traffic-Cw95n69J.js"
+    "entry": "../../assets/index-zfVzkv9E.js",
+    "trafficChunk": "../../assets/traffic-Cw95n69J.js"
   },
   "districts": ["宝安区", "南山区", "福田区", "罗湖区", "盐田区", "龙华区", "光明区", "龙岗区", "坪山区", "大鹏新区"],
-  "dataRoot": "/data/",
-  "audioRoot": "/audio/",
+  "dataRoot": "../../data/",
+  "audioRoot": "../../audio/",
   "sources": [
     { "name": "OpenStreetMap contributors", "license": "ODbL-1.0", "url": "https://www.openstreetmap.org/copyright" },
     { "name": "Mapzen Terrain", "license": "source attribution", "url": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md" }

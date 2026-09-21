@@ -6,7 +6,7 @@ import { applyTransforms, outputRoot, overlayRoot, sourceRoot, transforms } from
 
 const source = path.resolve(sourceRoot);
 const output = path.resolve(outputRoot);
-const temp = path.resolve(`${outputRoot}.tmp`);
+const temp = path.resolve(`.${outputRoot}-build-tmp`);
 const overlay = path.resolve(overlayRoot);
 const sha256 = (body) => createHash("sha256").update(body).digest("hex");
 
@@ -31,4 +31,4 @@ await cp(overlay, temp, { recursive: true, force: true });
 await writeFile(path.join(temp, "public-build-report.json"), JSON.stringify(report, null, 2) + "\n");
 await rm(output, { recursive: true, force: true });
 await rename(temp, output);
-console.log(`PASS — built ${outputRoot}; runtime geometry/data untouched, ${Object.keys(transforms).length} text files transformed.`);
+console.log(`PASS — built prefix-neutral ${outputRoot}; runtime geometry/data untouched, ${Object.keys(transforms).length} text files transformed.`);

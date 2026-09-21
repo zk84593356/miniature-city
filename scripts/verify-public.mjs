@@ -36,6 +36,15 @@ for (const rel of overlayFiles) {
   if (!actual || !expected.equals(actual)) problems.push(`overlay mismatch ${rel}`);
 }
 
+const expectedFiles = new Set([...sourceFiles, ...overlayFiles]);
+const outputFiles = (await walk(output)).filter((rel) => rel !== "public-build-report.json");
+for (const rel of expectedFiles) {
+  if (!outputFiles.includes(rel)) problems.push(`missing public file ${rel}`);
+}
+for (const rel of outputFiles) {
+  if (!expectedFiles.has(rel)) problems.push(`unexpected generated file ${rel}`);
+}
+
 const html = await readFile(path.join(output, "index.html"), "utf8");
 const bundle = await readFile(path.join(output, "assets/index-zfVzkv9E.js"), "utf8");
 for (const old of ["UNOFFICIAL PRIVATE STUDY", "SHENZHEN IN MINIATURE", "深圳·山海之间 | Shenzhen in Miniature"]) {
@@ -47,8 +56,40 @@ for (const required of ["微缩城市图志", "noindex", "/ATTRIBUTION.html"]) {
 const registry = JSON.parse(await readFile(path.join(output, "cities/registry.json"), "utf8"));
 if (registry.defaultCity !== "shenzhen" || !registry.cities?.some((city) => city.id === "shenzhen")) problems.push("city registry lacks Shenzhen default");
 
+const manifest = JSON.parse(await readFile(path.join(output, "cities/shenzhen/manifest.json"), "utf8"));
+const testPrefixes = ["/", "/example/", "/nested/example/"];
+for (const prefix of testPrefixes) {
+  const origin = `https://example.test${prefix}`;
+  for (const rel of ["assets/index-zfVzkv9E.js", "assets/index-CJdN52Ic.css", "ATTRIBUTION.html", "PRIVACY.html"]) {
+    const resolved = new URL(`./${rel}`, origin);
+    if (resolved.pathname !== `${prefix}${rel}`) problems.push(`document resource escaped ${prefix}: ${rel}`);
+  }
+  const moduleUrl = new URL("assets/index-zfVzkv9E.js", origin);
+  for (const rel of ["data/buildings.154e3e0b73a0.json", "audio/bay-breeze.mp3", "assets/traffic-Cw95n69J.js"]) {
+    const resolved = new URL(`../${rel}`, moduleUrl);
+    if (resolved.pathname !== `${prefix}${rel}`) problems.push(`module resource escaped ${prefix}: ${rel}`);
+  }
+  const registryUrl = new URL("cities/registry.json", origin);
+  const manifestUrl = new URL(registry.cities[0].manifest, registryUrl);
+  if (manifestUrl.pathname !== `${prefix}cities/shenzhen/manifest.json`) problems.push(`registry manifest escaped ${prefix}`);
+  for (const [field, suffix] of [["entry", "assets/index-zfVzkv9E.js"], ["trafficChunk", "assets/traffic-Cw95n69J.js"]]) {
+    if (new URL(manifest.runtime[field], manifestUrl).pathname !== `${prefix}${suffix}`) problems.push(`manifest ${field} escaped ${prefix}`);
+  }
+  for (const [field, suffix] of [["dataRoot", "data/"], ["audioRoot", "audio/"]]) {
+    if (new URL(manifest[field], manifestUrl).pathname !== `${prefix}${suffix}`) problems.push(`manifest ${field} escaped ${prefix}`);
+  }
+}
+
+const staticFiles = (await walk(output)).filter((name) => /\.(?:html|js|css|json)$/.test(name) && !name.endsWith("build-report.json"));
+for (const rel of staticFiles) {
+  const body = await readFile(path.join(output, rel), "utf8");
+  if (/(?:src|href|poster|action)=["']\/(?!\/)/i.test(body) || /url\(\s*["']?\/(?!\/)/i.test(body) || /["'`]\/(?:assets|data|audio|cities)\//.test(body) || /(?:fetch|import|new URL)\(\s*["'`]\/(?!\/)/.test(body) || /return["']\/["']\+/.test(body)) {
+    problems.push(`root-escaping static resource in ${rel}`);
+  }
+}
+
 if (problems.length) {
   for (const problem of problems) console.error(`FAIL ${problem}`);
   process.exit(1);
 }
-console.log(`PASS — ${sourceFiles.length} runtime files accounted for; non-text assets byte-identical; public overlays verified.`);
+console.log(`PASS — ${sourceFiles.length} runtime files accounted for; ${testPrefixes.length} arbitrary mount prefixes resolve correctly; ${staticFiles.length} text files have no root-escaping resource paths; non-text assets byte-identical.`);

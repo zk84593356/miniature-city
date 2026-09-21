@@ -9,8 +9,8 @@
     {
       "id": "shenzhen",
       "name": { "zh": "深圳", "en": "Shenzhen" },
-      "route": "/",
-      "manifest": "/cities/shenzhen/manifest.json",
+      "route": "../",
+      "manifest": "./shenzhen/manifest.json",
       "status": "available"
     }
   ]

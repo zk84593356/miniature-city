@@ -5,7 +5,7 @@ export const overlayRoot = "public-overlay";
 const authorizedNotice = `<!--
   AUTHORIZED PUBLIC EDITION of the Shenzhen 3D city experience.
   Published by Miniature City Atlas with rights-holder authorization.
-  City and map data credits are listed at /ATTRIBUTION.html.
+  City and map data credits are listed at ATTRIBUTION.html.
   Preview build: noindex until the production domain is approved.
 -->`;
 
@@ -49,6 +49,11 @@ export const transforms = {
     },
   ],
   "assets/index-zfVzkv9E.js": [
+    { id: "P-PRELOAD-BASE", from: 'Vl=function(i){return"/"+i}', to: 'Vl=function(i){return new URL("../"+i,import.meta.url).href}', count: 1 },
+    { id: "P-DATA-BASE", from: 'fetch(`/data/${t.file}`', to: 'fetch(new URL(`../data/${t.file}`,import.meta.url)', count: 1 },
+    { id: "P-AUDIO-PREVIEW-BASE", from: 'e.src=`/audio/${M3.surf}`', to: 'e.src=new URL(`../audio/${M3.surf}`,import.meta.url).href', count: 1 },
+    { id: "P-AUDIO-TRACK-BASE", from: 'this.audio.src=`/audio/${M3[e]}`', to: 'this.audio.src=new URL(`../audio/${M3[e]}`,import.meta.url).href', count: 1 },
+    { id: "P-AUDIO-DEFAULT-BASE", from: 'this.audio.src="/audio/bay-breeze.mp3"', to: 'this.audio.src=new URL("../audio/bay-breeze.mp3",import.meta.url).href', count: 1 },
     { id: "P-BRAND", from: "SHENZHEN IN MINIATURE", to: "MINIATURE CITY ATLAS", count: 1 },
     { id: "P-TITLE", from: "深圳·山海之间 | Shenzhen in Miniature", to: "微缩城市图志 · 深圳 | Miniature City Atlas", count: 1 },
     { id: "P-TITLE-EN", from: "Shenzhen in Miniature · Mountains & Sea", to: "Miniature City Atlas · Shenzhen", count: 1 },
