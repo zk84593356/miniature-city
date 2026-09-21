@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import { advance } from '../public-overlay/ride/ride-motion.js';
+import { RideCollision } from '../public-overlay/ride/ride-collision.js';
+const state = () => ({x:0,z:0,heading:0,speed:0,steering:0});
+const step = (s, t, turn=0, brake=false, seconds=1, dt=1/120) => { for(let i=0;i<Math.round(seconds/dt);i++) advance(s,t,turn,brake,dt); };
+let s=state(); step(s,0,1); assert.equal(s.heading,0,'stationary bicycle cannot rotate');
+step(s,1,0,false,8); assert.equal(s.speed,9,'speed cap');
+step(s,0,0,true,2); assert.equal(s.speed,0,'brake must stop');
+step(s,-1,0,false,3); assert.equal(s.speed,-2,'bounded reverse');
+const a=state(), b=state(); step(a,1,0,false,3,1/60); step(b,1,0,false,3,1/120); assert.ok(Math.abs(a.z-b.z)<.002,'frame-rate independent motion');
+step(a,0,1,false,.3); assert.ok(a.heading>0,'left steering'); step(b,0,-1,false,.3); assert.ok(b.heading<0,'right steering');
+step(b,0,0,false,30); assert.equal(b.speed,0,'natural drag');
+function mesh(y,name='city-terrain') { const vertices=[[0,y,0],[2,y+1,0],[0,y,2]]; return {name,geometry:{attributes:{position:{count:3,getX:i=>vertices[i][0],getY:i=>vertices[i][1],getZ:i=>vertices[i][2]}}}}; }
+const collision = new RideCollision({ ground:[mesh(1),mesh(2,'road')], geo:{height:()=>1,isCity:(x,z)=>x>=0&&z>=0&&x+z<=2,isLand:()=>true}, placement:{chunks:[['0,0',[{x:.5,z:.5,y:1,h:2,w:.2,d:.2,angle:0}]]]}, buildings:[], landmarks:[], project:()=>[],excluded:()=>false });
+assert.ok(Math.abs(collision.height(.4,.2,1.2)-1.2)<1e-10,'exact triangle slope');
+assert.ok(Math.abs(collision.height(.4,.2,2.2)-2.2)<1e-10,'bridge deck');
+assert.ok(Math.abs(collision.height(.4,.2,1.2)-1.2)<1e-10,'no snapping onto overhead bridge');
+assert.equal(collision.height(5,5),-Infinity,'outside mesh');
+assert.ok(collision.blocked(.5,.5,1),'building collision');
+assert.ok(collision.blocked(.615,.5,1),'radius at cell edge');
+assert.ok(!collision.blocked(.7,.5,1),'clear road');
+assert.ok(!collision.blocked(.5,.5,4),'above roof');
+assert.ok(!collision.valid(5,5,1),'city boundary');
+console.log('PASS ride: stationary steering, speed cap, reverse, braking, drag, frame-rate independence, triangle slopes, bridge layer, building radius and city boundary');
