@@ -13,3 +13,6 @@
 
 /audio/*
   Cache-Control: public, max-age=86400
+
+/ride/*
+  Cache-Control: public, max-age=0, must-revalidate

@@ -14,7 +14,8 @@
     "verify:source": "node scripts/verify-reassembly.mjs --dir src/readable --against site/assets",
     "verify:tools": "node scripts/verify-zerodep.mjs",
     "public:build": "node scripts/build-public.mjs",
-    "public:verify": "npm run public:build && node scripts/verify-public.mjs",
-    "public:serve": "node scripts/serve.mjs --side rebuild --root public-site --origin-host cityinminiatures.top --stub-ext-hosts static.cloudflareinsights.com --port 4174"
+    "public:verify": "npm run public:build && node scripts/verify-public.mjs && node scripts/verify-ride.mjs",
+    "public:serve": "node scripts/serve.mjs --side rebuild --root public-site --origin-host cityinminiatures.top --stub-ext-hosts static.cloudflareinsights.com --port 4174",
+    "verify:ride": "node scripts/verify-ride.mjs"
   }
 }

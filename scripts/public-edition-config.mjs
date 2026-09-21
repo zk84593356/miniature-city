@@ -1,3 +1,4 @@
+import { rideTransforms, rideVersion } from './ride-transforms.mjs';
 export const sourceRoot = "site";
 export const outputRoot = "public-site";
 export const overlayRoot = "public-overlay";
@@ -17,6 +18,9 @@ const oldNotice = `<!--
 -->`;
 
 export const transforms = {
+  "assets/traffic-Cw95n69J.js": [
+    { id: "R-TRAFFIC-ENTRY", from: 'from"./index-zfVzkv9E.js"', to: `from"./index-zfVzkv9E.js?ride=${rideVersion}"`, count: 1 },
+  ],
   "index.html": [
     { id: "P-NOTICE", from: oldNotice, to: authorizedNotice, count: 1 },
     {
@@ -38,7 +42,7 @@ export const transforms = {
     {
       id: "P-ASSET-JS-PATH",
       from: 'src="/assets/index-zfVzkv9E.js"',
-      to: 'src="./assets/index-zfVzkv9E.js"',
+      to: `src="./assets/index-zfVzkv9E.js?ride=${rideVersion}"`,
       count: 1
     },
     {
@@ -49,6 +53,7 @@ export const transforms = {
     },
   ],
   "assets/index-zfVzkv9E.js": [
+    ...rideTransforms,
     { id: "P-PRELOAD-BASE", from: 'Vl=function(i){return"/"+i}', to: 'Vl=function(i){return new URL("../"+i,import.meta.url).href}', count: 1 },
     { id: "P-DATA-BASE", from: 'fetch(`/data/${t.file}`', to: 'fetch(new URL(`../data/${t.file}`,import.meta.url)', count: 1 },
     { id: "P-AUDIO-PREVIEW-BASE", from: 'e.src=`/audio/${M3.surf}`', to: 'e.src=new URL(`../audio/${M3.surf}`,import.meta.url).href', count: 1 },

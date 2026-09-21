@@ -53,14 +53,18 @@ for (const old of ["UNOFFICIAL PRIVATE STUDY", "SHENZHEN IN MINIATURE", "深圳�
 for (const required of ["微缩城市图志", "noindex", "/ATTRIBUTION.html"]) {
   if (!html.includes(required) && !bundle.includes(required)) problems.push(`required public marker missing: ${required}`);
 }
+const entryVersion = html.match(/index-zfVzkv9E\.js\?ride=([a-f0-9]+)/)?.[1];
+const trafficBundle = await readFile(path.join(output, 'assets/traffic-Cw95n69J.js'), 'utf8');
+if (!entryVersion || !trafficBundle.includes(`from"./index-zfVzkv9E.js?ride=${entryVersion}"`) || !bundle.includes(`import("./traffic-Cw95n69J.js?ride=${entryVersion}")`)) problems.push('ride entry/traffic cache versions disagree');
+if (!bundle.includes('ride.active?ride.update(Ve):v.update(Ve)')) problems.push('ride animation seam missing');
 const registry = JSON.parse(await readFile(path.join(output, "cities/registry.json"), "utf8"));
 if (registry.defaultCity !== "shenzhen" || !registry.cities?.some((city) => city.id === "shenzhen")) problems.push("city registry lacks Shenzhen default");
 
 const manifest = JSON.parse(await readFile(path.join(output, "cities/shenzhen/manifest.json"), "utf8"));
-const testPrefixes = ["/", "/example/", "/nested/example/"];
+const testPrefixes = ["/", "/city/", "/example/", "/nested/example/"];
 for (const prefix of testPrefixes) {
   const origin = `https://example.test${prefix}`;
-  for (const rel of ["assets/index-zfVzkv9E.js", "assets/index-CJdN52Ic.css", "ATTRIBUTION.html", "PRIVACY.html"]) {
+  for (const rel of ["assets/index-zfVzkv9E.js", "assets/index-CJdN52Ic.css", "ATTRIBUTION.html", "PRIVACY.html", "ride/ride-controller.js", "ride/ride-camera.js", "ride/ride-collision.js", "ride/ride-avatar.js", "ride/ride-motion.js", "ride/ride.css"]) {
     const resolved = new URL(`./${rel}`, origin);
     if (resolved.pathname !== `${prefix}${rel}`) problems.push(`document resource escaped ${prefix}: ${rel}`);
   }
