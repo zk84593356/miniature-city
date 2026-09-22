@@ -10,6 +10,13 @@ const temp = path.resolve(`.${outputRoot}-build-tmp`);
 const overlay = path.resolve(overlayRoot);
 const sha256 = (body) => createHash("sha256").update(body).digest("hex");
 
+// Fail before replacing the deployed output: an empty overlay otherwise builds successfully.
+const rideCss = await readFile(path.join(overlay, "ride/ride.css"), "utf8");
+if (!rideCss.trim()) throw new Error("public-overlay/ride/ride.css is empty; restore ride styles before building.");
+for (const selector of ["#ride-toggle", ".ride-hud", ".ride-help", ".ride-exit", ".is-riding .labels"]) {
+  if (!rideCss.includes(selector)) throw new Error(`ride.css is missing required selector: ${selector}`);
+}
+
 await rm(temp, { recursive: true, force: true });
 await mkdir(temp, { recursive: true });
 await cp(source, temp, { recursive: true });

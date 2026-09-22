@@ -1,0 +1,49 @@
+#ride-toggle {
+  color: #325747;
+  border: 1px solid #aab7a5;
+  background: #f4f3e6e8;
+  border-radius: 7px;
+  padding: 7px 13px;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#ride-toggle[aria-pressed="true"] { background: #325747; color: #f7f5e8; }
+.ride-hud {
+  position: absolute;
+  left: 24px;
+  bottom: 42px;
+  z-index: 40;
+  padding: 14px 18px;
+  border: 1px solid #8a9e8570;
+  border-radius: 10px;
+  color: #325747;
+  background: #f4f3e6e8;
+  backdrop-filter: blur(10px);
+  font: 12px/1.7 system-ui, sans-serif;
+  box-shadow: 0 3px 20px #24433212;
+}
+.ride-hud[hidden] { display: none; }
+.ride-hud strong { font-size: 18px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ride-help { margin: 7px 0; white-space: pre-line; }
+.ride-exit {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* Labels and canvas are siblings of the UI root, not its children. */
+#app:has(.is-riding) .labels,
+.is-riding .labels,
+.is-riding .navigator,
+.is-riding .place-card,
+.is-riding .view-caption { visibility: hidden; pointer-events: none; }
+#app:has(.is-riding) #city-canvas { cursor: grab !important; }
+@media (max-width: 699px) {
+  .ride-hud { left: 12px; bottom: 28px; padding: 10px 12px; }
+  #ride-toggle { padding: 7px; }
+}
