@@ -1,0 +1,5 @@
+/.idea/
+/node_modules/
+/public-site/
+/.public-site-build-tmp/
+/site.check/
