@@ -23,7 +23,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH 
 await mkdir('probe/ride', { recursive: true });
 const results = [];
 try {
-  for (const prefix of ['/', '/city/', '/nested/example/']) {
+  for (const prefix of (process.env.RIDE_TEST_PREFIX ? [process.env.RIDE_TEST_PREFIX] : ['/', '/city/', '/nested/example/'])) {
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
     const errors = [], missing = [], escaped = [];
     page.on('pageerror', e => errors.push(e.message));
@@ -33,20 +33,30 @@ try {
     await page.waitForFunction(() => window.__cityRide && window.__shenzhen?.ready, { timeout: 120000 });
     await page.locator('[data-music="mute"]').click({ timeout: 3000 }).catch(() => {});
     const before = await page.evaluate(() => window.__shenzhen.getState());
+    const cameraBefore = await page.evaluate(() => window.__cityRide.getState());
     await page.locator('#ride-toggle').click();
     await page.waitForFunction(() => window.__cityRide.getState().active);
     const start = await page.evaluate(() => window.__cityRide.getState());
+    assert.ok(start.contactError < .001, 'idle contacts');
+    assert.ok(Math.hypot(start.cameraTarget[0]-start.state.x,start.cameraTarget[2]-start.state.z) >= .19, 'road look ahead');
+    await page.screenshot({path: 'probe/ride/entry.png'});
     assert.equal(await page.locator('#city-canvas').count(), 1);
     await page.keyboard.down('w'); await page.waitForTimeout(2000); await page.keyboard.up('w');
     const forward = await page.evaluate(() => window.__cityRide.getState());
     await page.keyboard.down('a'); await page.keyboard.down('w'); await page.waitForTimeout(900); await page.keyboard.up('a'); await page.keyboard.up('w');
     const turn = await page.evaluate(() => window.__cityRide.getState());
+    assert.ok(forward.cameraFov > start.cameraFov && forward.cameraFov <= 60);
+    assert.ok(turn.cameraSwing > .03 && turn.roll < 0, 'turn camera swing and chassis lean');
+    assert.ok(turn.contactError < .001, 'moving contacts');
+    await page.screenshot({path: 'probe/ride/turn.png'});
     await page.keyboard.down('Space'); await page.waitForTimeout(1200); await page.keyboard.up('Space');
     const brake = await page.evaluate(() => window.__cityRide.getState());
+    await page.screenshot({path: 'probe/ride/brake.png'});
     assert.ok(start.active && start.avatarVisible && !start.controlsEnabled);
     assert.ok(forward.state.speed > 1 && forward.wheel !== start.wheel);
     assert.ok(Math.abs(turn.state.heading - forward.state.heading) > .1);
     assert.equal(brake.state.speed, 0);
+    assert.ok(Math.hypot(brake.camera[0]-brake.state.x,brake.camera[2]-brake.state.z) > .12, 'road-edge boom must not collapse');
     assert.ok(Math.abs(brake.ground-brake.state.y)<1e-7);
     await page.keyboard.down('d'); await page.waitForTimeout(400); await page.keyboard.up('d');
     const stopped = await page.evaluate(() => window.__cityRide.getState());
@@ -73,6 +83,9 @@ try {
     const after = await page.evaluate(() => ({ ride: window.__cityRide.getState(), city: window.__shenzhen.getState() }));
     const entry = { prefix, start, forward, turn, brake, restored: Math.hypot(...before.camera.map((x,i)=>x-after.city.camera[i])) < .0001, after: after.ride, errors, missing, escaped };
     assert.ok(entry.restored && after.ride.controlsEnabled && !after.ride.avatarVisible);
+    for (const key of ['cameraQuaternion','cameraTarget']) assert.ok(Math.hypot(...cameraBefore[key].map((v,i)=>v-after.ride[key][i])) < 1e-6, 'restore '+key);
+    for (const key of ['cameraNear','cameraFov']) assert.ok(Math.abs(cameraBefore[key]-after.ride[key]) < 1e-6, 'restore '+key);
+    assert.deepEqual(after.ride.cameraView,cameraBefore.cameraView);
     assert.deepEqual(errors, []); assert.deepEqual(missing, []); assert.deepEqual(escaped, []);
     await page.locator('#ride-toggle').click(); await page.locator('.ride-exit').click();
     assert.equal(await page.evaluate(() => window.__cityRide.getState().active), false);
@@ -84,8 +97,20 @@ try {
     await page.reload(); await page.waitForFunction(() => window.__cityRide && window.__shenzhen?.ready, {timeout:120000});
     assert.equal(await page.evaluate(() => window.__cityRide.getState().active), false);
     assert.deepEqual(errors, []); assert.deepEqual(missing, []); assert.deepEqual(escaped, []);
+    await page.locator('#ride-toggle').click();
+    const framesBefore = await page.evaluate(() => window.__shenzhen.getState().renderedFrames);
+    await page.locator('[data-time="night"]').click();
+    await page.waitForFunction(() => window.__shenzhen.getState().timeMode === 'night');
+    assert.equal(await page.evaluate(() => window.__cityRide.getState().active), true, 'day/night preserves ride');
+    assert.ok(await page.evaluate(n => window.__shenzhen.getState().renderedFrames > n, framesBefore), 'city render loop stays active');
+    await page.locator('[data-time="day"]').click();
+    await page.locator('[data-action="overview"]').click();
+    assert.equal(await page.evaluate(() => window.__cityRide.getState().active), false, 'city fly exits ride');
+    assert.equal(await page.evaluate(() => window.__cityRide.getState().controlsEnabled), true);
+    assert.deepEqual(errors, []);
+    entry.cityControls = true;
     entry.reload = true; entry.reverse = true; entry.mouseReturn = true; entry.language = true; entry.stationaryTurn = true;
-    results.push(entry); console.log(JSON.stringify(entry));
+    results.push(entry); console.log(JSON.stringify({prefix,restored:entry.restored,model:start.model,errors,missing,escaped,checks:'input, contacts, look-ahead, FOV, swing, lean, camera restoration, orbit, reload, day/night, city fly'}));
     await page.close();
   }
 } finally { await browser.close(); await new Promise(r => server.close(r)); await writeFile('probe/ride/results.json', JSON.stringify(results, null, 2)); }

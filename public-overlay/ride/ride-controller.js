@@ -76,14 +76,14 @@ class RideController {
       this.collision ||= new RideCollision(this);
       const state = this.collision.spawn(this.controller.controls.target, this.roads);
       if (!state) { this.toast(document.documentElement.lang.startsWith('zh') ? '附近没有可安全进入的道路，请先切换城市位置' : 'No safe road found. Choose another city location.'); return; }
-      this.avatar ||= new RideAvatar(this.three);
+      this.avatar ||= new RideAvatar(this.three, this.rideModel);
       this.follow ||= new RideCamera(this.three, this.camera, this.controller, this.collision);
       this.state = state; this.visualY = state.y + .002; this.pitch = 0; this.roll = 0; this.keys.clear();
       this.follow.save(); this.active = true;
       this.scene.add(this.avatar.root); this.avatar.root.visible = true;
       this.hud.hidden = false; this.root.classList.add('is-riding');
       this.button.setAttribute('aria-pressed', 'true'); this.localize();
-      this.update(0); this.follow.update(this.state, 0, true);
+      this.update(0); this.follow.update(this.state, 0, true, this.visualY);
       this.canvas.focus({ preventScroll: true });
     } catch (error) {
       if (this.active) this.exit();
@@ -101,20 +101,24 @@ class RideController {
   }
   update(dt) {
     if (!this.active) return;
+    dt = clamp(Number.isFinite(dt) ? dt : 0, 0, .08);
     const has = (a, b) => this.keys.has(a) || this.keys.has(b);
     const throttle = Number(has('KeyW', 'ArrowUp')) - Number(has('KeyS', 'ArrowDown'));
     const turn = Number(has('KeyA', 'ArrowLeft')) - Number(has('KeyD', 'ArrowRight'));
     const brake = this.keys.has('Space'), s = this.state;
     // Small substeps prevent fast motion tunneling through narrow building walls.
-    let remaining = Math.min(dt, .08);
+    let remaining = dt, travel = 0;
     while (remaining > 1e-8) {
       const step = Math.min(remaining, 1 / 120); remaining -= step;
-      const x = s.x, z = s.z, heading = s.heading;
+      const x = s.x, z = s.z, previousY = s.y, heading = s.heading;
       advance(s, throttle, turn, brake, step);
       const y = this.collision.height(s.x, s.z, s.y);
       if (!this.collision.valid(s.x, s.z, y) || Math.abs(y - s.y) > .06) {
         s.x = x; s.z = z; s.heading = heading; s.speed = 0;
-      } else s.y = y;
+      } else {
+        travel += Math.sign(s.speed) * Math.hypot(s.x - x, s.z - z, y - previousY) / SCALE;
+        s.y = y;
+      }
     }
     const half = .58 * SCALE, dx = Math.sin(s.heading) * half, dz = Math.cos(s.heading) * half;
     const front = this.collision.height(s.x + dx, s.z + dz, s.y), rear = this.collision.height(s.x - dx, s.z - dz, s.y);
@@ -132,12 +136,18 @@ class RideController {
     this.visualY = Math.max(floor, damp(this.visualY, floor, 18, dt));
     root.position.set(s.x, this.visualY, s.z);
     root.rotation.set(this.pitch, s.heading, this.roll, 'YXZ');
-    this.avatar.animate(dt, s.speed, s.steering, brake); this.follow.update(s, dt);
+    this.avatar.animate(dt, s.speed, s.steering, brake, travel); this.follow.update(s, dt, false, this.visualY);
     const speed = Math.round(Math.abs(s.speed) * 3.6).toString();
     if (this.speedLabel.textContent !== speed) this.speedLabel.textContent = speed;
   }
   snapshot() {
-    return { active: this.active, state: this.state ? { ...this.state } : null, wheel: this.avatar?.wheels[0].rotation.x, cameraOffset: this.follow?.offset, avatarVisible: this.avatar?.root.visible ?? false, ground: this.state && this.collision.height(this.state.x, this.state.z, this.state.y), controlsEnabled: this.controller.controls.enabled };
+    return { active: this.active, state: this.state ? { ...this.state } : null, wheel: this.avatar?.animation.wheelAngle, pedalPhase: this.avatar?.animation.phase,
+      model: this.avatar?.modelStatus, contactError: (this.avatar?.modelAnimation || this.avatar?.animation)?.contactError,
+      cameraBlock: this.follow?.obstruction, cameraOffset: this.follow?.offset, cameraSwing: this.follow?.swing, cameraFov: this.camera.fov,
+      camera: this.camera.position.toArray(), cameraQuaternion: this.camera.quaternion.toArray(), cameraNear: this.camera.near,
+      cameraView: this.camera.view ? { ...this.camera.view } : null, cameraTarget: this.controller.controls.target.toArray(),
+      pitch: this.pitch, roll: this.roll, avatarVisible: this.avatar?.root.visible ?? false,
+      ground: this.state && this.collision.height(this.state.x, this.state.z, this.state.y), controlsEnabled: this.controller.controls.enabled };
   }
   dispose() {
     this.exit(); this.events.abort(); this.languageObserver.disconnect();

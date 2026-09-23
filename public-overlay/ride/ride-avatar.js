@@ -1,11 +1,12 @@
 import { SCALE } from './ride-motion.js';
+import { RideAnimation, PosedRideAnimation } from './ride-animation.js';
 
 export class RideAvatar {
-  constructor(T) {
+  constructor(T, model = null) {
+    this.T = T; this.modelStatus = 'procedural'; this.disposed = false;
     this.root = new T.Group(); this.root.name = 'ride-avatar';
     this.root.scale.setScalar(SCALE);
     this.body = new T.Group(); this.root.add(this.body);
-    this.phase = 0;
     const material = color => new T.Material({ color, roughness: .86 });
     const frame = material('#526c67'), rubber = material('#303b3b'), metal = material('#b5b9aa');
     const shirt = material('#b8a78a'), trousers = material('#526273'), skin = material('#d2b89c');
@@ -39,42 +40,104 @@ export class RideAvatar {
     this.link(this.rider, [0, 1.04, -.22], [0, 1.52, .03], shirt, 5);
     const head = new T.Mesh(new T.Sphere(.135, 8, 6), skin); head.position.set(0, 1.67, .10); this.rider.add(head);
     const helmet = new T.Mesh(new T.Sphere(.143, 8, 6), frame); helmet.scale.y = .65; helmet.position.set(0, 1.74, .10); this.rider.add(helmet);
-    for (const side of [-1, 1]) {
-      this.link(this.rider, [side * .13, 1.48, .03], [side * .22, 1.20, .22], shirt, 2);
-      this.link(this.rider, [side * .22, 1.20, .22], [side * .28, 1.08, .46], skin, 1.5);
-    }
+    this.arms = [-1, 1].map(side => {
+      const grip = new T.Group(); grip.position.set(side * .28, .73, -.12); this.fork.add(grip);
+      const hand = new T.Mesh(new T.Sphere(.045, 8, 6), skin); this.rider.add(hand);
+      return { side, grip, hand,
+        upper: this.link(this.rider, [0, 0, 0], [0, 1, 0], shirt, 2.1),
+        lower: this.link(this.rider, [0, 0, 0], [0, 1, 0], skin, 1.5) };
+    });
     this.legs = [-1, 1].map(side => ({ side,
       upper: this.link(this.body, [0, 0, 0], [0, 1, 0], trousers, 2.8),
       lower: this.link(this.body, [0, 0, 0], [0, 1, 0], trousers, 2.2),
-      shoe: box(this.body, [.11, .07, .21], [0, 0, 0], rubber)
+      shoe: box(this.body, [.11, .09, .23], [0, 0, 0], rubber),
+      pedal: box(this.body, [.15, .04, .10], [0, 0, 0], metal),
+      crank: this.link(this.body, [0, 0, 0], [0, 1, 0], metal, .8)
     }));
     this.root.traverse(o => { if (o.isMesh) o.castShadow = true; });
+    this.animation = new RideAnimation(T, {
+      body: this.body, rider: this.rider, fork: this.fork, wheels: this.wheels,
+      arms: this.arms, legs: this.legs, segment: this.segment.bind(this)
+    });
     this.animate(0, 0, 0, false);
+    this.ready = model ? this.loadModel(model) : Promise.resolve(false);
   }
   segment(mesh, a, b, thickness) {
     this.delta.subVectors(b, a); mesh.position.copy(a).addScaledVector(this.delta, .5);
     mesh.scale.set(thickness, this.delta.length(), thickness);
     mesh.quaternion.setFromUnitVectors(this.up, this.delta.normalize());
   }
-  animate(dt, speed, steering, brake) {
-    const travel = speed * dt;
-    for (const wheel of this.wheels) wheel.rotation.x += travel / .35;
-    this.fork.rotation.y = steering;
-    this.phase += travel / .65;
-    this.rider.rotation.x = brake && Math.abs(speed) > .1 ? .06 : 0;
-    for (const leg of this.legs) {
-      const phase = this.phase + (leg.side < 0 ? Math.PI : 0), x = leg.side * .14;
-      const py = .4 + Math.cos(phase) * .16, pz = -.05 + Math.sin(phase) * .16;
-      this.a.set(x, 1.01, -.22); this.b.set(x, .75 + Math.cos(phase) * .05, .18);
-      this.segment(leg.upper, this.a, this.b, 2.8);
-      this.a.copy(this.b); this.b.set(x, py, pz); this.segment(leg.lower, this.a, this.b, 2.2);
-      leg.shoe.position.copy(this.b);
+  async loadModel({ url, loadScene, timeoutMs = 8000 }) {
+    // Caller provides a licensed asset and a loader using the city's Three version.
+    // Keep the working procedural rig visible throughout fetch/parse/validation.
+    let loaded, expired = false, timer;
+    this.modelAbort = new AbortController(); this.modelStatus = 'loading';
+    try {
+      if (!url || typeof loadScene !== 'function') throw new Error('Rider model needs url and loadScene');
+      const pending = Promise.resolve().then(() => loadScene(new URL(url, import.meta.url).href, this.modelAbort.signal))
+        .then(scene => { if (expired || this.disposed) { disposeModel(scene); return null; } return scene; });
+      loaded = await Promise.race([pending, new Promise((_, reject) => {
+        timer = setTimeout(() => { expired = true; this.modelAbort.abort(); reject(new Error('Rider load timed out')); }, timeoutMs);
+      })]);
+      if (this.disposed || !loaded) return false;
+      const animation = new PosedRideAnimation(this.T, loaded);
+      loaded.traverse(node => {
+        if (node.isMesh) { node.castShadow = true; node.receiveShadow = true; }
+        // Procedural bone motion can exceed the GLB's static bounding volume.
+        if (node.isSkinnedMesh) node.frustumCulled = false;
+      });
+      animation.update(0, 0, 0, false, 0);
+      // Normalize to the existing 1.16 m wheelbase and ground contact.
+      const wrapper = new this.T.Group(); wrapper.add(loaded);
+      wrapper.scale.setScalar(animation.modelScale);
+      loaded.updateMatrixWorld(true);
+      let bottom = Infinity;
+      const p = new this.T.Vector3(), inverse = loaded.matrixWorld.clone().invert();
+      animation.bike.traverse(node => {
+        const vertices = node.geometry?.attributes.position;
+        if (!vertices) return;
+        for (let i = 0; i < vertices.count; i++) {
+          p.fromBufferAttribute(vertices, i).applyMatrix4(node.matrixWorld).applyMatrix4(inverse);
+          bottom = Math.min(bottom, p.y);
+        }
+      });
+      if (!Number.isFinite(bottom)) throw new Error('Rider bike has no geometry');
+      wrapper.position.y = -bottom * animation.modelScale;
+      this.root.add(wrapper); this.modelRoot = wrapper; this.modelAnimation = animation;
+      this.body.visible = false; this.modelStatus = 'posed';
+      return true;
+    } catch (error) {
+      if (loaded) disposeModel(loaded);
+      this.modelStatus = 'fallback';
+      this.modelError = error.message;
+      return false;
+    } finally { clearTimeout(timer); }
+  }
+  animate(dt, speed, steering, brake, travel = speed * dt) {
+    this.animation.update(dt, speed, steering, brake, travel);
+    if (this.modelAnimation) {
+      try { this.modelAnimation.update(dt, speed, steering, brake, travel); }
+      catch (error) {
+        disposeModel(this.modelRoot); this.modelRoot = null; this.modelAnimation = null;
+        this.body.visible = true; this.modelStatus = 'fallback'; this.modelError = error.message;
+      }
     }
   }
   dispose() {
-    this.root.removeFromParent();
-    const geometry = new Set(), materials = new Set();
-    this.root.traverse(o => { if (o.isMesh) { geometry.add(o.geometry); materials.add(o.material); } });
-    geometry.forEach(g => g.dispose()); materials.forEach(m => m.dispose());
+    this.disposed = true; this.modelAbort?.abort(); disposeModel(this.root);
   }
+}
+
+function disposeModel(root) {
+  if (!root) return;
+  root.removeFromParent();
+  const geometries = new Set(), materials = new Set(), textures = new Set(), skeletons = new Set();
+  root.traverse(o => {
+    if (o.geometry) geometries.add(o.geometry);
+    if (o.skeleton) skeletons.add(o.skeleton);
+    for (const m of (Array.isArray(o.material) ? o.material : [o.material])) if (m) {
+      materials.add(m); for (const value of Object.values(m)) if (value?.isTexture) textures.add(value);
+    }
+  });
+  for (const resource of [...geometries, ...materials, ...textures, ...skeletons]) resource.dispose();
 }

@@ -64,7 +64,7 @@ const manifest = JSON.parse(await readFile(path.join(output, "cities/shenzhen/ma
 const testPrefixes = ["/", "/city/", "/example/", "/nested/example/"];
 for (const prefix of testPrefixes) {
   const origin = `https://example.test${prefix}`;
-  for (const rel of ["assets/index-zfVzkv9E.js", "assets/index-CJdN52Ic.css", "ATTRIBUTION.html", "PRIVACY.html", "ride/ride-controller.js", "ride/ride-camera.js", "ride/ride-collision.js", "ride/ride-avatar.js", "ride/ride-motion.js", "ride/ride.css"]) {
+  for (const rel of ["assets/index-zfVzkv9E.js", "assets/index-CJdN52Ic.css", "ATTRIBUTION.html", "PRIVACY.html", "ride/ride-controller.js", "ride/ride-camera.js", "ride/ride-collision.js", "ride/ride-avatar.js", "ride/ride-animation.js", "ride/ride-motion.js", "ride/ride.css"]) {
     const resolved = new URL(`./${rel}`, origin);
     if (resolved.pathname !== `${prefix}${rel}`) problems.push(`document resource escaped ${prefix}: ${rel}`);
   }
