@@ -1,0 +1,64 @@
+{
+  "result": "PASS",
+  "buildings": 49672,
+  "waterOverlap": 0,
+  "duplicates": 0,
+  "partialOverlapPairs": 192,
+  "unsupported": 0,
+  "maxFoundationErrorMeters": 2.778932639557752e-10,
+  "roads": 51046,
+  "roadContactMaxErrorMeters": 1.1653439072320526e-05,
+  "bridgeChecks": [
+    {
+      "id": "yangtze-first",
+      "structure": "steel-truss",
+      "towers": 0,
+      "minLowerClearanceMeters": 22.000003057748994,
+      "maxGrade": 0.014142371388067076,
+      "endpointErrorMeters": 3.3335899249226086e-06
+    },
+    {
+      "id": "yingwuzhou",
+      "structure": "suspension",
+      "towers": 3,
+      "minLowerClearanceMeters": 35.00000303681659,
+      "maxGrade": 0.020446731734652987,
+      "endpointErrorMeters": 3.355220892162225e-06
+    },
+    {
+      "id": "yangsigang",
+      "structure": "suspension",
+      "towers": 2,
+      "minLowerClearanceMeters": 10.484120000000003,
+      "maxGrade": 0.03420137453816732,
+      "endpointErrorMeters": 4.509463353910559e-06
+    },
+    {
+      "id": "erqi",
+      "structure": "cable-stayed",
+      "towers": 3,
+      "minLowerClearanceMeters": 28.077030000000004,
+      "maxGrade": 0.031561628219213066,
+      "endpointErrorMeters": 4.675040498655636e-06
+    },
+    {
+      "id": "qingchuan",
+      "structure": "arch",
+      "towers": 0,
+      "minLowerClearanceMeters": 18.552786051161828,
+      "maxGrade": 0.012137036165760251,
+      "endpointErrorMeters": 3.283588030741913e-06
+    },
+    {
+      "id": "yangtze-second",
+      "structure": "cable-stayed",
+      "towers": 2,
+      "minLowerClearanceMeters": 30.000004086824074,
+      "maxGrade": 0.011889975396592407,
+      "endpointErrorMeters": 2.582781965257408e-06
+    }
+  ],
+  "sourceHashes": true,
+  "assetHashes": true,
+  "LF": true
+}

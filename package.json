@@ -19,7 +19,8 @@
     "verify:ride": "node scripts/verify-ride.mjs",
     "atlas:build": "npm run public:build && node scripts/build-atlas.mjs",
     "atlas:serve": "node scripts/serve.mjs --side rebuild --root atlas-site --origin-host cityinminiatures.top --stub-ext-hosts static.cloudflareinsights.com --port 4175",
-    "atlas:verify": "node scripts/verify-atlas.mjs"
+    "atlas:verify": "node scripts/verify-atlas.mjs && node tools/wuhan/verify-surfaces.mjs",
+    "wuhan:browser": "node tools/wuhan/browser-check-phase2.mjs"
   },
   "dependencies": {
     "three": "0.185.0"

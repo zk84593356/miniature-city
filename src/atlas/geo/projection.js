@@ -20,3 +20,8 @@ export function insideRing(x, z, ring) {
 export function waterAt(x, z, waters) {
   return waters.find(({ rings }) => insideRing(x, z, rings[0]) && !rings.slice(1).some(r => insideRing(x, z, r))) ?? null;
 }
+
+export function waterHeight(water, x, z) {
+  const s = water.surface;
+  return s ? s.interceptMeters / 100 - s.gradient * (s.direction[0] * x + s.direction[1] * z) : water.levelMeters / 100;
+}

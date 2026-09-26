@@ -8,9 +8,20 @@ export async function loadPack(manifestURL, { signal, progress = () => {} } = {}
   if (manifest.schemaVersion !== 1 || manifest.runtime !== 'atlas-terrain-v1' || !manifest.datasetId || manifest.id !== 'wuhan') throw new Error('城市数据版本不兼容，请重新构建武汉 City Pack。');
   const buffers = {};
   let loaded = 0;
-  const entries = Object.entries(manifest.dataFiles);
-  await Promise.all(entries.map(async ([name, metadata]) => {
-    if (!/^[a-z-]+\.(bin|json)$/.test(name)) throw new Error('无效的数据文件路径');
+  const entries = Object.entries(manifest.dataFiles).filter(([, info]) => !info.role || info.role === 'foundation');
+  const pending = new Map();
+  async function loadAsset(name) {
+    if (buffers[name]) return buffers[name];
+    if (pending.has(name)) return pending.get(name);
+    const metadata = manifest.dataFiles[name];
+    if (!metadata) throw new Error(`未登记的资源: ${name}`);
+    const task = fetchAsset(name, metadata).finally(() => pending.delete(name));
+    pending.set(name, task);
+    return task;
+  }
+  async function fetchAsset(name, metadata) {
+
+    if (!/^[a-z0-9-]+\.(bin|json)$/.test(name)) throw new Error('无效的数据文件路径');
     const url = new URL(name, new URL(manifest.dataRoot, manifestURL));
     const body = await (await request(url)).arrayBuffer();
     if (body.byteLength !== metadata.bytes) throw new Error(`数据不完整: ${name}`);
@@ -21,8 +32,9 @@ export async function loadPack(manifestURL, { signal, progress = () => {} } = {}
       buffers[name] = await new Response(new Blob([body]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
       if (buffers[name].byteLength !== metadata.decodedBytes) throw new Error(`解压后的数据长度不正确: ${name}`);
     } else buffers[name] = body;
-    progress(++loaded / entries.length);
-  }));
+    return buffers[name];
+  }
+  await Promise.all(entries.map(async ([name]) => { await loadAsset(name); progress(++loaded / entries.length); }));
   const json = name => JSON.parse(new TextDecoder().decode(buffers[name]));
-  return { manifest, buffers, waters: json('water.json'), quality: json('quality.json') };
+  return { manifest, buffers, loadAsset, loadJSON: async name => JSON.parse(new TextDecoder().decode(await loadAsset(name))), waters: json('water.json'), quality: json('quality.json') };
 }

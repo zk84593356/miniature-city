@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "datasetId": "d201b6fcbb349916",
+  "environment": "Windows, Node.js v22.14.0; real Git index checkout with core.autocrlf=false and repository .gitattributes",
+  "checkout": ".tools/wuhan-phase2-lf-checkout",
+  "assetsChecked": 3621,
+  "allByteLengthsMatch": true,
+  "allSHA256Match": true,
+  "allGeneratedJSONUseLF": true,
+  "commands": {
+    "node tools/wuhan/verify-pack-bytes.mjs": "PASS",
+    "npm run verify": "PASS",
+    "npm run public:verify": "PASS",
+    "npm run atlas:build": "PASS",
+    "npm run atlas:verify": "PASS"
+  },
+  "samples": {
+    "water.json": {
+      "bytes": 1519877,
+      "sha256": "b1873cabb35eaf3ffb4c3f91baab214d659e6b0d6becd8dc88c8b6bf32e74300"
+    },
+    "water-provenance.json": {
+      "bytes": 1192658,
+      "sha256": "fd94ad6b7052b6144cdf1b400d28d4bea1206b456179a7895579b54d9dba5fd0"
+    },
+    "quality.json": {
+      "bytes": 2798,
+      "sha256": "01317689c1e406d3ee344c8b5fca3590b0ae23bc7e1aa8a6a522fb0cb832e3fd"
+    }
+  }
+}

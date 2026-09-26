@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { loadPack } from './engine/load-pack.js';
 import { createProjection } from './geo/projection.js';
 import { createGeography } from './render/geography.js';
+import { createUrban } from './render/urban.js';
 import { createTerrainSurface } from './adapters/terrain-surface.js';
 
 const $ = selector => document.querySelector(selector);
@@ -46,7 +47,9 @@ async function start() {
   const geography = createGeography(pack);
   scene.add(geography.group);
   scene.updateMatrixWorld(true);
-  const surface = createTerrainSurface(geography.terrain, pack.waters, projection, pack.manifest.bounds.context);
+  const surface = createTerrainSurface(geography.stableTerrain, pack.waters, projection, pack.manifest.bounds.context);
+  const urban=createUrban(pack,surface); scene.add(urban.group);
+  const initMs=performance.now();
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let flight = null, disposed = false, frame = 0, labelsVisible = true, currentRegion = 'confluence';
   let lightMode = 'day';
@@ -62,14 +65,18 @@ async function start() {
   });
 
   function fly(id, immediate = false) {
-    const region = pack.manifest.regions.find(r => r.id === id);
+    let region = [...pack.manifest.regions,...(pack.manifest.urban?.qaViews??[]).map(r=>({...r,caption:r.name,distance:40,bearing:165})),{id:'bridge-sequence',name:'桥梁序列',caption:'两江上的桥梁结构',center:[114.29,30.56],distance:110,bearing:220,elevation:.16}].find(r => r.id === id);
+    if(!region&&id.startsWith('bridge-')){
+      const bridge=urban.bridges.children.find(o=>'bridge-'+o.userData.bridgeId===id);
+      if(bridge){const wet=bridge.userData.waterProfile;const a=wet[0],b=wet.at(-1);if(a&&b)region={id,name:bridge.userData.name,caption:'桥面、结构与两岸引道',center:projection.inverse((a[0]+b[0])/2,(a[2]+b[2])/2),distance:Math.max(16,Math.hypot(b[0]-a[0],b[2]-a[2])*1.35),bearing:165,elevation:.4};}
+    }
     if (!region) return;
     currentRegion = id;
     const [x, z] = projection.forward(region.center);
     const target = new THREE.Vector3(x, surface.sample(x, z)?.height ?? .25, z);
     const theta = (region.bearing - 180) * Math.PI / 180;
     const distance = region.distance * (innerWidth < 700 ? 1.35 : 1);
-    const offset = new THREE.Vector3(Math.sin(theta) * .74, .67, Math.cos(theta) * .74).normalize().multiplyScalar(distance);
+    const offset = new THREE.Vector3(Math.sin(theta) * .74, region.elevation ?? .67, Math.cos(theta) * .74).normalize().multiplyScalar(distance);
     const destination = target.clone().add(offset);
     if (immediate || reducedMotion) {
       flight = null;
@@ -154,6 +161,8 @@ async function start() {
     controls.target.z = THREE.MathUtils.clamp(controls.target.z, -290, 280);
     controls.target.y = Math.max(.2, controls.target.y);
     controls.update();
+    geography.update(camera,now);
+    urban.update(camera,now,controls.target);
     renderer.render(scene, camera);
     if (labelsVisible && now - lastLabels > 60) {
       lastLabels = now;
@@ -176,12 +185,18 @@ async function start() {
     disposed = true;
     cancelAnimationFrame(frame);
     window.removeEventListener('resize', resize);
-    controls.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
+    controls.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
   };
   // Explicit diagnostics for browser verification and future surface adapters.
+  function terrainTriangles() {
+    const frustum=new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
+    let triangles=0;
+    geography.terrain.traverse(object=>{if(object.isMesh&&object.visible&&frustum.intersectsObject(object))triangles+=object.geometry.index.count/3;});
+    return triangles;
+  }
   window.__wuhan = {
-    ready: true, fly, sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
-    getState: () => ({ datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
+    ready: true, fly, sampleWorld:(x,z)=>surface.sample(x,z), sampleSurface: (x,z,y,id)=>surface.sampleSurface(x,z,y,id), getBridges:()=>urban.bridges.children.map(o=>o.userData), sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
+    getState: () => ({ phase:pack.manifest.phase,initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
     dispose: disposeScene,
   };
   frame = requestAnimationFrame(render);

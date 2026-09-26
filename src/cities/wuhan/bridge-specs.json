@@ -1,0 +1,161 @@
+[
+  {
+    "id": "yangtze-first",
+    "name": "武汉长江大桥",
+    "match": "武汉长江大桥|^长江大桥$",
+    "structure": "steel-truss",
+    "towerCount": 0,
+    "spans": 9,
+    "mainSpanMeters": 128,
+    "color": "#788d83",
+    "widthMeters": 22.5,
+    "deckClearanceMeters": 32,
+    "lowerDeckOffsetMeters": 10,
+    "lowerDeckKind": "rail",
+    "source": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjdq/index.shtml",
+    "estimatedFields": [
+      "deckClearanceMeters",
+      "portal dimensions",
+      "tower/pier positions",
+      "truss depth",
+      "widthMeters"
+    ],
+    "confidence": "medium",
+    "fieldSources": {
+      "structure": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjdq/index.shtml",
+      "towerCount": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjdq/index.shtml",
+      "mainSpanMeters": "https://www.hbdsw.org.cn/jcfb/lxzj/201411/t20141113_53814_2.shtml",
+      "spans": "https://www.hbdsw.org.cn/jcfb/lxzj/201411/t20141113_53814_2.shtml"
+    }
+  },
+  {
+    "id": "yingwuzhou",
+    "name": "鹦鹉洲长江大桥",
+    "match": "鹦鹉洲长江大桥",
+    "structure": "suspension",
+    "towerCount": 3,
+    "mainSpanMeters": 850,
+    "color": "#bc523b",
+    "widthMeters": 38,
+    "deckClearanceMeters": 35,
+    "towerHeightAboveDeckMeters": 95,
+    "source": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml",
+    "estimatedFields": [
+      "cable sag",
+      "deckClearanceMeters",
+      "tower stations",
+      "towerHeightAboveDeckMeters",
+      "widthMeters",
+      "mainSpanMeters"
+    ],
+    "confidence": "medium",
+    "fieldSources": {
+      "structure": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml",
+      "towerCount": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml"
+    }
+  },
+  {
+    "id": "yangsigang",
+    "name": "杨泗港长江大桥",
+    "match": "杨泗港长江大桥",
+    "structure": "suspension",
+    "towerCount": 2,
+    "mainSpanMeters": 1700,
+    "color": "#d2ad43",
+    "widthMeters": 32,
+    "deckClearanceMeters": 38,
+    "towerHeightAboveDeckMeters": 145,
+    "lowerDeckOffsetMeters": 10,
+    "lowerDeckKind": "road",
+    "source": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/ysgzjdq/index.shtml",
+    "estimatedFields": [
+      "cable sag",
+      "deckClearanceMeters",
+      "lowerDeckOffsetMeters",
+      "tower stations",
+      "towerHeightAboveDeckMeters",
+      "widthMeters"
+    ],
+    "confidence": "medium",
+    "fieldSources": {
+      "structure": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/ysgzjdq/index.shtml",
+      "towerCount": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/ysgzjdq/index.shtml",
+      "mainSpanMeters": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml"
+    }
+  },
+  {
+    "id": "erqi",
+    "name": "二七长江大桥",
+    "match": "二七长江大桥",
+    "structure": "cable-stayed",
+    "towerCount": 3,
+    "mainSpanMeters": 616,
+    "color": "#d4cfb9",
+    "widthMeters": 32,
+    "deckClearanceMeters": 32,
+    "towerHeightAboveDeckMeters": 145,
+    "source": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml",
+    "estimatedFields": [
+      "deckClearanceMeters",
+      "tower stations",
+      "towerHeightAboveDeckMeters",
+      "widthMeters"
+    ],
+    "confidence": "medium",
+    "fieldSources": {
+      "structure": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml",
+      "towerCount": "https://www.wuhan.gov.cn/sy/whyw/202407/t20240717_2429341.shtml",
+      "mainSpanMeters": "https://www.sneb.com.cn/col24/3762"
+    }
+  },
+  {
+    "id": "qingchuan",
+    "name": "晴川桥",
+    "match": "晴川桥",
+    "structure": "arch",
+    "towerCount": 0,
+    "mainSpanMeters": 280,
+    "color": "#b74736",
+    "widthMeters": 24,
+    "deckClearanceMeters": 17,
+    "archRiseMeters": 45,
+    "source": "https://www.wuhan.gov.cn/gwfbpt/sbm/sjtysj_79502/202311/t20231129_2309645.shtml",
+    "estimatedFields": [
+      "arch stations",
+      "archRiseMeters",
+      "deckClearanceMeters",
+      "widthMeters",
+      "mainSpanMeters"
+    ],
+    "confidence": "medium",
+    "fieldSources": {
+      "structure": "https://www.wuhan.gov.cn/gwfbpt/sbm/sjtysj_79502/202311/t20231129_2309645.shtml",
+      "towerCount": "https://www.wuhan.gov.cn/gwfbpt/sbm/sjtysj_79502/202311/t20231129_2309645.shtml"
+    }
+  },
+  {
+    "id": "yangtze-second",
+    "name": "武汉长江二桥",
+    "match": "武汉长江二桥|^长江二桥$",
+    "structure": "cable-stayed",
+    "towerCount": 2,
+    "mainSpanMeters": 400,
+    "color": "#cbcabb",
+    "widthMeters": 26.5,
+    "deckClearanceMeters": 30,
+    "towerHeightAboveDeckMeters": 90,
+    "source": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjeq/index.shtml",
+    "estimatedFields": [
+      "deckClearanceMeters",
+      "tower stations",
+      "towerHeightAboveDeckMeters",
+      "widthMeters",
+      "mainSpanMeters"
+    ],
+    "confidence": "medium",
+    "fieldSources": {
+      "structure": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjeq/index.shtml",
+      "towerCount": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjeq/index.shtml"
+    }
+  }
+]

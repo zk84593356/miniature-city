@@ -28,7 +28,7 @@ await mkdir(path.join(staging, 'data/wuhan'), { recursive: true });
 for (const file of Object.keys(manifest.dataFiles)) await cp(`city-data/wuhan/generated/${file}`, path.join(staging, 'data/wuhan', file));
 await cp('city-data/wuhan/generated/manifest.json', path.join(staging, 'cities/wuhan/manifest.json'));
 const registry = JSON.parse(await readFile(path.join(staging, 'cities/registry.json'), 'utf8'));
-registry.cities.push({ id: 'wuhan', name: manifest.name, route: '../wuhan/', manifest: './wuhan/manifest.json', status: 'geography-preview' });
+registry.cities.push({ id: 'wuhan', name: manifest.name, route: '../wuhan/', manifest: './wuhan/manifest.json', status: manifest.phase === 2 ? 'urban-preview' : 'geography-preview' });
 await writeFile(path.join(staging, 'cities/registry.json'), JSON.stringify(registry, null, 2) + '\n');
 async function inventory(dir, prefix = '', files = {}) {
   for (const item of await readdir(dir, { withFileTypes: true })) {

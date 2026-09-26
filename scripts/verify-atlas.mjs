@@ -34,6 +34,9 @@ assert.deepEqual(manifest.projection.origin, [114.32, 30.56]);
 assert.equal(manifest.verticalDatum, 'EGM2008');
 assert.ok(manifest.sources.length >= 2);
 const meshes = {};
+const waters = JSON.parse(await readFile('atlas-site/data/wuhan/water.json','utf8'));
+const riverModels = waters.filter(w=>w.kind==='river').map(w=>w.surface);
+const areaByLOD = new Map();
 for (const [name, info] of Object.entries(manifest.dataFiles)) {
   let bytes = await readFile(`atlas-site/data/wuhan/${name}`);
   assert.equal(bytes.length, info.bytes, `size: ${name}`);
@@ -44,25 +47,34 @@ for (const [name, info] of Object.entries(manifest.dataFiles)) {
   }
   if (!name.endsWith('.bin')) continue;
   if (info.compression === 'gzip') { bytes = gunzipSync(bytes); assert.equal(bytes.length, info.decodedBytes); }
-  const spec = manifest[name.slice(0, -4)];
+  const spec = info.mesh ?? manifest[name.slice(0, -4)];
+  assert.ok(spec,`Missing mesh schema ${name}`);
   assert.equal(bytes.length, spec.vertices * 12 + spec.triangles * 12);
   const data = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.length);
   const xyz = new Float32Array(data, 0, spec.vertices * 3);
   const index = new Uint32Array(data, spec.vertices * 12, spec.triangles * 3);
   for (const v of xyz) assert.ok(Number.isFinite(v), `non-finite ${name}`);
   for (const i of index) assert.ok(i < spec.vertices, `index ${name}`);
-  let reversed = 0;
+  let reversed = 0, area = 0;
   for (let i = 0; i < index.length; i += 3) {
     const a = index[i] * 3, b = index[i + 1] * 3, c = index[i + 2] * 3;
     const signed = (xyz[b] - xyz[a]) * (xyz[c + 2] - xyz[a + 2]) - (xyz[b + 2] - xyz[a + 2]) * (xyz[c] - xyz[a]);
     if (signed > .00001) reversed++;
+    area -= signed / 2;
     if (name === 'water.bin') {
-      assert.equal(xyz[a + 1], xyz[b + 1]); assert.equal(xyz[a + 1], xyz[c + 1]);
+      const flat=xyz[a+1]===xyz[b+1]&&xyz[a+1]===xyz[c+1];
+      if(!flat) {
+        assert.ok(riverModels.some(m=>[a,b,c].every(v=>Math.abs(xyz[v+1]-(m.interceptMeters/100-m.gradient*(m.direction[0]*xyz[v]+m.direction[1]*xyz[v+2])))<1e-6)), 'non-planar lake or discontinuous river');
+        for(const [u,v] of [[a,b],[b,c],[c,a]]) assert.ok(Math.abs(xyz[u+1]-xyz[v+1])<=Math.hypot(xyz[u]-xyz[v],xyz[u+2]-xyz[v+2])*.000081+1e-7,'river local slope');
+      }
     }
   }
-  assert.equal(reversed, 0, `downward faces: ${name}`);
+  if(name.startsWith('terrain')||name==='water.bin')assert.equal(reversed, 0, `downward faces: ${name}`);
+  const match=/^terrain-(\d+)-(30|60|120|240)\.bin$/.exec(name);
+  if(match){if(!areaByLOD.has(match[1]))areaByLOD.set(match[1],{});areaByLOD.get(match[1])[match[2]]=area;}
   meshes[name] = { vertices: spec.vertices, triangles: spec.triangles };
 }
+for(const [id,areas] of areaByLOD)for(const [lod,area] of Object.entries(areas))assert.ok(Math.abs(area-areas['30'])<.03,`LOD changed projected land area: chunk ${id}, ${lod}: ${area-areas['30']}`);
 const quality = JSON.parse(await readFile('atlas-site/data/wuhan/quality.json', 'utf8'));
 assert.ok(quality.waterBodies > 50);
 assert.ok(quality.waterHoles > 5, 'islands must be retained');
@@ -81,4 +93,4 @@ for (const prefix of ['/', '/city/', '/nested/example/']) {
     assert.ok(new URL(match[1], entry).pathname.startsWith(prefix), `resource escapes ${prefix}`);
   }
 }
-console.log(JSON.stringify({ result: 'PASS', shenzhenFilesPreserved: baseline.length - 1, dataset: manifest.datasetId, meshes, waterBodies: quality.waterBodies, islands: quality.waterHoles }, null, 2));
+console.log(JSON.stringify({ result: 'PASS', shenzhenFilesPreserved: baseline.length - 1, dataset: manifest.datasetId, verifiedMeshes:Object.keys(meshes).length, meshes:Object.fromEntries(Object.entries(meshes).filter(([name])=>['terrain.bin','water.bin','terrain-overview.bin'].includes(name))), waterBodies: quality.waterBodies, islands: quality.waterHoles }, null, 2));

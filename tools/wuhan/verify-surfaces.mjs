@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import * as THREE from 'three';
+import { createTerrainSurface } from '../../src/atlas/adapters/terrain-surface.js';
+
+const geometry=new THREE.PlaneGeometry(20,20).rotateX(-Math.PI/2);
+const ground=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial());ground.updateMatrixWorld();
+const waters=[{id:'river',rings:[[[-1,-10],[1,-10],[1,10],[-1,10]]],kind:'river',levelMeters:10,surface:{interceptMeters:10,gradient:.00004,direction:[.6,-.8]}}];
+const surface=createTerrainSurface(ground,waters,{inverse:(x,z)=>[x,z]},[-10,-10,10,10]);
+surface.register({id:'upper',kind:'bridge',layerId:'road-upper',width:30,profile:[[-3,.5,0],[0,.6,0],[3,.5,0]],traversable:true,rideAllowed:true});
+surface.register({id:'rail',kind:'bridge',layerId:'rail-lower',width:30,profile:[[-3,.4,0],[0,.5,0],[3,.4,0]],traversable:false,rideAllowed:false});
+assert.equal(surface.sample(0,0).kind,'water');
+assert.equal(surface.sample(0,0).traversable,false);
+assert.equal(surface.sampleSurface(0,0,.6).surfaceId,'upper');
+assert.equal(surface.sampleSurface(0,0,.5).surfaceId,'rail');
+assert.equal(surface.sampleSurface(0,0,.5).rideAllowed,false);
+assert.equal(surface.sampleSurface(0,0,.1).kind,'water');
+assert.equal(surface.sampleSurface(0,0).kind,'water');
+assert.equal(surface.sampleSurface(0,0).rideAllowed,false);
+const waterNormal=surface.sampleSurface(0,0).normal;
+assert.ok(Math.abs(waterNormal[0]/waterNormal[1]-.00004*.6)<1e-12);
+assert.ok(Math.abs(waterNormal[2]/waterNormal[1]+.00004*.8)<1e-12);
+assert.equal(surface.sampleSurface(0,2,0).kind,'water','outside deck footprint');
+assert.equal(surface.sampleSurface(5,5,0).kind,'terrain');
+assert.equal(surface.sampleSurface(5,5,0).rideAllowed,true);
+assert.equal(surface.sampleSurface(0,0,.585,'upper').surfaceId,'upper');
+assert.equal(surface.sampleSurface(11,0,0),null);
+const before=surface.sample(5,5).height;
+// Changing a separate display LOD cannot move the stable CPU height mesh.
+const display=new THREE.Mesh(new THREE.PlaneGeometry(20,20),new THREE.MeshBasicMaterial());display.position.y=5;
+assert.equal(surface.sample(5,5).height,before);
+surface.unregister('upper');assert.equal(surface.sampleSurface(0,0,.6).surfaceId,'rail');
+geometry.dispose();ground.material.dispose();display.geometry.dispose();display.material.dispose();
+console.log('PASS — bridge/water coexistence, reference-height selection, distinct rail layer, boundaries and stable sampling');
