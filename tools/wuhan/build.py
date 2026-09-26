@@ -36,7 +36,10 @@ def polygons(g):
             yield from polygons(p)
 
 def dump(name, data):
-    (OUT / name).write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf8')
+    # Hashes describe the Git/Pages bytes: text-mode writes translate LF to
+    # CRLF on Windows, whereas .gitattributes checks JSON out with LF.
+    payload = (json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n').encode('utf-8')
+    (OUT / name).write_bytes(payload)
 
 def planar(vertices, segments, holes):
     # Valid OSM polygons may have rings touching at one vertex; Triangle needs

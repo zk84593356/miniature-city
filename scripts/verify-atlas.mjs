@@ -22,7 +22,10 @@ const registry = JSON.parse(await readFile('atlas-site/cities/registry.json', 'u
 assert.equal(registry.defaultCity, 'shenzhen');
 assert.deepEqual(registry.cities.filter(c => c.id !== 'wuhan'), originalRegistry.cities);
 assert.equal(registry.cities.filter(c => c.id === 'wuhan').length, 1);
-const manifest = JSON.parse(await readFile('atlas-site/cities/wuhan/manifest.json', 'utf8'));
+const manifestBytes = await readFile('atlas-site/cities/wuhan/manifest.json');
+assert.ok(!manifestBytes.includes(13), 'manifest.json must use LF, matching Git checkout');
+assert.equal(manifestBytes.at(-1), 10, 'manifest.json must end with LF');
+const manifest = JSON.parse(manifestBytes.toString('utf8'));
 assert.equal(manifest.schemaVersion, 1);
 assert.equal(manifest.id, 'wuhan');
 assert.equal(manifest.terrainExaggeration, 1);
@@ -35,6 +38,10 @@ for (const [name, info] of Object.entries(manifest.dataFiles)) {
   let bytes = await readFile(`atlas-site/data/wuhan/${name}`);
   assert.equal(bytes.length, info.bytes, `size: ${name}`);
   assert.equal(hash(bytes), info.sha256, `checksum: ${name}`);
+  if (name.endsWith('.json')) {
+    assert.ok(!bytes.includes(13), `${name} must use LF, matching Git checkout`);
+    assert.equal(bytes.at(-1), 10, `${name} must end with LF`);
+  }
   if (!name.endsWith('.bin')) continue;
   if (info.compression === 'gzip') { bytes = gunzipSync(bytes); assert.equal(bytes.length, info.decodedBytes); }
   const spec = manifest[name.slice(0, -4)];
