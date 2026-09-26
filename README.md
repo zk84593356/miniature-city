@@ -1,9 +1,10 @@
 # 微缩城市图志
 
-项目现在包含两套彼此隔离的产物：
+项目现在包含三套彼此隔离的产物：
 
 - `site/`：对 `cityinminiatures.top` 的 L3 私有研究基线。
 - `public-site/`：经权利方授权的公开衍生版，品牌为“微缩城市图志”，首个真实城市为深圳。
+- `atlas-site/`：深圳原版与武汉地理预览的聚合产物；武汉位于 `/wuhan/`，使用独立 Three.js 入口与 City Pack。
 
 公开版完整保留现有深圳地形、建筑、地标、交通、昼夜、相机、交互和声景；生成门保证所有非文字运行资产与基线逐字一致。当前仍带 `noindex`，尚未部署到公网。
 
@@ -28,6 +29,19 @@ npm run public:serve
 
 ## 验证
 
+武汉地形与水系预览（需要安装已锁定的 Three.js 依赖；无需 GIS 环境即可使用仓库内的生成数据）：
+
+```powershell
+npm ci
+npm run atlas:build
+npm run atlas:verify
+npm run atlas:serve
+```
+
+打开 <http://127.0.0.1:4175/wuhan/>。根路径仍为深圳。武汉当前是没有建筑、桥梁与交通的现代地理底座，原始数据、处理过程、验收结果和待优化项见 [武汉阶段记录](docs/wuhan-phase1.md)。`atlas-site/` 尚未发布到公网。
+
+深圳基线验证：
+
 ```powershell
 npm run verify
 ```
@@ -40,6 +54,10 @@ npm run verify
 
 - `site/`：完整、自包含的本地运行版本。
 - `public-site/`：可部署的授权公开版；由脚本生成，不手工修改。
+- `atlas-site/`：聚合预览；由 `atlas:build` 生成，不手工修改。
+- `src/atlas/`、`src/cities/wuhan/`：独立地理运行时、武汉配置和来源锁定。
+- `city-data/wuhan/generated/`：随仓库提供的武汉地形、水系与质量报告。
+- `tools/wuhan/`：离线数据获取、GIS 生成、独立复核和浏览器检查。
 - `public-overlay/`：公开版署名、隐私、部署头、404 和城市清单。
 - `src/readable/`：按安全边界切开的可读研究视图；不直接由浏览器执行。
 - `mirror/`：只读源站证据与抓包账本。

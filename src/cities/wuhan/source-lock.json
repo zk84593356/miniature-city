@@ -1,0 +1,16 @@
+[
+  {
+    "file": "dem.tif",
+    "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N30_00_E114_00_DEM/Copernicus_DSM_COG_10_N30_00_E114_00_DEM.tif",
+    "license": "Copernicus DEM GLO-30 free license",
+    "bytes": 44979640,
+    "sha256": "7be7b919235acdbac6118bcea3706a33c176aff36992ae35fe5fb662384e25f8"
+  },
+  {
+    "file": "water-overture-2026-09-23.geojson",
+    "url": "https://docs.overturemaps.org/blog/2026/09/23/release-notes/",
+    "license": "ODbL-1.0; original per-feature sources retained",
+    "bytes": 8338637,
+    "sha256": "5842fbf33345abc58f011515041ce6b17c49f8923d6851b4c2b3f3cba5b29e5e"
+  }
+]

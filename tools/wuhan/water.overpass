@@ -1,0 +1,12 @@
+[out:xml][timeout:180][date:"2026-09-24T20:21:20Z"];
+(
+  way["natural"="water"](30.30,114.02,30.83,114.65);
+  relation["natural"="water"](30.30,114.02,30.83,114.65);
+  way["waterway"="riverbank"](30.30,114.02,30.83,114.65);
+  relation["waterway"="riverbank"](30.30,114.02,30.83,114.65);
+  way["landuse"="reservoir"](30.30,114.02,30.83,114.65);
+  relation["landuse"="reservoir"](30.30,114.02,30.83,114.65);
+  node["natural"~"^(peak|hill)$"](30.30,114.02,30.83,114.65);
+);
+(._;>>;);
+out meta;

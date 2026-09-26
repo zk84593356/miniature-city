@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "wuhan",
+  "name": {"zh": "武汉", "en": "Wuhan"},
+  "runtime": "atlas-terrain-v1",
+  "projection": {"type": "local-equirectangular", "origin": [114.32, 30.56], "worldUnitMeters": 100, "earthRadiusMeters": 6371008.8},
+  "bounds": {"core": [114.12, 30.40, 114.52, 30.72], "context": [114.02, 30.30, 114.65, 30.83], "type": "study-extent-not-administrative-boundary"},
+  "verticalDatum": "EGM2008",
+  "verticalOriginMeters": 0,
+  "terrainExaggeration": 1,
+  "regions": [
+    {"id": "confluence", "name": "两江三镇", "caption": "长江与汉水，在这里相逢", "center": [114.29,30.566], "distance": 145, "bearing": 165},
+    {"id": "guishan", "name": "龟蛇夹江", "caption": "隔江相望的两道山脊", "center": [114.292,30.552], "distance": 58, "bearing": 170},
+    {"id": "donghu", "name": "东湖山水", "caption": "湖汊、半岛与磨山", "center": [114.400,30.561], "distance": 95, "bearing": 160},
+    {"id": "luojia", "name": "珞珈山", "caption": "循着真实高程，走近湖畔山丘", "center": [114.366,30.537], "distance": 28, "bearing": 155},
+    {"id": "moshan", "name": "磨山", "caption": "伸入东湖的绿色山脊", "center": [114.418,30.551], "distance": 36, "bearing": 175},
+    {"id": "overview", "name": "全域俯瞰", "caption": "三镇、湖群与外围地形", "center": [114.335,30.565], "distance": 560, "bearing": 175}
+  ],
+  "places": [
+    {"name": "汉口", "kind": "town", "position": [114.258,30.594]},
+    {"name": "汉阳", "kind": "town", "position": [114.237,30.539]},
+    {"name": "武昌", "kind": "town", "position": [114.327,30.535]},
+    {"name": "长江", "kind": "water", "position": [114.304,30.580]},
+    {"name": "汉江", "kind": "water", "position": [114.257,30.567]},
+    {"name": "东湖", "kind": "water", "position": [114.401,30.578]},
+    {"name": "南湖", "kind": "water", "position": [114.365,30.488]},
+    {"name": "沙湖", "kind": "water", "position": [114.343,30.568]},
+    {"name": "墨水湖", "kind": "water", "position": [114.235,30.522]},
+    {"name": "龟山", "kind": "hill", "position": [114.275,30.558]},
+    {"name": "蛇山", "kind": "hill", "position": [114.308,30.546]},
+    {"name": "珞珈山", "kind": "hill", "position": [114.366,30.537]},
+    {"name": "磨山", "kind": "hill", "position": [114.418,30.551]}
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "datasetId": "d05634fc233abb1d",
+  "sourceHashesVerified": true,
+  "projectedAreas": {
+    "landKm2": 2930.4691960998857,
+    "waterKm2": 624.5319459795444
+  },
+  "landWaterOverlapSamples": 0,
+  "randomInteriorError": {
+    "samples": 91947,
+    "p95Meters": 1.24,
+    "maxMeters": 7.382
+  },
+  "coreRandomInteriorError": {
+    "samples": 69446,
+    "p95Meters": 0.913,
+    "maxMeters": 4.245
+  },
+  "sampling": "100000 fixed-seed barycentric samples; exclude 100 m hydro-conditioned shoreline buffer; units metres; not absolute real-world DEM accuracy",
+  "hills": [
+    {
+      "name": "龟山",
+      "samples": 338,
+      "p95Meters": 0.892,
+      "maxMeters": 1.543
+    },
+    {
+      "name": "蛇山",
+      "samples": 691,
+      "p95Meters": 0.911,
+      "maxMeters": 1.541
+    },
+    {
+      "name": "珞珈山",
+      "samples": 471,
+      "p95Meters": 0.89,
+      "maxMeters": 1.48
+    },
+    {
+      "name": "磨山",
+      "samples": 184,
+      "p95Meters": 0.744,
+      "maxMeters": 2.034
+    }
+  ]
+}

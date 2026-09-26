@@ -1,0 +1,8 @@
+rasterio==1.4.4
+pyproj==3.7.2
+shapely==2.1.2
+osmium==4.2.0
+scipy==1.17.0
+triangle==20250106
+numpy==2.5.3
+pyarrow==25.0.1

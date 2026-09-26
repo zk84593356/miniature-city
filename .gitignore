@@ -4,3 +4,9 @@
 /.public-site-build-tmp/
 /site.check/
 /probe/ride/
+/atlas-site/
+/.atlas-site-build-tmp/
+/.tools/
+/city-data/wuhan/raw/
+/city-data/wuhan/intermediate/
+/probe/wuhan/

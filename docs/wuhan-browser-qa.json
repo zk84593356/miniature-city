@@ -1,0 +1,122 @@
+[
+  {
+    "prefix": "/",
+    "loadMs": 1592,
+    "initial": {
+      "datasetId": "d05634fc233abb1d",
+      "region": "confluence",
+      "flying": false,
+      "camera": [
+        -56.544942744884395,
+        97.47046008846962,
+        97.15399057566331
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        -6.6717048140122275
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 27,
+      "triangles": 1479687,
+      "geometries": 27,
+      "frameSamples": 73,
+      "p95FrameMs": 16.800000000000182,
+      "disposed": false
+    },
+    "hillSamples": [
+      {
+        "kind": "ground",
+        "height": 0.9505568154433917,
+        "traversable": true
+      },
+      {
+        "kind": "ground",
+        "height": 0.37960194427039085,
+        "traversable": true
+      },
+      {
+        "kind": "ground",
+        "height": 1.2244223209203113,
+        "traversable": true
+      },
+      {
+        "kind": "ground",
+        "height": 0.7016994911560914,
+        "traversable": true
+      }
+    ],
+    "errors": [],
+    "missing": [],
+    "escaped": []
+  },
+  {
+    "prefix": "/nested/example/",
+    "loadMs": 1791,
+    "initial": {
+      "datasetId": "d05634fc233abb1d",
+      "region": "confluence",
+      "flying": false,
+      "camera": [
+        -56.544942744884395,
+        97.47046008846962,
+        97.15399057566331
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        -6.6717048140122275
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 27,
+      "triangles": 1479687,
+      "geometries": 27,
+      "frameSamples": 72,
+      "p95FrameMs": 16.799999999999272,
+      "disposed": false
+    },
+    "hillSamples": [
+      {
+        "kind": "ground",
+        "height": 0.9505568154433917,
+        "traversable": true
+      },
+      {
+        "kind": "ground",
+        "height": 0.37960194427039085,
+        "traversable": true
+      },
+      {
+        "kind": "ground",
+        "height": 1.2244223209203113,
+        "traversable": true
+      },
+      {
+        "kind": "ground",
+        "height": 0.7016994911560914,
+        "traversable": true
+      }
+    ],
+    "errors": [],
+    "missing": [],
+    "escaped": []
+  },
+  {
+    "failure": "version",
+    "message": "城市数据版本不兼容，请重新构建武汉 City Pack。"
+  },
+  {
+    "failure": "checksum",
+    "message": "数据校验失败: water.bin，请刷新或重新构建。"
+  },
+  {
+    "failure": "missing",
+    "message": "数据读取失败 (404): /data/wuhan/water.bin"
+  }
+]
