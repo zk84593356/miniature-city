@@ -4,6 +4,7 @@ import { loadPack } from './engine/load-pack.js';
 import { createProjection } from './geo/projection.js';
 import { createGeography } from './render/geography.js';
 import { createUrban } from './render/urban.js';
+import { createPlaces } from './places.js';
 import { createTerrainSurface } from './adapters/terrain-surface.js';
 
 const $ = selector => document.querySelector(selector);
@@ -35,7 +36,7 @@ async function start() {
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = .075;
-  controls.minDistance = 3;
+  controls.minDistance = .65;
   controls.maxDistance = 850;
   controls.maxPolarAngle = Math.PI * .47;
   controls.minPolarAngle = .1;
@@ -54,18 +55,10 @@ async function start() {
   let flight = null, disposed = false, frame = 0, labelsVisible = true, currentRegion = 'confluence';
   let lightMode = 'day';
   const frameTimes = [];
-  const point = new THREE.Vector3();
-  const labels = pack.manifest.places.map(place => {
-    const element = document.createElement('span');
-    element.className = `label ${place.kind}`;
-    element.textContent = place.name;
-    $('#labels').append(element);
-    const [x, z] = projection.forward(place.position);
-    return { element, place, position: new THREE.Vector3(x, (surface.sample(x, z)?.height ?? .25) + .18, z) };
-  });
+  const places=createPlaces({pack,scene,surface,projection,camera,geography,urban,onFocus:id=>fly(id)});
 
   function fly(id, immediate = false) {
-    let region = [...pack.manifest.regions,...(pack.manifest.urban?.qaViews??[]).map(r=>({...r,caption:r.name,distance:40,bearing:165})),{id:'bridge-sequence',name:'桥梁序列',caption:'两江上的桥梁结构',center:[114.29,30.56],distance:110,bearing:220,elevation:.16}].find(r => r.id === id);
+    let region = [...places.presets,...pack.manifest.regions,...(pack.manifest.urban?.qaViews??[]).map(r=>({...r,caption:r.name,distance:40,bearing:165})),{id:'bridge-sequence',name:'桥梁序列',caption:'两江上的桥梁结构',center:[114.29,30.56],distance:110,bearing:220,elevation:.16}].find(r => r.id === id);
     if(!region&&id.startsWith('bridge-')){
       const bridge=urban.bridges.children.find(o=>'bridge-'+o.userData.bridgeId===id);
       if(bridge){const wet=bridge.userData.waterProfile;const a=wet[0],b=wet.at(-1);if(a&&b)region={id,name:bridge.userData.name,caption:'桥面、结构与两岸引道',center:projection.inverse((a[0]+b[0])/2,(a[2]+b[2])/2),distance:Math.max(16,Math.hypot(b[0]-a[0],b[2]-a[2])*1.35),bearing:165,elevation:.4};}
@@ -73,17 +66,23 @@ async function start() {
     if (!region) return;
     currentRegion = id;
     const [x, z] = projection.forward(region.center);
-    const target = new THREE.Vector3(x, surface.sample(x, z)?.height ?? .25, z);
+    const target = new THREE.Vector3(x, region.targetHeight ?? surface.sample(x, z)?.height ?? .25, z);
     const theta = (region.bearing - 180) * Math.PI / 180;
     const distance = region.distance * (innerWidth < 700 ? 1.35 : 1);
     const offset = new THREE.Vector3(Math.sin(theta) * .74, region.elevation ?? .67, Math.cos(theta) * .74).normalize().multiplyScalar(distance);
     const destination = target.clone().add(offset);
+    destination.y=Math.max(destination.y,places.cameraFloor(destination.x,destination.z));
     if (immediate || reducedMotion) {
       flight = null;
       camera.position.copy(destination);
       controls.target.copy(target);
       controls.update();
-    } else flight = { start: performance.now(), from: camera.position.clone(), to: destination, fromTarget: controls.target.clone(), target };
+    } else {
+      let cruise=Math.max(camera.position.y,destination.y);
+      const steps=Math.max(24,Math.ceil(camera.position.distanceTo(destination)/.25));
+      for(let i=0;i<=steps;i++){const p=camera.position.clone().lerp(destination,i/steps);cruise=Math.max(cruise,places.cameraFloor(p.x,p.z)+.35);}
+      flight = { start: performance.now(), from: camera.position.clone(), to: destination, fromTarget: controls.target.clone(), target,cruise:cruise+.25 };
+    }
     $('#view-title').textContent = region.name;
     $('#view-caption').textContent = region.caption;
     document.querySelectorAll('[data-region]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.region === id)));
@@ -111,7 +110,7 @@ async function start() {
   function setInfo(open) { $('#data-panel').hidden = !open; $('#info-toggle').setAttribute('aria-expanded', String(open)); }
   $('#info-toggle').addEventListener('click', () => setInfo($('#data-panel').hidden));
   $('#info-close').addEventListener('click', () => { setInfo(false); $('#info-toggle').focus(); });
-  window.addEventListener('keydown', event => { if (event.key === 'Escape') setInfo(false); });
+  window.addEventListener('keydown', event => { if (event.key === 'Escape') {setInfo(false);places.close();$('#journeys').hidden=true;} });
   $('#data-stats').textContent = `${pack.quality.waterBodies} 片连通水域 · ${pack.quality.waterHoles} 个水域孔洞 · ${(pack.manifest.terrain.triangles / 10000).toFixed(1)} 万个地形三角面`;
   $('#full-attribution').textContent = pack.manifest.attribution;
   document.querySelectorAll('[data-light]').forEach(button => button.addEventListener('click', () => {
@@ -131,6 +130,7 @@ async function start() {
   renderer.domElement.addEventListener('pointerup', event => {
     if (!pointerStart || Math.hypot(event.clientX - pointerStart[0], event.clientY - pointerStart[1]) > 4) return;
     raycaster.setFromCamera(new THREE.Vector2(event.clientX / innerWidth * 2 - 1, 1 - event.clientY / innerHeight * 2), camera);
+    if(places.pick(raycaster))return;
     const hit = raycaster.intersectObjects([geography.terrain, geography.water], true)[0];
     if (!hit) return;
     const [lon, lat] = projection.inverse(hit.point.x, hit.point.z);
@@ -140,7 +140,7 @@ async function start() {
   function resize() { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); }
   window.addEventListener('resize', resize);
   fly('confluence', true);
-  let previous = performance.now(), lastLabels = 0;
+  let previous = performance.now();
   const sampleAfter = performance.now() + 2000;
   function render(now) {
     if (disposed) return;
@@ -152,7 +152,9 @@ async function start() {
     if (flight) {
       const t = Math.min(1, (now - flight.start) / 1600);
       const eased = t * t * t * (t * (t * 6 - 15) + 10);
-      camera.position.lerpVectors(flight.from, flight.to, eased);
+      const traverse=THREE.MathUtils.smoothstep(t,.2,.8);
+      camera.position.lerpVectors(flight.from,flight.to,traverse);
+      camera.position.y=t<.2?THREE.MathUtils.lerp(flight.from.y,flight.cruise,THREE.MathUtils.smoothstep(t,0,.2)):t>.8?THREE.MathUtils.lerp(flight.cruise,flight.to.y,THREE.MathUtils.smoothstep(t,.8,1)):flight.cruise;
       controls.target.lerpVectors(flight.fromTarget, flight.target, eased);
       if (t === 1) flight = null;
     }
@@ -161,23 +163,11 @@ async function start() {
     controls.target.z = THREE.MathUtils.clamp(controls.target.z, -290, 280);
     controls.target.y = Math.max(.2, controls.target.y);
     controls.update();
+    if(camera.position.y<8)camera.position.y=Math.max(camera.position.y,places.cameraFloor(camera.position.x,camera.position.z));
     geography.update(camera,now);
     urban.update(camera,now,controls.target);
     renderer.render(scene, camera);
-    if (labelsVisible && now - lastLabels > 60) {
-      lastLabels = now;
-      const occupied = [];
-      for (const { element, place, position } of labels) {
-        point.copy(position).project(camera);
-        const x = (point.x + 1) * innerWidth / 2, y = (1 - point.y) * innerHeight / 2;
-        let visible = point.z < 1 && point.z > -1 && x > 35 && x < innerWidth - 35 && y > 70 && y < innerHeight - 110;
-        if (innerWidth > 700 && x < 215 && y < 605) visible = false;
-        if (place.kind === 'hill' && camera.position.distanceTo(controls.target) > 220) visible = false;
-        if (occupied.some(([a, b]) => Math.abs(a - x) < 72 && Math.abs(b - y) < 25)) visible = false;
-        element.hidden = !visible;
-        if (visible) { occupied.push([x, y]); element.style.left = `${x}px`; element.style.top = `${y}px`; }
-      }
-    }
+    places.update(now,labelsVisible,controls.target);
     $('#north').style.transform = `rotate(${-controls.getAzimuthalAngle() * 180 / Math.PI}deg)`;
   }
   disposeScene = () => {
@@ -185,7 +175,7 @@ async function start() {
     disposed = true;
     cancelAnimationFrame(frame);
     window.removeEventListener('resize', resize);
-    controls.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
+    controls.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
   };
   // Explicit diagnostics for browser verification and future surface adapters.
   function terrainTriangles() {
@@ -195,8 +185,10 @@ async function start() {
     return triangles;
   }
   window.__wuhan = {
-    ready: true, fly, sampleWorld:(x,z)=>surface.sample(x,z), sampleSurface: (x,z,y,id)=>surface.sampleSurface(x,z,y,id), getBridges:()=>urban.bridges.children.map(o=>o.userData), sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
-    getState: () => ({ phase:pack.manifest.phase,initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
+    resetFrameStats:()=>{frameTimes.length=0;},
+    projectWorld:(position)=>{const p=new THREE.Vector3(...position).project(camera);return [(p.x+1)*innerWidth/2,(1-p.y)*innerHeight/2,p.z];},
+    ready: true, fly, selectPlace:(id)=>places.select(id), getPlaces:()=>places.places, getLandmarks:()=>places.collision, getLabels:()=>places.getLabels(), cameraFloor:(x,z)=>places.cameraFloor(x,z), sampleWorld:(x,z)=>surface.sample(x,z), sampleSurface: (x,z,y,id)=>surface.sampleSurface(x,z,y,id), getBridges:()=>urban.bridges.children.map(o=>o.userData), sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
+    getState: () => ({ phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
     dispose: disposeScene,
   };
   frame = requestAnimationFrame(render);

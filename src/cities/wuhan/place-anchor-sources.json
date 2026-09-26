@@ -1,0 +1,14 @@
+{
+  "hankou-riverfront": {
+    "name": "汉口江滩大舞台",
+    "position": [114.29913, 30.588],
+    "source": "https://mapcarta.com/N10799812648",
+    "upstreamIdentity": "https://www.openstreetmap.org/node/10799812648",
+    "checkedAt": "2026-09-26",
+    "crs": "EPSG:4326",
+    "confidence": "medium",
+    "estimated": true,
+    "estimatedFields": ["representative riverfront anchor", "rounded coordinates from OSM-derived secondary source"],
+    "note": "Public OSM API and Overpass were unavailable during this check. This is a documented secondary-source anchor, not a fabricated OSM API response."
+  }
+}

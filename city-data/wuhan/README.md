@@ -9,3 +9,11 @@
 - 浏览器中的着色、裁剪、简化和岸线条件化是本项目的处理，不是来源方对该可视化质量或实时性的背书。
 
 不要把原站深圳资产的授权声明自动应用到这些第三方地理数据；各来源的许可独立保留。
+
+## Phase 3 地标与地点
+
+`landmarks.json` 保存 12 个模型定义、原始 OSM 身份、朝向、尺寸及估计字段；`places.json` 保存 22 个地点；`camera-presets.json` 保存镜头和手动浏览路线。`landmark-replacement-audit.json` 记录精确替换的 40 个普通建筑与 12 个受影响分块。其他地形、水系、道路、桥梁资源逐字节保留 Phase 2。
+
+`camera-clearance.json` 是导航专用的保守高度网格，不改变 terrain / road / bridge / water 的 surface contract，也不是 Ride 碰撞实现。footprint 是 local world x/z，每单位 100 米；baseElevation / height / maxHeight 为米，bounds / position 为 world units。
+
+资料与可重复生成方式见 [Phase 3 报告](../../docs/wuhan-phase3.md)。所有生成 JSON 均以 UTF-8 字节写入，固定 LF，并在最终 Git checkout 上验证 manifest bytes / SHA-256。

@@ -1,0 +1,1195 @@
+{
+  "result": "PASS",
+  "date": "2026-09-26T23:23:59.317Z",
+  "views": [
+    {
+      "view": "confluence",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 66,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 217678,
+          "buildingCount": 13516,
+          "roadTriangles": 1456548,
+          "loadedSurfaceChunks": 31,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 91942,
+        "estimatedGeometryBytes": 130579764,
+        "datasetId": "727ce7844d028d10",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          -56.544942744884395,
+          97.46723317293691,
+          97.15399057566329
+        ],
+        "target": [
+          -28.724931511621108,
+          0.2,
+          -6.671704814012228
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 283,
+        "triangles": 2015811,
+        "geometries": 296,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000109,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.799999999999272,
+      "minFlightClearance": 97.08723872293997,
+      "visibleLabels": [
+        "汉口",
+        "汉阳",
+        "武昌",
+        "长江",
+        "汉江",
+        "沙湖",
+        "龟山",
+        "蛇山",
+        "bridge-yangtze-first",
+        "bridge-yingwuzhou",
+        "bridge-qingchuan"
+      ]
+    },
+    {
+      "view": "wuhan-iconic",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 115,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 95391,
+          "buildingCount": 5432,
+          "roadTriangles": 1259328,
+          "loadedSurfaceChunks": 33,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 304312,
+        "estimatedGeometryBytes": 173467020,
+        "datasetId": "727ce7844d028d10",
+        "region": "wuhan-iconic",
+        "flying": false,
+        "camera": [
+          -6.034032772143874,
+          13.641967599458674,
+          27.907236925053937
+        ],
+        "target": [
+          -31.597424662784576,
+          0.2,
+          10.00755722101834
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 258,
+        "triangles": 1821163,
+        "geometries": 428,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.799999999999272,
+      "minFlightClearance": 13.122567599458675,
+      "visibleLabels": [
+        "汉口",
+        "汉江",
+        "龟山",
+        "yellow-crane",
+        "wuhan-center",
+        "qingchuan-pavilion",
+        "guishan-tower",
+        "bridge-yangtze-first",
+        "bridge-qingchuan"
+      ]
+    },
+    {
+      "view": "place-yellow-crane",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 115,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 12209,
+          "buildingCount": 731,
+          "roadTriangles": 255218,
+          "loadedSurfaceChunks": 40,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 262375,
+        "estimatedGeometryBytes": 176733084,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-yellow-crane",
+        "flying": false,
+        "camera": [
+          -20.957066762725532,
+          1.9275777310455893,
+          15.39013579487421
+        ],
+        "target": [
+          -21.97860403920946,
+          0.8538351243154721,
+          14.368598518390279
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 40,
+        "triangles": 667430,
+        "geometries": 427,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.799999999999272,
+      "minFlightClearance": 1.0125777310455892,
+      "visibleLabels": [
+        "yellow-crane"
+      ]
+    },
+    {
+      "view": "place-customs",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 115,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 12215,
+          "buildingCount": 583,
+          "roadTriangles": 226450,
+          "loadedSurfaceChunks": 44,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 209643,
+        "estimatedGeometryBytes": 177576528,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-customs",
+        "flying": false,
+        "camera": [
+          -27.735292997294778,
+          1.585680294663985,
+          -19.5545283827027
+        ],
+        "target": [
+          -26.80667581863478,
+          0.5119376879338677,
+          -20.661211241515453
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 30,
+        "triangles": 526992,
+        "geometries": 456,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 0.8810777310455897,
+      "visibleLabels": [
+        "customs"
+      ]
+    },
+    {
+      "view": "place-wuhan-center",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 82,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 14760,
+          "buildingCount": 581,
+          "roadTriangles": 270536,
+          "loadedSurfaceChunks": 64,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 252462,
+        "estimatedGeometryBytes": 138954852,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-wuhan-center",
+        "flying": false,
+        "camera": [
+          -79.92129005534687,
+          8.634644152391003,
+          -32.48179052115057
+        ],
+        "target": [
+          -76.91547319997787,
+          2.1027099614494564,
+          -40.74020445829301
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 34,
+        "triangles": 593928,
+        "geometries": 374,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 1.6612385671279184,
+      "visibleLabels": [
+        "wuhan-center"
+      ]
+    },
+    {
+      "view": "place-greenland",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 44,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 26402,
+          "buildingCount": 1376,
+          "roadTriangles": 309374,
+          "loadedSurfaceChunks": 74,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 244746,
+        "estimatedGeometryBytes": 108777792,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-greenland",
+        "flying": false,
+        "camera": [
+          5.699825298685272,
+          9.47441172656784,
+          -23.92330384252608
+        ],
+        "target": [
+          -2.5645341481338013,
+          2.381745285445011,
+          -28.694733993826894
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 38,
+        "triangles": 659066,
+        "geometries": 294,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 8.20491172656784,
+      "visibleLabels": [
+        "greenland",
+        "hankou-riverfront"
+      ]
+    },
+    {
+      "view": "place-qingchuan-pavilion",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 26,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 13081,
+          "buildingCount": 803,
+          "roadTriangles": 234896,
+          "loadedSurfaceChunks": 67,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 299936,
+        "estimatedGeometryBytes": 83641368,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-qingchuan-pavilion",
+        "flying": false,
+        "camera": [
+          -39.658700033937514,
+          1.510447372668282,
+          2.2149554944908583
+        ],
+        "target": [
+          -38.40757749362849,
+          0.4367047659381649,
+          1.4926195590542333
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 39,
+        "triangles": 651019,
+        "geometries": 238,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 0.9288473726682821,
+      "visibleLabels": [
+        "qingchuan-pavilion"
+      ]
+    },
+    {
+      "view": "place-guishan-tower",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 26,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 14894,
+          "buildingCount": 895,
+          "roadTriangles": 259858,
+          "loadedSurfaceChunks": 69,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 263831,
+        "estimatedGeometryBytes": 81199068,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-guishan-tower",
+        "flying": false,
+        "camera": [
+          -46.14719768485668,
+          5.222079297974687,
+          5.340155191355104
+        ],
+        "target": [
+          -43.00880816321438,
+          1.9233034006316048,
+          2.2017656697128047
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 50,
+        "triangles": 658667,
+        "geometries": 239,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 1.1704644019650932,
+      "visibleLabels": [
+        "龟山",
+        "qingchuan-pavilion",
+        "guishan-tower",
+        "bridge-qingchuan"
+      ]
+    },
+    {
+      "view": "place-qintai-theater",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 14,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 2445,
+          "buildingCount": 107,
+          "roadTriangles": 246554,
+          "loadedSurfaceChunks": 57,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 219629,
+        "estimatedGeometryBytes": 70976532,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-qintai-theater",
+        "flying": false,
+        "camera": [
+          -63.17722662785488,
+          3.348757331385073,
+          0.09912608647473453
+        ],
+        "target": [
+          -63.17722662785488,
+          0.4852084629627138,
+          -3.7536487546753485
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 31,
+        "triangles": 541340,
+        "geometries": 215,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 3.1987573313850732,
+      "visibleLabels": [
+        "qintai-theater"
+      ]
+    },
+    {
+      "view": "place-wuhan-university",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 18,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 46324,
+          "buildingCount": 2017,
+          "roadTriangles": 220460,
+          "loadedSurfaceChunks": 64,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 245036,
+        "estimatedGeometryBytes": 94061400,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-wuhan-university",
+        "flying": false,
+        "camera": [
+          36.539349713139515,
+          3.8520523488451586,
+          23.44904034667804
+        ],
+        "target": [
+          36.539349713139515,
+          0.8694339968170549,
+          19.43606292758568
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 25,
+        "triangles": 550042,
+        "geometries": 252,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 2.7935523488451586,
+      "visibleLabels": [
+        "wuhan-university"
+      ]
+    },
+    {
+      "view": "campus-lake",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 28,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 121558,
+          "buildingCount": 5804,
+          "roadTriangles": 457484,
+          "loadedSurfaceChunks": 65,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 243698,
+        "estimatedGeometryBytes": 100024440,
+        "datasetId": "727ce7844d028d10",
+        "region": "campus-lake",
+        "flying": false,
+        "camera": [
+          40.0825313153987,
+          15.802303453716068,
+          45.64054205585915
+        ],
+        "target": [
+          42.12989955040665,
+          0.5649525109434563,
+          22.239016046706098
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 76,
+        "triangles": 915220,
+        "geometries": 271,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 3.5273994674028266,
+      "visibleLabels": [
+        "珞珈山",
+        "wuhan-university",
+        "hubei-museum"
+      ]
+    },
+    {
+      "view": "place-hubei-museum",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 29,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 29012,
+          "buildingCount": 1391,
+          "roadTriangles": 292306,
+          "loadedSurfaceChunks": 71,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 256495,
+        "estimatedGeometryBytes": 98710164,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-hubei-museum",
+        "flying": false,
+        "camera": [
+          40.02904039042606,
+          3.450042489612466,
+          0.41098745801493664
+        ],
+        "target": [
+          38.65652127838542,
+          0.4674241375843623,
+          -3.359977810086626
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 36,
+        "triangles": 662361,
+        "geometries": 271,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 3.3045322950647433,
+      "visibleLabels": [
+        "hubei-museum"
+      ]
+    },
+    {
+      "view": "place-moshan-chutian",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 21,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 8743,
+          "buildingCount": 522,
+          "roadTriangles": 211180,
+          "loadedSurfaceChunks": 54,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 157187,
+        "estimatedGeometryBytes": 80200392,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-moshan-chutian",
+        "flying": false,
+        "camera": [
+          81.09808001280491,
+          21.14074808330935,
+          28.682449740107245
+        ],
+        "target": [
+          86.85394440589387,
+          1.0054804787983975,
+          7.201271383622651
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 41,
+        "triangles": 445214,
+        "geometries": 252,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000291,
+      "minFlightClearance": 4.204487864349845,
+      "visibleLabels": [
+        "东湖",
+        "磨山",
+        "moshan-chutian"
+      ]
+    },
+    {
+      "view": "place-wuhan-station",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 30,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 17409,
+          "buildingCount": 1023,
+          "roadTriangles": 173566,
+          "loadedSurfaceChunks": 69,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 221129,
+        "estimatedGeometryBytes": 83860824,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-wuhan-station",
+        "flying": false,
+        "camera": [
+          101.06754267802833,
+          6.806118127534049,
+          -49.7412044938913
+        ],
+        "target": [
+          94.61276339422008,
+          0.5434643971788475,
+          -55.15740741026554
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 44,
+        "triangles": 494488,
+        "geometries": 267,
+        "frameSamples": 180,
+        "p95FrameMs": 16.800000000017462,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.800000000017462,
+      "minFlightClearance": 6.336818127534049,
+      "visibleLabels": [
+        "wuhan-station"
+      ]
+    },
+    {
+      "view": "place-calla",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 30,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 8167,
+          "buildingCount": 599,
+          "roadTriangles": 133408,
+          "loadedSurfaceChunks": 99,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 131497,
+        "estimatedGeometryBytes": 85733124,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-calla",
+        "flying": false,
+        "camera": [
+          206.84669027824765,
+          3.963510101896111,
+          78.12718362785948
+        ],
+        "target": [
+          204.81027045304364,
+          0.9363995509171659,
+          74.60000102506561
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 31,
+        "triangles": 342996,
+        "geometries": 285,
+        "frameSamples": 180,
+        "p95FrameMs": 16.79999999998836,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.800000000017462,
+      "minFlightClearance": 3.3918340678391745,
+      "visibleLabels": [
+        "calla"
+      ]
+    },
+    {
+      "view": "place-xingyin",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 39,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 4094,
+          "buildingCount": 195,
+          "roadTriangles": 151032,
+          "loadedSurfaceChunks": 98,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 262446,
+        "estimatedGeometryBytes": 102926004,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-xingyin",
+        "flying": false,
+        "camera": [
+          47.59291823612654,
+          1.4084761050156445,
+          -7.6542195572883855
+        ],
+        "target": [
+          48.9504657326431,
+          0.3347334982855274,
+          -8.148326437623012
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 28,
+        "triangles": 480120,
+        "geometries": 316,
+        "frameSamples": 180,
+        "p95FrameMs": 16.79999999998836,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.79999999998836,
+      "minFlightClearance": 1.003523163509784,
+      "visibleLabels": [
+        "xingyin"
+      ]
+    },
+    {
+      "view": "bridge-sequence",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1515.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 92,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 211906,
+          "buildingCount": 12117,
+          "roadTriangles": 1500484,
+          "loadedSurfaceChunks": 121,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 305011,
+        "estimatedGeometryBytes": 182525640,
+        "datasetId": "727ce7844d028d10",
+        "region": "bridge-sequence",
+        "flying": false,
+        "camera": [
+          40.384737146833075,
+          23.39345656375133,
+          82.36169590670823
+        ],
+        "target": [
+          -28.724931511621097,
+          0.2,
+          0
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 276,
+        "triangles": 2210197,
+        "geometries": 466,
+        "frameSamples": 180,
+        "p95FrameMs": 16.79999999998836,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.79999999998836,
+      "minFlightClearance": 2.399959481889855,
+      "visibleLabels": [
+        "汉口",
+        "武昌",
+        "长江",
+        "沙湖",
+        "蛇山",
+        "greenland",
+        "guishan-tower",
+        "bridge-yangtze-first",
+        "bridge-yingwuzhou",
+        "bridge-qingchuan"
+      ]
+    },
+    {
+      "view": "place-hubei-museum",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1562,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 14,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 29012,
+          "buildingCount": 1391,
+          "roadTriangles": 292306,
+          "loadedSurfaceChunks": 38,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 256495,
+        "estimatedGeometryBytes": 73856820,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-hubei-museum",
+        "flying": false,
+        "camera": [
+          40.02904039042606,
+          3.450042489612466,
+          0.4109874580149424
+        ],
+        "target": [
+          38.656521278385426,
+          0.46742413758436224,
+          -3.3599778100866278
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 36,
+        "triangles": 662361,
+        "geometries": 171,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "transitionP95FrameMs": 16.80000000000109,
+      "minFlightClearance": 3.4449770467541225,
+      "visibleLabels": [
+        "hubei-museum"
+      ]
+    },
+    {
+      "view": "mobile-emulated",
+      "metrics": {
+        "phase": 3,
+        "placesReady": true,
+        "selectedPlace": "yellow-crane",
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1502.7999999523163,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 14,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 12209,
+          "buildingCount": 731,
+          "roadTriangles": 333362,
+          "loadedSurfaceChunks": 35,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 276482,
+        "estimatedGeometryBytes": 74033496,
+        "datasetId": "727ce7844d028d10",
+        "region": "place-yellow-crane",
+        "flying": false,
+        "camera": [
+          -20.599528715956154,
+          2.3033876434011304,
+          15.74767384164359
+        ],
+        "target": [
+          -21.97860403920946,
+          0.8538351243154721,
+          14.36859851839028
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 37,
+        "triangles": 751149,
+        "geometries": 121,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "physicalDevice": false
+    }
+  ],
+  "issues": [],
+  "checks": [
+    "12 models",
+    "22 places",
+    "replacement QA separate",
+    "real canvas pick",
+    "label click",
+    "non-overlapping labels",
+    "22 cards",
+    "route next/previous",
+    "fly clearance",
+    "one renderer and rAF",
+    "nested deployment",
+    "mobile viewport",
+    "dispose"
+  ],
+  "performanceTargetMs": 25,
+  "physicalMobileTested": false
+}

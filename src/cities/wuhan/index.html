@@ -14,7 +14,7 @@
 <body>
   <main id="app">
     <div id="scene" aria-label="武汉三维地理沙盘"></div>
-    <div id="labels" aria-hidden="true"></div>
+    <div id="labels" aria-label="地图地点"></div>
     <header class="brand">
       <a class="atlas-name" href="../">微缩城市图志 <span>MINIATURE CITY ATLAS</span></a>
       <h1>武汉<span>江汉之间</span></h1>
@@ -26,12 +26,25 @@
       <button id="labels-toggle" aria-pressed="true">字<span>地名</span></button>
       <button id="mesh-toggle" aria-pressed="false">▧<span>网格</span></button>
       <button id="info-toggle" aria-expanded="false">ⓘ<span>数据</span></button>
+      <button id="journey-toggle" aria-controls="journeys" title="推荐浏览路线">⌁<span>浏览</span></button>
     </div>
+    <aside id="journeys" hidden aria-label="推荐浏览路线">
+      <button id="journey-close" aria-label="关闭浏览路线">×</button>
+      <span class="eyebrow">EXPLORE WUHAN</span><h2>沿着江湖，认识武汉</h2>
+      <div id="route-options"></div>
+      <div class="route-controls"><button id="route-prev" aria-label="上一站">←</button><span id="route-progress">选择一条路线</span><button id="route-next" aria-label="下一站">→</button></div>
+    </aside>
+    <aside id="place-card" hidden aria-labelledby="place-name">
+      <button id="place-close" aria-label="关闭地点卡">×</button>
+      <span id="place-type" class="eyebrow"></span><h2 id="place-name"></h2>
+      <p id="place-en"></p><p id="place-description"></p><p id="place-district"></p>
+      <div class="place-actions"><button id="place-refocus">回到此处 ↗</button><a id="place-source" target="_blank" rel="noreferrer">资料来源 ↗</a></div>
+    </aside>
     <aside id="data-panel" hidden>
       <button id="info-close" aria-label="关闭数据说明">×</button>
       <span class="eyebrow">ABOUT THIS LANDSCAPE</span>
       <h2>从真实山水开始</h2>
-      <p>真实山水之上，沿着道路、城市楼群与六座桥梁，认识两江三镇。普通建筑依据公开轮廓生成，缺失数据保留空白。</p>
+      <p>真实山水之上，沿着道路、城市楼群与六座桥梁，认识两江三镇。点击地标或地名，走近武汉的建筑与故事。普通建筑依据公开轮廓生成，地标为资料研究后的程序化简模。</p>
       <dl><dt>高程</dt><dd>Copernicus GLO-30 · 约 30 米</dd><dt>水系</dt><dd>OSM / Overture · 2026.09.23 版</dd><dt>垂直比例</dt><dd>1 : 1 · 未夸张山体</dd><dt>范围</dt><dd>三镇—东湖核心区及外围背景</dd></dl>
       <p class="note">高程为 DSM，包含树冠和建筑影响；水位按源数据估计，并非实时水情。着色表示高程，不代表实际植被。岸线保留湖岛，研究范围并非武汉行政边界。</p>
       <p id="data-stats" class="note"></p>
@@ -39,7 +52,7 @@
       <p class="source-links"><a href="https://registry.opendata.aws/copernicus-dem/" target="_blank" rel="noreferrer">高程来源 ↗</a><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OSM / ODbL ↗</a><a href="../data/wuhan/quality.json" target="_blank">质量报告 ↗</a></p>
     </aside>
     <footer>
-      <div class="view-caption"><span class="eyebrow">WUHAN · CITY STUDY 02</span><strong id="view-title">两江三镇</strong><span id="view-caption">长江与汉水，在这里相逢</span></div>
+      <div class="view-caption"><span class="eyebrow">WUHAN · CITY STUDY 03</span><strong id="view-title">两江三镇</strong><span id="view-caption">长江与汉水，在这里相逢</span></div>
       <div class="lighting" role="group" aria-label="光照"><button data-light="day" aria-pressed="true">日光</button><button data-light="sunset" aria-pressed="false">夕照</button></div>
       <div class="gesture">拖动旋转 · 滚轮缩放 · 右键平移<span>触屏：单指旋转 · 双指缩放和平移</span></div>
     </footer>

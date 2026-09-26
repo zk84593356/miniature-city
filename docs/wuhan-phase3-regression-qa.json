@@ -1,0 +1,1552 @@
+[
+  {
+    "view": "confluence",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 86,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 240319,
+        "buildingCount": 15347,
+        "roadTriangles": 1530734,
+        "loadedSurfaceChunks": 31,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 97082,
+      "estimatedGeometryBytes": 135533568,
+      "datasetId": "727ce7844d028d10",
+      "region": "confluence",
+      "flying": false,
+      "camera": [
+        -56.54806697119834,
+        97.468406133147,
+        97.15205450341115
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        -6.671704814012228
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 309,
+      "triangles": 2082531,
+      "geometries": 337,
+      "frameSamples": 180,
+      "p95FrameMs": 16.799999999999272,
+      "disposed": false
+    }
+  },
+  {
+    "view": "guishan",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 94,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 103609,
+        "buildingCount": 5628,
+        "roadTriangles": 730934,
+        "loadedSurfaceChunks": 34,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 111823,
+      "estimatedGeometryBytes": 141708336,
+      "datasetId": "727ce7844d028d10",
+      "region": "guishan",
+      "flying": false,
+      "camera": [
+        -34.275992914896825,
+        39.2290436550217,
+        51.2377188247483
+      ],
+      "target": [
+        -26.80993607751666,
+        0.30085961963384034,
+        8.895606418681654
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 123,
+      "triangles": 1104850,
+      "geometries": 346,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "jianghanguan",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 94,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 63421,
+        "buildingCount": 3078,
+        "roadTriangles": 522204,
+        "loadedSurfaceChunks": 41,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 198621,
+      "estimatedGeometryBytes": 145849944,
+      "datasetId": "727ce7844d028d10",
+      "region": "jianghanguan",
+      "flying": false,
+      "camera": [
+        -28.739435632641666,
+        26.993565534966866,
+        7.514505897606082
+      ],
+      "target": [
+        -21.06494977518972,
+        0.20000000000000004,
+        -21.12706524437338
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 76,
+      "triangles": 884406,
+      "geometries": 346,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "cbd",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 94,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 29281,
+        "buildingCount": 1284,
+        "roadTriangles": 432930,
+        "loadedSurfaceChunks": 62,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 201859,
+      "estimatedGeometryBytes": 148823016,
+      "datasetId": "727ce7844d028d10",
+      "region": "cbd",
+      "flying": false,
+      "camera": [
+        -79.48681463652511,
+        27.059790936777247,
+        -15.83646095143671
+      ],
+      "target": [
+        -71.81232877907317,
+        0.21276746409597536,
+        -44.47803209341617
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 60,
+      "triangles": 744594,
+      "geometries": 349,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "wuchang",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 91,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 50276,
+        "buildingCount": 3177,
+        "roadTriangles": 373934,
+        "loadedSurfaceChunks": 69,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 253215,
+      "estimatedGeometryBytes": 148686384,
+      "datasetId": "727ce7844d028d10",
+      "region": "wuchang",
+      "flying": false,
+      "camera": [
+        -4.801992706288472,
+        27.156367566096293,
+        -9.164756137424487
+      ],
+      "target": [
+        2.872493151163468,
+        0.3093440934150209,
+        -37.806327279403945
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 64,
+      "triangles": 770845,
+      "geometries": 341,
+      "frameSamples": 180,
+      "p95FrameMs": 16.799999999995634,
+      "disposed": false
+    }
+  },
+  {
+    "view": "luojia",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 54,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 89712,
+        "buildingCount": 4147,
+        "roadTriangles": 397564,
+        "loadedSurfaceChunks": 88,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 159311,
+      "estimatedGeometryBytes": 122348268,
+      "datasetId": "727ce7844d028d10",
+      "region": "luojia",
+      "flying": false,
+      "camera": [
+        35.27288011952451,
+        20.017338751797208,
+        44.38651503848868
+      ],
+      "target": [
+        44.044894984511096,
+        1.2244223209203113,
+        25.57486845371223
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 51,
+      "triangles": 735863,
+      "geometries": 257,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "guanggu",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 63,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 81520,
+        "buildingCount": 4913,
+        "roadTriangles": 363226,
+        "loadedSurfaceChunks": 105,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 182432,
+      "estimatedGeometryBytes": 132668496,
+      "datasetId": "727ce7844d028d10",
+      "region": "guanggu",
+      "flying": false,
+      "camera": [
+        82.33029954567469,
+        27.228790007802274,
+        92.02276687509168
+      ],
+      "target": [
+        90.00478540312663,
+        0.38176653512100245,
+        63.38119573311221
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 54,
+      "triangles": 693292,
+      "geometries": 275,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "donghu",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 82,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 135405,
+        "buildingCount": 8931,
+        "roadTriangles": 743914,
+        "loadedSurfaceChunks": 110,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 110340,
+      "estimatedGeometryBytes": 134289096,
+      "datasetId": "727ce7844d028d10",
+      "region": "donghu",
+      "flying": false,
+      "camera": [
+        52.51361348510035,
+        63.95668074761804,
+        65.06435047633235
+      ],
+      "target": [
+        76.5998173643683,
+        0.2,
+        -1.1119508023366933
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 147,
+      "triangles": 1088703,
+      "geometries": 319,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-sequence",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 100,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 206582,
+        "buildingCount": 11703,
+        "roadTriangles": 1516254,
+        "loadedSurfaceChunks": 95,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 234167,
+      "estimatedGeometryBytes": 183918864,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-sequence",
+      "flying": false,
+      "camera": [
+        40.38473714683306,
+        23.39345656375133,
+        82.36169590670823
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        0
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 278,
+      "triangles": 2169158,
+      "geometries": 444,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "overview",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 146,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 421132,
+        "buildingCount": 26162,
+        "roadTriangles": 2656928,
+        "loadedSurfaceChunks": 86,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 222522,
+      "estimatedGeometryBytes": 211125564,
+      "datasetId": "727ce7844d028d10",
+      "region": "overview",
+      "flying": false,
+      "camera": [
+        -21.81824578288508,
+        376.0451864492659,
+        407.98767122681016
+      ],
+      "target": [
+        14.362465755817356,
+        0.20000000000000004,
+        -5.559754011679491
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 615,
+      "triangles": 3546928,
+      "geometries": 615,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-yangtze-first",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 159,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 53108,
+        "buildingCount": 2696,
+        "roadTriangles": 393120,
+        "loadedSurfaceChunks": 87,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 305053,
+      "estimatedGeometryBytes": 235316364,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-yangtze-first",
+      "flying": false,
+      "camera": [
+        -38.991295647026256,
+        7.755281329418527,
+        22.565381856285285
+      ],
+      "target": [
+        -35.3483388499984,
+        0.2,
+        8.969681999998969
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 94,
+      "triangles": 901649,
+      "geometries": 657,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-yingwuzhou",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 159,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 69373,
+        "buildingCount": 3473,
+        "roadTriangles": 682084,
+        "loadedSurfaceChunks": 77,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 264004,
+      "estimatedGeometryBytes": 233047200,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-yingwuzhou",
+      "flying": false,
+      "camera": [
+        -46.522222441772634,
+        10.928128034493868,
+        48.19520144376672
+      ],
+      "target": [
+        -41.360741600006385,
+        0.2,
+        28.932292700001696
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 116,
+      "triangles": 1109205,
+      "geometries": 659,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-yangsigang",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 159,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 49138,
+        "buildingCount": 3013,
+        "roadTriangles": 612790,
+        "loadedSurfaceChunks": 66,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 273601,
+      "estimatedGeometryBytes": 233186256,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-yangsigang",
+      "flying": false,
+      "camera": [
+        -65.41599450684426,
+        11.562055468565916,
+        76.53553788090068
+      ],
+      "target": [
+        -59.950655600006655,
+        0.2,
+        56.13861539999978
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 106,
+      "triangles": 1094385,
+      "geometries": 662,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-erqi",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 163,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 11537,
+        "buildingCount": 812,
+        "roadTriangles": 293388,
+        "loadedSurfaceChunks": 88,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 257540,
+      "estimatedGeometryBytes": 235536492,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-erqi",
+      "flying": false,
+      "camera": [
+        13.449430962785343,
+        11.771368805148835,
+        -56.19488262098929
+      ],
+      "target": [
+        19.01604549999331,
+        0.2,
+        -76.96977090000091
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 70,
+      "triangles": 641261,
+      "geometries": 671,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-qingchuan",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 64,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 52626,
+        "buildingCount": 2573,
+        "roadTriangles": 450962,
+        "loadedSurfaceChunks": 86,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 322114,
+      "estimatedGeometryBytes": 128445216,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-qingchuan",
+      "flying": false,
+      "camera": [
+        -42.86098529702632,
+        7.755136262380924,
+        6.978599056285335
+      ],
+      "target": [
+        -39.21802849999846,
+        0.2,
+        -6.617100800001012
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 98,
+      "triangles": 972262,
+      "geometries": 414,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000291,
+      "disposed": false
+    }
+  },
+  {
+    "view": "bridge-yangtze-second",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 65,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 28576,
+        "buildingCount": 1909,
+        "roadTriangles": 385558,
+        "loadedSurfaceChunks": 86,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 311866,
+      "estimatedGeometryBytes": 132359244,
+      "datasetId": "727ce7844d028d10",
+      "region": "bridge-yangtze-second",
+      "flying": false,
+      "camera": [
+        -4.2766159541627715,
+        8.684717592267887,
+        -35.14266817945083
+      ],
+      "target": [
+        -0.1881614000062797,
+        0.2,
+        -50.40098829999918
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 74,
+      "triangles": 806236,
+      "geometries": 417,
+      "frameSamples": 180,
+      "p95FrameMs": 16.79999999998836,
+      "disposed": false
+    }
+  },
+  {
+    "prefix": "/",
+    "loadMs": 2362,
+    "initial": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 2181.900000035763,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 34,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 155124,
+        "buildingCount": 9509,
+        "roadTriangles": 1025726,
+        "loadedSurfaceChunks": 31,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 91942,
+      "estimatedGeometryBytes": 100982340,
+      "datasetId": "727ce7844d028d10",
+      "region": "confluence",
+      "flying": false,
+      "camera": [
+        -56.544942744884395,
+        97.46723317293691,
+        97.15399057566329
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        -6.671704814012228
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 204,
+      "triangles": 1528759,
+      "geometries": 217,
+      "frameSamples": 180,
+      "p95FrameMs": 16.80000000000109,
+      "disposed": false
+    },
+    "hillSamples": [
+      {
+        "kind": "ground",
+        "height": 0.9505568154433917,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          0.24110367951116332,
+          0.9643457433637315,
+          0.10911600699453038
+        ]
+      },
+      {
+        "kind": "ground",
+        "height": 0.37960194427039085,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          0.091914955778837,
+          0.9957424032153522,
+          -0.006979064628525808
+        ]
+      },
+      {
+        "kind": "ground",
+        "height": 1.2244223209203113,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          0.09119190236241699,
+          0.9891407575553702,
+          0.11525883344156977
+        ]
+      },
+      {
+        "kind": "ground",
+        "height": 0.7016994911560914,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          -0.060798937063447696,
+          0.9594033878874287,
+          0.2754062972447776
+        ]
+      }
+    ],
+    "bridgeLayers": [
+      {
+        "id": "yangtze-first",
+        "towerCount": 0,
+        "under": {
+          "kind": "water",
+          "height": 0.14701436942251006,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.4670144,
+          "normal": [
+            -0.0001196763564970227,
+            0.9999999898926138,
+            -0.00007676159093494958
+          ],
+          "surfaceId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "layerId": "bridge-yangtze-first",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 29
+      },
+      {
+        "id": "yingwuzhou",
+        "towerCount": 3,
+        "under": {
+          "kind": "water",
+          "height": 0.14729506963183414,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.4972951,
+          "normal": [
+            -0.00021614235590814172,
+            0.9999999661684233,
+            -0.00014472606526350486
+          ],
+          "surfaceId": "bridge-yingwuzhou",
+          "kind": "bridge",
+          "layerId": "bridge-yingwuzhou",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 33
+      },
+      {
+        "id": "yangsigang",
+        "towerCount": 2,
+        "under": {
+          "kind": "water",
+          "height": 0.14775419163835796,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.5277643,
+          "normal": [
+            -0.000488674261263458,
+            0.999999801445539,
+            -0.00039787730390039464
+          ],
+          "surfaceId": "bridge-yangsigang",
+          "kind": "bridge",
+          "layerId": "bridge-yangsigang",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 61
+      },
+      {
+        "id": "erqi",
+        "towerCount": 3,
+        "under": {
+          "kind": "water",
+          "height": 0.17844000000000002,
+          "surfaceId": "water-525",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        "over": {
+          "height": 0.4592103,
+          "normal": [
+            0.0020469817333345153,
+            0.9999959665565008,
+            0.001968942993933132
+          ],
+          "surfaceId": "bridge-erqi",
+          "kind": "bridge",
+          "layerId": "bridge-erqi",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 42
+      },
+      {
+        "id": "qingchuan",
+        "towerCount": 0,
+        "under": {
+          "kind": "water",
+          "height": 0.14686653948838171,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.3323944,
+          "normal": [
+            -0.0000034377352564992083,
+            0.9999999999873301,
+            -0.0000036771827179582873
+          ],
+          "surfaceId": "bridge-qingchuan",
+          "kind": "bridge",
+          "layerId": "bridge-qingchuan",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 14
+      },
+      {
+        "id": "yangtze-second",
+        "towerCount": 2,
+        "under": {
+          "kind": "water",
+          "height": 0.1460284591317593,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.4460285,
+          "normal": [
+            0.00007795080391244375,
+            0.9999999952334382,
+            0.00005879452157036819
+          ],
+          "surfaceId": "bridge-yangtze-second",
+          "kind": "bridge",
+          "layerId": "bridge-yangtze-second",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 49
+      }
+    ],
+    "errors": [],
+    "missing": [],
+    "escaped": []
+  },
+  {
+    "prefix": "/nested/example/",
+    "loadMs": 1646,
+    "initial": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 1525.199999988079,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 34,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 155124,
+        "buildingCount": 9509,
+        "roadTriangles": 1025726,
+        "loadedSurfaceChunks": 31,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 91942,
+      "estimatedGeometryBytes": 100982340,
+      "datasetId": "727ce7844d028d10",
+      "region": "confluence",
+      "flying": false,
+      "camera": [
+        -56.544942744884395,
+        97.46723317293691,
+        97.15399057566329
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        -6.671704814012228
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 204,
+      "triangles": 1528759,
+      "geometries": 217,
+      "frameSamples": 180,
+      "p95FrameMs": 16.800000000000182,
+      "disposed": false
+    },
+    "hillSamples": [
+      {
+        "kind": "ground",
+        "height": 0.9505568154433917,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          0.24110367951116332,
+          0.9643457433637315,
+          0.10911600699453038
+        ]
+      },
+      {
+        "kind": "ground",
+        "height": 0.37960194427039085,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          0.091914955778837,
+          0.9957424032153522,
+          -0.006979064628525808
+        ]
+      },
+      {
+        "kind": "ground",
+        "height": 1.2244223209203113,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          0.09119190236241699,
+          0.9891407575553702,
+          0.11525883344156977
+        ]
+      },
+      {
+        "kind": "ground",
+        "height": 0.7016994911560914,
+        "surfaceId": "terrain",
+        "layerId": "ground",
+        "traversable": true,
+        "rideAllowed": true,
+        "normal": [
+          -0.060798937063447696,
+          0.9594033878874287,
+          0.2754062972447776
+        ]
+      }
+    ],
+    "bridgeLayers": [
+      {
+        "id": "yangtze-first",
+        "towerCount": 0,
+        "under": {
+          "kind": "water",
+          "height": 0.14701436942251006,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.4670144,
+          "normal": [
+            -0.0001196763564970227,
+            0.9999999898926138,
+            -0.00007676159093494958
+          ],
+          "surfaceId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "layerId": "bridge-yangtze-first",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 29
+      },
+      {
+        "id": "yingwuzhou",
+        "towerCount": 3,
+        "under": {
+          "kind": "water",
+          "height": 0.14729506963183414,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.4972951,
+          "normal": [
+            -0.00021614235590814172,
+            0.9999999661684233,
+            -0.00014472606526350486
+          ],
+          "surfaceId": "bridge-yingwuzhou",
+          "kind": "bridge",
+          "layerId": "bridge-yingwuzhou",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 33
+      },
+      {
+        "id": "yangsigang",
+        "towerCount": 2,
+        "under": {
+          "kind": "water",
+          "height": 0.14775419163835796,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.5277643,
+          "normal": [
+            -0.000488674261263458,
+            0.999999801445539,
+            -0.00039787730390039464
+          ],
+          "surfaceId": "bridge-yangsigang",
+          "kind": "bridge",
+          "layerId": "bridge-yangsigang",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 61
+      },
+      {
+        "id": "erqi",
+        "towerCount": 3,
+        "under": {
+          "kind": "water",
+          "height": 0.17844000000000002,
+          "surfaceId": "water-525",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        },
+        "over": {
+          "height": 0.4592103,
+          "normal": [
+            0.0020469817333345153,
+            0.9999959665565008,
+            0.001968942993933132
+          ],
+          "surfaceId": "bridge-erqi",
+          "kind": "bridge",
+          "layerId": "bridge-erqi",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 42
+      },
+      {
+        "id": "qingchuan",
+        "towerCount": 0,
+        "under": {
+          "kind": "water",
+          "height": 0.14686653948838171,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.3323944,
+          "normal": [
+            -0.0000034377352564992083,
+            0.9999999999873301,
+            -0.0000036771827179582873
+          ],
+          "surfaceId": "bridge-qingchuan",
+          "kind": "bridge",
+          "layerId": "bridge-qingchuan",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 14
+      },
+      {
+        "id": "yangtze-second",
+        "towerCount": 2,
+        "under": {
+          "kind": "water",
+          "height": 0.1460284591317593,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "over": {
+          "height": 0.4460285,
+          "normal": [
+            0.00007795080391244375,
+            0.9999999952334382,
+            0.00005879452157036819
+          ],
+          "surfaceId": "bridge-yangtze-second",
+          "kind": "bridge",
+          "layerId": "bridge-yangtze-second",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "obstacles": 49
+      }
+    ],
+    "errors": [],
+    "missing": [],
+    "escaped": []
+  },
+  {
+    "view": "mobile-emulated",
+    "metrics": {
+      "phase": 3,
+      "placesReady": true,
+      "selectedPlace": null,
+      "landmarks": {
+        "loaded": 12,
+        "triangles": 69652,
+        "drawCalls": 55,
+        "geometryBytes": 2799888
+      },
+      "placeErrors": [],
+      "initialLoadMs": 1499.4000000357628,
+      "urbanReady": true,
+      "urban": {
+        "roadsReady": true,
+        "bridgesReady": true,
+        "loadedBuildingChunks": 42,
+        "totalBuildingChunks": 477,
+        "buildingTriangles": 116301,
+        "buildingCount": 7464,
+        "roadTriangles": 1002002,
+        "loadedSurfaceChunks": 31,
+        "surfacesReady": true
+      },
+      "urbanErrors": [],
+      "mainLoopCount": 1,
+      "terrainTriangles": 48509,
+      "estimatedGeometryBytes": 92750556,
+      "datasetId": "727ce7844d028d10",
+      "region": "confluence",
+      "flying": false,
+      "camera": [
+        -66.28194667652654,
+        131.5293942039013,
+        133.49298396204972
+      ],
+      "target": [
+        -28.724931511621108,
+        0.2,
+        -6.671704814012228
+      ],
+      "light": "day",
+      "wireframe": false,
+      "labelsVisible": true,
+      "rendererCount": 1,
+      "drawCalls": 185,
+      "triangles": 1348292,
+      "geometries": 190,
+      "frameSamples": 180,
+      "p95FrameMs": 16.800000000000182,
+      "disposed": false
+    },
+    "device": "390x844 desktop Chrome emulation, not a physical phone GPU"
+  },
+  {
+    "failure": "version",
+    "message": "城市数据版本不兼容，请重新构建武汉 City Pack。"
+  },
+  {
+    "failure": "checksum",
+    "message": "数据校验失败: water.bin，请刷新或重新构建。"
+  },
+  {
+    "failure": "missing",
+    "message": "数据读取失败 (404): /data/wuhan/water.bin"
+  }
+]

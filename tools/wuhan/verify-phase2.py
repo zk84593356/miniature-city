@@ -40,10 +40,12 @@ buildings=[]
 for chunk in manifest['urban']['buildingChunks']:buildings.extend(read(OUT/chunk['file']))
 replacement_rows=read(OUT/'landmark-replacements.json')
 building_ids={r['id']:r for r in buildings}
+removed=read(OUT/manifest['landmarks']['replacementAudit'])['removedBuildingIds'] if manifest.get('phase',1)>=3 else {}
+assert not set(removed).intersection(building_ids)
 assert len(replacement_rows)==11
 for replacement in replacement_rows:
     assert replacement['buildingIds'] and replacement['footprints'],replacement['id']
-    assert all(replacement['id'] in building_ids[key]['landmarkIds'] for key in replacement['buildingIds'])
+    assert all(key in removed or replacement['id'] in building_ids[key]['landmarkIds'] for key in replacement['buildingIds'])
 footprints=[];water_overlap=0;unsupported=0;max_support_error=0
 for r in buildings:
     p=Polygon(r['rings'][0],r['rings'][1:]);assert p.is_valid and not p.is_empty,r['id'];footprints.append(p)
@@ -101,5 +103,6 @@ for b in bridges:
     if b['id']=='yangtze-first':assert b['lowerDeckKind']=='rail' and b['lowerLayerId']!=b['layerId']
     bridge_qa.append(dict(id=b['id'],structure=b['structure'],towers=b['towerCount'],minLowerClearanceMeters=min(clearance),maxGrade=float(slopes.max()),endpointErrorMeters=max(endpoint_errors)))
 report=dict(result='PASS',buildings=len(buildings),waterOverlap=water_overlap,duplicates=duplicates,partialOverlapPairs=overlaps,unsupported=unsupported,maxFoundationErrorMeters=max_support_error,roads=len(roads),roadContactMaxErrorMeters=max(ground_errors,default=0),bridgeChecks=bridge_qa,sourceHashes=True,assetHashes=True,LF=True)
-(ROOT/'docs/wuhan-phase2-geometry-qa.json').write_bytes((json.dumps(report,ensure_ascii=False,indent=2)+'\n').encode())
+report_name='wuhan-phase3-geometry-regression-qa.json' if manifest.get('phase',1)>=3 else 'wuhan-phase2-geometry-qa.json'
+(ROOT/'docs'/report_name).write_bytes((json.dumps(report,ensure_ascii=False,indent=2)+'\n').encode())
 print(json.dumps(report,ensure_ascii=False,indent=2))

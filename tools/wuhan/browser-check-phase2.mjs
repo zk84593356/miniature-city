@@ -132,6 +132,8 @@ try {
     await page.close();
   }
   await writeFile('probe/wuhan/phase2-browser-results.json', JSON.stringify(results, null, 2)+'\n');
-  await writeFile('docs/wuhan-phase2-browser-qa.json',JSON.stringify(results,null,2)+'\n');
-  console.log(JSON.stringify({result:'PASS',cases:results.length,report:'docs/wuhan-phase2-browser-qa.json'}));
+  const manifest=JSON.parse(await readFile('atlas-site/cities/wuhan/manifest.json','utf8'));
+  const report=manifest.phase>=3?'docs/wuhan-phase3-regression-qa.json':'docs/wuhan-phase2-browser-qa.json';
+  await writeFile(report,JSON.stringify(results,null,2)+'\n');
+  console.log(JSON.stringify({result:'PASS',cases:results.length,report}));
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); }
