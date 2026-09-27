@@ -2,6 +2,7 @@ import * as THREE from 'three';
 
 export const landmarkPalette={traditionalRoof:'#bb8735',traditionalWall:'#dbd1b9',column:'#994d3a',stone:'#c2bba7',historicWhite:'#e6e1cf',glassTower:'#7b9b9e',metal:'#b6b9b2',stationRoof:'#e3e3d7',museumRoof:'#666f68',campusRoof:'#497d70',concrete:'#b8b5a5',dark:'#425c5a',gold:'#c2a455'};
 const materials=Object.fromEntries(Object.entries(landmarkPalette).map(([key,color])=>[key,new THREE.MeshStandardMaterial({color,roughness:key==='glassTower'?.34:.8,metalness:key==='glassTower'?.22:.08,side:THREE.DoubleSide})]));
+export const landmarkMaterials=materials;
 const up=new THREE.Vector3(0,1,0);
 
 // Every repeated column, eave, mullion and roof strip is baked into one buffer

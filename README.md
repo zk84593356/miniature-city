@@ -40,6 +40,17 @@ npm run atlas:serve
 
 打开 <http://127.0.0.1:4175/wuhan/>。根路径仍为深圳。武汉在真实地形和水系上增加了 OSM 道路、普通建筑和六座主要桥梁。Phase 3 增加 11 个重点地标、轻量行吟阁及 22 个地点，支持点击、信息卡和两条浏览路线。处理过程、来源限制与验收记录见 [武汉 Phase 2](docs/wuhan-phase2.md) 和 [Phase 3 交付报告](docs/wuhan-phase3.md)。Cloudflare Pages 构建命令为 `npm run atlas:build`，产物目录为 `atlas-site/`；挂载于 `/city/` 时，深圳与武汉分别为 `/city/`、`/city/wuhan/`。
 
+武汉 Phase 4 增加基于 OSM 节点拓扑的示意车流、长江/汉江船只、动态水面、夜景窗灯与桥梁/地标照明。数据面板可以统一暂停动态；支持实时 reduced-motion 和 high/medium/low 档位。完整说明见 [Phase 4 报告](docs/wuhan-phase4.md)，不包含武汉 Ride。
+
+```powershell
+npm run wuhan:traffic:verify
+npm run wuhan:vessels:verify
+npm run wuhan:dynamics:browser
+npm run wuhan:browser
+```
+
+离线重建动态数据使用已锁定的原始 OSM 缓存：先运行 `node tools/wuhan/export-dynamic-obstacles.mjs`，再在已安装 `tools/wuhan/requirements.txt` 的 Python 环境运行 `python tools/wuhan/build-dynamics.py` 和 `python tools/wuhan/verify-dynamic-geography.py`。Cloudflare 构建直接读取仓库 City Pack，不执行 GIS 生成器。
+
 深圳基线验证：
 
 ```powershell

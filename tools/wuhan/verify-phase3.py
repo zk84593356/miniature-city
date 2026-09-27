@@ -6,7 +6,7 @@ from shapely.geometry import Polygon,shape,Point
 from phase2_common import ROOT,OUT,RAW,read,write,decode,TerrainSampler
 
 m=read(OUT/'manifest.json');audit=read(OUT/m['landmarks']['replacementAudit']);base=json.loads(subprocess.check_output(['git','show',audit['baseline']+':city-data/wuhan/generated/manifest.json'],cwd=ROOT))
-assert m['phase']==3
+assert m['phase']>=3
 for field in ['projection','bounds','terrainExaggeration','terrain','terrainChunks','terrainOverview','stableSurface']:
     assert m[field]==base[field],field
 changed=set(audit['changedChunks'])

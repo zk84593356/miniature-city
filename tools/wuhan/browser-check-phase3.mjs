@@ -26,7 +26,7 @@ async function prepare(page,prefix='/'){
   await page.goto(`http://127.0.0.1:${port}${prefix}wuhan/`);
   await page.waitForFunction(()=>window.__wuhan?.getState().placesReady&&window.__wuhan.getState().urban.buildingCount>0,null,{timeout:120000});
   const state=await page.evaluate(()=>window.__wuhan.getState());
-  assert.equal(state.landmarks.loaded,12);assert.equal(state.phase,3);assert.deepEqual(state.placeErrors,[]);
+  assert.equal(state.landmarks.loaded,12);assert.ok(state.phase>=3);assert.deepEqual(state.placeErrors,[]);
   assert.equal(await page.locator('#regions button').count(),6);
   assert.equal(await page.evaluate(()=>window.__wuhan.getPlaces().length),22);
 }
@@ -77,6 +77,6 @@ try{
   await mobile.locator('#place-close').tap();assert.equal(await mobile.locator('#place-card').isVisible(),false);
   await mobile.locator('#journey-toggle').tap();await mobile.locator('[data-route="east-lake"]').tap();await mobile.waitForTimeout(2500);await mobile.screenshot({path:'probe/wuhan/phase3-mobile-route.png'});await mobile.locator('#journey-close').tap();assert.equal(await mobile.locator('#journeys').isVisible(),false);await mobile.close();
   assert.deepEqual(issues,[]);
-  await writeFile('docs/wuhan-phase3-browser-qa.json',JSON.stringify({result:'PASS',date:new Date().toISOString(),views:results,issues,checks:['12 models','22 places','replacement QA separate','real canvas pick','label click','non-overlapping labels','22 cards','route next/previous','fly clearance','one renderer and rAF','nested deployment','mobile viewport','dispose'],performanceTargetMs:25,physicalMobileTested:false},null,2)+'\n');
+  await writeFile(results[0].metrics.phase>=4?'docs/wuhan-phase4-landmarks-regression-qa.json':'docs/wuhan-phase3-browser-qa.json',JSON.stringify({result:'PASS',date:new Date().toISOString(),views:results,issues,checks:['12 models','22 places','replacement QA separate','real canvas pick','label click','non-overlapping labels','22 cards','route next/previous','fly clearance','one renderer and rAF','nested deployment','mobile viewport','dispose'],performanceTargetMs:25,physicalMobileTested:false},null,2)+'\n');
   console.log('PASS — Phase 3 browser interaction and visual captures');
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

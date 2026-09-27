@@ -6,6 +6,9 @@ import { createGeography } from './render/geography.js';
 import { createUrban } from './render/urban.js';
 import { createPlaces } from './places.js';
 import { createTerrainSurface } from './adapters/terrain-surface.js';
+import {createDynamics} from './simulation/dynamics.js';
+import {createNightLighting} from './render/night-lighting.js';
+import {landmarkMaterials} from './render/landmark-models.js';
 
 const $ = selector => document.querySelector(selector);
 const abort = new AbortController();
@@ -50,10 +53,14 @@ async function start() {
   scene.updateMatrixWorld(true);
   const surface = createTerrainSurface(geography.stableTerrain, pack.waters, projection, pack.manifest.bounds.context);
   const urban=createUrban(pack,surface); scene.add(urban.group);
+  const dynamics=createDynamics(pack,geography,scene);
+  const lighting=createNightLighting({scene,sun,ambient,renderer,geography,urban,landmarkMaterials});
   const initMs=performance.now();
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let flight = null, disposed = false, frame = 0, labelsVisible = true, currentRegion = 'confluence';
   let lightMode = 'day';
+  const onMotionChange=event=>{if(event.matches&&flight)fly(currentRegion,true);};
+  reducedMotion.addEventListener('change',onMotionChange);
   const frameTimes = [];
   const places=createPlaces({pack,scene,surface,projection,camera,geography,urban,onFocus:id=>fly(id)});
 
@@ -72,7 +79,7 @@ async function start() {
     const offset = new THREE.Vector3(Math.sin(theta) * .74, region.elevation ?? .67, Math.cos(theta) * .74).normalize().multiplyScalar(distance);
     const destination = target.clone().add(offset);
     destination.y=Math.max(destination.y,places.cameraFloor(destination.x,destination.z));
-    if (immediate || reducedMotion) {
+    if (immediate || reducedMotion.matches) {
       flight = null;
       camera.position.copy(destination);
       controls.target.copy(target);
@@ -113,17 +120,13 @@ async function start() {
   window.addEventListener('keydown', event => { if (event.key === 'Escape') {setInfo(false);places.close();$('#journeys').hidden=true;} });
   $('#data-stats').textContent = `${pack.quality.waterBodies} 片连通水域 · ${pack.quality.waterHoles} 个水域孔洞 · ${(pack.manifest.terrain.triangles / 10000).toFixed(1)} 万个地形三角面`;
   $('#full-attribution').textContent = pack.manifest.attribution;
-  document.querySelectorAll('[data-light]').forEach(button => button.addEventListener('click', () => {
-    lightMode = button.dataset.light;
-    const sunset = lightMode === 'sunset';
-    scene.background.set(sunset ? '#eee6da' : '#f1f5f0');
-    scene.fog.color.copy(scene.background);
-    sun.color.set(sunset ? '#ffc791' : '#fff5df');
-    sun.position.set(sunset ? -150 : -120, sunset ? 45 : 180, 90);
-    ambient.intensity = sunset ? 1.6 : 2.2;
-    geography.waterMaterial.color.set(sunset ? '#8faea0' : '#78b5aa');
-    document.querySelectorAll('[data-light]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-  }));
+  function setLight(value){
+    if(!['day','sunset','night'].includes(value))return;
+    lightMode=value;lighting.set(value);dynamics.setMode(value);
+    document.querySelectorAll('[data-light]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.light===value)));
+  }
+  document.querySelectorAll('[data-light]').forEach(button=>button.addEventListener('click',()=>setLight(button.dataset.light)));
+  $('#dynamic-toggle').addEventListener('change',event=>dynamics.setPaused(!event.target.checked));
   const raycaster = new THREE.Raycaster();
   let pointerStart = null;
   renderer.domElement.addEventListener('pointerdown', event => { pointerStart = [event.clientX, event.clientY]; });
@@ -148,7 +151,7 @@ async function start() {
     if (document.hidden) { previous = now; return; }
     if (now >= sampleAfter) frameTimes.push(now - previous);
     if (frameTimes.length > 180) frameTimes.shift();
-    previous = now;
+    const dt=Math.min(.15,(now-previous)/1000);previous = now;
     if (flight) {
       const t = Math.min(1, (now - flight.start) / 1600);
       const eased = t * t * t * (t * (t * 6 - 15) + 10);
@@ -166,6 +169,8 @@ async function start() {
     if(camera.position.y<8)camera.position.y=Math.max(camera.position.y,places.cameraFloor(camera.position.x,camera.position.z));
     geography.update(camera,now);
     urban.update(camera,now,controls.target);
+    lighting.update();
+    dynamics.update(dt,camera);
     renderer.render(scene, camera);
     places.update(now,labelsVisible,controls.target);
     $('#north').style.transform = `rotate(${-controls.getAzimuthalAngle() * 180 / Math.PI}deg)`;
@@ -175,7 +180,8 @@ async function start() {
     disposed = true;
     cancelAnimationFrame(frame);
     window.removeEventListener('resize', resize);
-    controls.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
+    reducedMotion.removeEventListener('change',onMotionChange);
+    controls.dispose(); dynamics.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
   };
   // Explicit diagnostics for browser verification and future surface adapters.
   function terrainTriangles() {
@@ -185,10 +191,11 @@ async function start() {
     return triangles;
   }
   window.__wuhan = {
+    setLight,setDynamicPaused:value=>{dynamics.setPaused(value);$('#dynamic-toggle').checked=!value;},setQuality:value=>{dynamics.setQuality(value);lighting.uniforms.detail.value=value==='low'?.35:1;},getDynamics:()=>dynamics.snapshot(),
     resetFrameStats:()=>{frameTimes.length=0;},
     projectWorld:(position)=>{const p=new THREE.Vector3(...position).project(camera);return [(p.x+1)*innerWidth/2,(1-p.y)*innerHeight/2,p.z];},
     ready: true, fly, selectPlace:(id)=>places.select(id), getPlaces:()=>places.places, getLandmarks:()=>places.collision, getLabels:()=>places.getLabels(), cameraFloor:(x,z)=>places.cameraFloor(x,z), sampleWorld:(x,z)=>surface.sample(x,z), sampleSurface: (x,z,y,id)=>surface.sampleSurface(x,z,y,id), getBridges:()=>urban.bridges.children.map(o=>o.userData), sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
-    getState: () => ({ phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
+    getState: () => ({ dynamics:dynamics.state, phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
     dispose: disposeScene,
   };
   frame = requestAnimationFrame(render);

@@ -90,7 +90,7 @@ export function createUrban(pack,surface) {
     stats.buildingCount=entries.filter(e=>e.mesh?.visible).reduce((n,e)=>n+e.spec.count,0);
     stats.buildingTriangles=entries.filter(e=>e.mesh?.visible).reduce((n,e)=>n+e.mesh.geometry.index.count/3,0);
   }
-  return {group,update,bridges,stats,errors,get ready(){return ready;},
+  return {group,update,bridges,buildingMaterial:material,stats,errors,get ready(){return ready;},
     dispose(){disposed=true;group.traverse(o=>{o.geometry?.dispose();});material.dispose();roadMaterials.forEach(m=>m.dispose());bridges.traverse(o=>o.material?.dispose());},
   };
 }

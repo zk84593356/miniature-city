@@ -6,3 +6,7 @@
 #journeys{top:auto;bottom:158px}#journeys h2{margin:10px 0 15px}@media(max-width:700px){#journeys{top:190px;bottom:auto;padding:16px;max-height:150px}#journeys h2{display:none}#journeys .eyebrow{display:none}#journeys .route-controls{margin-top:12px}}
 
 #journey-close{position:absolute;right:10px;top:7px;background:transparent;font-size:22px;padding:0 3px}
+.dynamic-setting{display:flex;gap:9px;align-items:center;font-size:12px;padding:12px 0;border-top:1px solid #bdcbb7}.dynamic-setting input{accent-color:#34594b}
+body[data-light=night]{color:#dce4e4}body[data-light=night] .brand p{color:#bbc9cb}body[data-light=night] .label{color:#cfdbd8;text-shadow:0 1px 4px #14232b,0 0 7px #14232b}body[data-light=night] .label.water{color:#a6c6ce}body[data-light=night] .place-label{background:#263d49e8;border-color:#829ba066;color:#efe0bc}body[data-light=night] .tools button,body[data-light=night] #regions button,body[data-light=night] .lighting button{background:#293f4be8;color:#dce4e4}body[data-light=night] #regions button[aria-pressed=true],body[data-light=night] .lighting button[aria-pressed=true]{background:#c7d4cd;color:#223c41}body[data-light=night] #data-panel,body[data-light=night] #place-card,body[data-light=night] #journeys{color:#294c40}body[data-light=night] .attribution{color:#b8c7ce}
+@media(max-width:700px){.lighting{display:flex;flex-wrap:nowrap}.lighting button{padding:8px 9px}.view-caption{max-width:190px}}
+body[data-light=night] .view-caption>span:last-child,body[data-light=night] .gesture{color:#bdcccf}

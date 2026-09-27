@@ -1,0 +1,9 @@
+# Phase 4 traffic implementation notes
+
+The Shenzhen traffic implementation was read in `src/readable/traffic-Cw95n69J/001-at.js` and `002-ot.js`. Its simulation builds cumulative lane distances, caches itineraries, sorts lane occupancy, reserves conflicting junction movements, checks downstream room, and caps travel by the leader gap. It advances at 10 Hz and interpolates previous/current distance. Its renderer batches body, glass, wheels and lamps, then uses points for distant vehicles. Dataset identity checks prevent mixing networks.
+
+Wuhan implements the same general approach in an independent, readable atlas core at 20 Hz. It does not import, edit, or execute the Shenzhen traffic bundle. Routing is performed offline; runtime vehicles reuse cached itineraries and pooled state. Junctions use conservative exclusive reservations rather than pretending that unknown signal timings are measured. Fleet, speed and time-of-day density are illustrative, not live traffic.
+
+OSM direction is relative to source way order: `oneway=yes` follows it, `-1` reverses it. Lane counts, directional counts and access are read before geometry generation. References: [oneway](https://wiki.openstreetmap.org/wiki/Key:oneway), [direction](https://wiki.openstreetmap.org/wiki/Forward), [lanes](https://wiki.openstreetmap.org/wiki/Key:lanes). Missing lane counts and operational speeds are explicitly estimates. This is a conservative demonstration subnetwork, not a navigation service; unsafe or ambiguous geometry is excluded rather than repaired by joining nearby roads.
+
+Only original shared OSM nodes can connect roads. Crossings inferred from screen or map geometry are never graph edges. Height continuity and layer transitions are checked at each connection; tunnel lanes remain logical and hidden. Vehicles use frozen Phase 2 profiles; major bridge positions are projected onto the published deck alignment. The first Yangtze bridge uses only its upper road deck.
