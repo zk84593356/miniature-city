@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "datasetId": "842345da4d398de2",
+  "commands": [
+    "npm run verify",
+    "npm run public:verify",
+    "npm run atlas:build",
+    "npm run atlas:verify",
+    "npm run wuhan:browser",
+    "npm run wuhan:landmarks:verify",
+    "npm run wuhan:traffic:verify",
+    "npm run wuhan:vessels:verify",
+    "npm run wuhan:dynamics:browser"
+  ],
+  "protectedPhase3Assets": 3626,
+  "shenzhenFilesPreserved": 32,
+  "gitLFCheckoutAssets": 3630,
+  "phase4Views": 15,
+  "phase2RegressionCases": 22,
+  "phase3RegressionViews": 19,
+  "p95MaxMs": 16.80000000000291,
+  "physicalMobileTested": false
+}

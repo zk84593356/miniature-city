@@ -1,6 +1,6 @@
 # 武汉 Phase 4：动态城市、江面与夜景
 
-基线为 `aadd2ea6db91a6c5df5a335c2a8961c542327573`。本阶段只增加 Traffic、Vessels、Dynamic water、Night、少量鸟类及动态性能控制。Cloudflare 仍使用 `npm run atlas:build` → `atlas-site`。深圳运行资产和武汉 Phase 3 的 3,626 个数据资源保持逐字节不变。
+基线为 `aadd2ea6db91a6c5df5a335c2a8961c542327573`，最终 City Pack 为 `842345da4d398de2`。本阶段只增加 Traffic、Vessels、Dynamic water、Night、少量鸟类及动态性能控制。Cloudflare 仍使用 `npm run atlas:build` → `atlas-site`。深圳运行资产和武汉 Phase 3 的 3,626 个数据资源保持逐字节不变。
 
 ## 1. 修改与新增文件
 
@@ -98,15 +98,26 @@
 
 ## 22. Day / Sunset / Night 性能
 
-最终完整浏览器指标见 `wuhan-phase4-browser-qa.json`；包括日光/夕照/夜景总览、地标、CBD、东湖、桥梁序列及六桥近景、嵌套部署和 390 × 844 模拟视口。记录 draw calls、triangles、estimated geometry bytes、p95 与动态计数。浏览器模拟视口不是实体手机测试。最终汇总在验收完成后写入。
+最终完整浏览器指标见 `wuhan-phase4-browser-qa.json`；包括日光/夕照/夜景总览、地标、CBD、东湖、桥梁序列及六桥近景、嵌套部署和 390 × 844 模拟视口。记录 draw calls、triangles、estimated geometry bytes、p95 与动态计数。浏览器模拟视口不是实体手机测试。最终 **15 个 Phase 4 场景记录全部 PASS**，最差稳定 p95 为 16.8 ms。
+
+| 场景 / 光照 | p95 ms | Draw calls | Triangles | 估计几何 MiB | 逻辑 / 可见车 | 可见船 | 动态 ms/frame |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| confluence / day | 16.8 | 294 | 2,032,184 | 125.8 | 1017 / 401 | 15 | 3.95 |
+| confluence / night | 16.8 | 335 | 2,090,166 | 129.2 | 540 / 207 | 14 | 2.57 |
+| confluence / sunset | 16.8 | 334 | 2,089,998 | 129.2 | 1200 / 438 | 14 | 4.48 |
+| wuhan-iconic / night | 16.8 | 270 | 1,821,811 | 166.2 | 538 / 147 | 5 | 2.30 |
+| place-wuhan-center / night | 16.8 | 42 | 536,326 | 167.1 | 538 / 6 | 0 | 2.06 |
+| campus-lake / day | 16.8 | 82 | 913,776 | 166.3 | 1018 / 19 | 0 | 3.66 |
+| bridge-sequence / night | 16.8 | 434 | 2,584,006 | 170.2 | 540 / 210 | 14 | 2.04 |
+| 手机模拟视口 / night | 16.8 | 176 | 1,323,353 | 103.5 | 180 / 31 | 1 | 0.76 |
 
 ## 23. Traffic CPU
 
-Node 固定步长连续模拟 60 秒，验证全部六桥出现车辆、跟车间距、方向/拓扑和隧道状态；另有两条垂直路线的独占路口回归。`verify-traffic-collisions.mjs` 独立扫描 1,200 辆车的定向矩形包络，60 秒内以 4 Hz 检查同车道及跨车道重叠，最终为 0。实际浏览器按每帧记录 trafficSimulationMs；数值含无 tick 帧，因此与单次 Node tick 均值口径不同。完整数值见 simulation / browser QA。
+Node 固定步长连续模拟 60 秒，验证全部六桥出现车辆、跟车间距、方向/拓扑和隧道状态；另有两条垂直路线的独占路口回归。`verify-traffic-collisions.mjs` 独立扫描 1,200 辆车的定向矩形包络，60 秒内以 4 Hz 检查同车道及跨车道重叠，最终为 0。实际浏览器按每帧记录 trafficSimulationMs；数值含无 tick 帧，因此与单次 Node tick 均值口径不同。浏览器 trafficSimulationMs 范围 0.57–3.25 ms/frame；Node 单次 20 Hz tick 平均 5.51 ms。完整数值见 simulation / browser QA。
 
 ## 24. Vessel CPU
 
-最多 18 个固定对象，20 Hz 更新，简单空间间距保护；水面高度取同一 river-plane-v1 函数。Node 验证 120 秒水位连续，独立 GIS 验证完整船体包络，Node 复核运行时采样与原桥墩元数据。每帧 vesselSimulationMs 单独记录。
+最多 18 个固定对象，20 Hz 更新，简单空间间距保护；水面高度取同一 river-plane-v1 函数。Node 验证 120 秒水位连续，独立 GIS 验证完整船体包络，Node 复核运行时采样与原桥墩元数据。浏览器 vesselSimulationMs 范围 0.008–0.017 ms/frame。
 
 ## 25. 数据包增长与序列化
 
@@ -116,7 +127,7 @@ Node 固定步长连续模拟 60 秒，验证全部六桥出现车辆、跟车�
 
 验收命令：`npm run verify`、`npm run public:verify`、`npm run atlas:build`、`npm run atlas:verify`、`npm run wuhan:browser`、`npm run wuhan:landmarks:verify`、`npm run wuhan:traffic:verify`、`npm run wuhan:vessels:verify`、`npm run wuhan:dynamics:browser`。
 
-独立 GIS 检查：`tools/wuhan/verify-dynamic-geography.py`；真实 Git checkout 检查：`tools/wuhan/verify-pack-bytes.mjs <checkout/generated>`。报告分别记录基础资源冻结、拓扑、车体/船体包络、桥高、模拟、昼夜/暂停/reduced/tier、内存稳定、旧地点/相机/桥面回归、深圳 baseline 和 LF/hash。最终状态在全部执行完成后更新。
+独立 GIS 检查：`tools/wuhan/verify-dynamic-geography.py`；真实 Git checkout 检查：`tools/wuhan/verify-pack-bytes.mjs <checkout/generated>`。报告分别记录基础资源冻结、拓扑、车体/船体包络、桥高、模拟、昼夜/暂停/reduced/tier、内存稳定、旧地点/相机/桥面回归、深圳 baseline 和 LF/hash。**上述九项 npm 验收、独立 GIS 与真实 Git LF checkout 全部 PASS**。Phase 2 浏览器回归 22 cases；Phase 3 浏览器回归 19 个场景记录，并检查 12 模型、22 地点卡、实际拾取、两条浏览路线、相机净空、标签避让、嵌套路径及移动视口。Git checkout 对 3,630 个资源逐一验证，三个历史换行问题 JSON 均通过。
 
 ## 27. 当前限制
 
