@@ -18,5 +18,5 @@ for(let tick=0;tick<1200;tick++){
 }
 assert.deepEqual(found,[],'oriented vehicle footprints overlap across lanes');
 const result={result:'PASS',simulationSeconds:60,sampledHz:4,capacity:1200,overlaps:found,checks:['independent oriented rectangle SAT','same-lane and cross-lane vehicle pairs','layer-height separation','hidden tunnels excluded from visible collision']};
-await writeFile('docs/wuhan-phase4-traffic-collision-qa.json',JSON.stringify(result,null,2)+'\n');
+await writeFile('docs/wuhan-phase5-traffic-collision-regression-qa.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify(result));

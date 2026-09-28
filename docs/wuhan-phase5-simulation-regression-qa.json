@@ -1,0 +1,107 @@
+{
+  "result": "PASS",
+  "checks": [
+    "drivable classes/access/directions",
+    "real OSM node connections",
+    "continuous cached itineraries",
+    "6 bridge traffic coverage",
+    "60 s fixed-step traffic",
+    "following separation",
+    "tunnel hidden state",
+    "120 s water-surface vessels",
+    "reduced fleet cap"
+  ],
+  "counts": {
+    "sourceRoads": 51046,
+    "eligibleRoads": 15260,
+    "drivableRoads": 2740,
+    "lanes": 6298,
+    "junctions": 5168,
+    "connections": 5558,
+    "cachedRoutes": 900,
+    "routeLanes": 6298,
+    "bridgeCoverage": {
+      "yangtze-first": 5,
+      "yingwuzhou": 12,
+      "yangsigang": 14,
+      "erqi": 16,
+      "qingchuan": 13,
+      "yangtze-second": 26
+    },
+    "rejectedRoads": {
+      "incomplete-profile": 612,
+      "outside-demo-core": 11075,
+      "non-motor-road": 12313,
+      "narrow-road": 10393,
+      "restricted-access": 293,
+      "limited-service": 1073,
+      "conditional-or-lane-restriction": 19,
+      "single-lane-two-way": 6,
+      "lower-deck-excluded": 2
+    },
+    "rejectedLanes": {
+      "water-conflict": 31,
+      "building-conflict": 1010
+    },
+    "candidateGraph": {
+      "lanes": 46323,
+      "connections": 38231,
+      "drivableRoads": 14940
+    }
+  },
+  "trafficMeanTickMs": 6.063833916666667,
+  "bridgeSeen": [
+    "yangtze-first",
+    "yingwuzhou",
+    "yangsigang",
+    "erqi",
+    "qingchuan",
+    "yangtze-second"
+  ],
+  "samples": [
+    {
+      "second": 0,
+      "capacity": 1200,
+      "vehicles": 1042,
+      "target": 1200,
+      "ticks": 1,
+      "simulationHz": 20,
+      "laneCount": 6298,
+      "junctionCount": 5168,
+      "cachedRoutes": 900,
+      "hiddenTunnelVehicles": 0,
+      "bridgeVehicles": {
+        "yangtze-first": 13,
+        "yingwuzhou": 13,
+        "yangsigang": 12,
+        "erqi": 15,
+        "qingchuan": 13,
+        "yangtze-second": 15
+      },
+      "sampleMs": 5.989900000000034,
+      "hidden": 0
+    },
+    {
+      "second": 59,
+      "capacity": 1200,
+      "vehicles": 1199,
+      "target": 1200,
+      "ticks": 1181,
+      "simulationHz": 20,
+      "laneCount": 6298,
+      "junctionCount": 5168,
+      "cachedRoutes": 900,
+      "hiddenTunnelVehicles": 6,
+      "bridgeVehicles": {
+        "yangtze-first": 15,
+        "yingwuzhou": 16,
+        "yangsigang": 12,
+        "erqi": 15,
+        "qingchuan": 13,
+        "yangtze-second": 20
+      },
+      "sampleMs": 0.5553999999992811,
+      "hidden": 6
+    }
+  ]
+}

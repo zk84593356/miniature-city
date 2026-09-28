@@ -24,7 +24,9 @@
     "wuhan:landmarks:verify": "node tools/wuhan/verify-landmark-models.mjs && node tools/wuhan/verify-pack-bytes.mjs",
     "wuhan:traffic:verify": "node tools/wuhan/verify-dynamics.mjs && node tools/wuhan/verify-traffic-collisions.mjs",
     "wuhan:vessels:verify": "node tools/wuhan/verify-vessels.mjs",
-    "wuhan:dynamics:browser": "node tools/wuhan/browser-check-phase4.mjs"
+    "wuhan:dynamics:browser": "node tools/wuhan/browser-check-phase4.mjs",
+    "wuhan:ride:verify": "node tools/wuhan/verify-ride.mjs",
+    "wuhan:ride:browser": "node tools/wuhan/browser-check-phase5.mjs"
   },
   "dependencies": {
     "three": "0.185.0"

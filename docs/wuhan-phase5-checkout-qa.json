@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "datasetId": "842345da4d398de2",
+  "assets": 3630,
+  "LF": true,
+  "samples": {
+    "water.json": {
+      "bytes": 1519877,
+      "sha256": "b1873cabb35eaf3ffb4c3f91baab214d659e6b0d6becd8dc88c8b6bf32e74300"
+    },
+    "water-provenance.json": {
+      "bytes": 1192658,
+      "sha256": "fd94ad6b7052b6144cdf1b400d28d4bea1206b456179a7895579b54d9dba5fd0"
+    },
+    "quality.json": {
+      "bytes": 2798,
+      "sha256": "01317689c1e406d3ee344c8b5fca3590b0ae23bc7e1aa8a6a522fb0cb832e3fd"
+    }
+  },
+  "method": "actual git checkout-index with core.autocrlf=false and repository .gitattributes",
+  "source": "unchanged tracked City Pack Git blobs",
+  "workingTreeOnly": false
+}

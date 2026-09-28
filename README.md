@@ -40,7 +40,14 @@ npm run atlas:serve
 
 打开 <http://127.0.0.1:4175/wuhan/>。根路径仍为深圳。武汉在真实地形和水系上增加了 OSM 道路、普通建筑和六座主要桥梁。Phase 3 增加 11 个重点地标、轻量行吟阁及 22 个地点，支持点击、信息卡和两条浏览路线。处理过程、来源限制与验收记录见 [武汉 Phase 2](docs/wuhan-phase2.md) 和 [Phase 3 交付报告](docs/wuhan-phase3.md)。Cloudflare Pages 构建命令为 `npm run atlas:build`，产物目录为 `atlas-site/`；挂载于 `/city/` 时，深圳与武汉分别为 `/city/`、`/city/wuhan/`。
 
-武汉 Phase 4 增加基于 OSM 节点拓扑的示意车流、长江/汉江船只、动态水面、夜景窗灯与桥梁/地标照明。数据面板可以统一暂停动态；支持实时 reduced-motion 和 high/medium/low 档位。完整说明见 [Phase 4 报告](docs/wuhan-phase4.md)，不包含武汉 Ride。
+武汉 Phase 4 增加基于 OSM 节点拓扑的示意车流、长江/汉江船只、动态水面、夜景窗灯与桥梁/地标照明。数据面板可以统一暂停动态；支持实时 reduced-motion 和 high/medium/low 档位。完整说明见 [Phase 4 报告](docs/wuhan-phase4.md)。
+
+Phase 5 增加武汉第三人称骑行：在当前浏览位置附近进入，使用 WASD / 方向键自由控制粉色电动踏板车，Space 刹车，拖动观察，Esc 恢复原视角。移动端提供转向、加速、倒车和刹车按钮；城市动态与昼夜切换继续运行。人物与车辆为原创程序化模型，不含外部 GLB。骑行用于虚拟城市探索，不是现实通行导航。实现、数据边界和验收见 [Phase 5 报告](docs/wuhan-phase5.md)。
+
+```powershell
+npm run wuhan:ride:verify
+npm run wuhan:ride:browser
+```
 
 ```powershell
 npm run wuhan:traffic:verify

@@ -1,0 +1,279 @@
+{
+  "result": "PASS",
+  "date": "2026-09-28T05:00:24.167Z",
+  "checks": [
+    "nested deployment and mobile touch throttle"
+  ],
+  "views": [
+    {
+      "name": "mobile",
+      "metrics": {
+        "runtimePhase": 5,
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "low",
+          "mode": "day",
+          "time": 5.671000000000011,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 339,
+          "target": 340,
+          "ticks": 113,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 0,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 11,
+            "qingchuan": 11,
+            "yangtze-second": 11
+          },
+          "visibleVehicles": 10,
+          "nearVehicles": 4,
+          "farVehicles": 6,
+          "maxDrawCalls": 5,
+          "vessels": 6,
+          "vesselTicks": 113,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 4
+            },
+            {
+              "id": "han-main",
+              "count": 1
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 1
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 1,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 0.995000001291434,
+          "vesselSimulationMs": 0.004999999701976776,
+          "dynamicUpdateMs": 1.320833332836628
+        },
+        "phase": 4,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1507.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 35,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 27056,
+          "buildingCount": 1737,
+          "roadTriangles": 466916,
+          "loadedSurfaceChunks": 29,
+          "surfacesReady": true
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 191716,
+        "estimatedGeometryBytes": 80126088,
+        "datasetId": "842345da4d398de2",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          -28.644075081031076,
+          0.2969531581053085,
+          -29.130092201510806
+        ],
+        "target": [
+          -28.59184375724717,
+          0.2709202860847007,
+          -29.238522563659558
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 169,
+        "triangles": 804080,
+        "geometries": 242,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "state": {
+          "x": -28.615291422771865,
+          "z": -29.196497026072834,
+          "y": 0.2607514451950819,
+          "heading": 2.6326750599875015,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "tertiary",
+          "distance": 1.6148402845793505e-15,
+          "height": 0.2607514451950819,
+          "normal": [
+            0.005384248248326738,
+            0.9999389393704315,
+            -0.009650253962297285
+          ],
+          "surfaceId": "ride-osm-way-177632990-0",
+          "kind": "road",
+          "layerId": "ground-0",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "travelMeters": 1.926868773919738,
+        "wheel": 8.377690321390162,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            10692,
+            10693,
+            10694,
+            10626,
+            10627,
+            10628,
+            10659,
+            10660,
+            10661,
+            10760,
+            10761,
+            10762,
+            10763,
+            10740,
+            10741,
+            10742,
+            10743,
+            10744,
+            10745,
+            10746,
+            10747,
+            10748,
+            10749,
+            10458,
+            10457,
+            10769,
+            10770,
+            10771,
+            10777,
+            10778,
+            10779,
+            10602,
+            10603,
+            10604,
+            10605,
+            10606,
+            10607,
+            10608,
+            10609,
+            10610,
+            10780
+          ],
+          "materials": [
+            77,
+            78,
+            76,
+            73,
+            74,
+            79,
+            80,
+            81,
+            82,
+            83,
+            85,
+            84,
+            86,
+            75,
+            88,
+            87,
+            89
+          ]
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": 0.01105090502887771,
+        "roll": -1.6425373931130204e-15,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -28.644075081031076,
+          0.2969531581053085,
+          -29.130092201510806
+        ],
+        "cameraQuaternion": [
+          -0.10364190526356719,
+          -0.22131079754388908,
+          -0.023661308046736055,
+          0.9693915766424541
+        ],
+        "cameraTarget": [
+          -28.59184375724717,
+          0.2709202860847007,
+          -29.238522563659558
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 63.05688238948414,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 99,
+          "surfaceQueryMs": 0.7999999523162842,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3999999761581421,
+          "rideUpdateMs": 0.8999999761581421
+        },
+        "meanMetrics": {
+          "surfaceQueries": 97.05833333333334,
+          "surfaceQueryMs": 0.47333333690961205,
+          "staticObstacleQueryMs": 0.06999999980131785,
+          "dynamicQueryMs": 0.02000000129143397,
+          "cameraCollisionMs": 0.40416666915019356,
+          "rideUpdateMs": 0.8883333345254262
+        }
+      }
+    }
+  ],
+  "bridgeRun": null,
+  "cycles": null,
+  "issues": [],
+  "physicalMobileTested": false,
+  "acceleratedBridgeSimulation": false
+}

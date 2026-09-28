@@ -1,0 +1,62 @@
+[
+  {
+    "command": "npm run verify",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run public:verify",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:landmarks:verify",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:traffic:verify",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:vessels:verify",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:ride:verify",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:ride:browser",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:browser",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run wuhan:dynamics:browser",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  {
+    "command": "npm run atlas:build",
+    "result": "PASS",
+    "exitCode": 0
+  },
+  {
+    "command": "npm run atlas:verify",
+    "result": "PASS",
+    "exitCode": 0
+  },
+  {
+    "command": "node tools/wuhan/browser-check-phase5.mjs --mobile-only",
+    "result": "PASS",
+    "exitCode": 0
+  }
+]

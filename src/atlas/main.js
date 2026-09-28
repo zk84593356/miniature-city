@@ -9,6 +9,7 @@ import { createTerrainSurface } from './adapters/terrain-surface.js';
 import {createDynamics} from './simulation/dynamics.js';
 import {createNightLighting} from './render/night-lighting.js';
 import {landmarkMaterials} from './render/landmark-models.js';
+import {createRide} from './ride/ride-controller.js';
 
 const $ = selector => document.querySelector(selector);
 const abort = new AbortController();
@@ -63,6 +64,7 @@ async function start() {
   reducedMotion.addEventListener('change',onMotionChange);
   const frameTimes = [];
   const places=createPlaces({pack,scene,surface,projection,camera,geography,urban,onFocus:id=>fly(id)});
+  const ride=createRide({pack,surface,urban,places,dynamics,scene,camera,controls,projection,reducedMotion,root:$('#app'),canvas:renderer.domElement,cancelFlight:()=>{flight=null;}});
 
   function fly(id, immediate = false) {
     let region = [...places.presets,...pack.manifest.regions,...(pack.manifest.urban?.qaViews??[]).map(r=>({...r,caption:r.name,distance:40,bearing:165})),{id:'bridge-sequence',name:'桥梁序列',caption:'两江上的桥梁结构',center:[114.29,30.56],distance:110,bearing:220,elevation:.16}].find(r => r.id === id);
@@ -71,6 +73,7 @@ async function start() {
       if(bridge){const wet=bridge.userData.waterProfile;const a=wet[0],b=wet.at(-1);if(a&&b)region={id,name:bridge.userData.name,caption:'桥面、结构与两岸引道',center:projection.inverse((a[0]+b[0])/2,(a[2]+b[2])/2),distance:Math.max(16,Math.hypot(b[0]-a[0],b[2]-a[2])*1.35),bearing:165,elevation:.4};}
     }
     if (!region) return;
+    ride.exit();
     currentRegion = id;
     const [x, z] = projection.forward(region.center);
     const target = new THREE.Vector3(x, region.targetHeight ?? surface.sample(x, z)?.height ?? .25, z);
@@ -152,7 +155,7 @@ async function start() {
     if (now >= sampleAfter) frameTimes.push(now - previous);
     if (frameTimes.length > 180) frameTimes.shift();
     const dt=Math.min(.15,(now-previous)/1000);previous = now;
-    if (flight) {
+    if (!ride.active&&flight) {
       const t = Math.min(1, (now - flight.start) / 1600);
       const eased = t * t * t * (t * (t * 6 - 15) + 10);
       const traverse=THREE.MathUtils.smoothstep(t,.2,.8);
@@ -162,17 +165,20 @@ async function start() {
       if (t === 1) flight = null;
     }
     // Keep panning inside the dataset, without allowing the camera under ground.
+    if(!ride.active){
     controls.target.x = THREE.MathUtils.clamp(controls.target.x, -265, 300);
     controls.target.z = THREE.MathUtils.clamp(controls.target.z, -290, 280);
     controls.target.y = Math.max(.2, controls.target.y);
     controls.update();
     if(camera.position.y<8)camera.position.y=Math.max(camera.position.y,places.cameraFloor(camera.position.x,camera.position.z));
+    }
     geography.update(camera,now);
     urban.update(camera,now,controls.target);
     lighting.update();
     dynamics.update(dt,camera);
+    ride.update(dt);
     renderer.render(scene, camera);
-    places.update(now,labelsVisible,controls.target);
+    if(!ride.active)places.update(now,labelsVisible,controls.target);
     $('#north').style.transform = `rotate(${-controls.getAzimuthalAngle() * 180 / Math.PI}deg)`;
   }
   disposeScene = () => {
@@ -181,7 +187,7 @@ async function start() {
     cancelAnimationFrame(frame);
     window.removeEventListener('resize', resize);
     reducedMotion.removeEventListener('change',onMotionChange);
-    controls.dispose(); dynamics.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
+    ride.dispose(); controls.dispose(); dynamics.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
   };
   // Explicit diagnostics for browser verification and future surface adapters.
   function terrainTriangles() {
@@ -191,11 +197,17 @@ async function start() {
     return triangles;
   }
   window.__wuhan = {
+    getRideState:()=>ride.snapshot(),rideEnter:()=>ride.enter(),rideExit:()=>ride.exit(),rideDebugSpawn:id=>ride.debugSpawn(id),
+    rideDebugView:view=>ride.debugView(view),
+    ridePrepare:async(x,z)=>ride.adapter.prepare(x,z),
+    rideDebugAt:async state=>{ride.exit();await ride.adapter.prepare(state.x,state.z);const hit=ride.adapter.validate(state,state);if(!hit)return false;ride.activate({...state,...hit,y:hit.height,speed:0,steering:0});return true;},
+    rideStep:(seconds,input)=>{for(let t=0;t<seconds-1e-8;t+=1/60){const dt=Math.min(1/60,seconds-t);dynamics.update(dt,camera);ride.update(dt,input);}return ride.snapshot();},
+    rideProbe:state=>({surface:ride.adapter.sample(state.x,state.z,state.y,state.surfaceId),valid:!!ride.adapter.validate(state,state),collision:ride.adapter.lastBlock}),
     setLight,setDynamicPaused:value=>{dynamics.setPaused(value);$('#dynamic-toggle').checked=!value;},setQuality:value=>{dynamics.setQuality(value);lighting.uniforms.detail.value=value==='low'?.35:1;},getDynamics:()=>dynamics.snapshot(),
     resetFrameStats:()=>{frameTimes.length=0;},
     projectWorld:(position)=>{const p=new THREE.Vector3(...position).project(camera);return [(p.x+1)*innerWidth/2,(1-p.y)*innerHeight/2,p.z];},
     ready: true, fly, selectPlace:(id)=>places.select(id), getPlaces:()=>places.places, getLandmarks:()=>places.collision, getLabels:()=>places.getLabels(), cameraFloor:(x,z)=>places.cameraFloor(x,z), sampleWorld:(x,z)=>surface.sample(x,z), sampleSurface: (x,z,y,id)=>surface.sampleSurface(x,z,y,id), getBridges:()=>urban.bridges.children.map(o=>o.userData), sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
-    getState: () => ({ dynamics:dynamics.state, phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
+    getState: () => ({ runtimePhase:5,dynamics:dynamics.state, phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
     dispose: disposeScene,
   };
   frame = requestAnimationFrame(render);

@@ -18,11 +18,12 @@ const three = JSON.parse(await readFile('node_modules/three/package.json', 'utf8
 if (three.version !== '0.185.0') throw new Error('Three.js must match the pinned revision');
 await rm(staging, { force: true, recursive: true });
 await cp('public-site', staging, { recursive: true });
-for (const dir of ['wuhan', 'vendor/three/addons/controls', 'cities/wuhan']) await mkdir(path.join(staging, dir), { recursive: true });
+for (const dir of ['wuhan', 'vendor/three/addons/controls', 'vendor/three/addons/utils', 'cities/wuhan']) await mkdir(path.join(staging, dir), { recursive: true });
 await cp('src/atlas', path.join(staging, 'atlas'), { recursive: true });
 for (const name of ['index.html', 'wuhan.css']) await cp(`src/cities/wuhan/${name}`, path.join(staging, 'wuhan', name));
 for (const name of ['three.module.js', 'three.core.js']) await cp(`node_modules/three/build/${name}`, path.join(staging, 'vendor/three', name));
 await cp('node_modules/three/examples/jsm/controls/OrbitControls.js', path.join(staging, 'vendor/three/addons/controls/OrbitControls.js'));
+await cp('node_modules/three/examples/jsm/utils/BufferGeometryUtils.js', path.join(staging, 'vendor/three/addons/utils/BufferGeometryUtils.js'));
 await cp('node_modules/three/LICENSE', path.join(staging, 'vendor/three/LICENSE'));
 await mkdir(path.join(staging, 'data/wuhan'), { recursive: true });
 for (const file of Object.keys(manifest.dataFiles)) await cp(`city-data/wuhan/generated/${file}`, path.join(staging, 'data/wuhan', file));

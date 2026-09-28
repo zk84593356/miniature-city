@@ -1,0 +1,124 @@
+{
+  "result": "PASS",
+  "commands": [
+    {
+      "command": "npm run verify",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run public:verify",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:landmarks:verify",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:traffic:verify",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:vessels:verify",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:ride:verify",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:ride:browser",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:browser",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run wuhan:dynamics:browser",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run atlas:build",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run atlas:verify",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "node tools/wuhan/browser-check-phase5.mjs --mobile-only",
+      "result": "PASS",
+      "exitCode": 0
+    }
+  ],
+  "desktopP95MaxMs": 16.800000000017462,
+  "meanPerFrameMetricsRange": {
+    "surfaceQueries": {
+      "min": 59.833333333333336,
+      "max": 99.25416666666666
+    },
+    "surfaceQueryMs": {
+      "min": 0.2816666637857755,
+      "max": 0.7066666647791863
+    },
+    "staticObstacleQueryMs": {
+      "min": 0.024166664481163024,
+      "max": 0.08458333313465119
+    },
+    "dynamicQueryMs": {
+      "min": 0.007499998807907105,
+      "max": 0.020000002284844717
+    },
+    "cameraCollisionMs": {
+      "min": 0.162499996026357,
+      "max": 0.5295833339293797
+    },
+    "rideUpdateMs": {
+      "min": 0.6037499984105428,
+      "max": 1.0808333352208137
+    }
+  },
+  "bridgeRun": {
+    "done": true,
+    "minY": 0.3499818087338428,
+    "maxY": 0.4670144,
+    "samples": 33145,
+    "blocked": {},
+    "layers": [
+      "bridge-yangtze-first",
+      "ground"
+    ],
+    "travel": 3912.819594958363
+  },
+  "lifecycle": {
+    "cycles": 20,
+    "DOMBefore": {
+      "documents": 1,
+      "nodes": 362,
+      "jsEventListeners": 112
+    },
+    "DOMAfter": {
+      "documents": 1,
+      "nodes": 362,
+      "jsEventListeners": 112
+    },
+    "heapDeltaBytes": -1412184,
+    "avatarGeometries": 41,
+    "avatarMaterials": 17,
+    "sameResourceIdentities": true
+  },
+  "datasetUnchanged": "842345da4d398de2",
+  "physicalMobileTested": false,
+  "visualReview": "Agent screenshot review of front/side/rear, street, shore, slopes and bridge day/night/exit; no claim of human real-time full crossing."
+}

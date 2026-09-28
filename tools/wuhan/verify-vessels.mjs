@@ -19,4 +19,4 @@ for(const r of data.routes){assert.equal(r.estimated,true);assert.ok(r.source);a
   for(const c of r.bridgeConstraints){assert.ok(c.estimated);assert.ok(c.clearanceMeters>config.vesselTypes.cargo.height+2);assert.ok(bridges.some(b=>b.id===c.bridge));}
   checks.push({id:r.id,estimated:true,samples:Math.ceil(curve.length/.1),bridgeConstraints:r.bridgeConstraints});
 }
-const result={result:'PASS',points,checks,continuousFootprintCheck:'tools/wuhan/verify-dynamic-geography.py',obstaclesMatchPhase2:true};await writeFile('docs/wuhan-phase4-vessel-qa.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({result:'PASS',routes:checks.length,points,obstaclesMatchPhase2:true}));
+const result={result:'PASS',points,checks,continuousFootprintCheck:'tools/wuhan/verify-dynamic-geography.py',obstaclesMatchPhase2:true};await writeFile('docs/wuhan-phase5-vessel-regression-qa.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({result:'PASS',routes:checks.length,points,obstaclesMatchPhase2:true}));

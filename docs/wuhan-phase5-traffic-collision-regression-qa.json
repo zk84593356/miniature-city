@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "simulationSeconds": 60,
+  "sampledHz": 4,
+  "capacity": 1200,
+  "overlaps": [],
+  "checks": [
+    "independent oriented rectangle SAT",
+    "same-lane and cross-lane vehicle pairs",
+    "layer-height separation",
+    "hidden tunnels excluded from visible collision"
+  ]
+}

@@ -34,4 +34,4 @@ const old=traffic.stats.ticks;traffic.update(0);assert.equal(traffic.stats.ticks
 const ships=createVessels(routes,waters,config.vesselTypes);for(let i=0;i<2400;i++){ships.update(.05);for(const s of ships.ships){const p=ships.interpolate(s);assert.equal(p.y,waterHeight(s.route.water,p.x,p.z));assert.ok(Number.isFinite(p.heading));}}
 ships.setCount(3);assert.equal(ships.stats.vessels,3);
 const result={result:'PASS',checks:['drivable classes/access/directions','real OSM node connections','continuous cached itineraries','6 bridge traffic coverage','60 s fixed-step traffic','following separation','tunnel hidden state','120 s water-surface vessels','reduced fleet cap'],counts:network.counts,trafficMeanTickMs:simulationMs,bridgeSeen:[...bridgeSeen],samples:[samples[0],samples.at(-1)]};
-await writeFile('docs/wuhan-phase4-simulation-qa.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
+await writeFile('docs/wuhan-phase5-simulation-regression-qa.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));

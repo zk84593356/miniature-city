@@ -22,6 +22,7 @@ export function createDynamics(pack,geography,scene) {
   function record(a,t){a.push(t);if(a.length>240)a.shift();}
   const mean=a=>a.reduce((s,n)=>s+n,0)/Math.max(1,a.length);
   return {setPaused(value){paused=Boolean(value);},setQuality(value){if(!['high','medium','low'].includes(value))throw new Error('Invalid dynamic quality');quality=value;applyCounts();},setMode(value){mode=value;applyCounts();vehicles?.setNight(value==='night');ships?.setNight(value==='night');},
+    rideQuery:state=>traffic?.rideQuery(state),setRider:state=>traffic?.setRider(state),
     update(dt,camera){if(!ready||disposed)return;const start=performance.now(),stopped=paused||reduced||!focused||document.hidden;const step=stopped?0:dt;
       let t=performance.now();if(step)traffic.update(step);record(trafficCpu,performance.now()-t);t=performance.now();if(step)vessels.update(step);record(vesselCpu,performance.now()-t);
       time+=step;water.update(time,reduced,mode==='night');vehicles.update(camera,config.tiers[quality]);ships.update(camera,config.tiers[quality],reduced);atmosphere.update(time,camera,config.tiers[quality],reduced,mode==='night');record(cpu,performance.now()-start);
