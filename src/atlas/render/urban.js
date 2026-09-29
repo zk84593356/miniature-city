@@ -1,14 +1,19 @@
 import * as THREE from 'three';
 import { decode } from './geography.js';
 import { createBridge } from './bridges.js';
+import {createVegetation} from './vegetation.js';
+import {createRoadSurfaces} from '../engine/road-surfaces.js';
 
 export function createUrban(pack,surface) {
   const group=new THREE.Group(),buildings=new THREE.Group(),roads=new THREE.Group(),bridges=new THREE.Group();
   group.add(roads,buildings,bridges);
+  const vegetation=createVegetation(pack);group.add(vegetation.group);
   const material=new THREE.MeshStandardMaterial({color:'#d7d4c8',roughness:.88,metalness:.03,side:THREE.DoubleSide});
   const roadMaterials=['#aaa99a','#b8b6a6','#c6c3b0','#ccc8b5'].map(color=>new THREE.MeshStandardMaterial({color,roughness:1,side:THREE.DoubleSide}));
+  const canonical=pack.manifest.urban?.surfaces?createRoadSurfaces(pack,surface,roadMaterials):null;
+  if(canonical)group.add(canonical.group);
   const entries=(pack.manifest.urban?.buildingChunks??[]).map(spec=>({spec,mesh:null,pending:false,level:1,lastSeen:0}));
-  const roadEntries=(pack.manifest.urban?.roadMeshes??[]).map(spec=>({spec,mesh:null,pending:false,lastSeen:0}));
+  const roadEntries=(canonical?[]:pack.manifest.urban?.roadMeshes??[]).map(spec=>({spec,mesh:null,pending:false,lastSeen:0}));
   let disposed=false,active=0,activeRoads=0,activeTopology=0,lastUpdate=0,ready=false;
   let topologyEntries=[];
   const errors=[];
@@ -18,11 +23,12 @@ export function createUrban(pack,surface) {
     if(!pack.manifest.urban){ready=true;return;}
     // The main frame loop is already painting terrain before these requests begin.
     const definitions=await pack.loadJSON(pack.manifest.urban.bridges);
+    await canonical?.ready;
     if(disposed)return;
-    for(const bridge of definitions)bridges.add(createBridge(bridge,surface));
-    stats.bridgesReady=true;ready=true;
+    for(const bridge of definitions){const revised=canonical?.index.bridges.find(b=>b.id==='bridge-'+bridge.id);bridges.add(createBridge({...bridge,...(revised?{profile:revised.profile,foundationProfile:revised.foundationProfile,canonicalSurface:true}:{})},surface));}
+    stats.bridgesReady=true;stats.surfacesReady=!!canonical;ready=true;
     const index=await pack.loadJSON(pack.manifest.urban.roads);
-    topologyEntries=(index.chunks??[]).map(spec=>({spec,loaded:false,pending:false,ids:[],lastSeen:0}));
+    topologyEntries=(canonical?[]:index.chunks??[]).map(spec=>({spec,loaded:false,pending:false,ids:[],lastSeen:0}));
     delete pack.buffers[pack.manifest.urban.roads];
   }
   async function loadTopology(entry) {
@@ -41,6 +47,7 @@ export function createUrban(pack,surface) {
   load().catch(report);
   function update(camera,now,target) {
     if(!ready||disposed||now-lastUpdate<300)return;lastUpdate=now;
+    vegetation.update(camera,now,target);canonical?.update(camera,now,target);if(canonical)stats.roadsReady=canonical.entries.some(e=>e.geometry);
     const view=new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
     const roadQueue=roadEntries.map(entry=>{const [x0,z0,x1,z1]=entry.spec.bounds;const box=new THREE.Box3(new THREE.Vector3(x0,0,z0),new THREE.Vector3(x1,6,z1));return {entry,d:box.distanceToPoint(camera.position),visible:view.intersectsBox(box)};}).sort((a,b)=>a.d-b.d);
     for(const {entry,d,visible} of roadQueue){
@@ -50,7 +57,7 @@ export function createUrban(pack,surface) {
       entry.pending=true;activeRoads++;
       pack.loadAsset(entry.spec.file).then(buffer=>{if(disposed)return;entry.mesh=new THREE.Mesh(decode(buffer,entry.spec),roadMaterials[['express','arterial','local','minor'].indexOf(entry.spec.group)]);roads.add(entry.mesh);delete pack.buffers[entry.spec.file];stats.roadsReady=true;}).catch(report).finally(()=>{entry.pending=false;activeRoads--;});
     }
-    stats.roadTriangles=roadEntries.filter(e=>e.mesh?.visible).reduce((n,e)=>n+e.mesh.geometry.index.count/3,0);
+    stats.roadTriangles=canonical?canonical.entries.filter(e=>e.meshes.some(m=>m.visible)).reduce((n,e)=>n+(e.geometry?.index.count??0)/3,0):roadEntries.filter(e=>e.mesh?.visible).reduce((n,e)=>n+e.mesh.geometry.index.count/3,0);
     const sorted=entries.map(entry=>{
       const [x0,z0,x1,z1]=entry.spec.bounds;
       const box=new THREE.Box3(new THREE.Vector3(x0,0,z0),new THREE.Vector3(x1,6,z1));
@@ -85,12 +92,12 @@ export function createUrban(pack,surface) {
       if(d<45){entry.lastSeen=now;if(!entry.loaded&&!entry.pending&&activeTopology<2)loadTopology(entry);}
       else if(entry.loaded&&now-entry.lastSeen>30000){entry.ids.forEach(id=>surface.unregister(id));entry.ids=[];entry.loaded=false;}
     }
-    stats.loadedSurfaceChunks=topologyEntries.filter(e=>e.loaded).length;
+    stats.loadedSurfaceChunks=canonical?canonical.entries.filter(e=>e.geometry).length:topologyEntries.filter(e=>e.loaded).length;
     stats.loadedBuildingChunks=entries.filter(e=>e.mesh).length;
     stats.buildingCount=entries.filter(e=>e.mesh?.visible).reduce((n,e)=>n+e.spec.count,0);
     stats.buildingTriangles=entries.filter(e=>e.mesh?.visible).reduce((n,e)=>n+e.mesh.geometry.index.count/3,0);
   }
-  return {group,update,bridges,buildingMaterial:material,stats,errors,get ready(){return ready;},
-    dispose(){disposed=true;group.traverse(o=>{o.geometry?.dispose();});material.dispose();roadMaterials.forEach(m=>m.dispose());bridges.traverse(o=>o.material?.dispose());},
+  return {group,update,bridges,canonical,vegetation,buildingMaterial:material,stats,errors,get ready(){return ready;},
+    dispose(){disposed=true;vegetation.dispose();canonical?.dispose();group.traverse(o=>{o.geometry?.dispose();});material.dispose();roadMaterials.forEach(m=>m.dispose());bridges.traverse(o=>o.material?.dispose());},
   };
 }

@@ -62,12 +62,13 @@ export class WuhanRideSurfaceAdapter {
   addPolygon(item){this.grid.add(item,bounds(item.rings));return item;}
   async prepare(x,z){
     await this.initialize();if(this.disposed)return;
+    await Promise.all([this.urban.canonical?.prepare(x,z),this.urban.vegetation?.prepare(x,z)]);
     const load=(entry,road)=>{
       entry.lastUsed=performance.now();if(entry.loaded)return Promise.resolve();if(entry.promise)return entry.promise;
       entry.promise=this.pack.loadJSON(entry.spec.file).then(data=>{
         if(this.disposed)return;
         if(road){entry.data=data;
-          for(const r of data){
+          for(const r of this.urban.canonical?[]:data){
             if(r.tunnel||!r.rendered||r.bridgeProfile)continue;
             let part=0,profile=[];
             const register=()=>{if(profile.length>1){const id='ride-'+r.id+'-'+part++;this.surface.register({id,kind:r.bridge?'bridge':'road',layerId:r.layerId,profile,width:r.width,traversable:r.access!=='no',rideAllowed:r.access!=='no'&&!/^(motorway|trunk)/.test(r.roadClass)});entry.items.push(id);}profile=[];};
@@ -94,7 +95,7 @@ export class WuhanRideSurfaceAdapter {
       if(o.top<=y+.0008||o.bottom>=y+height)continue;
       if(o.rings?circlePolygon(x,z,r,o.rings):circleBox(x,z,r,o)){result=o;break;}
     }
-    this.metrics.staticObstacleQueryMs+=performance.now()-t;return result;
+    result??=this.urban?.vegetation?.blocked(x,z,y,r,height);this.metrics.staticObstacleQueryMs+=performance.now()-t;return result;
   }
   validate(s,previous=s,dynamic=true){
     this.lastBlock=null;

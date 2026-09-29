@@ -4,7 +4,7 @@ import {createVehicles} from '../render/vehicles.js';
 import {createVessels} from './vessels.js';
 import {createVesselModels} from '../render/vessel-models.js';
 import {installDynamicWater} from '../render/dynamic-water.js';
-export function createDynamics(pack,geography,scene) {
+export function createDynamics(pack,geography,scene,surface) {
   const motion=matchMedia('(prefers-reduced-motion: reduce)');let reduced=motion.matches,paused=false,focused=true,quality=innerWidth<700?'low':'high',mode='day',ready=false,disposed=false,time=0;
   let config,traffic,vehicles,vessels,ships,water;const errors=[],cpu=[],trafficCpu=[],vesselCpu=[];
   const atmosphere=createAtmosphere();scene.add(atmosphere.group);
@@ -14,7 +14,10 @@ export function createDynamics(pack,geography,scene) {
     if(!pack.manifest.dynamics)return;
     config=await pack.loadJSON(pack.manifest.dynamics.config);
     const [network,routes,style]=await Promise.all([config.traffic,config.vessels,config.waterStyle].map(n=>pack.loadJSON(n)));
-    if(disposed)return;traffic=createTraffic(network);vehicles=createVehicles(traffic);vessels=createVessels(routes,pack.waters,config.vesselTypes);ships=createVesselModels(vessels);water=installDynamicWater(geography,style);scene.add(vehicles.group,ships.group);ready=true;applyCounts();vehicles.setNight(mode==='night');ships.setNight(mode==='night');
+    if(disposed)return;traffic=createTraffic(network,{heightAt:(p,lane,v)=>{
+      const id=lane.majorBridge?'bridge-'+lane.majorBridge:lane.surfaceId;
+      const hit=surface?.getRoadTriangles().heightFor(id,p.x,p.z,v.surfaceTriangle);v.surfaceTriangle=hit?.triangle;return hit?.height;
+    }});vehicles=createVehicles(traffic);vessels=createVessels(routes,pack.waters,config.vesselTypes);ships=createVesselModels(vessels);water=installDynamicWater(geography,style);scene.add(vehicles.group,ships.group);ready=true;applyCounts();vehicles.setNight(mode==='night');ships.setNight(mode==='night');
     for(const n of [pack.manifest.dynamics.config,config.traffic,config.vessels,config.waterStyle])delete pack.buffers[n];
   }
   load().catch(e=>{if(e.name!=='AbortError'){errors.push(e.message);console.error(e);}});

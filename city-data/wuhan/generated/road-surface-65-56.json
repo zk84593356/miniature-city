@@ -1,0 +1,1 @@
+{"schema":"canonical-road-triangles-v1","features":[{"id":"osm-way-456272215","roadIds":["osm-way-456272215"],"osmIds":[456272215],"kind":"road","layerId":"ground-0","rideAllowed":true,"group":"arterial","width":16,"bounds":[283.73553466796875,127.18478393554688,314.5235595703125,143.71421813964844],"vertexStart":0,"vertexCount":894,"triangleStart":0,"triangleCount":298}]}

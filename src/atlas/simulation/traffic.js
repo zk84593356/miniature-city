@@ -1,7 +1,7 @@
 import {preparePath,samplePath} from './path.js';
 
 const STEP=.05,MAX=1200;
-export function createTraffic(network) {
+export function createTraffic(network,{heightAt}={}) {
   const lanes=network.lanes.map(l=>({...l,curve:preparePath(l.path),occupants:[]}));
   const connections=network.connections.map(c=>({...c,curve:preparePath(c.path)}));
   const routes=network.routes.map(r=>{
@@ -28,6 +28,7 @@ export function createTraffic(network) {
     const r=v.route;let lo=0,hi=r.parts.length-1;
     while(lo<hi){const mid=Math.ceil((lo+hi)/2);if(r.starts[mid]<=s)lo=mid;else hi=mid-1;}
     const part=r.parts[lo];samplePath(part.curve,s-r.starts[lo],out);out.hidden=part.hidden;out.lane=part.lane?.id??null;out.bridge=part.lane?.majorBridge??null;
+    if(!out.hidden&&heightAt){const y=heightAt(out,part.lane??lanes[part.connection.fromLane],v);if(Number.isFinite(y))out.y=y;}
     return lo;
   }
   function key(x,z){return `${Math.floor(x/.3)},${Math.floor(z/.3)}`;}

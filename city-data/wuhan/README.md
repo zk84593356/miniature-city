@@ -25,3 +25,9 @@
 `vessel-routes.json` 保存三条估计航线、水域身份、速度/船型范围、复用的桥墩 metadata 及估计净空。航线不是 AIS 或实际航道；没有码头和东湖船。`water-style.json` 只给旧水网格附加视觉风格，不修改任何顶点、水位或 surface。`dynamic-config.json` 保存 20 Hz 模拟与三个资源档位。
 
 Phase 3 的 3,626 个原有资源逐字节保留。四个新增 JSON、manifest 仍采用 UTF-8 LF 字节写入并保留构建时大小/SHA 校验。数据来源、估计范围、QA、性能与限制见 [Phase 4 报告](../../docs/wuhan-phase4.md)。
+
+## Phase 6 道路与绿化
+
+`road-surfaces.json` 索引 `road-surface-*.bin/json`：Float32 顶点和三角形同时用于道路渲染与 Ride 支撑。道路原始中心线、OSM 节点、DEM、水体均保留；桥头的 DSM 支撑包络、横坡与连接面明确标为估计。`vessel-routes.json` 仅同步桥梁结构碰撞 metadata，航线不变。
+
+`green-areas.json`、`vegetation.json` 与 `vegetation-*.json` 来自锁定的 OpenStreetMap 绿地提取（© OpenStreetMap contributors，ODbL 1.0）。公园、森林、草地和花园区域内的植物为确定性程序化布置，不是实测植物清单；来源锁、逐项 `sourceId` 和 `estimated` 保留。只有明确的 OSM 单树节点采用源位置，品种、尺寸、树排位置仍为估计。浏览器不访问 Overpass。详见 [Phase 6](../../docs/wuhan-phase6.md)。

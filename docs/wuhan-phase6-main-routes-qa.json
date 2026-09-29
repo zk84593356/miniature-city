@@ -1,0 +1,288 @@
+{
+  "result": "PASS",
+  "datasetId": "6b9141e1a4d4368c",
+  "scope": "Actual runtime full footprint and static collisions at four speed-dependent substep distances; geometric route replay, not steering autopilot or traffic simulation.",
+  "results": [
+    {
+      "region": "hankou",
+      "roadId": "osm-way-1056630005",
+      "osmId": 1056630005,
+      "name": "江滩大道",
+      "speeds": [
+        {
+          "kmh": 10,
+          "stepMeters": 0.023148148148148147,
+          "pass": true,
+          "samples": 150171,
+          "distanceMeters": 3462.425918511057,
+          "junctionSamples": 11172,
+          "maxSlopeDegrees": 9.648555359644563,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 25,
+          "stepMeters": 0.05787037037037037,
+          "pass": true,
+          "samples": 60432,
+          "distanceMeters": 3462.409303755955,
+          "junctionSamples": 4523,
+          "maxSlopeDegrees": 9.648555359644563,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 40,
+          "stepMeters": 0.09259259259259259,
+          "pass": true,
+          "samples": 37968,
+          "distanceMeters": 3462.2552569710397,
+          "junctionSamples": 2835,
+          "maxSlopeDegrees": 9.648555359644563,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 60,
+          "stepMeters": 0.1,
+          "pass": true,
+          "samples": 35198,
+          "distanceMeters": 3462.2459267732806,
+          "junctionSamples": 2661,
+          "maxSlopeDegrees": 9.648555359644563,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        }
+      ]
+    },
+    {
+      "region": "wuchang",
+      "roadId": "osm-way-455186807",
+      "osmId": 455186807,
+      "name": "民主路",
+      "speeds": [
+        {
+          "kmh": 10,
+          "stepMeters": 0.023148148148148147,
+          "pass": true,
+          "samples": 80277,
+          "distanceMeters": 1850.9561170507236,
+          "junctionSamples": 2104,
+          "maxSlopeDegrees": 18.06097740758262,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 25,
+          "stepMeters": 0.05787037037037037,
+          "pass": true,
+          "samples": 32285,
+          "distanceMeters": 1850.9628818161107,
+          "junctionSamples": 849,
+          "maxSlopeDegrees": 18.06097740758262,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 40,
+          "stepMeters": 0.09259259259259259,
+          "pass": true,
+          "samples": 20281,
+          "distanceMeters": 1850.8100824538767,
+          "junctionSamples": 533,
+          "maxSlopeDegrees": 18.06097740758262,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 60,
+          "stepMeters": 0.1,
+          "pass": true,
+          "samples": 18790,
+          "distanceMeters": 1850.8019697263462,
+          "junctionSamples": 495,
+          "maxSlopeDegrees": 18.06097740758262,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        }
+      ]
+    },
+    {
+      "region": "donghu",
+      "roadId": "osm-way-881448334",
+      "osmId": 881448334,
+      "name": "兴国南路",
+      "speeds": [
+        {
+          "kmh": 10,
+          "stepMeters": 0.023148148148148147,
+          "pass": true,
+          "samples": 90485,
+          "distanceMeters": 2086.6214510262953,
+          "junctionSamples": 16456,
+          "maxSlopeDegrees": 14.30931345851907,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 25,
+          "stepMeters": 0.05787037037037037,
+          "pass": true,
+          "samples": 36393,
+          "distanceMeters": 2086.6044219137857,
+          "junctionSamples": 6619,
+          "maxSlopeDegrees": 14.30931345851907,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 40,
+          "stepMeters": 0.09259259259259259,
+          "pass": true,
+          "samples": 22921,
+          "distanceMeters": 2086.455801056944,
+          "junctionSamples": 4166,
+          "maxSlopeDegrees": 14.30931345851907,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 60,
+          "stepMeters": 0.1,
+          "pass": true,
+          "samples": 21221,
+          "distanceMeters": 2086.4467867332487,
+          "junctionSamples": 3857,
+          "maxSlopeDegrees": 14.30931345851907,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        }
+      ]
+    },
+    {
+      "region": "guanggu",
+      "roadId": "osm-way-652349139",
+      "osmId": 652349139,
+      "name": "雄楚大道",
+      "speeds": [
+        {
+          "kmh": 10,
+          "stepMeters": 0.023148148148148147,
+          "pass": true,
+          "samples": 114476,
+          "distanceMeters": 2640.821028179551,
+          "junctionSamples": 8280,
+          "maxSlopeDegrees": 19.6892267670925,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 25,
+          "stepMeters": 0.05787037037037037,
+          "pass": true,
+          "samples": 46073,
+          "distanceMeters": 2640.8047065588325,
+          "junctionSamples": 3326,
+          "maxSlopeDegrees": 19.6892267670925,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 40,
+          "stepMeters": 0.09259259259259259,
+          "pass": true,
+          "samples": 28927,
+          "distanceMeters": 2640.736128307659,
+          "junctionSamples": 2091,
+          "maxSlopeDegrees": 19.6892267670925,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        },
+        {
+          "kmh": 60,
+          "stepMeters": 0.1,
+          "pass": true,
+          "samples": 26847,
+          "distanceMeters": 2640.631047956475,
+          "junctionSamples": 1937,
+          "maxSlopeDegrees": 19.6892267670925,
+          "surfaceMissing": 0,
+          "waterFall": 0,
+          "railTransition": 0,
+          "teleport": 0
+        }
+      ]
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "region": "hankou",
+      "roadId": "osm-way-690674909",
+      "pass": false,
+      "i": 111,
+      "j": 8,
+      "reason": "building",
+      "position": [
+        -36.99817036842105,
+        0.3342421828797686,
+        -30.762271152631577
+      ]
+    },
+    {
+      "region": "wuchang",
+      "roadId": "osm-way-455186815",
+      "pass": false,
+      "i": 9,
+      "j": 4,
+      "reason": "road",
+      "position": [
+        14.62965802105263,
+        0.2670862443196734,
+        3.9012618210526315
+      ]
+    },
+    {
+      "region": "wuchang",
+      "roadId": "osm-way-481235859",
+      "pass": false,
+      "i": 243,
+      "j": 12,
+      "reason": "road",
+      "position": [
+        14.310482766666667,
+        0.19012812606352306,
+        3.842266566666667
+      ]
+    }
+  ]
+}

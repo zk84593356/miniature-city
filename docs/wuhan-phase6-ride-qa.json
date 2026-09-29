@@ -1,0 +1,180 @@
+{
+  "result": "PASS",
+  "date": "2026-09-29T00:47:43.245Z",
+  "checks": [
+    "SI scale, forward 60 km/h, reverse, brake, no stationary turn",
+    "seated adult moped: hand IK, fixed feet, no pedaling, accepted wheel travel/reverse",
+    "concave footprint near phase and rotated structure collision",
+    "exact stable terrain vs raycast and exact indexed water with holes",
+    "seven districts: full capsule safe road spawn, no motorway/trunk/tunnel",
+    "all 12 landmark component footprints and six bridge pier/tower metadata",
+    "entire first Yangtze bridge: approach / deck / opposite exit, no rail/water/layer jump",
+    "whole bridge outer road strip and every bend joint",
+    "leave the actual deck endpoint onto ground without a phantom deck extension",
+    "camera rejects terrain and overhead deck slabs; real ordinary building footprint collision",
+    "water rejection, upper road/lower rail identity and coexistence",
+    "26 degree maximum slope rejection",
+    "20 Hz nearby traffic index and two-way rider stop guard",
+    "dynamic collision respects rider vertical clearance below an overhead road",
+    "camera obstruction and exact position/quaternion/projection/view/Orbit restoration"
+  ],
+  "indexBytes": 44898228,
+  "maxHeightError": 2.2593038551121936e-14,
+  "spawns": {
+    "hankou": {
+      "x": -28.62467917649923,
+      "z": -29.179671240294333,
+      "y": 0.26096437729929034,
+      "heading": 2.632675059987501,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "tertiary",
+      "distance": 1.4288057044435644e-16,
+      "height": 0.26096437729929034,
+      "normal": [
+        0.005384248248326738,
+        0.9999389393704315,
+        -0.009650253962297285
+      ],
+      "surfaceId": "ride-osm-way-177632990-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    },
+    "wuchang": {
+      "x": -20.05371884131547,
+      "z": 0.9602090666060813,
+      "y": 0.3020539976084273,
+      "heading": -1.9111276253516,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "residential",
+      "distance": 2.973419269284548e-16,
+      "height": 0.3020539976084273,
+      "normal": [
+        -0.024646214367605328,
+        0.9996581393193221,
+        -0.00872746297481835
+      ],
+      "surfaceId": "ride-osm-way-438309781-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    },
+    "donghu": {
+      "x": 42.69290663,
+      "z": -6.66694564,
+      "y": 0.29056246,
+      "heading": -0.00543874423096992,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "service",
+      "distance": 4.811147140404426e-19,
+      "height": 0.29056246,
+      "normal": [
+        0.0002614476686344741,
+        0.9988438939335391,
+        -0.048070856002376414
+      ],
+      "surfaceId": "ride-osm-way-1487068333-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    },
+    "luojia": {
+      "x": 42.911704979715275,
+      "z": 21.14389782754755,
+      "y": 0.4179298698027956,
+      "heading": 0.09551564844497126,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "service",
+      "distance": 2.841188977517478e-15,
+      "height": 0.4179298698027956,
+      "normal": [
+        -0.01940673171302869,
+        0.9790774758806814,
+        -0.2025602996328066
+      ],
+      "surfaceId": "ride-osm-way-103940635-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    },
+    "guanggu": {
+      "x": 80.46900876470201,
+      "z": 59.77618602914638,
+      "y": 0.3037662430239024,
+      "heading": 1.4261714551538631,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "tertiary",
+      "distance": 1.0632016203652727e-15,
+      "height": 0.3037662430239024,
+      "normal": [
+        0.0826555707631296,
+        0.9965054645003782,
+        0.01203809963019383
+      ],
+      "surfaceId": "ride-osm-way-316755269-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    },
+    "guishan": {
+      "x": -42.350241820313215,
+      "z": 8.794362132112244,
+      "y": 0.2974464720547353,
+      "heading": -0.43071479399801343,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "service",
+      "distance": 7.264660714793996e-16,
+      "height": 0.2974464720547353,
+      "normal": [
+        -0.003773079445599116,
+        0.9999591666199218,
+        0.00821151412887391
+      ],
+      "surfaceId": "ride-osm-way-675321092-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    },
+    "moshan": {
+      "x": 85.09262779715822,
+      "z": 15.210928564853578,
+      "y": 0.3052663599226949,
+      "heading": 1.4072693491351096,
+      "speed": 0,
+      "steering": 0,
+      "roadClass": "service",
+      "distance": 9.38836448009434e-16,
+      "height": 0.3052663599226949,
+      "normal": [
+        0.05513953120164759,
+        0.9984372076965689,
+        0.009098042973155291
+      ],
+      "surfaceId": "ride-osm-way-693270614-0",
+      "kind": "road",
+      "layerId": "ground-0",
+      "traversable": true,
+      "rideAllowed": true
+    }
+  },
+  "bridge": {
+    "samples": 10232,
+    "maxHeightStepMeters": 0.005615000000008807,
+    "kinds": [
+      "bridge"
+    ]
+  },
+  "unchangedDataset": "6b9141e1a4d4368c"
+}

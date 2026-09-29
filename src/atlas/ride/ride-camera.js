@@ -1,4 +1,4 @@
-import { SCALE, clamp, damp } from './ride-motion.js';
+import { SCALE, RIDE_MOTION, clamp, damp } from './ride-motion.js';
 export const RIDE_CAMERA = Object.freeze({ distance: 6.4, height: 3.1, lead: 4.8, fov: 57, followRate: 5, swingRate: 3.4 });
 
 export class RideCamera {
@@ -30,13 +30,13 @@ export class RideCamera {
     const difference = Math.atan2(Math.sin(state.heading - this.heading), Math.cos(state.heading - this.heading));
     this.heading = snap ? state.heading : this.heading + difference * (1 - Math.exp(-RIDE_CAMERA.followRate * dt));
     this.swing = snap || reduced ? 0 : damp(this.swing, clamp(state.steering * state.speed * .075, -.14, .14), RIDE_CAMERA.swingRate, dt);
-    this.pace = reduced?0:damp(this.pace, clamp(Math.abs(state.speed) / (25/3.6), 0, 1), 2, dt);
+    this.pace = reduced?0:damp(this.pace, clamp(Math.abs(state.speed) / RIDE_MOTION.maxSpeed, 0, 1), 2, dt);
     this.height = snap ? supportY : damp(this.height, supportY, 10, dt);
     const y = Math.max(state.y, supportY, this.height), portrait = this.camera.aspect < .85;
     const angle = this.heading + this.offset + this.swing + (reduced ? 0 : .10);
     const distance = (this.inspection?3.2:RIDE_CAMERA.distance + this.pace * 1.1 + (portrait ? .8 : 0)) * SCALE;
     this.desired.set(state.x - Math.sin(angle) * distance, y + (this.inspection?1.6:RIDE_CAMERA.height + (portrait ? .5 : 0)) * SCALE, state.z - Math.cos(angle) * distance);
-    const lead = (this.inspection?0:RIDE_CAMERA.lead + this.pace * .6) * SCALE;
+    const lead = (this.inspection?0:RIDE_CAMERA.lead + this.pace * 3.2) * SCALE;
     this.target.set(state.x + Math.sin(this.heading) * lead, y + 1.05 * SCALE, state.z + Math.cos(this.heading) * lead);
     // Follow the road's pitch without snapping to an overhead bridge layer.
     const road = this.collision.height(this.target.x, this.target.z, state.y,state.surfaceId);

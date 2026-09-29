@@ -1,0 +1,1882 @@
+{
+  "result": "PASS",
+  "date": "2026-09-29T01:07:58.866Z",
+  "views": [
+    {
+      "view": "confluence",
+      "light": "day",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 7327,
+          "visibleInstances": 8838,
+          "drawCalls": 187,
+          "triangles": 312648
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 10.12480000000002,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1017,
+          "target": 1020,
+          "ticks": 202,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 13,
+            "yingwuzhou": 13,
+            "yangsigang": 12,
+            "erqi": 15,
+            "qingchuan": 13,
+            "yangtze-second": 15
+          },
+          "visibleVehicles": 401,
+          "nearVehicles": 0,
+          "farVehicles": 401,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 202,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 15,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 4.04833333392938,
+          "vesselSimulationMs": 0.01333333154519399,
+          "dynamicUpdateMs": 5.816666665176551
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 66,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 217678,
+          "buildingCount": 13516,
+          "surfacesReady": true,
+          "roadTriangles": 1599346,
+          "loadedSurfaceChunks": 105
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 91942,
+        "estimatedGeometryBytes": 164291176,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          -56.544942744884395,
+          97.46723317293691,
+          97.15399057566329
+        ],
+        "target": [
+          -28.724931511621108,
+          0.2,
+          -6.671704814012228
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 741,
+        "triangles": 2388561,
+        "geometries": 308,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000109,
+        "disposed": false
+      }
+    },
+    {
+      "view": "confluence",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 7327,
+          "visibleInstances": 8838,
+          "drawCalls": 187,
+          "triangles": 312648
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 18.181299999999872,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 540,
+          "target": 540,
+          "ticks": 363,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 14,
+            "qingchuan": 11,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 207,
+          "nearVehicles": 0,
+          "farVehicles": 207,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 363,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 14,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.2745833337306975,
+          "vesselSimulationMs": 0.013749998311201732,
+          "dynamicUpdateMs": 3.265416667362054
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 103,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 255764,
+          "buildingCount": 16563,
+          "surfacesReady": true,
+          "roadTriangles": 1704189,
+          "loadedSurfaceChunks": 142
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 91942,
+        "estimatedGeometryBytes": 176848672,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          -56.544942744884395,
+          97.46723317293691,
+          97.15399057566329
+        ],
+        "target": [
+          -28.724931511621108,
+          0.2,
+          -6.671704814012228
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 888,
+        "triangles": 2531622,
+        "geometries": 385,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      }
+    },
+    {
+      "view": "confluence",
+      "light": "sunset",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 7327,
+          "visibleInstances": 8838,
+          "drawCalls": 187,
+          "triangles": 312648
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "sunset",
+          "time": 26.18779999999969,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1200,
+          "target": 1200,
+          "ticks": 523,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 13,
+            "yingwuzhou": 11,
+            "yangsigang": 16,
+            "erqi": 18,
+            "qingchuan": 11,
+            "yangtze-second": 16
+          },
+          "visibleVehicles": 438,
+          "nearVehicles": 0,
+          "farVehicles": 438,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 523,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 14,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 5.057499998311202,
+          "vesselSimulationMs": 0.01583333412806193,
+          "dynamicUpdateMs": 7.195000001291434
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 103,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 255764,
+          "buildingCount": 16563,
+          "surfacesReady": true,
+          "roadTriangles": 1704189,
+          "loadedSurfaceChunks": 142
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 91942,
+        "estimatedGeometryBytes": 176848672,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          -56.544942744884395,
+          97.46723317293691,
+          97.15399057566329
+        ],
+        "target": [
+          -28.724931511621108,
+          0.2,
+          -6.671704814012228
+        ],
+        "light": "sunset",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 887,
+        "triangles": 2531454,
+        "geometries": 385,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      }
+    },
+    {
+      "view": "wuhan-iconic",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 5516,
+          "visibleInstances": 6982,
+          "drawCalls": 158,
+          "triangles": 361524
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 34.22769999999971,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 538,
+          "target": 540,
+          "ticks": 684,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 11
+          },
+          "visibleVehicles": 147,
+          "nearVehicles": 6,
+          "farVehicles": 141,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 684,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 5,
+          "wakes": 3,
+          "maxWakeSegments": 144,
+          "visibleBirds": 6,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.3845833326379458,
+          "vesselSimulationMs": 0.012916667262713115,
+          "dynamicUpdateMs": 3.4074999993046124
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 137,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 95391,
+          "buildingCount": 5432,
+          "surfacesReady": true,
+          "roadTriangles": 914016,
+          "loadedSurfaceChunks": 168
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 304312,
+        "estimatedGeometryBytes": 202256884,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "wuhan-iconic",
+        "flying": false,
+        "camera": [
+          -6.0340327721438705,
+          13.641967599458674,
+          27.907236925053933
+        ],
+        "target": [
+          -31.597424662784576,
+          0.2,
+          10.007557221018342
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 609,
+        "triangles": 1801775,
+        "geometries": 473,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999995634,
+        "disposed": false
+      }
+    },
+    {
+      "view": "place-wuhan-center",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 830,
+          "visibleInstances": 1217,
+          "drawCalls": 35,
+          "triangles": 79350
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 42.31770000000038,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 538,
+          "target": 540,
+          "ticks": 846,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 11,
+            "yangsigang": 13,
+            "erqi": 16,
+            "qingchuan": 9,
+            "yangtze-second": 11
+          },
+          "visibleVehicles": 6,
+          "nearVehicles": 6,
+          "farVehicles": 0,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 846,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.2820833305517834,
+          "vesselSimulationMs": 0.010416667660077412,
+          "dynamicUpdateMs": 3.250833328068256
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 137,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 14760,
+          "buildingCount": 581,
+          "surfacesReady": true,
+          "roadTriangles": 210977,
+          "loadedSurfaceChunks": 168
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 194572,
+        "estimatedGeometryBytes": 203219620,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "place-wuhan-center",
+        "flying": false,
+        "camera": [
+          -79.92129005534687,
+          8.634644152391003,
+          -32.48179052115057
+        ],
+        "target": [
+          -76.91547319997787,
+          2.1027099614494564,
+          -40.74020445829301
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 96,
+        "triangles": 569963,
+        "geometries": 468,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999995634,
+        "disposed": false
+      }
+    },
+    {
+      "view": "campus-lake",
+      "light": "day",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 8428,
+          "visibleInstances": 9692,
+          "drawCalls": 69,
+          "triangles": 598470
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 50.20750000000102,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1016,
+          "target": 1020,
+          "ticks": 1004,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 14,
+            "yingwuzhou": 11,
+            "yangsigang": 14,
+            "erqi": 18,
+            "qingchuan": 9,
+            "yangtze-second": 16
+          },
+          "visibleVehicles": 18,
+          "nearVehicles": 5,
+          "farVehicles": 13,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1004,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 6,
+          "maxBirds": 12,
+          "trafficSimulationMs": 4.1033333331346515,
+          "vesselSimulationMs": 0.015416666865348816,
+          "dynamicUpdateMs": 5.7933333347241085
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 140,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 121558,
+          "buildingCount": 5804,
+          "surfacesReady": true,
+          "roadTriangles": 430617,
+          "loadedSurfaceChunks": 170
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 242098,
+        "estimatedGeometryBytes": 204353224,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "campus-lake",
+        "flying": false,
+        "camera": [
+          40.0825313153987,
+          15.802303453716068,
+          45.64054205585915
+        ],
+        "target": [
+          42.12989955040665,
+          0.5649525109434563,
+          22.239016046706098
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 189,
+        "triangles": 1413807,
+        "geometries": 478,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-sequence",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 6284,
+          "visibleInstances": 7596,
+          "drawCalls": 156,
+          "triangles": 270552
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 58.18070000000164,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 540,
+          "target": 540,
+          "ticks": 1163,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 13,
+            "yingwuzhou": 11,
+            "yangsigang": 10,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 217,
+          "nearVehicles": 0,
+          "farVehicles": 217,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1163,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 14,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.507083337008953,
+          "vesselSimulationMs": 0.009999999900658925,
+          "dynamicUpdateMs": 3.6345833376049996
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 140,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 246311,
+          "buildingCount": 14917,
+          "surfacesReady": true,
+          "roadTriangles": 1735635,
+          "loadedSurfaceChunks": 214
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 313757,
+        "estimatedGeometryBytes": 204018232,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-sequence",
+        "flying": false,
+        "camera": [
+          40.38473714683305,
+          23.393456563751297,
+          82.3616959067082
+        ],
+        "target": [
+          -28.724931511621108,
+          0.20000000000000004,
+          0
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 1080,
+        "triangles": 2729723,
+        "geometries": 542,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-yangtze-first",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 3059,
+          "visibleInstances": 3881,
+          "drawCalls": 50,
+          "triangles": 247984
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 66.22060000000256,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 539,
+          "target": 540,
+          "ticks": 1324,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 11,
+            "yangsigang": 10,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 27,
+          "nearVehicles": 21,
+          "farVehicles": 6,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1324,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 6,
+          "wakes": 2,
+          "maxWakeSegments": 144,
+          "visibleBirds": 6,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.217916663984458,
+          "vesselSimulationMs": 0.012916668256123861,
+          "dynamicUpdateMs": 3.2720833331346513
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 143,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 53108,
+          "buildingCount": 2696,
+          "surfacesReady": true,
+          "roadTriangles": 487751,
+          "loadedSurfaceChunks": 223
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 308873,
+        "estimatedGeometryBytes": 207410692,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-yangtze-first",
+        "flying": false,
+        "camera": [
+          -38.991295647026256,
+          7.755281329418525,
+          22.565381856285306
+        ],
+        "target": [
+          -35.3483388499984,
+          0.2,
+          8.969681999998969
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 189,
+        "triangles": 1205828,
+        "geometries": 544,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-yingwuzhou",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 2660,
+          "visibleInstances": 3358,
+          "drawCalls": 79,
+          "triangles": 132560
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 74.16040000000416,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 538,
+          "target": 540,
+          "ticks": 1483,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 3,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 11,
+            "yangsigang": 10,
+            "erqi": 14,
+            "qingchuan": 10,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 44,
+          "nearVehicles": 13,
+          "farVehicles": 31,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1483,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 7,
+          "wakes": 3,
+          "maxWakeSegments": 144,
+          "visibleBirds": 6,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.177499999602636,
+          "vesselSimulationMs": 0.014999999602635702,
+          "dynamicUpdateMs": 3.227083332836628
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 143,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 69373,
+          "buildingCount": 3473,
+          "surfacesReady": true,
+          "roadTriangles": 664873,
+          "loadedSurfaceChunks": 223
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 264004,
+        "estimatedGeometryBytes": 202329988,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-yingwuzhou",
+        "flying": false,
+        "camera": [
+          -46.52222244177264,
+          10.928128034493866,
+          48.195201443766734
+        ],
+        "target": [
+          -41.36074160000639,
+          0.2,
+          28.93229270000171
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 266,
+        "triangles": 1231950,
+        "geometries": 543,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-yangsigang",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 3402,
+          "visibleInstances": 4239,
+          "drawCalls": 92,
+          "triangles": 192234
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 82.1502000000058,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 537,
+          "target": 540,
+          "ticks": 1643,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 3,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 12,
+            "yangsigang": 11,
+            "erqi": 14,
+            "qingchuan": 10,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 38,
+          "nearVehicles": 1,
+          "farVehicles": 37,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1643,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 4,
+          "wakes": 1,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.127083331843217,
+          "vesselSimulationMs": 0.01124999870856603,
+          "dynamicUpdateMs": 3.115000000099341
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 134,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 49138,
+          "buildingCount": 3013,
+          "surfacesReady": true,
+          "roadTriangles": 582675,
+          "loadedSurfaceChunks": 214
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 273601,
+        "estimatedGeometryBytes": 192249940,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-yangsigang",
+        "flying": false,
+        "camera": [
+          -65.41599450684426,
+          11.562055468565912,
+          76.53553788090068
+        ],
+        "target": [
+          -59.950655600006655,
+          0.2,
+          56.138615399999786
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 266,
+        "triangles": 1215916,
+        "geometries": 527,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-erqi",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 1352,
+          "visibleInstances": 2000,
+          "drawCalls": 48,
+          "triangles": 121396
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 90.12330000000735,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 540,
+          "target": 540,
+          "ticks": 1802,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 12,
+            "yangsigang": 13,
+            "erqi": 14,
+            "qingchuan": 10,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 13,
+          "nearVehicles": 11,
+          "farVehicles": 2,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1802,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 1,
+          "wakes": 1,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.2866666674613954,
+          "vesselSimulationMs": 0.012916665275891621,
+          "dynamicUpdateMs": 3.3350000003973643
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 33,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 11537,
+          "buildingCount": 812,
+          "surfacesReady": true,
+          "roadTriangles": 317028,
+          "loadedSurfaceChunks": 66
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 257540,
+        "estimatedGeometryBytes": 118387720,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-erqi",
+        "flying": false,
+        "camera": [
+          13.449430962785335,
+          11.77136880514884,
+          -56.194882620989276
+        ],
+        "target": [
+          19.016045499993304,
+          0.19999999999999998,
+          -76.96977090000092
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 177,
+        "triangles": 769601,
+        "geometries": 289,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-qingchuan",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 3758,
+          "visibleInstances": 4794,
+          "drawCalls": 59,
+          "triangles": 331930
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 98.0465000000089,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 539,
+          "target": 540,
+          "ticks": 1960,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 4,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 12,
+            "yangsigang": 14,
+            "erqi": 14,
+            "qingchuan": 10,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 26,
+          "nearVehicles": 17,
+          "farVehicles": 9,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1960,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 6,
+          "wakes": 4,
+          "maxWakeSegments": 144,
+          "visibleBirds": 3,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.2033333321412405,
+          "vesselSimulationMs": 0.013749999801317851,
+          "dynamicUpdateMs": 3.3333333298563956
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 36,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 52626,
+          "buildingCount": 2573,
+          "surfacesReady": true,
+          "roadTriangles": 402219,
+          "loadedSurfaceChunks": 66
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 322114,
+        "estimatedGeometryBytes": 120454360,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-qingchuan",
+        "flying": false,
+        "camera": [
+          -42.86098529702632,
+          7.755136262380919,
+          6.978599056285324
+        ],
+        "target": [
+          -39.21802849999846,
+          0.2,
+          -6.6171008000010065
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 196,
+        "triangles": 1212051,
+        "geometries": 293,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "bridge-yangtze-second",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 2974,
+          "visibleInstances": 4148,
+          "drawCalls": 56,
+          "triangles": 288626
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 106.01970000001054,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 540,
+          "target": 540,
+          "ticks": 2120,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 4,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 12,
+            "yangsigang": 13,
+            "erqi": 13,
+            "qingchuan": 11,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 24,
+          "nearVehicles": 9,
+          "farVehicles": 15,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 2120,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 2,
+          "wakes": 1,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.1308333347241084,
+          "vesselSimulationMs": 0.013749998807907105,
+          "dynamicUpdateMs": 3.1504166682561237
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1612.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 40,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 28576,
+          "buildingCount": 1909,
+          "surfacesReady": true,
+          "roadTriangles": 360064,
+          "loadedSurfaceChunks": 72
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 311866,
+        "estimatedGeometryBytes": 127027756,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-yangtze-second",
+        "flying": false,
+        "camera": [
+          -4.276615954162765,
+          8.684717592267882,
+          -35.14266817945082
+        ],
+        "target": [
+          -0.18816140000628181,
+          0.2,
+          -50.40098829999918
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 191,
+        "triangles": 1052468,
+        "geometries": 306,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      }
+    },
+    {
+      "view": "place-greenland",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 1144,
+          "visibleInstances": 1534,
+          "drawCalls": 25,
+          "triangles": 87678
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 10.341600000000009,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 540,
+          "target": 540,
+          "ticks": 206,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 14,
+            "qingchuan": 11,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 1,
+          "nearVehicles": 1,
+          "farVehicles": 0,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 206,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 2,
+          "wakes": 2,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.0174999982118607,
+          "vesselSimulationMs": 0.014583333830038707,
+          "dynamicUpdateMs": 2.940416661898295
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1533.8999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 23,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 26402,
+          "buildingCount": 1376,
+          "surfacesReady": true,
+          "roadTriangles": 249397,
+          "loadedSurfaceChunks": 34
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 244746,
+        "estimatedGeometryBytes": 105153628,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "place-greenland",
+        "flying": false,
+        "camera": [
+          5.699825298685265,
+          9.47441172656784,
+          -23.92330384252608
+        ],
+        "target": [
+          -2.5645341481337995,
+          2.381745285445011,
+          -28.694733993826894
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 99,
+        "triangles": 678911,
+        "geometries": 200,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      }
+    },
+    {
+      "view": "wuhan-iconic",
+      "light": "night",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 1646,
+          "visibleInstances": 1906,
+          "drawCalls": 36,
+          "triangles": 90044
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "low",
+          "mode": "night",
+          "time": 10.374900000000006,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 180,
+          "target": 180,
+          "ticks": 207,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 0,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 10,
+            "yangsigang": 11,
+            "erqi": 10,
+            "qingchuan": 11,
+            "yangtze-second": 10
+          },
+          "visibleVehicles": 31,
+          "nearVehicles": 0,
+          "farVehicles": 31,
+          "maxDrawCalls": 5,
+          "vessels": 6,
+          "vesselTicks": 207,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 4
+            },
+            {
+              "id": "han-main",
+              "count": 1
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 1
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 1,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 0.7108333359162012,
+          "vesselSimulationMs": 0.009583333134651184,
+          "dynamicUpdateMs": 1.0937500019868216
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1550.3999999761581,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 48,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 51391,
+          "buildingCount": 2769,
+          "surfacesReady": true,
+          "roadTriangles": 573315,
+          "loadedSurfaceChunks": 81
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 215390,
+        "estimatedGeometryBytes": 125248732,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "wuhan-iconic",
+        "flying": false,
+        "camera": [
+          2.9131543895803773,
+          18.36521029261573,
+          34.17212482146638
+        ],
+        "target": [
+          -31.597424662784576,
+          0.2,
+          10.007557221018342
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 346,
+        "triangles": 1047045,
+        "geometries": 252,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      }
+    }
+  ],
+  "issues": [],
+  "checks": [
+    "single renderer/rAF",
+    "day/sunset/night",
+    "six bridges",
+    "pause/resume",
+    "live reduced motion",
+    "blur/focus pause",
+    "three tiers",
+    "mode switch geometry stability",
+    "night card",
+    "nested prefix",
+    "mobile emulated viewport"
+  ],
+  "physicalMobileTested": false,
+  "performanceTargetMs": 25
+}

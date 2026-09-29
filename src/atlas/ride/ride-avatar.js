@@ -33,6 +33,15 @@ export class WuhanRideAvatar{
     ell(body,[.265,.235,.47],[0,.56,-.38],pink);
     box(body,[.43,.15,.79],[0,.785,-.29],seat,.05);
     box(body,[.44,.035,.70],[0,.705,-.31],edge,.02);
+    // Piping follows the saddle and skirt; fixed detail shares material batches.
+    for(const side of [-1,1]){
+      rod(body,[side*.195,.820,-.61],[side*.195,.825,-.01],.0035,edge);
+      rod(body,[side*.23,.42,-.43],[side*.23,.43,.28],.004,edge);
+      for(let i=0;i<5;i++)box(body,[.008,.003,.32],[side*(.07+i*.017),.400,.075],dark,.001);
+      rod(body,[side*.14,.29,-.38],[side*.22,.19,-.33],.010,metal);
+      box(body,[.05,.010,.11],[side*.22,.185,-.33],dark,.002);
+      box(body,[.011,.02,.10],[side*.204,.56,.44],this.lamp,.003);
+    }
     const apron=ell(body,[.245,.38,.14],[0,.65,.43],pink);apron.rotation.x=-.16;
     const inner=ell(body,[.205,.34,.09],[0,.66,.32],dark);inner.rotation.x=-.16;
     box(body,[.32,.065,.30],[0,.405,.36],pink,.025);
@@ -58,8 +67,9 @@ export class WuhanRideAvatar{
       rod(this.steering,[0,.83,-.14],[side*.33,.82,-.24],.023,dark);
       rod(this.steering,[side*.23,.79,-.19],[side*.33,.79,-.16],.007,metal);
       rod(this.steering,[side*.22,.85,-.14],[side*.29,1.09,-.09],.009,dark);
-      ell(this.steering,[.071,.085,.024],[side*.29,1.12,-.09],pink);
-      ell(this.steering,[.06,.071,.012],[side*.29,1.12,-.113],metal);
+      ell(this.steering,[.067,.079,.016],[side*.29,1.12,-.09],pink);
+      ell(this.steering,[.059,.071,.008],[side*.29,1.12,-.106],dark);
+      ell(this.steering,[.054,.065,.005],[side*.29,1.12,-.114],metal);
       const grip=new T.Group();grip.position.set(side*.285,.82,-.255);this.steering.add(grip);this.grips.push(grip);
     }
     // Circular headlamp, mounted on the apron, without an extra scene light.
@@ -72,6 +82,8 @@ export class WuhanRideAvatar{
       rod(wheel,[-.07,0,0],[.07,0,0],.052,dark);
       for(let i=0;i<6;i++){const a=i*Math.PI/3;rod(wheel,[0,0,0],[0,Math.sin(a)*.137,Math.cos(a)*.137],.011,metal);}
       ring(wheel,.098,.009,metal,[-.058,0,0]);
+      const disc=mesh(wheel,new T.CylinderGeometry(.102,.102,.005,20),metal,[-.055,0,0]);disc.rotation.z=Math.PI/2;
+      for(let i=0;i<10;i++){const a=i*Math.PI/5;ell(wheel,[.003,.006,.006],[-.059,Math.sin(a)*.077,Math.cos(a)*.077],dark);}
       for(let i=0;i<20;i++){const a=i*Math.PI/10;const tread=box(wheel,[.062,.006,.023],[0,Math.cos(a)*.228,Math.sin(a)*.228],dark,.001);tread.rotation.x=a;}
     }
     // Adult seated proportions: head height 23 cm, shoulders 36 cm, not a chibi rig.
@@ -89,18 +101,26 @@ export class WuhanRideAvatar{
     rod(this.torso,[0,.40,0],[0,.49,.012],.041,skin);
     ell(this.torso,[.094,.119,.086],[0,.57,.015],skin);
     ell(this.torso,[.071,.063,.066],[0,.51,.034],skin);
-    ell(this.torso,[.099,.081,.084],[0,.628,-.009],hair);
-    ell(this.torso,[.093,.105,.036],[0,.55,-.068],hair);
+    // Thin swept crown and separated shoulder-length locks leave the nape open.
+    ell(this.torso,[.096,.057,.079],[0,.645,-.006],hair);
+    for(let i=0;i<5;i++){
+      const lock=ell(this.torso,[.025,.075-Math.abs(i-2)*.006,.026],[(i-2)*.028,.578,-.055-Math.abs(i-2)*.004],i%2?hairLight:hair);lock.rotation.z=(i-2)*.09;
+    }
+    this.hairGroups=[];
+    const pony=new T.Group();pony.position.set(0,.627,-.077);this.torso.add(pony);this.hairGroups.push(pony);
+    ring(pony,.026,.006,pink,[0,-.006,-.013],'z');
+    for(let i=0;i<3;i++){const lock=ell(pony,[.020,.071+i*.008,.022],[(i-1)*.025,-.065-i*.011,-.029],i===1?hairLight:hair);lock.rotation.z=(i-1)*.20;lock.rotation.x=.22;}
     for(const side of [-1,1]){
       ell(this.torso,[.015,.026,.018],[side*.093,.566,.009],skin);
       ell(this.torso,[.022,.011,.009],[side*.038,.585,.092],white);
       ell(this.torso,[.010,.011,.005],[side*.039,.585,.100],eye);
       ell(this.torso,[.003,.004,.002],[side*.036,.589,.104],white);
       rod(this.torso,[side*.020,.609,.091],[side*.057,.610,.089],.004,hair);
-      for(let j=0;j<5;j++){
-        const lock=ell(this.torso,[.025,.115+j*.003,.025],[side*(.076+j*.004),.57-j*.029,-.025-j*.009],j%2?hairLight:hair);lock.rotation.z=side*(.13+j*.09);lock.rotation.x=-.15;
+      const sideHair=new T.Group();sideHair.position.set(side*.077,.607,-.025);this.torso.add(sideHair);this.hairGroups.push(sideHair);
+      for(let j=0;j<3;j++){
+        const lock=ell(sideHair,[.016,.084+j*.01,.018],[side*j*.011,-.06-j*.024,-j*.020],j%2?hairLight:hair);lock.rotation.z=side*(.09+j*.08);
       }
-      const fringe=ell(this.torso,[.052,.043,.031],[side*.045,.637,.071],hair);fringe.rotation.z=-side*.28;
+      for(let j=0;j<3;j++){const fringe=ell(this.torso,[.012,.035-j*.005,.012],[side*(.015+j*.024),.631+j*.004,.084-j*.004],j===1?hairLight:hair);fringe.rotation.z=-side*(.20+j*.12);}
     }
     ell(this.torso,[.014,.024,.018],[0,.561,.098],skin);
     ell(this.torso,[.026,.005,.007],[0,.527,.095],lip);
@@ -135,6 +155,6 @@ export class WuhanRideAvatar{
     this.animation=new MopedAnimation(this);this.animate(0,0,0,false,0);
   }
   animate(dt,speed,steering,brake,travel,reduced=false){this.animation.update(dt,speed,steering,brake,travel,reduced);this.tail.emissiveIntensity=brake?2:.65;}
-  resources(){const geometries=new Set(),materials=new Set();this.root.traverse(o=>{if(o.geometry)geometries.add(o.geometry.id);if(o.material)materials.add(o.material.id);});return {geometries:[...geometries],materials:[...materials]};}
+  resources(){let triangles=0,drawCalls=0;const geometries=new Set(),materials=new Set();this.root.traverse(o=>{if(o.geometry){geometries.add(o.geometry.id);triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;drawCalls++;}if(o.material)materials.add(o.material.id);});return {geometries:[...geometries],materials:[...materials],triangles,drawCalls};}
   dispose(){const g=new Set(),m=new Set();this.root.traverse(o=>{if(o.geometry)g.add(o.geometry);if(o.material)m.add(o.material);});g.forEach(v=>v.dispose());m.forEach(v=>v.dispose());this.root.removeFromParent();}
 }

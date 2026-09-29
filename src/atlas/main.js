@@ -54,7 +54,7 @@ async function start() {
   scene.updateMatrixWorld(true);
   const surface = createTerrainSurface(geography.stableTerrain, pack.waters, projection, pack.manifest.bounds.context);
   const urban=createUrban(pack,surface); scene.add(urban.group);
-  const dynamics=createDynamics(pack,geography,scene);
+  const dynamics=createDynamics(pack,geography,scene,surface);
   const lighting=createNightLighting({scene,sun,ambient,renderer,geography,urban,landmarkMaterials});
   const initMs=performance.now();
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -197,17 +197,20 @@ async function start() {
     return triangles;
   }
   window.__wuhan = {
+    roadDebug:value=>urban.canonical?.setDebug(value),
+    vegetationDebug:()=>['localhost','127.0.0.1'].includes(location.hostname)?urban.vegetation.entries.flatMap(e=>e.items??[]):[],
+    roadDebugProbe:(x,z)=>['localhost','127.0.0.1'].includes(location.hostname)?surface.getRoadTriangles().candidates(x,z):null,
     getRideState:()=>ride.snapshot(),rideEnter:()=>ride.enter(),rideExit:()=>ride.exit(),rideDebugSpawn:id=>ride.debugSpawn(id),
     rideDebugView:view=>ride.debugView(view),
     ridePrepare:async(x,z)=>ride.adapter.prepare(x,z),
     rideDebugAt:async state=>{ride.exit();await ride.adapter.prepare(state.x,state.z);const hit=ride.adapter.validate(state,state);if(!hit)return false;ride.activate({...state,...hit,y:hit.height,speed:0,steering:0});return true;},
     rideStep:(seconds,input)=>{for(let t=0;t<seconds-1e-8;t+=1/60){const dt=Math.min(1/60,seconds-t);dynamics.update(dt,camera);ride.update(dt,input);}return ride.snapshot();},
     rideProbe:state=>({surface:ride.adapter.sample(state.x,state.z,state.y,state.surfaceId),valid:!!ride.adapter.validate(state,state),collision:ride.adapter.lastBlock}),
-    setLight,setDynamicPaused:value=>{dynamics.setPaused(value);$('#dynamic-toggle').checked=!value;},setQuality:value=>{dynamics.setQuality(value);lighting.uniforms.detail.value=value==='low'?.35:1;},getDynamics:()=>dynamics.snapshot(),
+    setLight,setDynamicPaused:value=>{dynamics.setPaused(value);$('#dynamic-toggle').checked=!value;},setQuality:value=>{dynamics.setQuality(value);urban.vegetation.setQuality(value);lighting.uniforms.detail.value=value==='low'?.35:1;},getDynamics:()=>dynamics.snapshot(),
     resetFrameStats:()=>{frameTimes.length=0;},
     projectWorld:(position)=>{const p=new THREE.Vector3(...position).project(camera);return [(p.x+1)*innerWidth/2,(1-p.y)*innerHeight/2,p.z];},
     ready: true, fly, selectPlace:(id)=>places.select(id), getPlaces:()=>places.places, getLandmarks:()=>places.collision, getLabels:()=>places.getLabels(), cameraFloor:(x,z)=>places.cameraFloor(x,z), sampleWorld:(x,z)=>surface.sample(x,z), sampleSurface: (x,z,y,id)=>surface.sampleSurface(x,z,y,id), getBridges:()=>urban.bridges.children.map(o=>o.userData), sample: (lon, lat) => surface.sample(...projection.forward([lon, lat])),
-    getState: () => ({ runtimePhase:5,dynamics:dynamics.state, phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
+    getState: () => ({ runtimePhase:6,vegetation:{...urban.vegetation.stats},dynamics:dynamics.state, phase:pack.manifest.phase,placesReady:places.ready,selectedPlace:places.selected,landmarks:{...places.stats},placeErrors:[...places.errors],initialLoadMs:initMs,urbanReady:urban.ready,urban:{...urban.stats},urbanErrors:[...urban.errors],mainLoopCount:disposed?0:1,terrainTriangles:terrainTriangles(),estimatedGeometryBytes:(()=>{let bytes=0;const seen=new Set();scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index].filter(Boolean)){if(!seen.has(a.array.buffer)){seen.add(a.array.buffer);bytes+=a.array.buffer.byteLength;}}}});return bytes;})(),datasetId: pack.manifest.datasetId, region: currentRegion, flying: Boolean(flight), camera: camera.position.toArray(), target: controls.target.toArray(), light: lightMode, wireframe: geography.landMaterial.wireframe, labelsVisible, rendererCount: document.querySelectorAll('canvas').length, drawCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles, geometries: renderer.info.memory.geometries, frameSamples: frameTimes.length, p95FrameMs: [...frameTimes].sort((a, b) => a - b)[Math.floor(frameTimes.length * .95)] ?? 0, disposed }),
     dispose: disposeScene,
   };
   frame = requestAnimationFrame(render);

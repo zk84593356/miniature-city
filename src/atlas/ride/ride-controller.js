@@ -3,7 +3,7 @@ import {WuhanRideAvatar} from './ride-avatar.js';
 import {RideCamera} from './ride-camera.js';
 import {WuhanRideSurfaceAdapter} from './ride-collision.js';
 import {findSpawn,DEBUG_SPAWNS} from './ride-spawn.js';
-import {advance,SCALE,clamp,damp} from './ride-motion.js';
+import {advance,SCALE,RIDE_MOTION,clamp,damp} from './ride-motion.js';
 
 export function createRide(context){return new WuhanRide(context);}
 class WuhanRide{
@@ -55,7 +55,7 @@ class WuhanRide{
   activate(state){
     this.avatar??=new WuhanRideAvatar();this.follow??=new RideCamera(THREE,this.camera,this.cameraController,this.adapter);
     this.places.close();document.querySelector('#journeys').hidden=true;document.querySelector('#probe').hidden=true;
-    this.state=state;this.pitch=0;this.roll=0;this.travel=0;this.visualY=state.y+.0002;this.lastPrepare=0;this.clear();
+    this.state=state;this.lastSafeState={...state};this.recoveryCount=0;this.recoveryReason=null;this.pitch=0;this.roll=0;this.travel=0;this.visualY=state.y+.0002;this.lastPrepare=0;this.clear();
     this.follow.inspection=false;this.follow.save();this.active=true;this.scene.add(this.avatar.root);this.avatar.root.visible=true;
     this.hud.hidden=false;this.root.classList.add('is-riding');this.button.setAttribute('aria-pressed','true');this.buttonLabel.data='退出';
     this.dynamics.setRider(state);this.update(0);this.follow.update(state,0,true,this.visualY);this.canvas.tabIndex=0;this.canvas.focus({preventScroll:true});
@@ -72,12 +72,18 @@ class WuhanRide{
     const has=(a,b)=>this.keys.has(a)||this.keys.has(b)||[...this.touch.values()].some(k=>k===a||k===b);
     const throttle=input?.throttle??(Number(has('KeyW','ArrowUp'))-Number(has('KeyS','ArrowDown'))),turn=input?.turn??(Number(has('KeyA','ArrowLeft'))-Number(has('KeyD','ArrowRight'))),brake=input?.brake??(this.keys.has('Space')||[...this.touch.values()].includes('Space'));
     const s=this.state;let remaining=dt,travel=0;
+    // Recovery is reserved for an invalid simulation state, never a blocked move.
+    const finite=[s.x,s.y,s.z,s.speed,s.heading].every(Number.isFinite);
+    const current=finite?this.adapter.sample(s.x,s.z,s.y,s.surfaceId):null;
+    if(!finite||Math.abs(s.y-this.lastSafeState.y)>.05||!current?.rideAllowed||Math.abs(current.height-s.y)>.05){
+      this.recoveryReason=!finite?'non-finite-state':!current?.rideAllowed?'surface-missing':'invalid-support-height';this.recoveryCount++;Object.assign(s,this.lastSafeState,{speed:0});remaining=0;
+    }
     while(remaining>1e-8){
-      const step=Math.min(remaining,1/120);remaining-=step;
+      const step=Math.min(remaining,1/120,RIDE_MOTION.maxStepMeters/(Math.abs(s.speed)+RIDE_MOTION.acceleration/120));remaining-=step;
       const previous={...s};advance(s,throttle,turn,brake,step);
       const hit=this.adapter.validate(s,previous);
       if(!hit){s.x=previous.x;s.z=previous.z;s.heading=previous.heading;s.speed=0;remaining=0;}
-      else{travel+=Math.sign(s.speed)*Math.hypot(s.x-previous.x,s.z-previous.z,hit.height-previous.y)/SCALE;Object.assign(s,hit,{y:hit.height});}
+      else{travel+=Math.sign(s.speed)*Math.hypot(s.x-previous.x,s.z-previous.z,hit.height-previous.y)/SCALE;Object.assign(s,hit,{y:hit.height});this.lastSafeState={...s};}
     }
     this.travel+=travel;this.dynamics.setRider(s);
     const half=.58*SCALE,dx=Math.sin(s.heading)*half,dz=Math.cos(s.heading)*half;
@@ -99,7 +105,8 @@ class WuhanRide{
     this.exit();const key=id.replace('wuhan-ride-','');
     if(key==='bridge'){
       const def=await this.pack.loadJSON(this.pack.manifest.urban.bridges),b=def.find(b=>b.id==='yangtze-first');
-      const a=b.profile[1],next=b.profile[2];await this.adapter.prepare(a[0],a[2]);
+      const profile=this.urban.canonical?.index.bridges.find(c=>c.id==='bridge-yangtze-first')?.profile??b.profile;
+      const a=profile[1],next=profile[2];await this.adapter.prepare(a[0],a[2]);
       const s={x:a[0],y:a[1],z:a[2],heading:Math.atan2(next[0]-a[0],next[2]-a[2]),surfaceId:'bridge-yangtze-first',speed:0,steering:0};
       const hit=this.adapter.validate(s);if(!hit)return false;Object.assign(s,hit,{y:hit.height});this.activate(s);return true;
     }
@@ -107,7 +114,7 @@ class WuhanRide{
   }
   debugView(view){if(!this.active)return;this.follow.inspection=!!view;this.follow.dragging=!!view;this.follow.offset=({front:Math.PI,side:Math.PI/2,rear:0})[view]??0;this.follow.update(this.state,0,true,this.visualY);}
   snapshot(){
-    const c=this.camera;return {active:this.active,pending:this.pending,state:this.state?{...this.state}:null,travelMeters:this.travel??0,wheel:this.avatar?.animation.wheelAngle,contactError:this.avatar?.animation.contactError,avatarStatus:this.avatar?'procedural-adult-moped':null,avatarResources:this.avatar?.resources(),feet:this.avatar?.feet.map(f=>f.position.toArray()),pitch:this.pitch,roll:this.roll,collision:this.adapter.lastBlock,nearestTrafficDistance:this.adapter.nearestTrafficDistance,camera:c.position.toArray(),cameraQuaternion:c.quaternion.toArray(),cameraTarget:this.controls.target.toArray(),cameraNear:c.near,cameraFar:c.far,cameraFov:c.fov,cameraZoom:c.zoom,cameraView:c.view?{...c.view}:null,controlsEnabled:this.controls.enabled,cameraBlock:this.follow?.obstruction,cameraOffset:this.follow?.offset,cameraSwing:this.follow?.swing,indexBytes:this.adapter.indexBytes,metrics:this.lastMetrics,meanMetrics:Object.fromEntries(Object.keys(this.lastMetrics??{}).map(k=>[k,this.timings.reduce((n,m)=>n+m[k],0)/Math.max(1,this.timings.length)]))};
+    const c=this.camera;return {active:this.active,pending:this.pending,recoveryCount:this.recoveryCount??0,recoveryReason:this.recoveryReason,lastSafeState:this.lastSafeState,state:this.state?{...this.state}:null,travelMeters:this.travel??0,wheel:this.avatar?.animation.wheelAngle,contactError:this.avatar?.animation.contactError,avatarStatus:this.avatar?'procedural-adult-moped':null,avatarResources:this.avatar?.resources(),feet:this.avatar?.feet.map(f=>f.position.toArray()),pitch:this.pitch,roll:this.roll,collision:this.adapter.lastBlock,nearestTrafficDistance:this.adapter.nearestTrafficDistance,camera:c.position.toArray(),cameraQuaternion:c.quaternion.toArray(),cameraTarget:this.controls.target.toArray(),cameraNear:c.near,cameraFar:c.far,cameraFov:c.fov,cameraZoom:c.zoom,cameraView:c.view?{...c.view}:null,controlsEnabled:this.controls.enabled,cameraBlock:this.follow?.obstruction,cameraOffset:this.follow?.offset,cameraSwing:this.follow?.swing,indexBytes:this.adapter.indexBytes,metrics:this.lastMetrics,meanMetrics:Object.fromEntries(Object.keys(this.lastMetrics??{}).map(k=>[k,this.timings.reduce((n,m)=>n+m[k],0)/Math.max(1,this.timings.length)]))};
   }
   dispose(){this.exit();this.events.abort();this.adapter.dispose();this.avatar?.dispose();this.button.remove();this.hud.remove();this.style.remove();}
 }

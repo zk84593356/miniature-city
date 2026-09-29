@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { waterAt, waterHeight } from '../geo/projection.js';
 import { createTerrainIndex, createWaterIndex } from './terrain-index.js';
+import {createRoadTriangleIndex} from './road-triangles.js';
 
 /** Stable CPU ground geometry, independent of visible LOD; layered deck registry. */
 export function createTerrainSurface(terrain, waters, projection, bounds) {
@@ -10,6 +11,7 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
   const cells = new Map();
   let fastTerrain=null,fastWater=null;
   const segments=new Map();
+  const roadTriangles=createRoadTriangleIndex();
   function indexSegments(s){
     s.segmentCells=[];
     s.ends=[s.profile[0],s.profile[1],s.profile.at(-2),s.profile.at(-1)];
@@ -29,9 +31,13 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
     return keys;
   }
   const api = {
+    registerTriangles:(f,p,i)=>roadTriangles.register(f,p,i),
+    unregisterTriangles:id=>roadTriangles.unregister(id),
+    getRoadTriangles:()=>roadTriangles,
     enableFastSampling(){if(!fastTerrain){fastTerrain=createTerrainIndex(terrain);fastWater=createWaterIndex(waters);for(const s of surfaces.values())indexSegments(s);}return fastTerrain.bytes;},
     getSurfaces:()=>surfaces.values(),
     intersectsDeck(x,y,z){
+      if(roadTriangles.intersectsDeck(x,y,z))return true;
       for(const {s,a,b} of segments.get(`${Math.floor(x/.5)},${Math.floor(z/.5)}`)??[]){
         if(s.kind!=='bridge')continue;
         const dx=b[0]-a[0],dz=b[2]-a[2],d=dx*dx+dz*dz,t=d?((x-a[0])*dx+(z-a[2])*dz)/d:-1;
@@ -60,6 +66,11 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
     sampleSurface(x, z, referenceY, previousSurfaceId) {
       const ground = api.sample(x,z);
       const candidates = ground ? [{ ...ground, kind: ground.kind === 'ground' ? 'terrain' : ground.kind }] : [];
+      const canonical=roadTriangles.candidates(x,z);
+      // A rendered ground road replaces its underlying terrain support; using the
+      // nearer bare terrain would put the wheels 8 cm inside the visible road.
+      if(canonical.some(c=>c.kind==='road')&&ground?.kind==='ground')candidates.length=0;
+      candidates.push(...canonical);
       if(fastTerrain){
         const seen=new Map();
         for(const {s,a,b,first,last} of segments.get(`${Math.floor(x/.5)},${Math.floor(z/.5)}`)??[]){
@@ -98,6 +109,13 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
       if(referenceY===undefined) return candidates.find(c=>c.surfaceId==='terrain'||c.kind==='water')??null;
       candidates.sort((a,b)=>Math.abs(a.height-referenceY)-Math.abs(b.height-referenceY));
       const previous=candidates.find(c=>c.surfaceId===previousSurfaceId);
+      // At dry terminals the historical lower-rail profile converges with the
+      // upper road. A rider already on a road stays on the actual nearby road
+      // top; a query explicitly on rail keeps the non-rideable rail layer.
+      if(previousSurfaceId&&!previousSurfaceId.startsWith('rail')&&!previous){
+        const road=candidates.find(c=>c.canonical&&c.rideAllowed&&Math.abs(c.height-referenceY)<=.003);
+        if(road)return road;
+      }
       return previous && Math.abs(previous.height-referenceY)<.03 ? previous : candidates[0]??null;
     },
   };

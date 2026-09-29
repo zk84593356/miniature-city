@@ -26,7 +26,13 @@
     "wuhan:vessels:verify": "node tools/wuhan/verify-vessels.mjs",
     "wuhan:dynamics:browser": "node tools/wuhan/browser-check-phase4.mjs",
     "wuhan:ride:verify": "node tools/wuhan/verify-ride.mjs",
-    "wuhan:ride:browser": "node tools/wuhan/browser-check-phase5.mjs"
+    "wuhan:ride:browser": "node tools/wuhan/browser-check-phase5.mjs",
+    "wuhan:road:verify": "python tools/wuhan/verify-road-continuity.py",
+    "wuhan:vegetation:verify": "python tools/wuhan/verify-vegetation.py",
+    "wuhan:highspeed:verify": "node tools/wuhan/verify-phase6-ride.mjs && node tools/wuhan/verify-main-routes.mjs && node tools/wuhan/verify-bridge-transitions.mjs",
+    "wuhan:final:browser": "node tools/wuhan/browser-check-phase6.mjs",
+    "wuhan:checkout:verify": "node tools/wuhan/verify-git-checkout.mjs",
+    "wuhan:screenshots:verify": "node tools/wuhan/verify-screenshot-regressions.mjs"
   },
   "dependencies": {
     "three": "0.185.0"

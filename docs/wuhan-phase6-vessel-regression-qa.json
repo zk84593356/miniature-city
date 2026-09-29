@@ -1,0 +1,94 @@
+{
+  "result": "PASS",
+  "points": 26720,
+  "checks": [
+    {
+      "id": "yangtze-main",
+      "estimated": true,
+      "samples": 2386,
+      "bridgeConstraints": [
+        {
+          "bridge": "yangtze-first",
+          "crossing": [
+            -33.39218160756665,
+            10.221853787217599
+          ],
+          "clearanceMeters": 19.601,
+          "maxVesselHeightMeters": 5.5,
+          "estimated": true,
+          "source": "Phase 2 lowest deck profile, 2.4 m structural allowance; frozen pier metadata"
+        },
+        {
+          "bridge": "yingwuzhou",
+          "crossing": [
+            -41.90198687821804,
+            28.56988167522983
+          ],
+          "clearanceMeters": 32.601,
+          "maxVesselHeightMeters": 5.5,
+          "estimated": true,
+          "source": "Phase 2 lowest deck profile, 2.4 m structural allowance; frozen pier metadata"
+        },
+        {
+          "bridge": "yangsigang",
+          "crossing": [
+            -55.79501633547104,
+            59.52212689457148
+          ],
+          "clearanceMeters": 25.6,
+          "maxVesselHeightMeters": 5.5,
+          "estimated": true,
+          "source": "Phase 2 lowest deck profile, 2.4 m structural allowance; frozen pier metadata"
+        },
+        {
+          "bridge": "erqi",
+          "crossing": [
+            15.095109744447099,
+            -80.22237598521302
+          ],
+          "clearanceMeters": 29.601,
+          "maxVesselHeightMeters": 5.5,
+          "estimated": true,
+          "source": "Phase 2 lowest deck profile, 2.4 m structural allowance; frozen pier metadata"
+        },
+        {
+          "bridge": "yangtze-second",
+          "crossing": [
+            0.9437295270572497,
+            -49.54725821625803
+          ],
+          "clearanceMeters": 27.6,
+          "maxVesselHeightMeters": 5.5,
+          "estimated": true,
+          "source": "Phase 2 lowest deck profile, 2.4 m structural allowance; frozen pier metadata"
+        }
+      ]
+    },
+    {
+      "id": "han-main",
+      "estimated": true,
+      "samples": 853,
+      "bridgeConstraints": [
+        {
+          "bridge": "qingchuan",
+          "crossing": [
+            -38.86060795926053,
+            -6.234785036825474
+          ],
+          "clearanceMeters": 16.153,
+          "maxVesselHeightMeters": 5.5,
+          "estimated": true,
+          "source": "Phase 2 lowest deck profile, 2.4 m structural allowance; frozen pier metadata"
+        }
+      ]
+    },
+    {
+      "id": "yangtze-ferry",
+      "estimated": true,
+      "samples": 101,
+      "bridgeConstraints": []
+    }
+  ],
+  "continuousFootprintCheck": "tools/wuhan/verify-dynamic-geography.py",
+  "obstaclesMatchRuntime": true
+}

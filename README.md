@@ -44,6 +44,8 @@ npm run atlas:serve
 
 Phase 5 增加武汉第三人称骑行：在当前浏览位置附近进入，使用 WASD / 方向键自由控制粉色电动踏板车，Space 刹车，拖动观察，Esc 恢复原视角。移动端提供转向、加速、倒车和刹车按钮；城市动态与昼夜切换继续运行。人物与车辆为原创程序化模型，不含外部 GLB。骑行用于虚拟城市探索，不是现实通行导航。实现、数据边界和验收见 [Phase 5 报告](docs/wuhan-phase5.md)。
 
+Phase 6 将武汉道路顶面统一为渲染和骑行共用的三角形数据，补齐真实节点路口与桥头过渡，加入基于 OSM 绿地区域的树木、灌木和花簇。武汉电动车最高速度为 60 km/h，并更新发型、车辆细节、相机和碰撞采样；深圳保持原样。数据边界、27 项验收报告与复现命令见 [Phase 6 报告](docs/wuhan-phase6.md)。
+
 ```powershell
 npm run wuhan:ride:verify
 npm run wuhan:ride:browser

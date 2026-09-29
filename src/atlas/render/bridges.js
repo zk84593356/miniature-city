@@ -49,8 +49,7 @@ export function createBridge(bridge, surface) {
       target.add(new THREE.BoxGeometry(w,.024,d.length()+.002),new THREE.Matrix4().compose(mid,rotation,new THREE.Vector3(1,1,1)));
     }
   }
-  strip();
-  surface.register({id:'bridge-'+bridge.id,kind:'bridge',layerId:bridge.layerId,profile:bridge.profile,width:bridge.widthMeters,traversable:true,rideAllowed:true,source:bridge.source});
+  if(!bridge.canonicalSurface){strip();surface.register({id:'bridge-'+bridge.id,kind:'bridge',layerId:bridge.layerId,profile:bridge.profile,width:bridge.widthMeters,traversable:true,rideAllowed:true,source:bridge.source});}
   if(bridge.lowerDeckOffsetMeters) {
     const offset=-bridge.lowerDeckOffsetMeters/100;strip(0,deck,bridge.lowerProfile);
     surface.register({id:bridge.lowerLayerId,kind:'bridge',layerId:bridge.lowerLayerId,profile:bridge.lowerProfile,width:bridge.widthMeters,traversable:bridge.lowerDeckKind==='road',rideAllowed:bridge.lowerDeckKind==='road',source:bridge.source});
@@ -61,8 +60,18 @@ export function createBridge(bridge, surface) {
   function pier(s,width=.12,dy=0) {
     const p=at(s),water=surface.sample(p.x,p.z),bottom=(water?.height??p.y-.4)-(water?.kind==='water'?.1:0);
     const a=p.clone();a.y=bottom;const b=p.clone();b.y+=dy;
-    beam(piers,a,b,width,w*.8);
-    obstacles.push({id:`${bridge.id}-pier-${s}`,kind:'pier',center:[p.x,(a.y+b.y)/2,p.z],size:[width,b.y-a.y,w*.8],rotationY:Math.atan2(tangent.x,tangent.z),source:'estimated structural layout',estimated:true});
+    if(bridge.foundationProfile){
+      // A support ends below the LOWEST part of its deck footprint. A centreline
+      // box on a sloping approach otherwise sticks through the actual road top.
+      let top=Infinity;for(const [station,y] of bridge.foundationProfile)if(Math.abs(station-s)<width*50+2)top=Math.min(top,y);
+      if(Number.isFinite(top))b.y=Math.min(b.y,top+dy-.0005);
+      if(b.y<=a.y+.0001)return; // buried support: no inverted box above the road
+    }
+    // The short side follows the local road tangent; metadata uses that exact box.
+    const local=at(Math.min(length,s+1)).sub(at(Math.max(0,s-1)));
+    const heading=Math.atan2(local.x,local.z);
+    piers.add(new THREE.BoxGeometry(w*.8,b.y-a.y,width),new THREE.Matrix4().compose(a.clone().add(b).multiplyScalar(.5),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),heading),new THREE.Vector3(1,1,1)));
+    obstacles.push({id:`${bridge.id}-pier-${s}`,kind:'pier',center:[p.x,(a.y+b.y)/2,p.z],size:[w*.8,b.y-a.y,width],rotationY:heading,source:'estimated structural layout',estimated:true});
   }
   if(bridge.structure==='steel-truss') {
     const count=bridge.spans*6,depth=bridge.lowerDeckOffsetMeters/100;
@@ -74,8 +83,8 @@ export function createBridge(bridge, surface) {
       beam(structure,side(a,offset,-depth),side(b,offset),.009);
       beam(structure,side(a,offset),side(a,offset,-depth),.009);
     }
-    for(const s of [start,end])for(const offset of [-w*.65,w*.65]) {
-      const p=side(s,offset,.055);structure.add(new THREE.BoxGeometry(.12,.24,.15),new THREE.Matrix4().makeTranslation(p));
+    for(const s of [start,end])for(const offset of [-(w/2+.11),w/2+.11]) {
+      const p=side(s,offset,.055);obstacles.push({id:`${bridge.id}-portal-${s}-${offset}`,kind:'portal',center:p.toArray(),size:[.12,.24,.15],estimated:true});structure.add(new THREE.BoxGeometry(.12,.24,.15),new THREE.Matrix4().makeTranslation(p));
       structure.add(new THREE.ConeGeometry(.105,.05,4),new THREE.Matrix4().compose(p.clone().add(new THREE.Vector3(0,.145,0)),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),Math.PI/4),new THREE.Vector3(1,1,1)));
     }
   } else if(bridge.structure==='arch') {
@@ -94,12 +103,16 @@ export function createBridge(bridge, surface) {
     const height=bridge.towerHeightAboveDeckMeters/100;
     for(const s of towers) {
       pier(s,.17);
-      for(const offset of [-w*.58,w*.58]) {
+      for(const offset of [-(w/2+.07),w/2+.07]) {
         const base=side(s,offset),top=side(s,offset*.8,height);
         beam(structure,base,top,.045,.055);
-        obstacles.push({id:`${bridge.id}-tower-${s}-${offset}`,kind:'tower',center:base.clone().add(top).multiplyScalar(.5).toArray(),size:[.055,height,.055],estimated:true});
+        // Slice the leaning pylon vertically: its midpoint is not its ground footprint.
+        for(let slice=0;slice<24;slice++){
+          const a=base.clone().lerp(top,slice/24),b=base.clone().lerp(top,(slice+1)/24),mid=a.clone().add(b).multiplyScalar(.5);
+          obstacles.push({id:`${bridge.id}-tower-${s}-${offset}-${slice}`,kind:'tower',center:mid.toArray(),size:[.055+Math.abs(b.x-a.x),height/24,.055+Math.abs(b.z-a.z)],estimated:true});
+        }
       }
-      for(const h of [.2,.82])beam(structure,side(s,-w*.58,height*h),side(s,w*.58,height*h),.045);
+      for(const h of [.2,.82])beam(structure,side(s,-(w/2+.07),height*h),side(s,w/2+.07,height*h),.045);
     }
     if(bridge.structure==='suspension') {
       const anchors=[Math.max(0,towers[0]-span*.35),...towers,Math.min(length,towers.at(-1)+span*.35)].filter((s,i,all)=>!i||s-all[i-1]>1);

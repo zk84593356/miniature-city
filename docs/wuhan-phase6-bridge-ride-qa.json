@@ -1,0 +1,161 @@
+{
+  "result": "PASS",
+  "datasetId": "6b9141e1a4d4368c",
+  "route": [
+    "osm-way-50538708",
+    "osm-way-105437093",
+    "osm-way-233478878",
+    "osm-way-233478903",
+    "osm-way-28908192",
+    "osm-way-455183575",
+    "osm-way-105570781"
+  ],
+  "sourceJoin": 1215729830,
+  "runs": [
+    {
+      "reverse": false,
+      "count": 8936,
+      "maxStepMeters": 0.11325075000593321,
+      "failed": []
+    },
+    {
+      "reverse": true,
+      "count": 8936,
+      "maxStepMeters": 0.11325075000593321,
+      "failed": []
+    }
+  ],
+  "speedChecks": [
+    {
+      "kmh": 10,
+      "maximumTravelMeters": 0.02312062757201646
+    },
+    {
+      "kmh": 25,
+      "maximumTravelMeters": 0.05782597093621399
+    },
+    {
+      "kmh": 40,
+      "maximumTravelMeters": 0.09251684670781893
+    },
+    {
+      "kmh": 60,
+      "maximumTravelMeters": 0.09980771775427617
+    }
+  ],
+  "collisionChecks": [
+    {
+      "kmh": 10,
+      "kind": "building",
+      "stopped": true,
+      "maxTravelMeters": 0.02312062757201646,
+      "acceptedPosition": 0.9562691233213763
+    },
+    {
+      "kmh": 10,
+      "kind": "tower",
+      "stopped": true,
+      "maxTravelMeters": 0.02312062757201646,
+      "acceptedPosition": 0.9122662026773399
+    },
+    {
+      "kmh": 10,
+      "kind": "tree",
+      "stopped": true,
+      "maxTravelMeters": 0.02312062757201646,
+      "acceptedPosition": 0.7884753173268297
+    },
+    {
+      "kmh": 10,
+      "kind": "traffic",
+      "stopped": true,
+      "maxTravelMeters": 0.02312062757201646,
+      "acceptedPosition": 2.9026428963043744
+    },
+    {
+      "kmh": 25,
+      "kind": "building",
+      "stopped": true,
+      "maxTravelMeters": 0.05782597093621399,
+      "acceptedPosition": 0.954190889065833
+    },
+    {
+      "kmh": 25,
+      "kind": "tower",
+      "stopped": true,
+      "maxTravelMeters": 0.05782597093621399,
+      "acceptedPosition": 0.897053583151085
+    },
+    {
+      "kmh": 25,
+      "kind": "tree",
+      "stopped": true,
+      "maxTravelMeters": 0.05782597093621399,
+      "acceptedPosition": 0.7826471700088915
+    },
+    {
+      "kmh": 25,
+      "kind": "traffic",
+      "stopped": true,
+      "maxTravelMeters": 0.05782597093621399,
+      "acceptedPosition": 2.893210936401141
+    },
+    {
+      "kmh": 40,
+      "kind": "building",
+      "stopped": true,
+      "maxTravelMeters": 0.09251684670781893,
+      "acceptedPosition": 0.8850561686441103
+    },
+    {
+      "kmh": 40,
+      "kind": "tower",
+      "stopped": true,
+      "maxTravelMeters": 0.09251684670781893,
+      "acceptedPosition": 0.8850561686441103
+    },
+    {
+      "kmh": 40,
+      "kind": "tree",
+      "stopped": true,
+      "maxTravelMeters": 0.09251684670781893,
+      "acceptedPosition": 0.7380209352309273
+    },
+    {
+      "kmh": 40,
+      "kind": "traffic",
+      "stopped": true,
+      "maxTravelMeters": 0.09251684670781893,
+      "acceptedPosition": 2.9054126169433783
+    },
+    {
+      "kmh": 60,
+      "kind": "building",
+      "stopped": true,
+      "maxTravelMeters": 0.09980771775427617,
+      "acceptedPosition": 0.8982656702894183
+    },
+    {
+      "kmh": 60,
+      "kind": "tower",
+      "stopped": true,
+      "maxTravelMeters": 0.09980771775427617,
+      "acceptedPosition": 0.8982656702894183
+    },
+    {
+      "kmh": 60,
+      "kind": "tree",
+      "stopped": true,
+      "maxTravelMeters": 0.09980771775427617,
+      "acceptedPosition": 0.7984587957308062
+    },
+    {
+      "kmh": 60,
+      "kind": "traffic",
+      "stopped": true,
+      "maxTravelMeters": 0.09980771775427617,
+      "acceptedPosition": 2.8397714581434057
+    }
+  ],
+  "collisionScope": "Runtime footprint adapter against thin static boxes, trunk circle, and oriented-lane vehicle extent; live traffic separately tested in browser."
+}

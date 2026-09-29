@@ -1,0 +1,58 @@
+{
+  "result": "PASS",
+  "datasetId": "6b9141e1a4d4368c",
+  "results": [
+    {
+      "id": "west-red-box",
+      "screenshotPixels": [
+        195,
+        226,
+        333,
+        291
+      ],
+      "localization": "Approximate screenshot region inferred from visible landmarks; exact original camera state unavailable. Fixed geographic samples below are reproducible.",
+      "stationRangeMeters": [
+        1000,
+        1380
+      ],
+      "longitudeLatitude": [
+        114.27447199996037,
+        30.556724499957774
+      ],
+      "roadId": "osm-way-233478903",
+      "osmId": 233478903,
+      "surfaceId": "bridge-yangtze-first",
+      "samples": 2487,
+      "oldBuriedSamples": 2190,
+      "maxOldBurialMeters": 22.381455041594467,
+      "maxNewBurialMeters": 0,
+      "failures": []
+    },
+    {
+      "id": "east-red-box",
+      "screenshotPixels": [
+        1076,
+        503,
+        1232,
+        568
+      ],
+      "localization": "Approximate screenshot region inferred from visible landmarks; exact original camera state unavailable. Fixed geographic samples below are reproducible.",
+      "stationRangeMeters": [
+        2810,
+        2950
+      ],
+      "longitudeLatitude": [
+        114.2896757400223,
+        30.548386760032116
+      ],
+      "roadId": "osm-way-28908192",
+      "osmId": 28908192,
+      "surfaceId": "bridge-yangtze-first",
+      "samples": 939,
+      "oldBuriedSamples": 939,
+      "maxOldBurialMeters": 9.33215760919302,
+      "maxNewBurialMeters": 0.06823758117061596,
+      "failures": []
+    }
+  ]
+}

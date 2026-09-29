@@ -11,12 +11,12 @@ export async function findSpawn(adapter,target){
       const dx=b[0]-a[0],dz=b[2]-a[2],d=dx*dx+dz*dz;if(!d)continue;
       const t=Math.max(.1,Math.min(.9,((target.x-a[0])*dx+(target.z-a[2])*dz)/d));
       const x=a[0]+t*dx,z=a[2]+t*dz,dist=Math.hypot(x-target.x,z-target.z);if(dist>6)continue;
-      candidates.push({x,z,y:a[1]+t*(b[1]-a[1]),heading:Math.atan2(dx,dz),speed:0,steering:0,roadClass:r.roadClass,score:dist+rank*.14});
+      candidates.push({x,z,y:adapter.sample(x,z,a[1]+t*(b[1]-a[1]),r.id)?.height??a[1]+t*(b[1]-a[1]),heading:Math.atan2(dx,dz),speed:0,steering:0,roadClass:r.roadClass,score:dist+rank*.14});
     }
   }
   // A view centred over a river can enter the actual upper road deck. The lower
   // rail registry entry is never a spawn candidate; full clearance still applies.
-  for(const bridge of adapter.surface.getSurfaces()){
+  for(const bridge of [...adapter.surface.getSurfaces(),...(adapter.urban?.canonical?.index.bridges??[])]){
     if(!bridge.id.startsWith('bridge-')||!bridge.rideAllowed||bridge.width<2)continue;
     for(let i=1;i<bridge.profile.length;i++){
       const a=bridge.profile[i-1],b=bridge.profile[i],dx=b[0]-a[0],dz=b[2]-a[2],len=dx*dx+dz*dz;if(!len)continue;

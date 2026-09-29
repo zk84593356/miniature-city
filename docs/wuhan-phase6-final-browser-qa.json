@@ -1,0 +1,2978 @@
+{
+  "result": "PASS",
+  "date": "2026-09-29T00:51:37.235Z",
+  "views": [
+    {
+      "name": "overview-day",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 0,
+          "visibleInstances": 0,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 6.738700000000021,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1016,
+          "target": 1020,
+          "ticks": 134,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 13,
+            "yingwuzhou": 13,
+            "yangsigang": 12,
+            "erqi": 15,
+            "qingchuan": 13,
+            "yangtze-second": 15
+          },
+          "visibleVehicles": 0,
+          "nearVehicles": 0,
+          "farVehicles": 0,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 134,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 4.079166667163372,
+          "vesselSimulationMs": 0.01583333263794581,
+          "dynamicUpdateMs": 5.770000003774961
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 42,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 31706,
+          "buildingCount": 1859,
+          "surfacesReady": true,
+          "roadTriangles": 1434701,
+          "loadedSurfaceChunks": 69
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 222522,
+        "estimatedGeometryBytes": 135588136,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "overview",
+        "flying": false,
+        "camera": [
+          -21.81824578288508,
+          376.0451864492659,
+          407.98767122681016
+        ],
+        "target": [
+          14.362465755817354,
+          0.2,
+          -5.559754011679489
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 538,
+        "triangles": 1912894,
+        "geometries": 356,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000109,
+        "disposed": false
+      },
+      "ride": {
+        "active": false,
+        "pending": false,
+        "recoveryCount": 0,
+        "state": null,
+        "travelMeters": 0,
+        "avatarStatus": null,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -21.81824578288508,
+          376.0451864492659,
+          407.98767122681016
+        ],
+        "cameraQuaternion": [
+          -0.35930329640566033,
+          -0.04070076962494275,
+          -0.01568752071120772,
+          0.9322008851303988
+        ],
+        "cameraTarget": [
+          14.362465755817354,
+          0.2,
+          -5.559754011679489
+        ],
+        "cameraNear": 0.03,
+        "cameraFar": 2300,
+        "cameraFov": 40,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": true,
+        "meanMetrics": {}
+      }
+    },
+    {
+      "name": "overview-night",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 0,
+          "visibleInstances": 0,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "night",
+          "time": 13.494299999999967,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 539,
+          "target": 540,
+          "ticks": 269,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 12,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 14,
+            "qingchuan": 11,
+            "yangtze-second": 12
+          },
+          "visibleVehicles": 0,
+          "nearVehicles": 0,
+          "farVehicles": 0,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 269,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 2.121666665871938,
+          "vesselSimulationMs": 0.016249999900658927,
+          "dynamicUpdateMs": 3.047083333134651
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 88,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 140368,
+          "buildingCount": 10147,
+          "surfacesReady": true,
+          "roadTriangles": 1897377,
+          "loadedSurfaceChunks": 138
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 222522,
+        "estimatedGeometryBytes": 185963836,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "overview",
+        "flying": false,
+        "camera": [
+          -21.81824578288508,
+          376.0451864492659,
+          407.98767122681016
+        ],
+        "target": [
+          14.362465755817354,
+          0.2,
+          -5.559754011679489
+        ],
+        "light": "night",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 823,
+        "triangles": 2470150,
+        "geometries": 474,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "ride": {
+        "active": false,
+        "pending": false,
+        "recoveryCount": 0,
+        "state": null,
+        "travelMeters": 0,
+        "avatarStatus": null,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -21.81824578288508,
+          376.0451864492659,
+          407.98767122681016
+        ],
+        "cameraQuaternion": [
+          -0.35930329640566033,
+          -0.04070076962494275,
+          -0.01568752071120772,
+          0.9322008851303988
+        ],
+        "cameraTarget": [
+          14.362465755817354,
+          0.2,
+          -5.559754011679489
+        ],
+        "cameraNear": 0.03,
+        "cameraFar": 2300,
+        "cameraFov": 40,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": true,
+        "meanMetrics": {}
+      }
+    },
+    {
+      "name": "iconic",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 3059,
+          "visibleInstances": 3881,
+          "drawCalls": 50,
+          "triangles": 247984
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 20.249799999999848,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1017,
+          "target": 1020,
+          "ticks": 404,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 16,
+            "yingwuzhou": 15,
+            "yangsigang": 13,
+            "erqi": 15,
+            "qingchuan": 13,
+            "yangtze-second": 15
+          },
+          "visibleVehicles": 44,
+          "nearVehicles": 32,
+          "farVehicles": 12,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 404,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 6,
+          "wakes": 2,
+          "maxWakeSegments": 144,
+          "visibleBirds": 6,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.721666665871938,
+          "vesselSimulationMs": 0.009999999403953552,
+          "dynamicUpdateMs": 5.339583327869574
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 103,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 53108,
+          "buildingCount": 2696,
+          "surfacesReady": true,
+          "roadTriangles": 487751,
+          "loadedSurfaceChunks": 144
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 307397,
+        "estimatedGeometryBytes": 207772912,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "bridge-yangtze-first",
+        "flying": false,
+        "camera": [
+          -38.991295647026256,
+          7.755281329418525,
+          22.565381856285306
+        ],
+        "target": [
+          -35.3483388499984,
+          0.2,
+          8.969681999998969
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 186,
+        "triangles": 1204040,
+        "geometries": 510,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "ride": {
+        "active": false,
+        "pending": false,
+        "recoveryCount": 0,
+        "state": null,
+        "travelMeters": 0,
+        "avatarStatus": null,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -38.991295647026256,
+          7.755281329418525,
+          22.565381856285306
+        ],
+        "cameraQuaternion": [
+          -0.24174753237644883,
+          -0.12658653230051048,
+          -0.03182666642294934,
+          0.961520173337217
+        ],
+        "cameraTarget": [
+          -35.3483388499984,
+          0.2,
+          8.969681999998969
+        ],
+        "cameraNear": 0.03,
+        "cameraFar": 2300,
+        "cameraFov": 40,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": true,
+        "meanMetrics": {}
+      }
+    },
+    {
+      "name": "cbd",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 966,
+          "visibleInstances": 1466,
+          "drawCalls": 63,
+          "triangles": 70544
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 26.9718999999997,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1019,
+          "target": 1020,
+          "ticks": 539,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 16,
+            "yingwuzhou": 15,
+            "yangsigang": 13,
+            "erqi": 15,
+            "qingchuan": 12,
+            "yangtze-second": 15
+          },
+          "visibleVehicles": 48,
+          "nearVehicles": 8,
+          "farVehicles": 40,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 539,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.8595833366115886,
+          "vesselSimulationMs": 0.012499998013178507,
+          "dynamicUpdateMs": 5.444583338002364
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 115,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 29281,
+          "buildingCount": 1284,
+          "surfacesReady": true,
+          "roadTriangles": 389990,
+          "loadedSurfaceChunks": 148
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 201859,
+        "estimatedGeometryBytes": 211440568,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "cbd",
+        "flying": false,
+        "camera": [
+          -79.48681463652511,
+          27.059790936777247,
+          -15.83646095143671
+        ],
+        "target": [
+          -71.81232877907317,
+          0.21276746409597536,
+          -44.47803209341617
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 182,
+        "triangles": 762310,
+        "geometries": 531,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "ride": {
+        "active": false,
+        "pending": false,
+        "recoveryCount": 0,
+        "state": null,
+        "travelMeters": 0,
+        "avatarStatus": null,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -79.48681463652511,
+          27.059790936777247,
+          -15.83646095143671
+        ],
+        "cameraQuaternion": [
+          -0.3565768284743408,
+          -0.12179214309813774,
+          -0.04694423005043939,
+          0.9251031718352903
+        ],
+        "cameraTarget": [
+          -71.81232877907317,
+          0.21276746409597536,
+          -44.47803209341617
+        ],
+        "cameraNear": 0.03,
+        "cameraFar": 2300,
+        "cameraFov": 40,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": true,
+        "meanMetrics": {}
+      }
+    },
+    {
+      "name": "donghu",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 13200,
+          "visibleInstances": 15686,
+          "drawCalls": 175,
+          "triangles": 603084
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 33.69409999999969,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1018,
+          "target": 1020,
+          "ticks": 673,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 1,
+          "bridgeVehicles": {
+            "yangtze-first": 15,
+            "yingwuzhou": 16,
+            "yangsigang": 13,
+            "erqi": 15,
+            "qingchuan": 13,
+            "yangtze-second": 16
+          },
+          "visibleVehicles": 110,
+          "nearVehicles": 0,
+          "farVehicles": 110,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 673,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.9233333334326743,
+          "vesselSimulationMs": 0.015000000099341075,
+          "dynamicUpdateMs": 5.5458333363135655
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 157,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 134482,
+          "buildingCount": 8884,
+          "surfacesReady": true,
+          "roadTriangles": 755995,
+          "loadedSurfaceChunks": 163
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 106856,
+        "estimatedGeometryBytes": 214492600,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "donghu",
+        "flying": false,
+        "camera": [
+          52.51361348510035,
+          63.95668074761804,
+          65.06435047633235
+        ],
+        "target": [
+          76.5998173643683,
+          0.2,
+          -1.1119508023366882
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 489,
+        "triangles": 1677264,
+        "geometries": 587,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999995634,
+        "disposed": false
+      },
+      "ride": {
+        "active": false,
+        "pending": false,
+        "recoveryCount": 0,
+        "state": null,
+        "travelMeters": 0,
+        "avatarStatus": null,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          52.51361348510035,
+          63.95668074761804,
+          65.06435047633235
+        ],
+        "cameraQuaternion": [
+          -0.35417184112420785,
+          -0.16202987591030607,
+          -0.062450051397389704,
+          0.9189170894850323
+        ],
+        "cameraTarget": [
+          76.5998173643683,
+          0.2,
+          -1.1119508023366882
+        ],
+        "cameraNear": 0.03,
+        "cameraFar": 2300,
+        "cameraFov": 40,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": true,
+        "meanMetrics": {}
+      }
+    },
+    {
+      "name": "ride-hankou",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 5096,
+          "visibleInstances": 7173,
+          "drawCalls": 181,
+          "triangles": 407770
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 40.84960000000019,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1019,
+          "target": 1020,
+          "ticks": 816,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 15,
+            "yingwuzhou": 17,
+            "yangsigang": 13,
+            "erqi": 15,
+            "qingchuan": 13,
+            "yangtze-second": 16
+          },
+          "visibleVehicles": 135,
+          "nearVehicles": 27,
+          "farVehicles": 108,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 816,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 2,
+          "wakes": 1,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.8662500033775964,
+          "vesselSimulationMs": 0.016249999403953552,
+          "dynamicUpdateMs": 5.539166666567326
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 197,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 73982,
+          "buildingCount": 5541,
+          "surfacesReady": true,
+          "roadTriangles": 172156,
+          "loadedSurfaceChunks": 163
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 379849,
+        "estimatedGeometryBytes": 229979448,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "donghu",
+        "flying": false,
+        "camera": [
+          -28.650126625921704,
+          0.29216436108378735,
+          -29.120947928757168
+        ],
+        "target": [
+          -28.601292026250256,
+          0.2711339099430285,
+          -29.221588315612536
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 374,
+        "triangles": 1150827,
+        "geometries": 684,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": -28.62467917649923,
+          "z": -29.179671240294333,
+          "y": 0.2609643571702387,
+          "heading": 2.6326750599875015,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "tertiary",
+          "height": 0.2609643571702387,
+          "normal": [
+            0.019950999294015188,
+            0.9997998023417708,
+            -0.0015208104833727885
+          ],
+          "surfaceId": "osm-way-177632990",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-177632990"
+          ]
+        },
+        "state": {
+          "x": -28.62467917649923,
+          "z": -29.179671240294333,
+          "y": 0.2609643571702387,
+          "heading": 2.6326750599875015,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "tertiary",
+          "height": 0.2609643571702387,
+          "normal": [
+            0.019950999294015188,
+            0.9997998023417708,
+            -0.0015208104833727885
+          ],
+          "surfaceId": "osm-way-177632990",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-177632990"
+          ]
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 0,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            8043,
+            8044,
+            8045,
+            7955,
+            7956,
+            7957,
+            7999,
+            8000,
+            8001,
+            8103,
+            8104,
+            8105,
+            8109,
+            8110,
+            8114,
+            8115,
+            8126,
+            8127,
+            8128,
+            8129,
+            8089,
+            8090,
+            8091,
+            8092,
+            8093,
+            8094,
+            8095,
+            8096,
+            8097,
+            8098,
+            7748,
+            7747,
+            8135,
+            8136,
+            8137,
+            8143,
+            8144,
+            8145,
+            7929,
+            7930,
+            7931,
+            7932,
+            7933,
+            7934,
+            7935,
+            7936,
+            7937,
+            8146
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": 0.011050615591121228,
+        "roll": 0.016683461347795116,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -28.650126625921704,
+          0.29216436108378735,
+          -29.120947928757168
+        ],
+        "cameraQuaternion": [
+          -0.09042578996188079,
+          -0.22300231477674498,
+          -0.02078041981675791,
+          0.9703923527451268
+        ],
+        "cameraTarget": [
+          -28.601292026250256,
+          0.2711339099430285,
+          -29.221588315612536
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 92,
+          "surfaceQueryMs": 0.10000002384185791,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0.10000002384185791,
+          "cameraCollisionMs": 0.2999999523162842,
+          "rideUpdateMs": 0.7999999523162842
+        },
+        "meanMetrics": {
+          "surfaceQueries": 88.91666666666667,
+          "surfaceQueryMs": 0.306666665772597,
+          "staticObstacleQueryMs": 0.0758333350221316,
+          "dynamicQueryMs": 0.018750000496705374,
+          "cameraCollisionMs": 0.33666666547457375,
+          "rideUpdateMs": 0.7854166686534881
+        }
+      }
+    },
+    {
+      "name": "ride-luojia",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 12591,
+          "visibleInstances": 14698,
+          "drawCalls": 179,
+          "triangles": 785510
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 47.62170000000071,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1019,
+          "target": 1020,
+          "ticks": 952,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 14,
+            "yingwuzhou": 16,
+            "yangsigang": 12,
+            "erqi": 16,
+            "qingchuan": 13,
+            "yangtze-second": 17
+          },
+          "visibleVehicles": 165,
+          "nearVehicles": 10,
+          "farVehicles": 155,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 952,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.885416668156783,
+          "vesselSimulationMs": 0.012916666766007742,
+          "dynamicUpdateMs": 5.6004166707396505
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 189,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 287485,
+          "buildingCount": 17644,
+          "surfacesReady": true,
+          "roadTriangles": 113784,
+          "loadedSurfaceChunks": 105
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 340874,
+        "estimatedGeometryBytes": 181627452,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "donghu",
+        "flying": false,
+        "camera": [
+          42.899271547082655,
+          0.44915520307430123,
+          21.08111717962982
+        ],
+        "target": [
+          42.9162827627232,
+          0.43863128031873505,
+          21.19167903622557
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 377,
+        "triangles": 1644261,
+        "geometries": 632,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": 42.911704979715275,
+          "z": 21.14389782754755,
+          "y": 0.4179299824873641,
+          "heading": 0.09551564844497126,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.4179299824873641,
+          "normal": [
+            0.2779965834415623,
+            0.934630868762802,
+            -0.2217724932233671
+          ],
+          "surfaceId": "osm-way-103940635",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-103940635"
+          ]
+        },
+        "state": {
+          "x": 42.911704979715275,
+          "z": 21.14389782754755,
+          "y": 0.4179299824873641,
+          "heading": 0.09551564844497126,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.4179299824873641,
+          "normal": [
+            0.2779965834415623,
+            0.934630868762802,
+            -0.2217724932233671
+          ],
+          "surfaceId": "osm-way-103940635",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-103940635"
+          ]
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 0,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            8043,
+            8044,
+            8045,
+            7955,
+            7956,
+            7957,
+            7999,
+            8000,
+            8001,
+            8103,
+            8104,
+            8105,
+            8109,
+            8110,
+            8114,
+            8115,
+            8126,
+            8127,
+            8128,
+            8129,
+            8089,
+            8090,
+            8091,
+            8092,
+            8093,
+            8094,
+            8095,
+            8096,
+            8097,
+            8098,
+            7748,
+            7747,
+            8135,
+            8136,
+            8137,
+            8143,
+            8144,
+            8145,
+            7929,
+            7930,
+            7931,
+            7932,
+            7933,
+            7934,
+            7935,
+            7936,
+            7937,
+            8146
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.20491768267557328,
+        "roll": -0.21999999999999992,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          42.899271547082655,
+          0.44915520307430123,
+          21.08111717962982
+        ],
+        "cameraQuaternion": [
+          0.0035752942259274006,
+          0.9959916500639411,
+          0.04674762344672336,
+          -0.07617420807720458
+        ],
+        "cameraTarget": [
+          42.9162827627232,
+          0.43863128031873505,
+          21.19167903622557
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 82,
+          "surfaceQueryMs": 0.20000004768371582,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0.10000002384185791,
+          "cameraCollisionMs": 0.2999999523162842,
+          "rideUpdateMs": 0.5
+        },
+        "meanMetrics": {
+          "surfaceQueries": 89.16666666666667,
+          "surfaceQueryMs": 0.2649999976158142,
+          "staticObstacleQueryMs": 0.09499999831120173,
+          "dynamicQueryMs": 0.0229166641831398,
+          "cameraCollisionMs": 0.2791666661699613,
+          "rideUpdateMs": 0.7054166669646899
+        }
+      }
+    },
+    {
+      "name": "ride-moshan",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 23876,
+          "visibleInstances": 28183,
+          "drawCalls": 180,
+          "triangles": 1394266
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 54.310600000001294,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1019,
+          "target": 1020,
+          "ticks": 1086,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 14,
+            "yingwuzhou": 17,
+            "yangsigang": 12,
+            "erqi": 15,
+            "qingchuan": 13,
+            "yangtze-second": 18
+          },
+          "visibleVehicles": 17,
+          "nearVehicles": 3,
+          "farVehicles": 14,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1086,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.9066666697462398,
+          "vesselSimulationMs": 0.011666664977868398,
+          "dynamicUpdateMs": 5.550416669249534
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 217,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 49695,
+          "buildingCount": 3709,
+          "surfacesReady": true,
+          "roadTriangles": 37517,
+          "loadedSurfaceChunks": 95
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 217325,
+        "estimatedGeometryBytes": 161898840,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "donghu",
+        "flying": false,
+        "camera": [
+          85.02875689539339,
+          0.33651603799231256,
+          15.206865572391388
+        ],
+        "target": [
+          85.13998744031578,
+          0.31340310781668995,
+          15.21874292343173
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 335,
+        "triangles": 1821341,
+        "geometries": 664,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": 85.09262779715822,
+          "z": 15.210928564853578,
+          "y": 0.30531559413267606,
+          "heading": 1.4072693491351098,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.30531559413267606,
+          "normal": [
+            0.05576508790646873,
+            0.9983968992057536,
+            -0.009689511190980328
+          ],
+          "surfaceId": "osm-way-693270614",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-693270614"
+          ]
+        },
+        "state": {
+          "x": 85.09262779715822,
+          "z": 15.210928564853578,
+          "y": 0.30531559413267606,
+          "heading": 1.4072693491351098,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.30531559413267606,
+          "normal": [
+            0.05576508790646873,
+            0.9983968992057536,
+            -0.009689511190980328
+          ],
+          "surfaceId": "osm-way-693270614",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-693270614"
+          ]
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 0,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            8043,
+            8044,
+            8045,
+            7955,
+            7956,
+            7957,
+            7999,
+            8000,
+            8001,
+            8103,
+            8104,
+            8105,
+            8109,
+            8110,
+            8114,
+            8115,
+            8126,
+            8127,
+            8128,
+            8129,
+            8089,
+            8090,
+            8091,
+            8092,
+            8093,
+            8094,
+            8095,
+            8096,
+            8097,
+            8098,
+            7748,
+            7747,
+            8135,
+            8136,
+            8137,
+            8143,
+            8144,
+            8145,
+            7929,
+            7930,
+            7931,
+            7932,
+            7933,
+            7934,
+            7935,
+            7936,
+            7937,
+            8146
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": 0.053478467725634755,
+        "roll": -0.0186665132939083,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          85.02875689539339,
+          0.33651603799231256,
+          15.206865572391388
+        ],
+        "cameraQuaternion": [
+          -0.06798753925688883,
+          -0.7398434981571376,
+          -0.07563384975542967,
+          0.6650479783531228
+        ],
+        "cameraTarget": [
+          85.13998744031578,
+          0.31340310781668995,
+          15.21874292343173
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 82,
+          "surfaceQueryMs": 0.30000007152557373,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.20000004768371582,
+          "rideUpdateMs": 0.5
+        },
+        "meanMetrics": {
+          "surfaceQueries": 89.04166666666667,
+          "surfaceQueryMs": 0.27791666289170586,
+          "staticObstacleQueryMs": 0.03500000188748042,
+          "dynamicQueryMs": 0.02000000129143397,
+          "cameraCollisionMs": 0.2362500031789144,
+          "rideUpdateMs": 0.6416666661699613
+        }
+      }
+    },
+    {
+      "name": "ride-60",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 11697,
+          "visibleInstances": 13924,
+          "drawCalls": 208,
+          "triangles": 536048
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 76.28280000000133,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1019,
+          "target": 1020,
+          "ticks": 1525,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 4,
+          "bridgeVehicles": {
+            "yangtze-first": 14,
+            "yingwuzhou": 18,
+            "yangsigang": 11,
+            "erqi": 16,
+            "qingchuan": 12,
+            "yangtze-second": 21
+          },
+          "visibleVehicles": 307,
+          "nearVehicles": 26,
+          "farVehicles": 281,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1525,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 1,
+          "wakes": 1,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 4.107083333532016,
+          "vesselSimulationMs": 0.017500003178914387,
+          "dynamicUpdateMs": 5.98791666974624
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 232,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 390599,
+          "buildingCount": 25346,
+          "surfacesReady": true,
+          "roadTriangles": 205988,
+          "loadedSurfaceChunks": 84
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 317361,
+        "estimatedGeometryBytes": 157252944,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "donghu",
+        "flying": false,
+        "camera": [
+          -36.164055446569904,
+          0.4982144021511078,
+          8.36459505504059
+        ],
+        "target": [
+          -36.0218498463024,
+          0.4777144021511078,
+          8.446911543110335
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 510,
+        "triangles": 1628726,
+        "geometries": 653,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": -36.0702943507539,
+          "z": 8.415838841440435,
+          "y": 0.4670144021511078,
+          "heading": 1.0004847782158264,
+          "surfaceId": "bridge-yangtze-first",
+          "height": 0.4670144021511078,
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ],
+          "speed": 16.666666666666668,
+          "steering": 0
+        },
+        "state": {
+          "x": -36.0702943507539,
+          "z": 8.415838841440435,
+          "y": 0.4670144021511078,
+          "heading": 1.0004847782158264,
+          "surfaceId": "bridge-yangtze-first",
+          "height": 0.4670144021511078,
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ],
+          "speed": 16.666666666666668,
+          "steering": 0
+        },
+        "travelMeters": 301.5910861610492,
+        "wheel": 4.363048111228623,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            8043,
+            8044,
+            8045,
+            7955,
+            7956,
+            7957,
+            7999,
+            8000,
+            8001,
+            8103,
+            8104,
+            8105,
+            8109,
+            8110,
+            8114,
+            8115,
+            8126,
+            8127,
+            8128,
+            8129,
+            8089,
+            8090,
+            8091,
+            8092,
+            8093,
+            8094,
+            8095,
+            8096,
+            8097,
+            8098,
+            7748,
+            7747,
+            8135,
+            8136,
+            8137,
+            8143,
+            8144,
+            8145,
+            7929,
+            7930,
+            7931,
+            7932,
+            7933,
+            7934,
+            7935,
+            7936,
+            7937,
+            8146
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": 0,
+        "roll": 0,
+        "collision": null,
+        "nearestTrafficDistance": 0.3441500080412428,
+        "camera": [
+          -36.164055446569904,
+          0.4982144021511078,
+          8.36459505504059
+        ],
+        "cameraQuaternion": [
+          0.030980101795275355,
+          0.86463953938741,
+          0.05372907953072285,
+          -0.498549783104419
+        ],
+        "cameraTarget": [
+          -36.0218498463024,
+          0.4777144021511078,
+          8.446911543110335
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 59.99958509192658,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 114,
+          "surfaceQueryMs": 0.2999999523162842,
+          "staticObstacleQueryMs": 0.10000002384185791,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3999999761581421,
+          "rideUpdateMs": 1
+        },
+        "meanMetrics": {
+          "surfaceQueries": 114,
+          "surfaceQueryMs": 0.4333333397905032,
+          "staticObstacleQueryMs": 0.045833329359690346,
+          "dynamicQueryMs": 0.010416665176550547,
+          "cameraCollisionMs": 0.456666665772597,
+          "rideUpdateMs": 0.9124999985098838
+        }
+      }
+    },
+    {
+      "name": "tree-stop",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 7414,
+          "visibleInstances": 9208,
+          "drawCalls": 207,
+          "triangles": 525228
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 92.32580000000345,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1018,
+          "target": 1020,
+          "ticks": 1846,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 4,
+          "bridgeVehicles": {
+            "yangtze-first": 14,
+            "yingwuzhou": 18,
+            "yangsigang": 13,
+            "erqi": 19,
+            "qingchuan": 12,
+            "yangtze-second": 20
+          },
+          "visibleVehicles": 172,
+          "nearVehicles": 30,
+          "farVehicles": 142,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 1846,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 6,
+          "wakes": 2,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 4.0224999984105425,
+          "vesselSimulationMs": 0.015000000596046448,
+          "dynamicUpdateMs": 5.89208333392938
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1690,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 221,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 141246,
+          "buildingCount": 9166,
+          "surfacesReady": true,
+          "roadTriangles": 151205,
+          "loadedSurfaceChunks": 82
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 283419,
+        "estimatedGeometryBytes": 152605932,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "donghu",
+        "flying": false,
+        "camera": [
+          -58.56631873867757,
+          0.22352644232681984,
+          -1.9517061666991116
+        ],
+        "target": [
+          -58.5599294,
+          0.20358323788148502,
+          -1.8400258997020258
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 433,
+        "triangles": 1240433,
+        "geometries": 644,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": -58.5599294,
+          "y": 0.19232643780078684,
+          "z": -1.8880258999999997,
+          "heading": 0,
+          "surfaceId": "terrain",
+          "normal": [
+            -0.008603667580113895,
+            0.9998957181210644,
+            -0.011598697656713815
+          ],
+          "height": 0.19232643780078684,
+          "kind": "terrain",
+          "layerId": "ground",
+          "traversable": true,
+          "rideAllowed": true,
+          "speed": 0,
+          "steering": 0
+        },
+        "state": {
+          "x": -58.5599294,
+          "y": 0.19232643780078684,
+          "z": -1.8880258999999997,
+          "heading": 0,
+          "surfaceId": "terrain",
+          "normal": [
+            -0.008603667580113895,
+            0.9998957181210644,
+            -0.011598697656713815
+          ],
+          "height": 0.19232643780078684,
+          "kind": "terrain",
+          "layerId": "ground",
+          "traversable": true,
+          "rideAllowed": true,
+          "speed": 0,
+          "steering": 0
+        },
+        "travelMeters": 4.663927423243311,
+        "wheel": 0.2812570043089133,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            8043,
+            8044,
+            8045,
+            7955,
+            7956,
+            7957,
+            7999,
+            8000,
+            8001,
+            8103,
+            8104,
+            8105,
+            8109,
+            8110,
+            8114,
+            8115,
+            8126,
+            8127,
+            8128,
+            8129,
+            8089,
+            8090,
+            8091,
+            8092,
+            8093,
+            8094,
+            8095,
+            8096,
+            8097,
+            8098,
+            7748,
+            7747,
+            8135,
+            8136,
+            8137,
+            8143,
+            8144,
+            8145,
+            7929,
+            7930,
+            7931,
+            7932,
+            7933,
+            7934,
+            7935,
+            7936,
+            7937,
+            8146
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.011599387072648694,
+        "roll": 0.008604352533281998,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -58.56631873867757,
+          0.22352644232681984,
+          -1.9517061666991116
+        ],
+        "cameraQuaternion": [
+          0.002517060080506499,
+          0.9957049954290325,
+          0.08806412992184703,
+          -0.028459365898232433
+        ],
+        "cameraTarget": [
+          -58.5599294,
+          0.20358323788148502,
+          -1.8400258997020258
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57.000071883929174,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 82,
+          "surfaceQueryMs": 0.10000002384185791,
+          "staticObstacleQueryMs": 0.09999990463256836,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.2999999523162842,
+          "rideUpdateMs": 0.5
+        },
+        "meanMetrics": {
+          "surfaceQueries": 88.70833333333333,
+          "surfaceQueryMs": 0.2666666701436043,
+          "staticObstacleQueryMs": 0.049166665971279146,
+          "dynamicQueryMs": 0.010416667660077412,
+          "cameraCollisionMs": 0.2587500055631002,
+          "rideUpdateMs": 0.6566666707396507
+        }
+      }
+    },
+    {
+      "name": "mobile-390x844",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 6820,
+          "visibleInstances": 7333,
+          "drawCalls": 44,
+          "triangles": 502706
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "low",
+          "mode": "day",
+          "time": 7.305500000000032,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 339,
+          "target": 340,
+          "ticks": 146,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 0,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 11,
+            "qingchuan": 11,
+            "yangtze-second": 11
+          },
+          "visibleVehicles": 17,
+          "nearVehicles": 0,
+          "farVehicles": 17,
+          "maxDrawCalls": 5,
+          "vessels": 6,
+          "vesselTicks": 146,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 4
+            },
+            {
+              "id": "han-main",
+              "count": 1
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 1
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 1.1733333324392636,
+          "vesselSimulationMs": 0.008749998112519582,
+          "dynamicUpdateMs": 1.701249998807907
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1581.7000000476837,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 42,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 197887,
+          "buildingCount": 11599,
+          "surfacesReady": true,
+          "roadTriangles": 71318,
+          "loadedSurfaceChunks": 14
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 242416,
+        "estimatedGeometryBytes": 86107536,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          42.68610836165846,
+          0.32676277465259385,
+          -6.738623973878211
+        ],
+        "target": [
+          42.692645571563936,
+          0.303572835163676,
+          -6.618946349916781
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 182,
+        "triangles": 1131467,
+        "geometries": 229,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": 42.69290663,
+          "z": -6.66694564,
+          "y": 0.2905624519522203,
+          "heading": -0.00543874423096992,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.2905624519522203,
+          "normal": [
+            0.13138953402253437,
+            0.9902187857307088,
+            -0.04694195069809121
+          ],
+          "surfaceId": "osm-way-1487068333",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-1487068333"
+          ]
+        },
+        "state": {
+          "x": 42.69290663,
+          "z": -6.66694564,
+          "y": 0.2905624519522203,
+          "heading": -0.00543874423096992,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.2905624519522203,
+          "normal": [
+            0.13138953402253437,
+            0.9902187857307088,
+            -0.04694195069809121
+          ],
+          "surfaceId": "osm-way-1487068333",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-1487068333"
+          ]
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7637,
+            7638,
+            7639,
+            7549,
+            7550,
+            7551,
+            7593,
+            7594,
+            7595,
+            7697,
+            7698,
+            7699,
+            7703,
+            7704,
+            7708,
+            7709,
+            7720,
+            7721,
+            7722,
+            7723,
+            7683,
+            7684,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7342,
+            7341,
+            7729,
+            7730,
+            7731,
+            7737,
+            7738,
+            7739,
+            7523,
+            7524,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7740
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.04808947853441623,
+        "roll": -0.13166150384774009,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          42.68610836165846,
+          0.32676277465259385,
+          -6.738623973878211
+        ],
+        "cameraQuaternion": [
+          0.0026030313825536437,
+          0.9950671074424555,
+          0.09537916585621398,
+          -0.02715677879091913
+        ],
+        "cameraTarget": [
+          42.692645571563936,
+          0.303572835163676,
+          -6.618946349916781
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 63,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 90,
+          "surfaceQueryMs": 0.2999999523162842,
+          "staticObstacleQueryMs": 0.10000002384185791,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.2999999523162842,
+          "rideUpdateMs": 0.7000000476837158
+        },
+        "meanMetrics": {
+          "surfaceQueries": 96.95833333333333,
+          "surfaceQueryMs": 0.33583333442608515,
+          "staticObstacleQueryMs": 0.08874999682108561,
+          "dynamicQueryMs": 0.018749999006589253,
+          "cameraCollisionMs": 0.33958333084980646,
+          "rideUpdateMs": 0.7954166620969773
+        }
+      }
+    },
+    {
+      "name": "mobile-844x390",
+      "scene": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 10060,
+          "visibleInstances": 10816,
+          "drawCalls": 96,
+          "triangles": 636768
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "low",
+          "mode": "day",
+          "time": 7.372400000000033,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 339,
+          "target": 340,
+          "ticks": 147,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 0,
+          "bridgeVehicles": {
+            "yangtze-first": 11,
+            "yingwuzhou": 10,
+            "yangsigang": 12,
+            "erqi": 11,
+            "qingchuan": 11,
+            "yangtze-second": 11
+          },
+          "visibleVehicles": 101,
+          "nearVehicles": 1,
+          "farVehicles": 100,
+          "maxDrawCalls": 5,
+          "vessels": 6,
+          "vesselTicks": 147,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 4
+            },
+            {
+              "id": "han-main",
+              "count": 1
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 1
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 1.2624999980131786,
+          "vesselSimulationMs": 0.0024999996026357015,
+          "dynamicUpdateMs": 1.8804166674613954
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1552.8000000715256,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 46,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 295395,
+          "buildingCount": 16782,
+          "surfacesReady": true,
+          "roadTriangles": 71318,
+          "loadedSurfaceChunks": 17
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 355400,
+        "estimatedGeometryBytes": 97179036,
+        "datasetId": "6b9141e1a4d4368c",
+        "region": "confluence",
+        "flying": false,
+        "camera": [
+          42.68686372480752,
+          0.3217627746525939,
+          -6.73065971455841
+        ],
+        "target": [
+          42.692645571563936,
+          0.303572835163676,
+          -6.618946349916781
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 274,
+        "triangles": 1485956,
+        "geometries": 316,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000109,
+        "disposed": false
+      },
+      "ride": {
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": 42.69290663,
+          "z": -6.66694564,
+          "y": 0.2905624519522203,
+          "heading": -0.00543874423096992,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.2905624519522203,
+          "normal": [
+            0.13138953402253437,
+            0.9902187857307088,
+            -0.04694195069809121
+          ],
+          "surfaceId": "osm-way-1487068333",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-1487068333"
+          ]
+        },
+        "state": {
+          "x": 42.69290663,
+          "z": -6.66694564,
+          "y": 0.2905624519522203,
+          "heading": -0.00543874423096992,
+          "speed": 0,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.2905624519522203,
+          "normal": [
+            0.13138953402253437,
+            0.9902187857307088,
+            -0.04694195069809121
+          ],
+          "surfaceId": "osm-way-1487068333",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "roadIds": [
+            "osm-way-1487068333"
+          ]
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7637,
+            7638,
+            7639,
+            7549,
+            7550,
+            7551,
+            7593,
+            7594,
+            7595,
+            7697,
+            7698,
+            7699,
+            7703,
+            7704,
+            7708,
+            7709,
+            7720,
+            7721,
+            7722,
+            7723,
+            7683,
+            7684,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7342,
+            7341,
+            7729,
+            7730,
+            7731,
+            7737,
+            7738,
+            7739,
+            7523,
+            7524,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7740
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.04808947853441623,
+        "roll": -0.13166150384774009,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          42.68686372480752,
+          0.3217627746525939,
+          -6.73065971455841
+        ],
+        "cameraQuaternion": [
+          0.0020814020293699327,
+          0.996420508829578,
+          0.08048502225218536,
+          -0.025768169171716815
+        ],
+        "cameraTarget": [
+          42.692645571563936,
+          0.303572835163676,
+          -6.618946349916781
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 92,
+          "surfaceQueryMs": 0.19999992847442627,
+          "staticObstacleQueryMs": 0.10000002384185791,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.19999992847442627,
+          "rideUpdateMs": 0.7999999523162842
+        },
+        "meanMetrics": {
+          "surfaceQueries": 89.08333333333333,
+          "surfaceQueryMs": 0.3349999989072482,
+          "staticObstacleQueryMs": 0.09041666934887568,
+          "dynamicQueryMs": 0.01791666845480601,
+          "cameraCollisionMs": 0.32458333522081373,
+          "rideUpdateMs": 0.8029166663686435
+        }
+      }
+    }
+  ],
+  "treeCheck": {
+    "position": [
+      -58.5599294,
+      0.1924815,
+      -1.8746609
+    ],
+    "collision": "tree",
+    "recoveryCount": 0
+  },
+  "errors": [],
+  "physicalMobileTested": false,
+  "renderer": "headless Chrome / SwiftShader; emulated mobile"
+}
