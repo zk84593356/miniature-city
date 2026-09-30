@@ -1,0 +1,1187 @@
+{
+  "result": "PASS",
+  "scope": "Static visual/diagnostic inspection at three saved points, separate from the 24 ground-to-ground driving cases",
+  "checks": [
+    {
+      "point": "approach-start",
+      "ride": {
+        "residentRoadChunks": [
+          "road-surface-46-50.bin",
+          "road-surface-46-51.bin",
+          "road-surface-47-49.bin",
+          "road-surface-47-50.bin",
+          "road-surface-47-51.bin",
+          "road-surface-48-50.bin",
+          "road-surface-48-51.bin",
+          "road-surface-49-50.bin",
+          "road-surface-49-51.bin"
+        ],
+        "residentBridgeChunks": [
+          "road-surface-48-50.bin"
+        ],
+        "pinnedBridges": [
+          "bridge-yangtze-first"
+        ],
+        "pendingRoadLoads": [],
+        "visualBuildingChunks": [
+          "buildings-47-50.json"
+        ],
+        "pendingVisualLoads": [],
+        "residentBuildingChunks": [
+          "buildings-47-50.json"
+        ],
+        "pendingBuildingLoads": [],
+        "pendingRideLoads": [],
+        "window": {
+          "x": -55.0161911,
+          "z": 4.8528869,
+          "radius": 4,
+          "lookahead": 3,
+          "points": [
+            [
+              -55.0161911,
+              4.8528869
+            ],
+            [
+              -53.5161911,
+              4.8528869
+            ],
+            [
+              -52.0161911,
+              4.8528869
+            ]
+          ]
+        },
+        "lastBlock": null,
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
+        "lastBlockBounds": null,
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "osm-way-50538708",
+        "layerId": "ground-0",
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": -55.0161911,
+          "z": 4.8528869,
+          "y": 0.3618696193295078,
+          "surfaceId": "osm-way-50538708",
+          "heading": 1.5707963267948966,
+          "height": 0.3618696193295078,
+          "normal": [
+            -0.07410302664149167,
+            0.9896814188036044,
+            0.12263535671842397
+          ],
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -56.82380676269531,
+            4.1389641761779785,
+            -54.99147415161133,
+            4.949783802032471
+          ],
+          "source": "OSM 50538708",
+          "roadIds": [
+            "osm-way-50538708"
+          ],
+          "speed": 0,
+          "steering": 0
+        },
+        "state": {
+          "x": -55.0161911,
+          "z": 4.8528869,
+          "y": 0.3618696193295078,
+          "surfaceId": "osm-way-50538708",
+          "heading": 1.5707963267948966,
+          "height": 0.3618696193295078,
+          "normal": [
+            -0.07410302664149167,
+            0.9896814188036044,
+            0.12263535671842397
+          ],
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -56.82380676269531,
+            4.1389641761779785,
+            -54.99147415161133,
+            4.949783802032471
+          ],
+          "source": "OSM 50538708",
+          "roadIds": [
+            "osm-way-50538708"
+          ],
+          "speed": 0,
+          "steering": 0
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7639,
+            7640,
+            7641,
+            7551,
+            7552,
+            7553,
+            7595,
+            7596,
+            7597,
+            7699,
+            7700,
+            7701,
+            7705,
+            7706,
+            7710,
+            7711,
+            7722,
+            7723,
+            7724,
+            7725,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7693,
+            7694,
+            7344,
+            7343,
+            7731,
+            7732,
+            7733,
+            7739,
+            7740,
+            7741,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7532,
+            7533,
+            7742
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.03742032086481403,
+        "roll": 0.06187361563730514,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -55.07987136657779,
+          0.3930696193295078,
+          4.859276238665396
+        ],
+        "cameraQuaternion": [
+          -0.06579494382042755,
+          -0.6837982387575665,
+          -0.06213833858301659,
+          0.7240371681881113
+        ],
+        "cameraTarget": [
+          -54.9681911,
+          0.3725698545330429,
+          4.8528869
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 92,
+          "surfaceQueryMs": 0.49999988079071045,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3999999761581421,
+          "rideUpdateMs": 0.8999999761581421
+        },
+        "meanMetrics": {
+          "surfaceQueries": 90.46153846153847,
+          "surfaceQueryMs": 0.6061538531230046,
+          "staticObstacleQueryMs": 0.02461538498218243,
+          "dynamicQueryMs": 0.0061538457870483395,
+          "cameraCollisionMs": 0.5307692215992854,
+          "rideUpdateMs": 1.046153842485868
+        }
+      },
+      "surface": {
+        "position": {
+          "x": -55.0161911,
+          "y": 0.3618696193295078,
+          "z": 4.8528869
+        },
+        "selected": {
+          "height": 0.3618696193295078,
+          "normal": [
+            -0.07410302664149167,
+            0.9896814188036044,
+            0.12263535671842397
+          ],
+          "surfaceId": "osm-way-50538708",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -56.82380676269531,
+            4.1389641761779785,
+            -54.99147415161133,
+            4.949783802032471
+          ],
+          "source": "OSM 50538708",
+          "roadIds": [
+            "osm-way-50538708"
+          ]
+        },
+        "terrain": {
+          "normal": [
+            -0.07410384684421106,
+            0.9896812228047974,
+            0.1226364428320178
+          ],
+          "height": 0.36106963333589925,
+          "kind": "ground",
+          "surfaceId": "terrain",
+          "layerId": "ground",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "canonical": [
+          {
+            "height": 0.3618696193295078,
+            "normal": [
+              -0.07410302664149167,
+              0.9896814188036044,
+              0.12263535671842397
+            ],
+            "surfaceId": "osm-way-50538708",
+            "layerId": "ground-0",
+            "kind": "road",
+            "rideAllowed": true,
+            "traversable": true,
+            "canonical": true,
+            "bounds": [
+              -56.82380676269531,
+              4.1389641761779785,
+              -54.99147415161133,
+              4.949783802032471
+            ],
+            "source": "OSM 50538708",
+            "roadIds": [
+              "osm-way-50538708"
+            ]
+          },
+          {
+            "height": 0.36186965303114244,
+            "normal": [
+              -0.07410324122341377,
+              0.9896814804629559,
+              0.12263472945636658
+            ],
+            "surfaceId": "junction-6871098177-ground-0",
+            "layerId": "ground-0",
+            "kind": "road",
+            "rideAllowed": true,
+            "traversable": true,
+            "canonical": true,
+            "bounds": [
+              -55.13637161254883,
+              4.731637954711914,
+              -54.96285629272461,
+              4.946375370025635
+            ],
+            "source": "OSM 50538708,99463459,233478903",
+            "roadIds": [
+              "osm-way-50538708",
+              "osm-way-99463459",
+              "osm-way-233478903"
+            ],
+            "nodeId": 6871098177
+          }
+        ]
+      },
+      "collision": []
+    },
+    {
+      "point": "approach-middle",
+      "ride": {
+        "residentRoadChunks": [
+          "road-surface-46-50.bin",
+          "road-surface-46-51.bin",
+          "road-surface-47-49.bin",
+          "road-surface-47-50.bin",
+          "road-surface-47-51.bin",
+          "road-surface-48-50.bin",
+          "road-surface-48-51.bin",
+          "road-surface-49-50.bin",
+          "road-surface-49-51.bin"
+        ],
+        "residentBridgeChunks": [
+          "road-surface-48-50.bin"
+        ],
+        "pinnedBridges": [
+          "bridge-yangtze-first"
+        ],
+        "pendingRoadLoads": [],
+        "visualBuildingChunks": [
+          "buildings-47-50.json"
+        ],
+        "pendingVisualLoads": [],
+        "residentBuildingChunks": [
+          "buildings-47-50.json"
+        ],
+        "pendingBuildingLoads": [],
+        "pendingRideLoads": [],
+        "window": {
+          "x": -49.0468439,
+          "z": 4.1732848,
+          "radius": 4,
+          "lookahead": 3,
+          "points": [
+            [
+              -49.0468439,
+              4.1732848
+            ],
+            [
+              -47.5468439,
+              4.1732848
+            ],
+            [
+              -46.0468439,
+              4.1732848
+            ]
+          ]
+        },
+        "lastBlock": null,
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
+        "lastBlockBounds": null,
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "bridge-yangtze-first",
+        "layerId": "bridge-yangtze-first",
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": -49.0468439,
+          "z": 4.1732848,
+          "y": 0.5982550687823784,
+          "surfaceId": "bridge-yangtze-first",
+          "heading": 1.5707963267948966,
+          "height": 0.5982550687823784,
+          "normal": [
+            0.046605326424179194,
+            0.9988710988176931,
+            -0.009190837591310178
+          ],
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -55.03425216674805,
+            3.204728126525879,
+            -19.81189727783203,
+            16.771717071533203
+          ],
+          "source": "canonical-road-top",
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ],
+          "speed": 0,
+          "steering": 0
+        },
+        "state": {
+          "x": -49.0468439,
+          "z": 4.1732848,
+          "y": 0.5982550687823784,
+          "surfaceId": "bridge-yangtze-first",
+          "heading": 1.5707963267948966,
+          "height": 0.5982550687823784,
+          "normal": [
+            0.046605326424179194,
+            0.9988710988176931,
+            -0.009190837591310178
+          ],
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -55.03425216674805,
+            3.204728126525879,
+            -19.81189727783203,
+            16.771717071533203
+          ],
+          "source": "canonical-road-top",
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ],
+          "speed": 0,
+          "steering": 0
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 5.551115123125783e-17,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7639,
+            7640,
+            7641,
+            7551,
+            7552,
+            7553,
+            7595,
+            7596,
+            7597,
+            7699,
+            7700,
+            7701,
+            7705,
+            7706,
+            7710,
+            7711,
+            7722,
+            7723,
+            7724,
+            7725,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7693,
+            7694,
+            7344,
+            7343,
+            7731,
+            7732,
+            7733,
+            7739,
+            7740,
+            7741,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7532,
+            7533,
+            7742
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": 0.04727443369030642,
+        "roll": -0.009329067893668363,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -49.11052416657779,
+          0.6294616611562063,
+          4.179674138665397
+        ],
+        "cameraQuaternion": [
+          -0.07195838880388183,
+          -0.6832442794684973,
+          -0.06795924531203441,
+          0.7234506104987001
+        ],
+        "cameraTarget": [
+          -48.9988439,
+          0.6069863038941038,
+          4.1732848
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 92,
+          "surfaceQueryMs": 1,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.7000000476837158,
+          "rideUpdateMs": 1.2000000476837158
+        },
+        "meanMetrics": {
+          "surfaceQueries": 91.4578313253012,
+          "surfaceQueryMs": 0.6722891639514141,
+          "staticObstacleQueryMs": 0.026506024670888143,
+          "dynamicQueryMs": 0.00963855292423662,
+          "cameraCollisionMs": 0.6295180701347719,
+          "rideUpdateMs": 2.4253012013722617
+        }
+      },
+      "surface": {
+        "position": {
+          "x": -49.0468439,
+          "y": 0.5982550687823784,
+          "z": 4.1732848
+        },
+        "selected": {
+          "height": 0.5982550687823784,
+          "normal": [
+            0.046605326424179194,
+            0.9988710988176931,
+            -0.009190837591310178
+          ],
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -55.03425216674805,
+            3.204728126525879,
+            -19.81189727783203,
+            16.771717071533203
+          ],
+          "source": "canonical-road-top",
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ]
+        },
+        "terrain": {
+          "normal": [
+            0.09596538207332603,
+            0.9454743799745097,
+            0.311237597753448
+          ],
+          "height": 0.5589205834679594,
+          "kind": "ground",
+          "surfaceId": "terrain",
+          "layerId": "ground",
+          "traversable": true,
+          "rideAllowed": true
+        },
+        "canonical": [
+          {
+            "height": 0.5982550687823784,
+            "normal": [
+              0.046605326424179194,
+              0.9988710988176931,
+              -0.009190837591310178
+            ],
+            "surfaceId": "bridge-yangtze-first",
+            "layerId": "bridge-yangtze-first",
+            "kind": "bridge",
+            "rideAllowed": true,
+            "traversable": true,
+            "canonical": true,
+            "bounds": [
+              -55.03425216674805,
+              3.204728126525879,
+              -19.81189727783203,
+              16.771717071533203
+            ],
+            "source": "canonical-road-top",
+            "roadIds": [
+              "osm-way-105437093",
+              "osm-way-233478878",
+              "osm-way-233478903",
+              "osm-way-28908192",
+              "osm-way-455183575"
+            ]
+          }
+        ]
+      },
+      "collision": []
+    },
+    {
+      "point": "approach-transition",
+      "ride": {
+        "residentRoadChunks": [
+          "road-surface-46-48.bin",
+          "road-surface-46-50.bin",
+          "road-surface-46-51.bin",
+          "road-surface-47-48.bin",
+          "road-surface-47-49.bin",
+          "road-surface-47-50.bin",
+          "road-surface-47-51.bin",
+          "road-surface-48-48.bin",
+          "road-surface-48-49.bin",
+          "road-surface-48-50.bin",
+          "road-surface-48-51.bin",
+          "road-surface-49-50.bin",
+          "road-surface-49-51.bin"
+        ],
+        "residentBridgeChunks": [
+          "road-surface-47-49.bin",
+          "road-surface-48-50.bin"
+        ],
+        "pinnedBridges": [
+          "bridge-yangtze-first",
+          "bridge-qingchuan"
+        ],
+        "pendingRoadLoads": [],
+        "visualBuildingChunks": [
+          "buildings-47-50.json",
+          "buildings-48-50.json"
+        ],
+        "pendingVisualLoads": [],
+        "residentBuildingChunks": [
+          "buildings-47-50.json",
+          "buildings-48-50.json"
+        ],
+        "pendingBuildingLoads": [],
+        "pendingRideLoads": [],
+        "window": {
+          "x": -39.7553499,
+          "z": 6.1531947,
+          "radius": 4,
+          "lookahead": 3,
+          "points": [
+            [
+              -39.7553499,
+              6.1531947
+            ],
+            [
+              -38.2553499,
+              6.1531947
+            ],
+            [
+              -36.7553499,
+              6.1531947
+            ]
+          ]
+        },
+        "lastBlock": null,
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
+        "lastBlockBounds": null,
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "bridge-yangtze-first",
+        "layerId": "bridge-yangtze-first",
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": -39.7553499,
+          "z": 6.1531947,
+          "y": 0.4670144019312866,
+          "surfaceId": "bridge-yangtze-first",
+          "heading": 1.5707963267948966,
+          "height": 0.4670144019312866,
+          "normal": [
+            -0.00012041648906561481,
+            0.9999999897664745,
+            -0.00007724584252344955
+          ],
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -55.03425216674805,
+            3.204728126525879,
+            -19.81189727783203,
+            16.771717071533203
+          ],
+          "source": "canonical-road-top",
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ],
+          "speed": 0,
+          "steering": 0
+        },
+        "state": {
+          "x": -39.7553499,
+          "z": 6.1531947,
+          "y": 0.4670144019312866,
+          "surfaceId": "bridge-yangtze-first",
+          "heading": 1.5707963267948966,
+          "height": 0.4670144019312866,
+          "normal": [
+            -0.00012041648906561481,
+            0.9999999897664745,
+            -0.00007724584252344955
+          ],
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -55.03425216674805,
+            3.204728126525879,
+            -19.81189727783203,
+            16.771717071533203
+          ],
+          "source": "canonical-road-top",
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ],
+          "speed": 0,
+          "steering": 0
+        },
+        "travelMeters": 0,
+        "wheel": 0,
+        "contactError": 0,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7639,
+            7640,
+            7641,
+            7551,
+            7552,
+            7553,
+            7595,
+            7596,
+            7597,
+            7699,
+            7700,
+            7701,
+            7705,
+            7706,
+            7710,
+            7711,
+            7722,
+            7723,
+            7724,
+            7725,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7693,
+            7694,
+            7344,
+            7343,
+            7731,
+            7732,
+            7733,
+            7739,
+            7740,
+            7741,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7532,
+            7533,
+            7742
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.00006022716803312513,
+        "roll": -0.00003866030098404511,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -39.81903016657779,
+          0.49821440193251043,
+          6.159584038665397
+        ],
+        "cameraQuaternion": [
+          -0.0657956795848154,
+          -0.683798175612418,
+          -0.06213903345672563,
+          0.7240371013271109
+        ],
+        "cameraTarget": [
+          -39.7073499,
+          0.47771440215130295,
+          6.1531947
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 92,
+          "surfaceQueryMs": 0.8000000715255737,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0.10000002384185791,
+          "cameraCollisionMs": 0.8000000715255737,
+          "rideUpdateMs": 1.3000000715255737
+        },
+        "meanMetrics": {
+          "surfaceQueries": 90.91666666666667,
+          "surfaceQueryMs": 0.7633333434661229,
+          "staticObstacleQueryMs": 0.03458333065112432,
+          "dynamicQueryMs": 0.00833333283662796,
+          "cameraCollisionMs": 0.7520833313465118,
+          "rideUpdateMs": 2.697916665673256
+        }
+      },
+      "surface": {
+        "position": {
+          "x": -39.7553499,
+          "y": 0.4670144019312866,
+          "z": 6.1531947
+        },
+        "selected": {
+          "height": 0.4670144019312866,
+          "normal": [
+            -0.00012041648906561481,
+            0.9999999897664745,
+            -0.00007724584252344955
+          ],
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -55.03425216674805,
+            3.204728126525879,
+            -19.81189727783203,
+            16.771717071533203
+          ],
+          "source": "canonical-road-top",
+          "roadIds": [
+            "osm-way-105437093",
+            "osm-way-233478878",
+            "osm-way-233478903",
+            "osm-way-28908192",
+            "osm-way-455183575"
+          ]
+        },
+        "terrain": {
+          "kind": "water",
+          "height": 0.14701436942251006,
+          "surfaceId": "water-537",
+          "layerId": "water",
+          "traversable": false,
+          "rideAllowed": false,
+          "normal": [
+            0.000008577409019356371,
+            0.9999999998978168,
+            -0.00001143654535914183
+          ]
+        },
+        "canonical": [
+          {
+            "height": 0.4670144019312866,
+            "normal": [
+              -0.00012041648906561481,
+              0.9999999897664745,
+              -0.00007724584252344955
+            ],
+            "surfaceId": "bridge-yangtze-first",
+            "layerId": "bridge-yangtze-first",
+            "kind": "bridge",
+            "rideAllowed": true,
+            "traversable": true,
+            "canonical": true,
+            "bounds": [
+              -55.03425216674805,
+              3.204728126525879,
+              -19.81189727783203,
+              16.771717071533203
+            ],
+            "source": "canonical-road-top",
+            "roadIds": [
+              "osm-way-105437093",
+              "osm-way-233478878",
+              "osm-way-233478903",
+              "osm-way-28908192",
+              "osm-way-455183575"
+            ]
+          }
+        ]
+      },
+      "collision": [
+        {
+          "id": "yangtze-first-pier-1621.1873966088237",
+          "kind": "bridge-pier",
+          "center": [
+            -39.75534992854451,
+            0.20675927525684967,
+            6.1531946816912715
+          ],
+          "size": [
+            0.18000000000000002,
+            0.31948981166860835,
+            0.12
+          ],
+          "rotationY": 1.000483615861566,
+          "source": "estimated structural layout",
+          "estimated": true,
+          "stationMeters": 1621.1873966088237,
+          "originalStationMeters": 1621.1873966088237,
+          "adjustmentReason": null,
+          "bottom": 0.0470143694225455,
+          "top": 0.36650418109115385,
+          "bounds": [
+            -39.863516466808434,
+            6.045028143427352,
+            -39.64718339028059,
+            6.261361219955191
+          ],
+          "distance": 0,
+          "visualResident": true,
+          "collisionResident": true
+        },
+        {
+          "id": "yangtze-first-portal-1621.1873966088237--0.2225",
+          "kind": "bridge-portal",
+          "center": [
+            -39.63553121956175,
+            0.5220143999951785,
+            5.965712077224341
+          ],
+          "size": [
+            0.12,
+            0.24,
+            0.15
+          ],
+          "estimated": true,
+          "source": "published-bridge-structure",
+          "bottom": 0.4020143999951785,
+          "top": 0.6420143999951785,
+          "bounds": [
+            -39.73157808312324,
+            5.869665213662848,
+            -39.53948435600026,
+            6.061758940785833
+          ],
+          "distance": 9.447537954775996,
+          "visualResident": true,
+          "collisionResident": true
+        },
+        {
+          "id": "yangtze-first-portal-1621.1873966088237-0.2225",
+          "kind": "bridge-portal",
+          "center": [
+            -39.875168637527274,
+            0.5220143999951785,
+            6.340677286158202
+          ],
+          "size": [
+            0.12,
+            0.24,
+            0.15
+          ],
+          "estimated": true,
+          "source": "published-bridge-structure",
+          "bottom": 0.4020143999951785,
+          "top": 0.6420143999951785,
+          "bounds": [
+            -39.971215501088764,
+            6.2446304225967095,
+            -39.779121773965784,
+            6.436724149719695
+          ],
+          "distance": 9.447535847313597,
+          "visualResident": true,
+          "collisionResident": true
+        },
+        {
+          "id": "yangtze-first-pier-1580",
+          "kind": "bridge-pier",
+          "center": [
+            -40.10203746240409,
+            0.3256145508647501,
+            5.9308260017498995
+          ],
+          "size": [
+            0.18000000000000002,
+            0.28131357103937843,
+            0.065
+          ],
+          "rotationY": 1.0004843240058217,
+          "source": "estimated structural layout",
+          "estimated": true,
+          "stationMeters": 1580,
+          "originalStationMeters": 1580,
+          "adjustmentReason": null,
+          "bottom": 0.1849577653450609,
+          "top": 0.4662713363844393,
+          "bounds": [
+            -40.19772575844912,
+            5.835137705704876,
+            -40.006349166359065,
+            6.026514297794923
+          ],
+          "distance": 28.1155750458051,
+          "visualResident": true,
+          "collisionResident": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

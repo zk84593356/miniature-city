@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "datasetId": "f2b6a5b9c82d0b04",
+  "assetsCompared": 5918,
+  "changedAssetRecords": [],
+  "manifestBytesIdentical": true,
+  "method": "Rebuild bridge/access canonical meshes and metadata with --reuse-ground, then regenerate structure metadata; compare complete manifest/dataFiles to the tested pack. Immutable ground triangles reused."
+}

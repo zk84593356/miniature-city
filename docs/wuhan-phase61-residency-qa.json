@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "datasetId": "f2b6a5b9c82d0b04",
+  "before": {
+    "residentRoadChunks": [
+      "road-surface-46-50.bin",
+      "road-surface-46-51.bin",
+      "road-surface-47-49.bin",
+      "road-surface-47-50.bin",
+      "road-surface-47-51.bin",
+      "road-surface-48-50.bin",
+      "road-surface-48-51.bin",
+      "road-surface-49-50.bin",
+      "road-surface-49-51.bin"
+    ],
+    "residentBridgeChunks": [
+      "road-surface-48-50.bin"
+    ],
+    "pinnedBridges": [
+      "bridge-yangtze-first"
+    ],
+    "pendingRoadLoads": []
+  },
+  "accessChunks": [
+    "road-surface-47-50.bin",
+    "road-surface-48-50.bin"
+  ],
+  "checks": [
+    "whole bridge and both access chains pinned",
+    "camera/frustum independent CPU and visual residency",
+    "exact shared positions and final indices identity",
+    "preserved feature counts and road identities",
+    "release and distant timeout unregister CPU geometry"
+  ]
+}

@@ -58,6 +58,20 @@ export function createBridge(bridge, surface) {
     }
   }
   function pier(s,width=.12,dy=0) {
+    const originalStation=s;
+    const conflicts=station=>{
+      const p=at(station),ground=surface.sample(p.x,p.z),bottom=ground?.height??p.y-.4,top=p.y+dy;
+      const tangent=at(Math.min(length,station+1)).sub(at(Math.max(0,station-1))),angle=Math.atan2(tangent.x,tangent.z),c=Math.cos(angle),sn=Math.sin(angle);
+      return (bridge.accessProfiles??[]).some(road=>road.profile.some(q=>{
+        if(q[1]+.0175<=bottom||q[1]>=top)return false;
+        const dx=q[0]-p.x,dz=q[2]-p.z,r=road.width/200+.01;
+        return Math.abs(dx*c-dz*sn)<w*.4+r&&Math.abs(dx*sn+dz*c)<width/2+r;
+      }));
+    };
+    if(conflicts(s)){
+      const candidates=[];for(let delta=10;delta<=120;delta+=10)for(const direction of [-1,1]){const v=s+delta*direction;if(v>0&&v<length&&!conflicts(v))candidates.push(v);}
+      if(candidates.length)s=candidates[0];
+    }
     const p=at(s),water=surface.sample(p.x,p.z),bottom=(water?.height??p.y-.4)-(water?.kind==='water'?.1:0);
     const a=p.clone();a.y=bottom;const b=p.clone();b.y+=dy;
     if(bridge.foundationProfile){
@@ -71,7 +85,7 @@ export function createBridge(bridge, surface) {
     const local=at(Math.min(length,s+1)).sub(at(Math.max(0,s-1)));
     const heading=Math.atan2(local.x,local.z);
     piers.add(new THREE.BoxGeometry(w*.8,b.y-a.y,width),new THREE.Matrix4().compose(a.clone().add(b).multiplyScalar(.5),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),heading),new THREE.Vector3(1,1,1)));
-    obstacles.push({id:`${bridge.id}-pier-${s}`,kind:'pier',center:[p.x,(a.y+b.y)/2,p.z],size:[w*.8,b.y-a.y,width],rotationY:heading,source:'estimated structural layout',estimated:true});
+    obstacles.push({id:`${bridge.id}-pier-${s}`,kind:'pier',center:[p.x,(a.y+b.y)/2,p.z],size:[w*.8,b.y-a.y,width],rotationY:heading,source:'estimated structural layout',estimated:true,stationMeters:s,originalStationMeters:originalStation,adjustmentReason:s!==originalStation?'Move visible support and matching OBB clear of sourced access corridor':null});
   }
   if(bridge.structure==='steel-truss') {
     const count=bridge.spans*6,depth=bridge.lowerDeckOffsetMeters/100;

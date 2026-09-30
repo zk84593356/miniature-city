@@ -1,0 +1,275 @@
+{
+  "scope": "Observed development reproductions saved before the final fixes. These are not a controlled complete main-branch baseline; do not infer zero historical loading/recovery from missing cases.",
+  "cases": [
+    {
+      "bridgeId": "yangtze-first",
+      "direction": "A→B",
+      "kmh": 60,
+      "result": "PASS",
+      "rejections": {},
+      "recoveryCount": 0,
+      "lastRejected": null
+    },
+    {
+      "bridgeId": "yingwuzhou",
+      "direction": "A→B",
+      "kmh": 60,
+      "result": "FAIL",
+      "rejections": {
+        "slope": 2
+      },
+      "recoveryCount": 0,
+      "lastRejected": {
+        "blockReason": "slope",
+        "blockKind": "slope",
+        "blockId": "osm-way-342059705",
+        "blockSource": "OSM 342059705",
+        "blockBounds": [
+          -56.01606369018555,
+          22.03081512451172,
+          -54.631717681884766,
+          22.971450805664062
+        ],
+        "blockPosition": {
+          "x": -55.74207342344389,
+          "y": 0.2956700500872795,
+          "z": 22.289728747532862
+        },
+        "distance": 0,
+        "surfaceId": "osm-way-342059705",
+        "layerId": "bridge-1",
+        "candidateSurface": {
+          "height": 0.2956700500872795,
+          "normal": [
+            -0.4241769220450039,
+            0.8731651301064308,
+            0.2401178759914525
+          ],
+          "surfaceId": "osm-way-342059705",
+          "layerId": "bridge-1",
+          "kind": "bridge",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -56.01606369018555,
+            22.03081512451172,
+            -54.631717681884766,
+            22.971450805664062
+          ],
+          "source": "OSM 342059705",
+          "roadIds": [
+            "osm-way-342059705"
+          ]
+        },
+        "previousSurfaceId": "osm-way-342059705",
+        "previousLayerId": "bridge-1",
+        "normal": [
+          -0.4241769220450039,
+          0.8731651301064308,
+          0.2401178759914525
+        ],
+        "slopeDegrees": 29.17144237166746,
+        "maxRideSlope": 26.000000000000004
+      }
+    },
+    {
+      "bridgeId": "yangsigang",
+      "direction": "A→B",
+      "kmh": 60,
+      "result": "FAIL",
+      "rejections": {
+        "forbidden-surface": 1
+      },
+      "recoveryCount": 0,
+      "lastRejected": {
+        "blockReason": "forbidden-surface",
+        "blockKind": "forbidden-surface",
+        "blockId": "osm-way-733025215",
+        "blockSource": "OSM 733025215",
+        "blockBounds": [
+          -72.89535522460938,
+          45.57448196411133,
+          -67.66195678710938,
+          49.797908782958984
+        ],
+        "blockPosition": {
+          "x": -72.46819690784297,
+          "y": 0.26731254664808696,
+          "z": 45.80234143729943
+        },
+        "distance": 0,
+        "surfaceId": "osm-way-733025215",
+        "layerId": "bridge-3",
+        "candidateSurface": {
+          "height": 0.26731254664808696,
+          "normal": [
+            -0.003863344689210078,
+            0.9999877357420863,
+            -0.003098859988421294
+          ],
+          "surfaceId": "osm-way-733025215",
+          "layerId": "bridge-3",
+          "kind": "bridge",
+          "rideAllowed": false,
+          "traversable": false,
+          "canonical": true,
+          "bounds": [
+            -72.89535522460938,
+            45.57448196411133,
+            -67.66195678710938,
+            49.797908782958984
+          ],
+          "source": "OSM 733025215",
+          "roadIds": [
+            "osm-way-733025215"
+          ]
+        },
+        "previousSurfaceId": "bridge-yangsigang",
+        "previousLayerId": "bridge-yangsigang",
+        "normal": [
+          -0.003863344689210078,
+          0.9999877357420863,
+          -0.003098859988421294
+        ],
+        "slopeDegrees": 0.2837649240235718,
+        "maxRideSlope": 26.000000000000004
+      }
+    },
+    {
+      "bridgeId": "erqi",
+      "direction": "A→B",
+      "kmh": 60,
+      "result": "FAIL",
+      "rejections": {
+        "forbidden-surface": 1
+      },
+      "recoveryCount": 0,
+      "lastRejected": {
+        "blockReason": "forbidden-surface",
+        "blockKind": "forbidden-surface",
+        "blockId": "osm-way-233473921",
+        "blockSource": "OSM 233473921",
+        "blockBounds": [
+          48.62088394165039,
+          -33.56565856933594,
+          50.02659225463867,
+          -30.353673934936523
+        ],
+        "blockPosition": {
+          "x": 48.64436281356748,
+          "y": 0.2594361190782414,
+          "z": -33.50219573783228
+        },
+        "distance": 0,
+        "surfaceId": "osm-way-233473921",
+        "layerId": "bridge-1",
+        "candidateSurface": {
+          "height": 0.2594361190782414,
+          "normal": [
+            -0.0035358412255221587,
+            0.9999624170264625,
+            -0.007915956128166791
+          ],
+          "surfaceId": "osm-way-233473921",
+          "layerId": "bridge-1",
+          "kind": "bridge",
+          "rideAllowed": false,
+          "traversable": false,
+          "canonical": true,
+          "bounds": [
+            48.62088394165039,
+            -33.56565856933594,
+            50.02659225463867,
+            -30.353673934936523
+          ],
+          "source": "OSM 233473921",
+          "roadIds": [
+            "osm-way-233473921"
+          ]
+        },
+        "previousSurfaceId": "ride-transition-1706129840",
+        "previousLayerId": "connection-1706129840",
+        "normal": [
+          -0.0035358412255221587,
+          0.9999624170264625,
+          -0.007915956128166791
+        ],
+        "slopeDegrees": 0.4967462068407437,
+        "maxRideSlope": 26.000000000000004
+      }
+    },
+    {
+      "bridgeId": "qingchuan",
+      "direction": "A→B",
+      "kmh": 60,
+      "result": "PASS",
+      "rejections": {},
+      "recoveryCount": 0,
+      "lastRejected": null
+    },
+    {
+      "bridgeId": "yangtze-second",
+      "direction": "A→B",
+      "kmh": 60,
+      "result": "FAIL",
+      "rejections": {
+        "surface-edge": 1
+      },
+      "recoveryCount": 0,
+      "lastRejected": {
+        "blockReason": "surface-edge",
+        "blockKind": "surface-edge",
+        "blockId": "osm-way-826105809",
+        "blockSource": "OSM 826105809",
+        "blockBounds": [
+          -34.86273956298828,
+          -74.63034057617188,
+          -15.277859687805176,
+          -61.51458740234375
+        ],
+        "blockPosition": {
+          "x": -33.002412561659234,
+          "y": 0.2591239734218035,
+          "z": -73.03558986509094
+        },
+        "distance": 0,
+        "surfaceId": "osm-way-826105809",
+        "layerId": "ground-0",
+        "candidateSurface": {
+          "height": 0.2591239734218035,
+          "normal": [
+            0.20086218062839362,
+            0.9762030067964985,
+            -0.08174395338299864
+          ],
+          "surfaceId": "osm-way-826105809",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            -34.86273956298828,
+            -74.63034057617188,
+            -15.277859687805176,
+            -61.51458740234375
+          ],
+          "source": "OSM 826105809",
+          "roadIds": [
+            "osm-way-826105809"
+          ]
+        },
+        "previousSurfaceId": "bridge-yangtze-second",
+        "previousLayerId": "bridge-yangtze-second",
+        "normal": [
+          0.20086218062839362,
+          0.9762030067964985,
+          -0.08174395338299864
+        ],
+        "slopeDegrees": 12.52459518511837,
+        "maxRideSlope": 26.000000000000004
+      }
+    }
+  ]
+}

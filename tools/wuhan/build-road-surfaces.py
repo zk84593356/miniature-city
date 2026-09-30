@@ -8,6 +8,7 @@ import collections, hashlib, math, sys
 import numpy as np
 import shapely
 from shapely.geometry import Polygon, LineString, Point
+from ride_connections import build_connections, limit_mesh_grade
 from phase2_common import ROOT, OUT, read, write, decode, encode, register, finish, TerrainSampler
 
 CLASSES={'primary','secondary','tertiary','residential','unclassified','service','cycleway','living_street','pedestrian','footway','path','trunk','trunk_link'}
@@ -34,6 +35,8 @@ def main():
     start=f['vertexStart'];cached.append((f,v[start:start+f['vertexCount']],ix[f['triangleStart']:f['triangleStart']+f['triangleCount']]-start));cached_ids.add(f['id']);cached_road_ids[f['id']]=set(f['roadIds'])
  index=read(OUT/m['urban']['roads']);roads=[r for c in index['chunks'] for r in read(OUT/c['file'])]
  bridges=read(OUT/m['urban']['bridges']); bridge_map={b['id']:b for b in bridges}
+ connection_config=read(ROOT/'src/cities/wuhan/ride-connections.json')
+ ACCESS_CORRIDORS.update(id for c in connection_config['connections'] for side in c['sides'] for id in side['roadIds'])
  xyz,tri=decode('terrain.bin',m['terrain']);sampler=TerrainSampler(xyz,tri)
  print('Indexing exact terrain planes',flush=True)
  terrain_tri=xyz[tri].astype(np.float64); terrain_polys=shapely.polygons(terrain_tri[:,:,[0,2]])
@@ -131,6 +134,14 @@ def main():
   center=top[:,len(across)//2] if len(across)%2 else (top[:,len(across)//2-1]+top[:,len(across)//2])/2
   canonical_profile=original_p.copy();canonical_profile[:,1]=np.interp(original_station,station,center)
   bridge_defs.append(dict(id='bridge-'+b['id'],kind='bridge',layerId=b['layerId'],rideAllowed=True,roadIds=b['approachRoadIds'],profile=canonical_profile.tolist(),foundationProfile=np.column_stack([station,top.min(axis=1)]).tolist(),width=b['widthMeters'],xyz=vertices,indices=np.array(faces),estimated=True,reason='DSM supported approach envelope and full-width terminal crossfall; original OSM alignment preserved'))
+ selected,connection_patches,connection_junctions,connection_height=build_connections(connection_config,roads,bridge_defs,sampler)
+ for c in connection_config['connections']:
+  major=next(b for b in bridge_defs if b['id']=='bridge-'+c['bridgeId']);major['accessProfiles']=[]
+  for id in sorted({id for side in c['sides'] for id in side['roadIds']}):
+   r=next(r for r in roads if r['id']==id);rp=np.array(r['profile']);rs=np.r_[0,np.cumsum(np.linalg.norm(np.diff(rp[:,[0,2]],axis=0),axis=1))];stations=np.unique(np.r_[rs,np.arange(0,rs[-1],.02)])
+   points=np.column_stack([np.interp(stations,rs,rp[:,j]) for j in range(3)]);q=points[:,[0,2]]
+   points[:,1]=connection_height(r,q,transition_height(id,q,points[:,1])) if r['bridge'] else sampler.sample(q*100)/100+.0008
+   major['accessProfiles'].append(dict(id=id,width=r['width'],profile=points.tolist()))
  print('Constructing ribbons and real-node junction patches',flush=True)
  features=[]
  for r in roads:
@@ -176,29 +187,36 @@ def main():
   poly=shapely.MultiPoint(arms).convex_hull
   if poly.geom_type=='Polygon':
    features.append(dict(id=f"transition-{tr['node']}",roadIds=tr['roadIds']+b['approachRoadIds'],osmIds=[],nodeId=tr['node'],kind='bridge',layerId=b['layerId'],rideAllowed=True,group='arterial',polygon=poly,profile=[[q[0],tr['height'],q[1]],[q[0]+.01,tr['height'],q[1]]],width=b['widthMeters'],estimated=True,reason=tr['reason']))
+ for patch,poly in connection_junctions:
+  ground=patch['kind']=='ground'
+  features.append(dict(id=f"ride-transition-{patch['node']}",roadIds=patch['roadIds']+([patch['majorSurfaceId']] if patch['majorSurfaceId'] else []),osmIds=[],nodeId=patch['node'],kind='junction' if ground else 'bridge',layerId='ground-0' if ground else f"connection-{patch['node']}",rideAllowed=True,group='arterial',polygon=poly,profile=None,width=10,connectionPatch=patch,estimated=True,reason=patch['reason']))
  # No road shape is inferred from chunk coordinates. Chunking changes storage only.
- chunks=collections.defaultdict(list);audit={'sourceTerrainSha256':m['dataFiles']['terrain.bin']['sha256'],'roadFeatures':len(features),'junctions':junctions,'bridgeEndsBefore':baseline,'transitions':transitions,'unsupported':[]}
+ chunks=collections.defaultdict(list);audit={'sourceTerrainSha256':m['dataFiles']['terrain.bin']['sha256'],'roadFeatures':len(features),'junctions':junctions,'bridgeEndsBefore':baseline,'transitions':transitions,'unsupported':[],'rideConnectionPatches':connection_patches}
  def emit(f,positions,indices):
   if not len(indices):return
   v=np.asarray(positions,np.float32);ix=np.asarray(indices,np.uint32)
   center=v[:,[0,2]].mean(axis=0);key=f'{math.floor(center[0]/20)+50}-{math.floor(center[1]/20)+50}'
-  meta={k:val for k,val in f.items() if k not in ('polygon','profile','xyz','indices')}
+  meta={k:val for k,val in f.items() if k not in ('polygon','profile','xyz','indices','connectionPatch')}
   if meta['id'] in ACCESS_CORRIDORS:meta.update(rideAllowed=True,virtualBridgeAccess=True,reason='Virtual moped access on sourced bridge connector; not a statement of legal road access')
   meta['bounds']=[float(v[:,0].min()),float(v[:,2].min()),float(v[:,0].max()),float(v[:,2].max())]
   chunks[key].append((meta,v,ix))
  current={f['id']:f for f in features}
  reusable={id for id in cached_ids if id in current and set(current[id]['roadIds'])==cached_road_ids[id]}
  for f,v,ix in cached:
-  if f['id'] in reusable:emit(f,v,ix)
+  if f['id'] in reusable:emit({**f,'rideAllowed':current[f['id']]['rideAllowed']},v,ix)
  for counter,f in enumerate(features):
   if f['id'] in reusable:continue
   if counter%2000==0:print(f'Canonical road tops {counter}/{len(features)}',flush=True)
   poly=f['polygon'];positions=[];indices=[]
-  if f['kind']=='bridge':
+  if f['kind']=='bridge' and f.get('connectionPatch'):
+   patch=f['connectionPatch'];q0=np.array(patch['position'])
+   for face in parts(shapely.constrained_delaunay_triangles(shapely.segmentize(poly,.03))):
+    q=np.array(face.exterior.coords)[:3];h=patch['height']+(q-q0)@patch['gradient'];a=len(positions);positions.extend(np.column_stack([q[:,0],h,q[:,1]]));indices.append([a,a+2,a+1])
+  elif f['kind']=='bridge':
    # Minor bridges retain their published grade; triangulate their mitered outline.
    line=LineString([p[::2] for p in f['profile'] if p]);p=np.array([p for p in f['profile'] if p]);s=np.r_[0,np.cumsum(np.linalg.norm(np.diff(p[:,[0,2]],axis=0),axis=1))]
    for face in parts(shapely.constrained_delaunay_triangles(shapely.segmentize(poly,.05) if f['id'] in ACCESS_CORRIDORS else poly)):
-    q=np.array(face.exterior.coords)[:3];station=np.array([line.project(Point(v)) for v in q]);h=transition_height(f['id'],q,np.interp(station,s,p[:,1]));a=len(positions);positions.extend(np.column_stack([q[:,0],h,q[:,1]]));indices.append([a,a+2,a+1])
+    q=np.array(face.exterior.coords)[:3];station=np.array([line.project(Point(v)) for v in q]);h=transition_height(f['id'],q,np.interp(station,s,p[:,1]));h=connection_height(f,q,h);a=len(positions);positions.extend(np.column_stack([q[:,0],h,q[:,1]]));indices.append([a,a+2,a+1])
   else:
    ids=terrain_tree.query(poly,predicate='intersects')
    for tid in ids:
@@ -211,6 +229,8 @@ def main():
       q=np.asarray(face.exterior.coords)[:3];weights=(q-a)@inv.T;h=t[0,1]+weights@(t[1:,1]-t[0,1])+.0008
       start=len(positions);positions.extend(np.column_stack([q[:,0],h,q[:,1]]));indices.append([start,start+2,start+1])
    if not indices:audit['unsupported'].append(dict(id=f['id'],roadIds=f['roadIds'],bounds=list(poly.bounds),reason='No stable land triangles; source may be over water or outside pack.'))
+  if f['id'] in selected and f['kind']=='bridge' and len(indices):
+   positions,grade=limit_mesh_grade(positions,indices,next(r for r in roads if r['id']==f['id']),connection_patches);f['gradeAdjustment']=grade
   emit(f,positions,indices)
  for f in bridge_defs:emit({**f,'group':'arterial','osmIds':[]},f['xyz'],f['indices'])
  specs=[]
@@ -221,9 +241,11 @@ def main():
   name=f'road-surface-{key}.bin';spec=encode(name,positions,indices);spec['bounds']=[min(f['bounds'][0] for f in metadata),min(f['bounds'][1] for f in metadata),max(f['bounds'][2] for f in metadata),max(f['bounds'][3] for f in metadata)]
   spec['maxHeight']=max(float(v[:,1].max()) for _,v,_ in items)
   meta_name=f'road-surface-{key}.json';write(OUT/meta_name,dict(schema='canonical-road-triangles-v1',features=metadata));spec['metadata']=meta_name;spec['bridgeIds']=[f['id'] for f in metadata if f['id'].startswith('bridge-')]
+  feature_roads={id for f in metadata for id in f.get('roadIds',[])}
+  spec['bridgeAccessIds']=['bridge-'+c['bridgeId'] for c in connection_config['connections'] if any(id in feature_roads for side in c['sides'] for id in side['roadIds'])]
   register(m,name,'canonical-road-triangles-v1','urban-source-lock + immutable terrain',role='road-surfaces',mesh=spec);register(m,meta_name,'canonical-road-features-v1','urban-source-lock',role='road-surfaces');specs.append(spec)
  definitions=[{k:v for k,v in f.items() if k not in ('xyz','indices')} for f in bridge_defs]
- name='road-surfaces.json';write(OUT/name,dict(schema='canonical-road-index-v1',chunks=specs,bridges=definitions,groundOffsetMeters=.08,construction='Miter/bevel ribbons and actual-node patches clipped to immutable terrain planes; float32 tops shared by renderer and sampler',audit=audit))
+ name='road-surfaces.json';write(OUT/name,dict(schema='canonical-road-index-v1',chunks=specs,bridges=definitions,rideConnections=connection_config['connections'],groundOffsetMeters=.08,construction='Miter/bevel ribbons and actual-node patches clipped to immutable terrain planes; float32 tops shared by renderer and sampler',audit=audit))
  register(m,name,'canonical-road-index-v1','urban-source-lock + immutable terrain',role='road-surfaces');m['urban']['surfaces']=name;m['phase']=6;finish(m)
  write(ROOT/'docs/wuhan-phase6-road-construction-qa.json',audit)
  print(f'Canonical tops: {len(features)} features, {junctions} junctions, {len(specs)} chunks',flush=True)

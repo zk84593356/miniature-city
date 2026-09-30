@@ -46,6 +46,18 @@ Phase 5 增加武汉第三人称骑行：在当前浏览位置附近进入，使
 
 Phase 6 将武汉道路顶面统一为渲染和骑行共用的三角形数据，补齐真实节点路口与桥头过渡，加入基于 OSM 绿地区域的树木、灌木和花簇。武汉电动车最高速度为 60 km/h，并更新发型、车辆细节、相机和碰撞采样；深圳保持原样。数据边界、27 项验收报告与复现命令见 [Phase 6 报告](docs/wuhan-phase6.md)。
 
+Phase 6.1 修复桥梁支路接入、共享顶面、骑行预加载与驻留，植物全部改为仅视觉（骑行和相机均可穿过），并加入本地碰撞诊断。六桥双向 25/60 km/h 的 24 个浏览器案例、九区域自由探索及源数据限制见 [Phase 6.1 报告](docs/wuhan-phase61.md)。
+
+```powershell
+npm run wuhan:bridge-runtime:verify
+npm run wuhan:collision:verify
+npm run wuhan:airwall:verify
+npm run wuhan:phase61:browser
+npm run wuhan:explore:browser
+```
+
+完整浏览器实骑需要本机 Chrome 和 Playwright。分桥运行可设置 `BRIDGE`、`WUHAN_QA_PORT`、`WUHAN_QA_REPORT`，再运行 `npm run wuhan:phase61:browser-report` 汇总 24 例；局部开发复测支持 `--dev` 和 `WUHAN_QA_RESUME=1`。诊断叠加层在 localhost 使用 `window.__wuhan.rideCollisionDebug(true)`。
+
 ```powershell
 npm run wuhan:ride:verify
 npm run wuhan:ride:browser

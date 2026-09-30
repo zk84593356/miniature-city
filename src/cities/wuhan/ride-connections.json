@@ -1,0 +1,287 @@
+{
+  "schema": "wuhan-ride-connections-v1",
+  "connections": [
+    {
+      "bridgeId": "yangtze-first",
+      "source": "OSM shared nodes; urban-source-lock",
+      "estimated": true,
+      "reason": "Virtual moped access on existing bridge access roads; not a legal-road-access claim. Canonical connector grades meet the published bridge top.",
+      "sides": [
+        {
+          "node": 6871098177,
+          "bridgeIndex": 0,
+          "roadIds": [
+            "osm-way-50538708"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-50538708",
+              "fromNode": 6871098177,
+              "toNode": 642989721
+            }
+          ]
+        },
+        {
+          "node": 1215729830,
+          "bridgeIndex": 317,
+          "roadIds": [
+            "osm-way-105570781"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-105570781",
+              "fromNode": 1215729830,
+              "toNode": 1215757810
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bridgeId": "yingwuzhou",
+      "source": "OSM shared nodes; urban-source-lock",
+      "estimated": true,
+      "reason": "Virtual moped access on existing bridge access roads; not a legal-road-access claim. Canonical connector grades meet the published bridge top.",
+      "sides": [
+        {
+          "node": 3491030925,
+          "bridgeIndex": 104,
+          "roadIds": [
+            "osm-way-342059705",
+            "osm-way-342059704"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-342059705",
+              "fromNode": 3491030925,
+              "toNode": 3491030921
+            },
+            {
+              "roadId": "osm-way-342059704",
+              "fromNode": 3491030921,
+              "toNode": 3491030918
+            }
+          ]
+        },
+        {
+          "node": 3488315346,
+          "bridgeIndex": 360,
+          "roadIds": [
+            "osm-way-342060457",
+            "osm-way-1505401672"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-342060457",
+              "fromNode": 3488315346,
+              "toNode": 3491027874
+            },
+            {
+              "roadId": "osm-way-1505401672",
+              "fromNode": 3491027874,
+              "toNode": 7707039179
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bridgeId": "yangsigang",
+      "source": "OSM shared nodes; urban-source-lock",
+      "estimated": true,
+      "reason": "Virtual moped access on existing bridge access roads; not a legal-road-access claim. Canonical connector grades meet the published bridge top.",
+      "sides": [
+        {
+          "node": 6871539709,
+          "bridgeIndex": 49,
+          "roadIds": [
+            "osm-way-733669076",
+            "osm-way-733799671",
+            "osm-way-733799672",
+            "osm-way-825405694"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-733669076",
+              "fromNode": 6871539709,
+              "toNode": 6871539710
+            },
+            {
+              "roadId": "osm-way-733799671",
+              "fromNode": 6871539710,
+              "toNode": 6872598530
+            },
+            {
+              "roadId": "osm-way-733799672",
+              "fromNode": 6872598530,
+              "toNode": 7707109296
+            },
+            {
+              "roadId": "osm-way-825405694",
+              "fromNode": 7707109296,
+              "toNode": 7707109295
+            }
+          ]
+        },
+        {
+          "node": 8909899980,
+          "bridgeIndex": 828,
+          "roadIds": [
+            "osm-way-963226093",
+            "osm-way-1238493940"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-963226093",
+              "fromNode": 8909899980,
+              "toNode": 8909899971
+            },
+            {
+              "roadId": "osm-way-1238493940",
+              "fromNode": 8909899971,
+              "toNode": 11505182570
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bridgeId": "erqi",
+      "source": "OSM shared nodes; urban-source-lock",
+      "estimated": true,
+      "reason": "Virtual moped access on existing bridge access roads; not a legal-road-access claim. Canonical connector grades meet the published bridge top.",
+      "sides": [
+        {
+          "node": 2418537802,
+          "bridgeIndex": 0,
+          "roadIds": [
+            "osm-way-456191664",
+            "osm-way-815995622",
+            "osm-way-233473928",
+            "osm-way-233473964"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-456191664",
+              "fromNode": 2418537802,
+              "toNode": 1706129825
+            },
+            {
+              "roadId": "osm-way-815995622",
+              "fromNode": 1706129825,
+              "toNode": 1706129840
+            },
+            {
+              "roadId": "osm-way-233473928",
+              "fromNode": 1706129840,
+              "toNode": 2418537698
+            },
+            {
+              "roadId": "osm-way-233473964",
+              "fromNode": 2418537698,
+              "toNode": 2418537654
+            }
+          ]
+        },
+        {
+          "node": 6316060127,
+          "bridgeIndex": 551,
+          "roadIds": [
+            "osm-way-674427269",
+            "osm-way-826174985"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-674427269",
+              "fromNode": 6316060127,
+              "toNode": 7713866477
+            },
+            {
+              "roadId": "osm-way-826174985",
+              "fromNode": 7713866477,
+              "toNode": 6316060138
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bridgeId": "qingchuan",
+      "source": "OSM shared nodes; urban-source-lock",
+      "estimated": true,
+      "reason": "Virtual moped access on existing bridge access roads; not a legal-road-access claim. Canonical connector grades meet the published bridge top.",
+      "sides": [
+        {
+          "node": 6322709621,
+          "bridgeIndex": 9,
+          "roadIds": [
+            "osm-way-675137410"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-675137410",
+              "fromNode": 6322709621,
+              "toNode": 6322709611
+            }
+          ]
+        },
+        {
+          "node": 6480234629,
+          "bridgeIndex": 199,
+          "roadIds": [
+            "osm-way-177263213"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-177263213",
+              "fromNode": 6480234629,
+              "toNode": 1877175199
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bridgeId": "yangtze-second",
+      "source": "OSM shared nodes; urban-source-lock",
+      "estimated": true,
+      "reason": "Virtual moped access on existing bridge access roads; not a legal-road-access claim. Canonical connector grades meet the published bridge top.",
+      "sides": [
+        {
+          "node": 2401313021,
+          "bridgeIndex": 0,
+          "roadIds": [
+            "osm-way-231800501"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-231800501",
+              "fromNode": 2401313021,
+              "toNode": 2401313019
+            }
+          ]
+        },
+        {
+          "node": 5300641307,
+          "bridgeIndex": 644,
+          "roadIds": [
+            "osm-way-548693460",
+            "osm-way-881465161"
+          ],
+          "legs": [
+            {
+              "roadId": "osm-way-548693460",
+              "fromNode": 5300641307,
+              "toNode": 5300641305
+            },
+            {
+              "roadId": "osm-way-881465161",
+              "fromNode": 5300641305,
+              "toNode": 5300641304
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

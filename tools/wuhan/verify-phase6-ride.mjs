@@ -40,8 +40,8 @@ for(const kmh of [10,25,40,60])for(const kind of ['building','tower','tree','tra
   const before={...state};advance(state,0,0,false,dt);maxTravel=Math.max(maxTravel,Math.hypot(state.x-before.x,state.z-before.z)*100);
   if(!a.validate(state,before)){Object.assign(state,before,{speed:0});stopped=true;break;}
  }
- assert.ok(stopped,`${kmh} km/h ${kind} collision`);assert.equal(a.lastBlock,kind);assert.ok(state.z<(kind==='traffic'?.06:.02));assert.ok(maxTravel<=.100001);collisionChecks.push({kmh,kind,stopped,maxTravelMeters:maxTravel,acceptedPosition:state.z*100});
+ if(kind==='tree'){assert.equal(stopped,false,'vegetation is visual-only');assert.ok(state.z>.02);assert.notEqual(a.lastBlock,'tree');}else{assert.ok(stopped,`${kmh} km/h ${kind} collision`);assert.equal(a.lastBlock,kind);assert.ok(state.z<(kind==='traffic'?.06:.02));}assert.ok(maxTravel<=.100001);collisionChecks.push({kmh,kind,stopped,maxTravelMeters:maxTravel,acceptedPosition:state.z*100});
 }
-const report={result:runs.every(r=>!r.failed.length)?'PASS':'FAIL',datasetId:pack.manifest.datasetId,route:route.roadIds,sourceJoin:route.sourceJoin,runs,speedChecks,collisionChecks,collisionScope:'Runtime footprint adapter against thin static boxes, trunk circle, and oriented-lane vehicle extent; live traffic separately tested in browser.'};
-await writeFile('docs/wuhan-phase6-bridge-ride-qa.json',JSON.stringify(report,null,2)+'\n');
+const report={result:runs.every(r=>!r.failed.length)?'PASS':'FAIL',datasetId:pack.manifest.datasetId,route:route.roadIds,sourceJoin:route.sourceJoin,runs,speedChecks,collisionChecks,collisionScope:'Runtime footprint adapter against thin static boxes, vegetation pass-through, and oriented-lane vehicle extent; live traffic separately tested in browser.'};
+await writeFile('docs/wuhan-phase61-bridge-ride-qa.json',JSON.stringify(report,null,2)+'\n');
 assert.equal(report.result,'PASS');

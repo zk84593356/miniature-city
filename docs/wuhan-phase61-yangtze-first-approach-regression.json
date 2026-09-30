@@ -1,0 +1,359 @@
+{
+  "id": "wuhan-phase6.1-yangtze-first-approach-regression",
+  "datasetId": "f2b6a5b9c82d0b04",
+  "result": "PASS",
+  "localization": "Reproducible west approach corridor identified from bridge and Guishan landmarks. The supplied screenshots contain no saved camera/rider state, so these are fixed geographic regression points, not an asserted exact reconstruction of the original pixels.",
+  "scope": "Nine actual footprint vertices at each point; visual and CPU array identity; static movement rules. Complete ground-to-ground browser riding is a separate required report.",
+  "results": [
+    {
+      "name": "approach-start",
+      "stationMeters": 0,
+      "longitudeLatitude": [
+        114.26254169997475,
+        30.555635699987977
+      ],
+      "world": {
+        "x": -55.0161911,
+        "z": 4.8528869
+      },
+      "bridgeId": "bridge-yangtze-first",
+      "roadIds": [
+        "osm-way-50538708"
+      ],
+      "surfaceId": "osm-way-50538708",
+      "layerId": "ground-0",
+      "chunkId": "road-surface-47-50.bin",
+      "points": [
+        {
+          "x": -55.022622278572975,
+          "z": 4.856298635945602,
+          "surfaceId": "osm-way-50538708",
+          "layerId": "ground-0",
+          "height": 0.36096531898108947,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-47-50.bin"
+        },
+        {
+          "x": -55.02191586129295,
+          "z": 4.851955713585429,
+          "surfaceId": "osm-way-50538708",
+          "layerId": "ground-0",
+          "height": 0.3615563611894687,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-47-50.bin"
+        },
+        {
+          "x": -55.02120944401293,
+          "z": 4.847612791225257,
+          "surfaceId": "osm-way-50538708",
+          "layerId": "ground-0",
+          "height": 0.362147403397848,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-47-50.bin"
+        },
+        {
+          "x": -55.01689751728002,
+          "z": 4.857229822360172,
+          "surfaceId": "osm-way-99463459",
+          "layerId": "ground-0",
+          "height": 0.3612786804896844,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-47-50.bin"
+        },
+        {
+          "x": -55.0161911,
+          "z": 4.8528869,
+          "surfaceId": "osm-way-50538708",
+          "layerId": "ground-0",
+          "height": 0.3618696193295078,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-47-50.bin"
+        },
+        {
+          "x": -55.01548468271998,
+          "z": 4.848543977639827,
+          "surfaceId": "osm-way-50538708",
+          "layerId": "ground-0",
+          "height": 0.3624606615378871,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-47-50.bin"
+        },
+        {
+          "x": -55.01117275598707,
+          "z": 4.858161008774743,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.36159177363022715,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -55.01046633870705,
+          "z": 4.85381808641457,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.3621828268458997,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -55.009759921427026,
+          "z": 4.849475164054398,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.3627738939265972,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        }
+      ],
+      "valid": true,
+      "failureClass": null,
+      "rejection": null
+    },
+    {
+      "name": "approach-middle",
+      "stationMeters": 602.2931,
+      "longitudeLatitude": [
+        114.26877602000881,
+        30.556246879995737
+      ],
+      "world": {
+        "x": -49.0468439,
+        "z": 4.1732848
+      },
+      "bridgeId": "bridge-yangtze-first",
+      "roadIds": [
+        "osm-way-105437093",
+        "osm-way-233478878",
+        "osm-way-233478903",
+        "osm-way-28908192",
+        "osm-way-455183575"
+      ],
+      "surfaceId": "bridge-yangtze-first",
+      "layerId": "bridge-yangtze-first",
+      "chunkId": "road-surface-48-50.bin",
+      "points": [
+        {
+          "x": -49.05168272975362,
+          "z": 4.178724076295189,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5985386047743677,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.05253425026349,
+          "z": 4.174407258853916,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5985386142360402,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.05338577077336,
+          "z": 4.1700904414126425,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5985385807638707,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.04599237949013,
+          "z": 4.177601617441273,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5982550595771093,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.0468439,
+          "z": 4.1732848,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5982550687823784,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.04769542050987,
+          "z": 4.168967982558727,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5982550790172378,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.04030202922664,
+          "z": 4.176479158587358,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.597979231225643,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.04115354973651,
+          "z": 4.172162341146085,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5979792404308991,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -49.042005070246375,
+          "z": 4.167845523704812,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.5979792506657585,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        }
+      ],
+      "valid": true,
+      "failureClass": null,
+      "rejection": null
+    },
+    {
+      "name": "approach-transition",
+      "stationMeters": 1621.1874,
+      "longitudeLatitude": [
+        114.27847995332844,
+        30.554466306704327
+      ],
+      "world": {
+        "x": -39.7553499,
+        "z": 6.1531947
+      },
+      "bridgeId": "bridge-yangtze-first",
+      "roadIds": [
+        "osm-way-105437093",
+        "osm-way-233478878",
+        "osm-way-233478903",
+        "osm-way-28908192",
+        "osm-way-455183575"
+      ],
+      "surfaceId": "bridge-yangtze-first",
+      "layerId": "bridge-yangtze-first",
+      "chunkId": "road-surface-48-50.bin",
+      "points": [
+        {
+          "x": -39.76260748596746,
+          "z": 6.153766928909589,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.46701357220056106,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.760231946673926,
+          "z": 6.1500633072948885,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.4670135721652904,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.757856407380395,
+          "z": 6.146359685680188,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.4670135722378,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.75772543929353,
+          "z": 6.156898321614701,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.46701440196655725,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.7553499,
+          "z": 6.1531947,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.4670144019312866,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.75297436070647,
+          "z": 6.149491078385299,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.46701440201243866,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.7528433926196,
+          "z": 6.160029714319813,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.4670144021511078,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.75046785332607,
+          "z": 6.156326092705112,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.4670144021511078,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        },
+        {
+          "x": -39.74809231403254,
+          "z": 6.152622471090411,
+          "surfaceId": "bridge-yangtze-first",
+          "layerId": "bridge-yangtze-first",
+          "height": 0.4670144021511078,
+          "visualTop": true,
+          "canonicalTop": true,
+          "chunkId": "road-surface-48-50.bin"
+        }
+      ],
+      "valid": true,
+      "failureClass": null,
+      "rejection": null
+    }
+  ]
+}

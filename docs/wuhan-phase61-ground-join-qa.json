@@ -1,0 +1,127 @@
+{
+  "result": "PASS",
+  "datasetId": "f2b6a5b9c82d0b04",
+  "state": {
+    "x": -29.51230888398404,
+    "y": 0.25996101167801766,
+    "z": -70.52176879416031,
+    "surfaceId": "osm-way-826105809",
+    "heading": -2.280743840275509
+  },
+  "joinNode": 5300641305,
+  "candidates": [
+    {
+      "height": 0.25995003991018667,
+      "normal": [
+        0.013034261889056755,
+        0.9905815198457771,
+        -0.13630245983487552
+      ],
+      "surfaceId": "osm-way-826105809",
+      "layerId": "ground-0",
+      "kind": "road",
+      "rideAllowed": true,
+      "traversable": true,
+      "canonical": true,
+      "bounds": [
+        -34.86273956298828,
+        -74.63034057617188,
+        -15.277859687805176,
+        -61.51458740234375
+      ],
+      "source": "OSM 826105809",
+      "roadIds": [
+        "osm-way-826105809"
+      ]
+    },
+    {
+      "height": 0.259949848981231,
+      "normal": [
+        0.013091430153211524,
+        0.9905886527751017,
+        -0.13624513000380017
+      ],
+      "surfaceId": "osm-way-881465161",
+      "layerId": "ground-0",
+      "kind": "road",
+      "rideAllowed": true,
+      "traversable": true,
+      "canonical": true,
+      "bounds": [
+        -29.527929306030273,
+        -70.53845977783203,
+        -29.116506576538086,
+        -70.16413116455078
+      ],
+      "source": "OSM 881465161",
+      "roadIds": [
+        "osm-way-881465161"
+      ]
+    },
+    {
+      "height": 0.2599495685264818,
+      "normal": [
+        0.013049093755194204,
+        0.9905827912581717,
+        -0.13629180024982246
+      ],
+      "surfaceId": "ride-transition-5300641305",
+      "layerId": "ground-0",
+      "kind": "road",
+      "rideAllowed": true,
+      "traversable": true,
+      "canonical": true,
+      "bounds": [
+        -29.604585647583008,
+        -70.59593963623047,
+        -29.434614181518555,
+        -70.449951171875
+      ],
+      "source": "canonical-road-top",
+      "roadIds": [
+        "osm-way-548693460",
+        "osm-way-881465161"
+      ],
+      "nodeId": 5300641305
+    },
+    {
+      "height": 0.2599541064857269,
+      "normal": [
+        0.035223706371900844,
+        0.9920905509383184,
+        -0.1204808252309456
+      ],
+      "surfaceId": "osm-way-548693460",
+      "layerId": "bridge-1",
+      "kind": "bridge",
+      "rideAllowed": true,
+      "traversable": true,
+      "canonical": true,
+      "bounds": [
+        -32.93490982055664,
+        -72.82704162597656,
+        -29.50754737854004,
+        -70.51319885253906
+      ],
+      "source": "OSM 548693460",
+      "roadIds": [
+        "osm-way-548693460"
+      ]
+    }
+  ],
+  "hits": [
+    {
+      "heading": -2.280743840275509,
+      "result": "PASS"
+    },
+    {
+      "heading": 0.8608488133142842,
+      "result": "PASS"
+    }
+  ],
+  "checks": [
+    "full footprint in both headings",
+    "coincident ground road admitted only inside real ground join",
+    "outside junction remains forbidden"
+  ]
+}

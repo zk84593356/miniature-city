@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "method": "Historical committed Phase 6 report versus current headless Chrome / SwiftShader captures; directional comparison, not an isolated A/B benchmark. Mobile emulation only. An initial dynamics CPU-budget run under concurrent browsers failed; the subsequent lower-contention full run passed.",
+  "views": [
+    {
+      "view": "overview-day",
+      "beforeP95FrameMs": 16.80000000000109,
+      "afterP95FrameMs": 16.80000000000109,
+      "beforeRideUpdateMs": null,
+      "afterRideUpdateMs": null
+    },
+    {
+      "view": "overview-night",
+      "beforeP95FrameMs": 16.799999999999272,
+      "afterP95FrameMs": 16.799999999999272,
+      "beforeRideUpdateMs": null,
+      "afterRideUpdateMs": null
+    },
+    {
+      "view": "iconic",
+      "beforeP95FrameMs": 16.799999999999272,
+      "afterP95FrameMs": 16.799999999999272,
+      "beforeRideUpdateMs": null,
+      "afterRideUpdateMs": null
+    },
+    {
+      "view": "cbd",
+      "beforeP95FrameMs": 16.799999999999272,
+      "afterP95FrameMs": 16.80000000000291,
+      "beforeRideUpdateMs": null,
+      "afterRideUpdateMs": null
+    },
+    {
+      "view": "donghu",
+      "beforeP95FrameMs": 16.799999999995634,
+      "afterP95FrameMs": 16.80000000000291,
+      "beforeRideUpdateMs": null,
+      "afterRideUpdateMs": null
+    },
+    {
+      "view": "ride-hankou",
+      "beforeP95FrameMs": 16.80000000000291,
+      "afterP95FrameMs": 16.80000000000291,
+      "beforeRideUpdateMs": 0.7854166686534881,
+      "afterRideUpdateMs": 0.6912500003973643
+    },
+    {
+      "view": "ride-luojia",
+      "beforeP95FrameMs": 16.80000000000291,
+      "afterP95FrameMs": 16.80000000000291,
+      "beforeRideUpdateMs": 0.7054166669646899,
+      "afterRideUpdateMs": 0.5983333354194958
+    },
+    {
+      "view": "ride-moshan",
+      "beforeP95FrameMs": 16.80000000000291,
+      "afterP95FrameMs": 16.80000000000291,
+      "beforeRideUpdateMs": 0.6416666661699613,
+      "afterRideUpdateMs": 0.5500000044703484
+    },
+    {
+      "view": "ride-60",
+      "beforeP95FrameMs": 16.80000000000291,
+      "afterP95FrameMs": 16.80000000000291,
+      "beforeRideUpdateMs": 0.9124999985098838,
+      "afterRideUpdateMs": 0.7745833297570547
+    },
+    {
+      "view": "mobile-390x844",
+      "beforeP95FrameMs": 16.799999999999272,
+      "afterP95FrameMs": 16.80000000000109,
+      "beforeRideUpdateMs": 0.7954166620969773,
+      "afterRideUpdateMs": 0.8566666707396507
+    },
+    {
+      "view": "mobile-844x390",
+      "beforeP95FrameMs": 16.80000000000109,
+      "afterP95FrameMs": 16.80000000000109,
+      "beforeRideUpdateMs": 0.8029166663686435,
+      "afterRideUpdateMs": 0.7816666637857755
+    }
+  ]
+}

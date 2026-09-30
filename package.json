@@ -32,7 +32,14 @@
     "wuhan:highspeed:verify": "node tools/wuhan/verify-phase6-ride.mjs && node tools/wuhan/verify-main-routes.mjs && node tools/wuhan/verify-bridge-transitions.mjs",
     "wuhan:final:browser": "node tools/wuhan/browser-check-phase6.mjs",
     "wuhan:checkout:verify": "node tools/wuhan/verify-git-checkout.mjs",
-    "wuhan:screenshots:verify": "node tools/wuhan/verify-screenshot-regressions.mjs"
+    "wuhan:screenshots:verify": "node tools/wuhan/verify-screenshot-regressions.mjs && node tools/wuhan/verify-phase61-approach.mjs",
+    "wuhan:bridge-runtime:verify": "node tools/wuhan/verify-phase61-bridge-runtime.mjs && node tools/wuhan/verify-phase61-residency.mjs",
+    "wuhan:airwall:verify": "node tools/wuhan/verify-phase61-airwall.mjs",
+    "wuhan:collision:verify": "node tools/wuhan/verify-phase61-collision.mjs && node tools/wuhan/verify-phase61-ground-join.mjs",
+    "wuhan:phase61:browser": "node tools/wuhan/browser-check-phase61.mjs",
+    "wuhan:phase61:browser-report": "node tools/wuhan/verify-phase61-browser-report.mjs",
+    "wuhan:diagnostics:browser": "node tools/wuhan/browser-check-phase61-diagnostics.mjs",
+    "wuhan:explore:browser": "node tools/wuhan/browser-explore-phase61.mjs"
   },
   "dependencies": {
     "three": "0.185.0"

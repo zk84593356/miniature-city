@@ -10,7 +10,7 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
   const surfaces = new Map();
   const cells = new Map();
   let fastTerrain=null,fastWater=null;
-  const segments=new Map();
+  const segments=new Map();let bridgeConnections=[];const rideAxes=new Map();
   const roadTriangles=createRoadTriangleIndex();
   function indexSegments(s){
     s.segmentCells=[];
@@ -31,6 +31,48 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
     return keys;
   }
   const api = {
+    setRideAxes(definitions){
+      rideAxes.clear();const profiles=new Map();for(const b of definitions){profiles.set(b.id,b);for(const r of b.accessProfiles??[])profiles.set(r.id,r);}
+      for(const r of profiles.values())for(let i=1;i<r.profile.length;i++){
+        const a=r.profile[i-1],b=r.profile[i],entry={id:r.id,a,b,width:r.width};
+        for(let x=Math.floor((Math.min(a[0],b[0])-.3)/.5);x<=Math.floor((Math.max(a[0],b[0])+.3)/.5);x++)for(let z=Math.floor((Math.min(a[2],b[2])-.3)/.5);z<=Math.floor((Math.max(a[2],b[2])+.3)/.5);z++){
+          const key=x+','+z;if(!rideAxes.has(key))rideAxes.set(key,[]);rideAxes.get(key).push(entry);
+        }
+      }
+    },
+    chooseRideSurface(state,previous){
+      const {x,z,heading}=state,selected=api.sampleSurface(x,z,previous.y,previous.surfaceId);
+      if(selected?.kind!=='bridge')return selected;
+      const alternatives=roadTriangles.candidates(x,z).filter(c=>c.surfaceId!==selected.surfaceId&&c.kind==='bridge'&&c.rideAllowed&&Math.abs(c.height-previous.y)<=.003&&api.allowsTransition(selected,c,x,z));
+      if(!alternatives.length)return selected;
+      const scores=new Map(),alignments=new Map();for(const {id,a,b} of rideAxes.get(Math.floor(x/.5)+','+Math.floor(z/.5))??[]){
+        const dx=b[0]-a[0],dz=b[2]-a[2],d=dx*dx+dz*dz;if(!d)continue;
+        const t=Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[2])*dz)/d));
+        const distance=Math.hypot(x-a[0]-dx*t,z-a[2]-dz*t),alignment=Math.abs((Math.sin(heading)*dx+Math.cos(heading)*dz)/Math.sqrt(d));
+        const score=distance+.15*(1-alignment);if(score<(scores.get(id)??Infinity)){scores.set(id,score);alignments.set(id,alignment);}
+      }
+      let best=selected,score=scores.get(selected.surfaceId)??Infinity;
+      for(const c of alternatives){
+        const next=scores.get(c.surfaceId)??Infinity;if(next+.002<score&&(alignments.get(c.surfaceId)??0)>(alignments.get(selected.surfaceId)??0)+.001){best=c;score=next;}
+      }
+      return best;
+    },
+    allowsTransition(a,b,x,z){
+      if(a?.kind!=='bridge'&&b?.kind!=='bridge'||a?.surfaceId===b?.surfaceId||!a?.canonical&&!b?.canonical)return true;
+      if(roadTriangles.connected(a,b))return true;
+      const ids=s=>new Set([s.surfaceId,...(s.roadIds??[])]),aa=ids(a),bb=ids(b),matches=(list,ids)=>list?.some(id=>ids.has(id));
+      const groundAtJoin=(s,j)=>j.layerId?.startsWith('ground')&&(s.surfaceId==='terrain'||s.kind==='road'&&s.layerId?.startsWith('ground'))&&Math.abs((s.height??s.y)-j.height)<=.003;
+      // A real ground junction can overlap another sourced ground road. The
+      // shared top, not whichever coplanar road ID won sampling, defines entry.
+      if(roadTriangles.candidates(x,z).some(j=>j.nodeId&&(matches(j.roadIds,aa)||groundAtJoin(a,j))&&(matches(j.roadIds,bb)||groundAtJoin(b,j))))return true;
+      return bridgeConnections.some(p=>{
+        const roads=[...(p.roadIds??[]),...(p.majorSurfaceId?[p.majorSurfaceId]:[]),...(p.bridge?['bridge-'+p.bridge]:[]),'ride-transition-'+p.node,'transition-'+p.node];
+        const near=Math.hypot(x-p.position[0],z-p.position[1])<(p.radius??p.flatRadius??.3)+.01;
+        // A ground join also admits its contiguous bare terrain crossfall.
+        return near&&(matches(roads,aa)||p.kind==='ground'&&a.surfaceId==='terrain')&&(matches(roads,bb)||p.kind==='ground'&&b.surfaceId==='terrain');
+      });
+    },
+    setBridgeConnections:connections=>{bridgeConnections=connections;},
     registerTriangles:(f,p,i)=>roadTriangles.register(f,p,i),
     unregisterTriangles:id=>roadTriangles.unregister(id),
     getRoadTriangles:()=>roadTriangles,
@@ -107,16 +149,25 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
         }
       }
       if(referenceY===undefined) return candidates.find(c=>c.surfaceId==='terrain'||c.kind==='water')??null;
-      candidates.sort((a,b)=>Math.abs(a.height-referenceY)-Math.abs(b.height-referenceY));
+      // Coplanar junction ribbons can differ by Float32 roundoff. That must not
+      // let a forbidden arm mask a rideable intersection at the SAME elevation.
+      candidates.sort((a,b)=>{const d=Math.abs(a.height-referenceY)-Math.abs(b.height-referenceY);return Math.abs(d)>1e-6?d:Number(b.rideAllowed)-Number(a.rideAllowed);});
       const previous=candidates.find(c=>c.surfaceId===previousSurfaceId);
-      // At dry terminals the historical lower-rail profile converges with the
-      // upper road. A rider already on a road stays on the actual nearby road
-      // top; a query explicitly on rail keeps the non-rideable rail layer.
-      if(previousSurfaceId&&!previousSurfaceId.startsWith('rail')&&!previous){
-        const road=candidates.find(c=>c.canonical&&c.rideAllowed&&Math.abs(c.height-referenceY)<=.003);
-        if(road)return road;
+      if(previous?.rideAllowed&&Math.abs(previous.height-referenceY)<=.003){
+        if(previous.kind==='terrain'||previous.kind==='road'){
+          const top=candidates.find(c=>c.canonical&&c.rideAllowed&&Math.abs(c.height-referenceY)<=.003&&(c.kind==='road'&&previous.kind==='terrain'||c.kind==='bridge'&&(
+            roadTriangles.connected(previous,c)||candidates.some(j=>j.nodeId&&j.roadIds?.some(id=>c.roadIds?.includes(id)))||bridgeConnections.some(p=>p.roadIds?.some(id=>c.roadIds?.includes(id))&&Math.hypot(x-p.position[0],z-p.position[1])<(p.radius??.3))
+          )));
+          if(top)return top;
+        }
+        return previous;
       }
-      return previous && Math.abs(previous.height-referenceY)<.03 ? previous : candidates[0]??null;
+      if(previousSurfaceId&&!previousSurfaceId.startsWith('rail')){
+        const prior=roadTriangles.features.get(previousSurfaceId);
+        const connected=candidates.find(c=>c.canonical&&c.rideAllowed&&Math.abs(c.height-referenceY)<=.003&&(!prior||prior.kind!=='bridge'||api.allowsTransition({...prior,surfaceId:prior.id},c,x,z)));
+        if(connected)return connected;
+      }
+      return candidates[0]??null;
     },
   };
   return api;

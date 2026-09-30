@@ -14,7 +14,7 @@ export async function fixture(){
  const projection=createProjection(manifest.projection),surface=createTerrainSurface(terrain,await json('water.json'),projection,manifest.bounds.context);surface.enableFastSampling();
  const canonical=createRoadSurfaces(pack,surface,[0,1,2,3].map(()=>new T.MeshBasicMaterial()));await canonical.ready;
  const urban={canonical,bridges:new T.Group()};const bridges=await json('bridges.json');
- for(const b of bridges){const c=canonical.index.bridges.find(c=>c.id==='bridge-'+b.id);urban.bridges.add(createBridge({...b,profile:c.profile,foundationProfile:c.foundationProfile,canonicalSurface:true},surface));}
+ for(const b of bridges){const c=canonical.index.bridges.find(c=>c.id==='bridge-'+b.id);urban.bridges.add(createBridge({...b,profile:c.profile,foundationProfile:c.foundationProfile,accessProfiles:c.accessProfiles,canonicalSurface:true},surface));}
  const adapter=new WuhanRideSurfaceAdapter({pack,surface,urban,places:{readyPromise:Promise.resolve(),definitions:await json('landmarks.json')},dynamics:{rideQuery:()=>({blocked:false})}});
  return {pack,surface,urban,adapter,bridges,projection};
 }
