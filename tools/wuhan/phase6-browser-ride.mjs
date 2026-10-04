@@ -43,6 +43,6 @@ export async function crossBridge(page,route,reverse=false){
  assert.ok(result.done,'completed full crossing');assert.equal(result.recoveryCount,0);assert.ok(result.travel>3500);
  assert.ok(!result.layers.some(l=>l.includes('rail')||l.includes('water')));assert.equal(result.layers[0],'ground-0');
  assert.equal((await page.evaluate(()=>window.__wuhan.getRideState())).state.layerId,'ground-0');
- for(const reason of Object.keys(result.blocked))assert.equal(reason,'traffic','No physical geometry blockage: '+reason);
+ assert.deepEqual(result.blocked,{},'ground-to-ground route has no hard blockers');
  return {...result,reverse};
 }

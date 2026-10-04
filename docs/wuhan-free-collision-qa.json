@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "policy": "Only buildings hard-block; dataset-end and fatal-invalid-state are exceptional guards.",
+  "checks": [
+    {
+      "kind": "building",
+      "result": "PASS",
+      "stopped": true,
+      "distanceMeters": 6.935999999999991,
+      "maxSpeedKmh": 20.735999999999876
+    },
+    {
+      "kind": "tree",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "shrub",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "flower",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "traffic",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "bridge-pier",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "bridge-tower",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "water",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "road-edge",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "slope",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    },
+    {
+      "kind": "rail",
+      "result": "PASS",
+      "stopped": false,
+      "distanceMeters": 141.58191177889313,
+      "maxSpeedKmh": 60.00000000000001
+    }
+  ]
+}

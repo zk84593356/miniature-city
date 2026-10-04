@@ -1,5 +1,7 @@
 import {rideWindow,inRideWindow} from './ride-residency.js';
 import {insideRing} from '../geo/projection.js';
+import {createLandmark} from '../render/landmark-models.js';
+import {landmarkCollision} from './landmark-collision.js';
 
 export const BODY = Object.freeze({radius:.0044,half:.0058,height:.0175,maxSlope:26*Math.PI/180});
 export class SpatialGrid {
@@ -49,15 +51,11 @@ export class WuhanRideSurfaceAdapter {
     const index=await this.pack.loadJSON(this.pack.manifest.urban.roads);
     if(this.disposed)return;
     this.roads=index.chunks.map(spec=>({spec,items:[],loaded:false,promise:null}));
-    for(const def of this.places.definitions)for(const c of def.components){
-      const geometry=c.footprint??def.footprint;
-      const polys=geometry.type==='MultiPolygon'?geometry.coordinates:[geometry.coordinates];
-      for(const rings of polys)this.addPolygon({id:def.id,kind:'landmark',source:def.sourceId??def.id,rings,bottom:Math.min(...(c.terrainRange??[c.baseElevation]))/100,top:(c.baseElevation+c.height)/100});
-    }
-    // Actual published deck profiles and structure metadata, never a bridge-wide wall.
-    for(const bridge of this.urban.bridges.children)for(const o of bridge.userData.obstacles){
-      const item={...o,kind:'bridge-'+o.kind,source:o.source??'published-bridge-structure',bottom:o.center[1]-o.size[1]/2,top:o.center[1]+o.size[1]/2};
-      const r=Math.hypot(o.size[0],o.size[2])/2;this.grid.add(item,[o.center[0]-r,o.center[2]-r,o.center[0]+r,o.center[2]+r]);
+    for(const def of this.places.definitions){
+      const visible=this.places.group?.children.find(o=>o.userData.placeId===def.id),model=visible??createLandmark(def);
+      const shape=landmarkCollision(model);
+      this.grid.add({id:def.id,kind:'building',buildingType:'landmark',source:def.components.map(c=>c.sourceId??def.id).join(','),...shape},shape.bounds);
+      if(!visible)model.traverse(o=>o.geometry?.dispose());
     }
     this.ready=true;
   }
@@ -100,7 +98,7 @@ export class WuhanRideSurfaceAdapter {
     // Cache only spatial membership; residency flags remain live on every query.
     const road=cell.roads.find(e=>!e.geometry&&distance(e.spec.bounds,x,z)<.025);
     if(road)return {id:road.spec.file,source:'canonical-residency',bounds:road.spec.bounds};
-    const building=cell.buildings.find(e=>(!e.loaded||this.urban.buildingResident?.(e.spec.file)===false)&&distance(e.spec.bounds,x,z)<.025);
+    const building=cell.buildings.find(e=>(!e.loaded||this.urban?.buildingResident?.(e.spec.file)===false)&&distance(e.spec.bounds,x,z)<.025);
     return building?{id:building.spec.file,source:'building-visual/collision-residency',bounds:building.spec.bounds}:null;
   }
   covered(x,z){return !this.coverageIssue(x,z);}
@@ -109,15 +107,17 @@ export class WuhanRideSurfaceAdapter {
   blocked(x,z,y,r=BODY.radius,height=BODY.height){
     const t=performance.now();let result=null;
     for(const o of this.grid.near(x,z)){
+      if(o.kind!=='building')continue;
+      if(o.chunk&&this.urban?.buildingResident?.(o.chunk)===false)continue;
       if(o.top<=y+.0008||o.bottom>=y+height)continue;
-      if(o.rings?circlePolygon(x,z,r,o.rings):circleBox(x,z,r,o)){result=o;break;}
+      if(o.intersects?o.intersects(x,z,y,r,height):o.rings?circlePolygon(x,z,r,o.rings):circleBox(x,z,r,o)){result=o;break;}
     }
     this.metrics.staticObstacleQueryMs+=performance.now()-t;return result;
   }
   reject(kind,s,previous,candidate,object=null){
     this.lastBlock=kind;
     const normal=candidate?.normal??null;
-    this.lastRejected={blockReason:kind,blockKind:kind,blockId:object?.id??candidate?.surfaceId??null,blockSource:object?.source??candidate?.source??(candidate?.canonical?'canonical-road-triangles':'terrain/water'),blockBounds:object?.bounds??candidate?.bounds??null,blockPosition:{x:s.x,y:candidate?.height??s.y,z:s.z},distance:object?.bounds?distance(object.bounds,s.x,s.z)*100:0,surfaceId:candidate?.surfaceId??null,layerId:candidate?.layerId??null,candidateSurface:candidate??null,previousSurfaceId:previous.surfaceId??null,previousLayerId:previous.layerId??null,normal,slopeDegrees:normal?Math.acos(Math.max(-1,Math.min(1,normal[1])))*180/Math.PI:null,maxRideSlope:BODY.maxSlope*180/Math.PI};
+    this.lastRejected={blockReason:kind,blockKind:kind,buildingId:object?.id??null,sourceId:object?.source??null,blockId:object?.id??candidate?.surfaceId??null,blockSource:object?.source??candidate?.source??(candidate?.canonical?'canonical-road-triangles':'terrain/water'),blockBounds:object?.bounds??candidate?.bounds??null,blockPosition:{x:s.x,y:candidate?.height??s.y,z:s.z},distance:object?.bounds?distance(object.bounds,s.x,s.z)*100:0,surfaceId:candidate?.surfaceId??null,layerId:candidate?.layerId??null,candidateSurface:candidate??null,previousSurfaceId:previous.surfaceId??null,previousLayerId:previous.layerId??null,normal,slopeDegrees:normal?Math.acos(Math.max(-1,Math.min(1,normal[1])))*180/Math.PI:null};
     return null;
   }
   recordBlock(){
@@ -139,39 +139,27 @@ export class WuhanRideSurfaceAdapter {
   }
   collisionProbe(state,radius=.3){
     const found=new Set();for(const bin of this.grid.cells.values())for(const o of bin)if(distance(o.bounds,state.x,state.z)<=radius)found.add(o);
-    return [...found,...(this.dynamics?.rideObstacles?.(state,radius)??[])].map(o=>({...o,cells:undefined,distance:distance(o.bounds,state.x,state.z)*100,visualResident:o.chunk?this.urban.buildingResident?.(o.chunk)??null:true,collisionResident:true}));
+    return [...found].filter(o=>o.kind==='building'&&(!o.chunk||this.urban?.buildingResident?.(o.chunk)!==false)).map(o=>({...o,cells:undefined,intersects:undefined,section:undefined,segments:o.section?.(state.y+BODY.height/2),distance:distance(o.bounds,state.x,state.z)*100,visualResident:o.chunk?this.urban?.buildingResident?.(o.chunk)??null:true,collisionResident:true}));
   }
   surfaceProbe(s){return {position:{x:s.x,y:s.y,z:s.z},selected:this.sample(s.x,s.z,s.y,s.surfaceId),terrain:this.surface.sample?.(s.x,s.z),canonical:this.surface.getRoadTriangles?.().candidates(s.x,s.z)??[]};}
-  validate(s,previous=s,dynamic=true){
+  validate(s,previous=s){
     this.lastBlock=null;
+    if(![s.x,s.z,s.y,s.heading].every(Number.isFinite))return this.reject('fatal-invalid-state',s,previous,null);
     const queryStart=performance.now();
-    const support=this.surface.chooseRideSurface?this.surface.chooseRideSurface(s,previous):this.sample(s.x,s.z,previous.y,previous.surfaceId);
+    let support=this.surface.chooseRideSurface?this.surface.chooseRideSurface(s,previous):this.sample(s.x,s.z,previous.y,previous.surfaceId);
     if(this.surface.chooseRideSurface){this.metrics.surfaceQueries++;this.metrics.surfaceQueryMs+=performance.now()-queryStart;}
-    const denied=q=>!q?'dataset-boundary':q.kind==='water'?'water':(q.kind==='rail'||q.layerId?.includes('rail'))?'rail':'forbidden-surface';
-    const slope=q=>q.normal[1]<Math.cos(BODY.maxSlope);
-    if(!support?.rideAllowed)return this.reject(denied(support),s,previous,support);
-    if(previous.kind&&!this.surface.allowsTransition?.(previous,support,s.x,s.z)&&this.surface.allowsTransition)return this.reject('layer-transition',s,previous,support);
-    if(slope(support))return this.reject('slope',s,previous,support);
-    if(Number.isFinite(previous.y)&&Math.abs(support.height-previous.y)>.003)return this.reject('layer-transition',s,previous,support);
+    if(!support)return this.reject('dataset-end',s,previous,null);
+    if(!Number.isFinite(support.height))return this.reject('fatal-invalid-state',s,previous,support);
+    // Canonical bridge chunks are prefetched and pinned by prepareRide().
+    // Never fabricate a support plane or turn pending residency into a wall.
+    support={...support,rideAllowed:true,traversable:true};
+    // The capsule is tested at its supported body height, not a neighbouring
+    // deck's height. Water, road edges, steep slopes and layers never reject.
     for(const offset of [-BODY.half,0,BODY.half]){
       const x=s.x+Math.sin(s.heading)*offset,z=s.z+Math.cos(s.heading)*offset;
-      if(!this.covered(x,z))return this.reject('loading',{...s,x,z},previous,support,this.coverageIssue(x,z));
-      const local=this.sample(x,z,support.height,support.surfaceId);
-      if(!local?.rideAllowed)return this.reject(denied(local),{...s,x,z},previous,local);
-      if(slope(local))return this.reject('slope',{...s,x,z},previous,local);
-      if(Math.abs(local.height-support.height)>.008)return this.reject('surface-edge',{...s,x,z},previous,local);
-      // Different ground IDs are allowed: wheels may straddle a road/terrain edge.
-      for(const side of [-1,1]){
-        const ex=x+Math.cos(s.heading)*BODY.radius*side,ez=z-Math.sin(s.heading)*BODY.radius*side;
-        const edge=this.sample(ex,ez,local.height,local.surfaceId);
-        if(!edge?.rideAllowed)return this.reject(denied(edge),{...s,x:ex,z:ez},previous,edge);
-        if(this.surface.allowsTransition&&!this.surface.allowsTransition(local,edge,ex,ez))return this.reject('surface-edge',{...s,x:ex,z:ez},previous,edge);
-        if(slope(edge))return this.reject('slope',{...s,x:ex,z:ez},previous,edge);
-        if(Math.abs(edge.height-local.height)>.008)return this.reject('surface-edge',{...s,x:ex,z:ez},previous,edge);
-      }
-      const obstacle=this.blocked(x,z,local.height);if(obstacle)return this.reject(obstacle.kind,{...s,x,z},previous,local,obstacle);
+      const obstacle=this.blocked(x,z,support.height);
+      if(obstacle)return this.reject('building',{...s,x,z},previous,support,obstacle);
     }
-    if(dynamic){const t=performance.now();const hit=this.dynamics?.rideQuery?.({...s,y:support.height});this.metrics.dynamicQueryMs+=performance.now()-t;this.nearestTrafficDistance=hit?.distance??null;if(hit?.blocked)return this.reject('traffic',s,previous,support,hit);}
     return support;
   }
   cameraBlocked(x,y,z,state){

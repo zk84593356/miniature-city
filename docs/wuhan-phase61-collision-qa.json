@@ -5,8 +5,8 @@
     "landmark replacements leave no old building collider",
     "movement and camera never query any vegetation collider",
     "mixed road/terrain footprint crosses an 8 cm visual road edge in both directions",
-    "steep terrain is rejected with measured normal and slope",
-    "water and rail remain forbidden",
+    "steep terrain supports free exploration",
+    "water and rail do not hard block",
     "diagnostic probes preserve the last movement rejection",
     "60 km/h forward residency includes 800 m lookahead and excludes distant city"
   ]

@@ -54,9 +54,9 @@
     {
       "kmh": 10,
       "kind": "tower",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.02312062757201646,
-      "acceptedPosition": 0.9122662026773399
+      "acceptedPosition": 10.340210875998695
     },
     {
       "kmh": 10,
@@ -68,9 +68,9 @@
     {
       "kmh": 10,
       "kind": "traffic",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.02312062757201646,
-      "acceptedPosition": 2.9026428963043744
+      "acceptedPosition": 10.340210875998695
     },
     {
       "kmh": 25,
@@ -82,9 +82,9 @@
     {
       "kmh": 25,
       "kind": "tower",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.05782597093621399,
-      "acceptedPosition": 0.897053583151085
+      "acceptedPosition": 38.42788952791431
     },
     {
       "kmh": 25,
@@ -96,9 +96,9 @@
     {
       "kmh": 25,
       "kind": "traffic",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.05782597093621399,
-      "acceptedPosition": 2.893210936401141
+      "acceptedPosition": 38.42788952791431
     },
     {
       "kmh": 40,
@@ -110,9 +110,9 @@
     {
       "kmh": 40,
       "kind": "tower",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.09251684670781893,
-      "acceptedPosition": 0.8850561686441103
+      "acceptedPosition": 62.47007416147491
     },
     {
       "kmh": 40,
@@ -124,9 +124,9 @@
     {
       "kmh": 40,
       "kind": "traffic",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.09251684670781893,
-      "acceptedPosition": 2.9054126169433783
+      "acceptedPosition": 62.47007416147491
     },
     {
       "kmh": 60,
@@ -138,9 +138,9 @@
     {
       "kmh": 60,
       "kind": "tower",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.09980771775427617,
-      "acceptedPosition": 0.8982656702894183
+      "acceptedPosition": 89.92346483307597
     },
     {
       "kmh": 60,
@@ -152,10 +152,10 @@
     {
       "kmh": 60,
       "kind": "traffic",
-      "stopped": true,
+      "stopped": false,
       "maxTravelMeters": 0.09980771775427617,
-      "acceptedPosition": 2.8397714581434057
+      "acceptedPosition": 89.92346483307597
     }
   ],
-  "collisionScope": "Runtime footprint adapter against thin static boxes, vegetation pass-through, and oriented-lane vehicle extent; live traffic separately tested in browser."
+  "collisionScope": "Runtime footprint adapter against thin static boxes, non-building pass-through, and buildings-only thin-wall rejection; live traffic separately tested in browser."
 }

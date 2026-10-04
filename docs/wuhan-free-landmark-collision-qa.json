@@ -1,0 +1,68 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "id": "yellow-crane",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "customs",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "greenland",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "wuhan-center",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "qingchuan-pavilion",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "guishan-tower",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "wuhan-university",
+      "components": 6,
+      "result": "PASS"
+    },
+    {
+      "id": "hubei-museum",
+      "components": 17,
+      "result": "PASS"
+    },
+    {
+      "id": "wuhan-station",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "calla",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "qintai-theater",
+      "components": 1,
+      "result": "PASS"
+    },
+    {
+      "id": "xingyin",
+      "components": 1,
+      "result": "PASS"
+    }
+  ],
+  "sourceFootprintEmptySpacePass": true,
+  "raisedVisibleBodyPass": true,
+  "overlappingSolidsBlock": true
+}

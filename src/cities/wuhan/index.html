@@ -26,6 +26,7 @@
       <button id="labels-toggle" aria-pressed="true">字<span>地名</span></button>
       <button id="mesh-toggle" aria-pressed="false">▧<span>网格</span></button>
       <button id="info-toggle" aria-expanded="false">ⓘ<span>数据</span></button>
+      <button id="music-toggle" aria-pressed="false" aria-label="开启城市音乐" title="城市音乐 · 关">♪<span>音乐</span></button>
       <button id="journey-toggle" aria-controls="journeys" title="推荐浏览路线">⌁<span>浏览</span></button>
     </div>
     <aside id="journeys" hidden aria-label="推荐浏览路线">
@@ -51,6 +52,8 @@
       <p id="data-stats" class="note"></p>
       <label class="dynamic-setting"><input id="dynamic-toggle" type="checkbox" checked> 城市动态</label>
       <p class="note">车流与船只为示意模拟，并非实时交通或通航信息；船舶航线与桥下净空经过几何检查，仍属于估计。减少动态偏好开启时自动冻结交通、减少船只并关闭尾流。</p>
+      <div class="music-settings"><label><input id="music-enabled" type="checkbox"> 城市音乐</label><label for="music-volume">音量 <output id="music-volume-value">35%</output></label><input id="music-volume" type="range" min="0" max="100" value="35" aria-label="城市音乐音量"></div>
+      <p class="note">建筑是唯一硬碰撞实体；其余城市元素以视觉和 Surface 表现为主，不阻断自由探索。</p>
       <p id="full-attribution" class="note"></p>
       <p class="source-links"><a href="https://registry.opendata.aws/copernicus-dem/" target="_blank" rel="noreferrer">高程来源 ↗</a><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OSM / ODbL ↗</a><a href="../data/wuhan/quality.json" target="_blank">质量报告 ↗</a></p>
     </aside>

@@ -52,7 +52,7 @@ try {
     assert.ok(initial.urban.buildingCount>0);
     const bridgeLayers=await page.evaluate(()=>window.__wuhan.getBridges().map(b=>{const p=b.profile.find(p=>window.__wuhan.sampleWorld(p[0],p[2])?.kind==='water');if(!p)return {id:b.bridgeId,missingWater:true};return {id:b.bridgeId,towerCount:b.towerCount,under:window.__wuhan.sampleWorld(p[0],p[2]),over:window.__wuhan.sampleSurface(p[0],p[2],p[1],'bridge-'+b.bridgeId),obstacles:b.obstacles.length};}));
     assert.equal(bridgeLayers.length,6);
-    for(const b of bridgeLayers){assert.equal(b.under.kind,'water');assert.equal(b.under.traversable,false);assert.equal(b.over.kind,'bridge');assert.equal(b.over.surfaceId,'bridge-'+b.id);assert.ok(b.obstacles>0);}
+    for(const b of bridgeLayers){assert.equal(b.under.kind,'water');assert.equal(b.under.traversable,true);assert.equal(b.over.kind,'bridge');assert.equal(b.over.surfaceId,'bridge-'+b.id);assert.ok(b.obstacles>0);}
     assert.equal(await page.evaluate(() => Boolean(window.__shenzhen)), false);
     await page.mouse.move(800, 500); await page.mouse.down(); await page.mouse.move(920, 540, { steps: 8 }); await page.mouse.up();
     await page.mouse.wheel(0, -180);
@@ -61,7 +61,7 @@ try {
     const hillSamples = await page.evaluate(() => [[114.275, 30.558], [114.308, 30.546], [114.366, 30.537], [114.418, 30.551]].map(p => window.__wuhan.sample(...p)));
     hillSamples.forEach(sample => { assert.equal(sample?.kind, 'ground'); assert.ok(sample.height > .2); });
     const waterSamples = await page.evaluate(() => [[114.289, 30.557], [114.271, 30.563], [114.399, 30.58]].map(p => window.__wuhan.sample(...p)));
-    waterSamples.forEach(sample => { assert.equal(sample?.kind, 'water'); assert.equal(sample.traversable, false); });
+    waterSamples.forEach(sample => { assert.equal(sample?.kind, 'water'); assert.equal(sample.traversable, true); });
     assert.equal(await page.evaluate(() => window.__wuhan.sample(115, 31)), null);
     if (prefix === '/') {
       for (const id of ['confluence','guishan','jianghanguan','cbd','wuchang','luojia','guanggu','donghu','bridge-sequence','overview','bridge-yangtze-first','bridge-yingwuzhou','bridge-yangsigang','bridge-erqi','bridge-qingchuan','bridge-yangtze-second']) {

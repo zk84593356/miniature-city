@@ -9,13 +9,13 @@ const surface=createTerrainSurface(ground,waters,{inverse:(x,z)=>[x,z]},[-10,-10
 surface.register({id:'upper',kind:'bridge',layerId:'road-upper',width:30,profile:[[-3,.5,0],[0,.6,0],[3,.5,0]],traversable:true,rideAllowed:true});
 surface.register({id:'rail',kind:'bridge',layerId:'rail-lower',width:30,profile:[[-3,.4,0],[0,.5,0],[3,.4,0]],traversable:false,rideAllowed:false});
 assert.equal(surface.sample(0,0).kind,'water');
-assert.equal(surface.sample(0,0).traversable,false);
+assert.equal(surface.sample(0,0).traversable,true);
 assert.equal(surface.sampleSurface(0,0,.6).surfaceId,'upper');
 assert.equal(surface.sampleSurface(0,0,.5).surfaceId,'rail');
-assert.equal(surface.sampleSurface(0,0,.5).rideAllowed,false);
+assert.equal(surface.sampleSurface(0,0,.5).rideAllowed,true);
 assert.equal(surface.sampleSurface(0,0,.1).kind,'water');
 assert.equal(surface.sampleSurface(0,0).kind,'water');
-assert.equal(surface.sampleSurface(0,0).rideAllowed,false);
+assert.equal(surface.sampleSurface(0,0).rideAllowed,true);
 const waterNormal=surface.sampleSurface(0,0).normal;
 assert.ok(Math.abs(waterNormal[0]/waterNormal[1]-.00004*.6)<1e-12);
 assert.ok(Math.abs(waterNormal[2]/waterNormal[1]+.00004*.8)<1e-12);

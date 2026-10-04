@@ -1,0 +1,108 @@
+{
+  "result": "PASS",
+  "method": "Normal throttle through sourced visible objects and shoreline with actual RideController; no position writes after each spawn.",
+  "checks": [
+    {
+      "kind": "tree",
+      "result": "PASS",
+      "position": [
+        -104.6830349,
+        0.2525249,
+        -20.0839135
+      ],
+      "travelMeters": 10.8994602264676,
+      "blockCounts": {},
+      "recoveryCount": 0
+    },
+    {
+      "kind": "shrub",
+      "result": "PASS",
+      "position": [
+        -106.8191729,
+        0.2508125,
+        -20.4432658
+      ],
+      "travelMeters": 10.854356060760441,
+      "blockCounts": {},
+      "recoveryCount": 0
+    },
+    {
+      "kind": "flower",
+      "result": "PASS",
+      "position": [
+        -107.5352083,
+        0.3080011,
+        -20.5422446
+      ],
+      "travelMeters": 10.850649461583998,
+      "blockCounts": {},
+      "recoveryCount": 0
+    },
+    {
+      "kind": "bridge-pier",
+      "result": "PASS",
+      "id": "yingwuzhou-pier-1866.4028422661604",
+      "position": [
+        -48.423633279840374,
+        0.32199533327558727,
+        24.203069292834375
+      ],
+      "travelMeters": 10.830000206534088,
+      "blockCounts": {},
+      "recoveryCount": 0
+    },
+    {
+      "kind": "bridge-tower",
+      "result": "PASS",
+      "id": "yingwuzhou-tower-1866.4028422661604--0.26-0",
+      "position": [
+        -48.279577417436926,
+        0.5170597347016417,
+        23.98792806297599
+      ],
+      "travelMeters": 10.83000000070534,
+      "blockCounts": {},
+      "recoveryCount": 0
+    },
+    {
+      "kind": "traffic",
+      "result": "PASS",
+      "id": 0,
+      "travelMeters": 30.049999999999244,
+      "blockCounts": {},
+      "recoveryCount": 0
+    },
+    {
+      "kind": "terrain-to-water",
+      "result": "PASS",
+      "start": {
+        "x": -5.39985973810674,
+        "z": -2.3888770564501733,
+        "y": 0.19616363912996024
+      },
+      "state": {
+        "x": -5.375337603928402,
+        "z": -2.382353594153248,
+        "y": 0.195,
+        "heading": 1.3107945613428296,
+        "surfaceId": "water-717",
+        "normal": [
+          0,
+          1,
+          0
+        ],
+        "height": 0.195,
+        "kind": "water",
+        "layerId": "water",
+        "traversable": true,
+        "rideAllowed": true,
+        "speed": 3.4800000000000026,
+        "steering": 0
+      },
+      "waterHeight": 0.195,
+      "blockCounts": {},
+      "recoveryCount": 0
+    }
+  ],
+  "errors": []
+}

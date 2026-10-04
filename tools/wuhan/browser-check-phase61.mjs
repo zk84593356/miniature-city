@@ -4,7 +4,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';import {createRequire}
 import {bridgeRoutes} from './phase61-routes.mjs';
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_PATH||path.join(os.homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 const dev=process.argv.includes('--dev'),root=path.resolve('atlas-site'),port=Number(process.env.WUHAN_QA_PORT??4206),errors=[],runs=[];
-const reportPath=process.env.WUHAN_QA_REPORT??(dev?'docs/wuhan-phase61-bridge-development-qa.json':'docs/wuhan-phase61-bridge-browser-qa.json');
+const reportPath=process.env.WUHAN_QA_REPORT??(dev?'docs/wuhan-phase61-bridge-development-qa.json':'docs/wuhan-free-bridge-browser-qa.json');
 if(process.env.WUHAN_QA_RESUME){const prior=JSON.parse(await readFile(reportPath,'utf8'));runs.push(...prior.runs.filter(r=>r.result==='PASS'));}
 const server=http.createServer(async(req,res)=>{let u=new URL(req.url,'http://localhost').pathname;if(u.endsWith('/'))u+='index.html';let f=path.resolve(root,'.'+decodeURIComponent(u));if(!f.startsWith(root+path.sep)){res.writeHead(403).end();return;}if(u==='/qa/ride-detour.mjs')f=path.resolve('tools/wuhan/ride-detour.mjs');if(dev&&u.startsWith('/atlas/'))f=path.resolve('src'+u);if(dev&&u==='/cities/wuhan/manifest.json')f=path.resolve('city-data/wuhan/generated/manifest.json');if(dev&&u.startsWith('/data/wuhan/'))f=path.resolve('city-data/wuhan/generated',path.basename(u));try{res.setHeader('Content-Type',({'.mjs':'text/javascript','.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'})[path.extname(f)]||'application/octet-stream');res.end(await readFile(f));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(port,'127.0.0.1',r));
@@ -91,7 +91,7 @@ try{
   const out={bridgeId:route.bridgeId,direction:reverse?'B→A':'A→B',kmh,startRoadId:reverse?route.endRoadId:route.startRoadId,endRoadId:reverse?route.startRoadId:route.endRoadId,...result};
   const counts=result.ride?.blockCounts??{};
   Object.assign(out,{endSurfaceId:result.ride?.surfaceId,loadingBlockCount:counts.loading??0,surfaceMissingCount:counts['surface-missing']??0,wrongLayerCount:counts['layer-transition']??0,waterTransitionCount:counts.water??0,recoveryCount:result.ride?.recoveryCount});
-  out.result=result.done&&result.ride.recoveryCount===0&&!Object.keys(counts).some(k=>k!=='traffic')?'PASS':'FAIL';
+  out.result=result.done&&result.ride.recoveryCount===0&&Object.keys(counts).length===0?'PASS':'FAIL';
   runs.push(out);await page.screenshot({path:`probe/wuhan/phase61-${route.bridgeId}-${kmh}-${reverse?'reverse':'forward'}.png`});
   await writeFile(reportPath,JSON.stringify({result:runs.every(r=>r.result==='PASS')?'PASS':'FAIL',runtime:'real browser RideController; accelerated input stepping with render/network yields',runs,errors},null,2)+'\n');
   console.log('RESULT',out.result,route.bridgeId,kmh,reverse,result.ride?.lastRejected??initialized.error);

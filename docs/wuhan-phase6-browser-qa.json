@@ -1,14 +1,14 @@
 {
   "result": "PASS",
-  "date": "2026-09-30T02:06:50.610Z",
+  "date": "2026-10-04T03:03:28.810Z",
   "checks": [
     "Hankou keyboard: forward, turn, brake, stationary turn rejection, reverse, Escape",
     "exact saved camera/projection/Orbit restoration",
     "all light modes, city dynamics, manual pause, reduced motion and blur reset",
     "place selection safely exits riding",
-    "actual East Lake shore: water stop and no wheel spin while blocked",
+    "actual East Lake shore passes without rejection or recovery",
     "Yellow Crane footprint blocks riding",
-    "live bridge traffic collision through local spatial query",
+    "live bridge traffic pass-through",
     "browser upper road / lower rail / river coexist without layer teleport",
     "full bidirectional ground-to-ground first bridge: canonical surface, live traffic, zero recovery",
     "20 enter/exit cycles: stable listeners, DOM, geometry, materials and post-GC heap",
@@ -23,10 +23,10 @@
           "trees": 265907,
           "shrubs": 30966,
           "flowers": 28631,
-          "visibleTrees": 4014,
-          "visibleInstances": 5679,
-          "drawCalls": 125,
-          "triangles": 353098
+          "visibleTrees": 4044,
+          "visibleInstances": 5729,
+          "drawCalls": 131,
+          "triangles": 354994
         },
         "dynamics": {
           "ready": true,
@@ -36,12 +36,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 5.837500000000011,
+          "time": 5.487300000000018,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1017,
+          "vehicles": 1018,
           "target": 1020,
-          "ticks": 116,
+          "ticks": 109,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -60,7 +60,7 @@
           "farVehicles": 96,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 116,
+          "vesselTicks": 109,
           "routes": 3,
           "routeCounts": [
             {
@@ -82,9 +82,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 13.926041664555669,
-          "vesselSimulationMs": 0.04374999925494194,
-          "dynamicUpdateMs": 17.066145837306976
+          "trafficSimulationMs": 4.492500000136594,
+          "vesselSimulationMs": 0.01374999973922968,
+          "dynamicUpdateMs": 6.662500000124177
         },
         "phase": 6,
         "placesReady": true,
@@ -96,45 +96,45 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 28,
+          "loadedBuildingChunks": 32,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 50033,
-          "buildingCount": 3528,
+          "buildingTriangles": 60978,
+          "buildingCount": 4444,
           "surfacesReady": true,
           "roadTriangles": 172156,
-          "loadedSurfaceChunks": 16
+          "loadedSurfaceChunks": 14
         },
         "urbanErrors": [],
         "mainLoopCount": 1,
-        "terrainTriangles": 369161,
-        "estimatedGeometryBytes": 82809780,
+        "terrainTriangles": 373589,
+        "estimatedGeometryBytes": 80148312,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "confluence",
         "flying": false,
         "camera": [
           -28.650126625921704,
-          0.2921643610839229,
+          0.29216436108384186,
           -29.120947928757168
         ],
         "target": [
           -28.601292026250256,
-          0.27113390994302844,
+          0.2711339099430285,
           -29.221588315612536
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 285,
-        "triangles": 1067268,
-        "geometries": 267,
-        "frameSamples": 158,
-        "p95FrameMs": 33.5,
+        "drawCalls": 297,
+        "triangles": 1080401,
+        "geometries": 275,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000109,
         "disposed": false
       },
       "ride": {
@@ -341,23 +341,23 @@
           ]
         ],
         "pitch": 0.011050615591121228,
-        "roll": 0.01668346134779509,
+        "roll": 0.016683461347795116,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -28.650126625921704,
-          0.2921643610839121,
+          0.2921643610838375,
           -29.120947928757168
         ],
         "cameraQuaternion": [
-          -0.0904257899624036,
-          -0.22300231477673377,
-          -0.020780419816878053,
-          0.9703923527450781
+          -0.0904257899620908,
+          -0.22300231477674043,
+          -0.020780419816806166,
+          0.9703923527451074
         ],
         "cameraTarget": [
           -28.601292026250256,
-          0.27113390994302844,
+          0.2711339099430285,
           -29.221588315612536
         ],
         "cameraNear": 0.0005,
@@ -371,20 +371,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 82,
-          "surfaceQueryMs": 0.9999998807907104,
-          "staticObstacleQueryMs": 0.20000004768371582,
+          "surfaceQueries": 64,
+          "surfaceQueryMs": 0.3999999910593033,
+          "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.7999999523162842,
-          "rideUpdateMs": 1.1999999284744263
+          "cameraCollisionMs": 0.29999999701976776,
+          "rideUpdateMs": 0.5999999940395355
         },
         "meanMetrics": {
-          "surfaceQueries": 96.41340782122904,
-          "surfaceQueryMs": 0.8050279284322728,
-          "staticObstacleQueryMs": 0.15418994426727295,
-          "dynamicQueryMs": 0.04972067158981409,
-          "cameraCollisionMs": 0.7726256980576329,
-          "rideUpdateMs": 1.5597765325833965
+          "surfaceQueries": 64.71666666666667,
+          "surfaceQueryMs": 0.3770833337058624,
+          "staticObstacleQueryMs": 0.09208333306014538,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.4837500002856056,
+          "rideUpdateMs": 0.8112499998882413
         }
       }
     },
@@ -396,10 +396,10 @@
           "trees": 265907,
           "shrubs": 30966,
           "flowers": 28631,
-          "visibleTrees": 3851,
-          "visibleInstances": 4917,
-          "drawCalls": 140,
-          "triangles": 191448
+          "visibleTrees": 3736,
+          "visibleInstances": 4756,
+          "drawCalls": 130,
+          "triangles": 185860
         },
         "dynamics": {
           "ready": true,
@@ -409,12 +409,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 18.447699999999983,
+          "time": 17.313599999999937,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 1019,
           "target": 1020,
-          "ticks": 368,
+          "ticks": 346,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -428,12 +428,12 @@
             "qingchuan": 14,
             "yangtze-second": 15
           },
-          "visibleVehicles": 289,
-          "nearVehicles": 34,
-          "farVehicles": 255,
+          "visibleVehicles": 285,
+          "nearVehicles": 33,
+          "farVehicles": 252,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 368,
+          "vesselTicks": 346,
           "routes": 3,
           "routeCounts": [
             {
@@ -455,9 +455,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 10.06458333482345,
-          "vesselSimulationMs": 0.02999999870856603,
-          "dynamicUpdateMs": 13.44000000009934
+          "trafficSimulationMs": 4.453750000149012,
+          "vesselSimulationMs": 0.01583333338300387,
+          "dynamicUpdateMs": 6.722500000335276
         },
         "phase": 6,
         "placesReady": true,
@@ -469,15 +469,15 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 96,
+          "loadedBuildingChunks": 100,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 99421,
-          "buildingCount": 5309,
+          "buildingTriangles": 88577,
+          "buildingCount": 4678,
           "surfacesReady": true,
           "roadTriangles": 254501,
           "loadedSurfaceChunks": 20
@@ -485,29 +485,29 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 416977,
-        "estimatedGeometryBytes": 103158816,
+        "estimatedGeometryBytes": 102992652,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
           -28.611955451787995,
-          0.277164361083787,
+          0.27716436108378734,
           -29.209032896062915
         ],
         "target": [
           -28.62467917649923,
-          0.27166436108378694,
+          0.2716643610837872,
           -29.179671240294333
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 348,
-        "triangles": 1141819,
-        "geometries": 454,
-        "frameSamples": 149,
-        "p95FrameMs": 33.5,
+        "drawCalls": 336,
+        "triangles": 1129404,
+        "geometries": 455,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
         "disposed": false
       },
       "ride": {
@@ -626,7 +626,7 @@
           ]
         },
         "travelMeters": 0,
-        "wheel": 0.9560836582336356,
+        "wheel": 0.10989046869228132,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -714,24 +714,24 @@
             0.12
           ]
         ],
-        "pitch": 0.01105061559112123,
-        "roll": 0.01668346134779512,
+        "pitch": 0.011050615591121228,
+        "roll": 0.016683461347795116,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -28.611955451787995,
-          0.277164361083787,
+          0.27716436108378734,
           -29.209032896062915
         ],
         "cameraQuaternion": [
-          -0.017258829420944213,
-          0.9756270721730445,
-          0.08323273050394228,
-          0.20230240093219418
+          -0.01725882942094438,
+          0.9756270721730443,
+          0.08323273050394309,
+          0.20230240093219415
         ],
         "cameraTarget": [
           -28.62467917649923,
-          0.27166436108378694,
+          0.2716643610837872,
           -29.179671240294333
         ],
         "cameraNear": 0.0005,
@@ -745,20 +745,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 64,
-          "surfaceQueryMs": 0,
+          "surfaceQueries": 37,
+          "surfaceQueryMs": 0.10000000894069672,
           "staticObstacleQueryMs": 0,
-          "dynamicQueryMs": 0.09999990463256836,
-          "cameraCollisionMs": 0.10000002384185791,
-          "rideUpdateMs": 0.6000000238418579
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.20000000298023224,
+          "rideUpdateMs": 0.3999999910593033
         },
         "meanMetrics": {
-          "surfaceQueries": 77.05833333333334,
-          "surfaceQueryMs": 0.8287499969204267,
-          "staticObstacleQueryMs": 0.08750000347693761,
-          "dynamicQueryMs": 0.04749999890724818,
-          "cameraCollisionMs": 0.5637499953309695,
-          "rideUpdateMs": 1.4408333291610083
+          "surfaceQueries": 42.75,
+          "surfaceQueryMs": 0.23666666659216087,
+          "staticObstacleQueryMs": 0.0658333341901501,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.2666666672875484,
+          "rideUpdateMs": 0.5566666662693024
         }
       }
     },
@@ -783,31 +783,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 21.95059999999995,
+          "time": 20.54959999999989,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1017,
+          "vehicles": 1016,
           "target": 1020,
-          "ticks": 439,
+          "ticks": 410,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 1,
           "bridgeVehicles": {
             "yangtze-first": 14,
             "yingwuzhou": 13,
             "yangsigang": 12,
             "erqi": 15,
-            "qingchuan": 13,
-            "yangtze-second": 14
+            "qingchuan": 14,
+            "yangtze-second": 15
           },
-          "visibleVehicles": 208,
-          "nearVehicles": 24,
+          "visibleVehicles": 209,
+          "nearVehicles": 25,
           "farVehicles": 184,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 439,
+          "vesselTicks": 410,
           "routes": 3,
           "routeCounts": [
             {
@@ -829,9 +829,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 10.271249998609225,
-          "vesselSimulationMs": 0.02875000089406967,
-          "dynamicUpdateMs": 13.82916667163372
+          "trafficSimulationMs": 4.284166667051613,
+          "vesselSimulationMs": 0.01333333303531011,
+          "dynamicUpdateMs": 6.449583333358168
         },
         "phase": 6,
         "placesReady": true,
@@ -843,12 +843,12 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 118,
+          "loadedBuildingChunks": 122,
           "totalBuildingChunks": 477,
           "buildingTriangles": 50261,
           "buildingCount": 2603,
@@ -859,18 +859,18 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 372085,
-        "estimatedGeometryBytes": 104371140,
+        "estimatedGeometryBytes": 104120460,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
           -28.59531752073065,
-          0.2771643610837868,
+          0.27716436108378684,
           -29.166947515583097
         ],
         "target": [
           -28.62467917649923,
-          0.2716643610837868,
+          0.27166436108378683,
           -29.179671240294333
         ],
         "light": "day",
@@ -878,10 +878,10 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 361,
-        "triangles": 1075122,
-        "geometries": 485,
-        "frameSamples": 145,
-        "p95FrameMs": 33.5,
+        "triangles": 1075146,
+        "geometries": 486,
+        "frameSamples": 180,
+        "p95FrameMs": 16.799999999999272,
         "disposed": false
       },
       "ride": {
@@ -1000,7 +1000,7 @@
           ]
         },
         "travelMeters": 0,
-        "wheel": 0.9560836582336356,
+        "wheel": 0.10989046869228132,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -1088,13 +1088,13 @@
             0.12
           ]
         ],
-        "pitch": 0.011050615591121232,
-        "roll": 0.016683461347795123,
+        "pitch": 0.011050615591121228,
+        "roll": 0.016683461347795116,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -28.59531752073065,
-          0.2771643610837868,
+          0.27716436108378684,
           -29.166947515583097
         ],
         "cameraQuaternion": [
@@ -1105,7 +1105,7 @@
         ],
         "cameraTarget": [
           -28.62467917649923,
-          0.2716643610837868,
+          0.27166436108378683,
           -29.179671240294333
         ],
         "cameraNear": 0.0005,
@@ -1119,20 +1119,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 64,
-          "surfaceQueryMs": 0.7000000476837158,
-          "staticObstacleQueryMs": 0.19999992847442627,
+          "surfaceQueries": 37,
+          "surfaceQueryMs": 0.10000000894069672,
+          "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.3999999761581421,
-          "rideUpdateMs": 0.8999999761581421
+          "cameraCollisionMs": 0.10000000894069672,
+          "rideUpdateMs": 0.30000001192092896
         },
         "meanMetrics": {
-          "surfaceQueries": 65.45833333333333,
-          "surfaceQueryMs": 0.6720833296577136,
-          "staticObstacleQueryMs": 0.06583333561817804,
-          "dynamicQueryMs": 0.05083333204189936,
-          "cameraCollisionMs": 0.4349999999006589,
-          "rideUpdateMs": 1.1970833321412404
+          "surfaceQueries": 36.69583333333333,
+          "surfaceQueryMs": 0.19249999957780042,
+          "staticObstacleQueryMs": 0.05541666721304258,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.2129166668901841,
+          "rideUpdateMs": 0.4562499998137355
         }
       }
     },
@@ -1157,12 +1157,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 25.353499999999915,
+          "time": 23.75219999999979,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1014,
+          "vehicles": 1017,
           "target": 1020,
-          "ticks": 507,
+          "ticks": 475,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -1173,15 +1173,15 @@
             "yingwuzhou": 13,
             "yangsigang": 12,
             "erqi": 15,
-            "qingchuan": 13,
+            "qingchuan": 12,
             "yangtze-second": 15
           },
-          "visibleVehicles": 120,
+          "visibleVehicles": 119,
           "nearVehicles": 24,
-          "farVehicles": 96,
+          "farVehicles": 95,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 507,
+          "vesselTicks": 475,
           "routes": 3,
           "routeCounts": [
             {
@@ -1203,9 +1203,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 12.083333331843217,
-          "vesselSimulationMs": 0.03166666477918625,
-          "dynamicUpdateMs": 15.882916666567326
+          "trafficSimulationMs": 4.409166666306556,
+          "vesselSimulationMs": 0.015416666989525159,
+          "dynamicUpdateMs": 6.602499999292195
         },
         "phase": 6,
         "placesReady": true,
@@ -1217,15 +1217,15 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 142,
+          "loadedBuildingChunks": 144,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 70506,
-          "buildingCount": 5206,
+          "buildingTriangles": 71340,
+          "buildingCount": 5276,
           "surfacesReady": true,
           "roadTriangles": 184582,
           "loadedSurfaceChunks": 20
@@ -1233,29 +1233,29 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 384699,
-        "estimatedGeometryBytes": 104634096,
+        "estimatedGeometryBytes": 104337264,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
           -28.637402901210468,
-          0.2771643610837868,
+          0.27716436108378684,
           -29.15030958452575
         ],
         "target": [
           -28.62467917649923,
-          0.2716643610837868,
+          0.27166436108378683,
           -29.179671240294333
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 384,
-        "triangles": 1152323,
-        "geometries": 507,
-        "frameSamples": 128,
-        "p95FrameMs": 33.5,
+        "drawCalls": 394,
+        "triangles": 1153284,
+        "geometries": 509,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
         "disposed": false
       },
       "ride": {
@@ -1374,7 +1374,7 @@
           ]
         },
         "travelMeters": 0,
-        "wheel": 0.9560836582336356,
+        "wheel": 0.10989046869228132,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -1462,13 +1462,13 @@
             0.12
           ]
         ],
-        "pitch": 0.011050615591121232,
-        "roll": 0.016683461347795123,
+        "pitch": 0.011050615591121228,
+        "roll": 0.016683461347795116,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -28.637402901210468,
-          0.2771643610837868,
+          0.27716436108378684,
           -29.15030958452575
         ],
         "cameraQuaternion": [
@@ -1479,7 +1479,7 @@
         ],
         "cameraTarget": [
           -28.62467917649923,
-          0.2716643610837868,
+          0.27166436108378683,
           -29.179671240294333
         ],
         "cameraNear": 0.0005,
@@ -1493,20 +1493,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 64,
-          "surfaceQueryMs": 0.7000001668930054,
-          "staticObstacleQueryMs": 0.19999992847442627,
-          "dynamicQueryMs": 0.19999992847442627,
-          "cameraCollisionMs": 0.3999999761581421,
-          "rideUpdateMs": 1.2000000476837158
+          "surfaceQueries": 37,
+          "surfaceQueryMs": 0.30000001192092896,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.20000000298023224,
+          "rideUpdateMs": 0.4000000059604645
         },
         "meanMetrics": {
-          "surfaceQueries": 68.375,
-          "surfaceQueryMs": 0.729166659216086,
-          "staticObstacleQueryMs": 0.08083333571751912,
-          "dynamicQueryMs": 0.07458333273728689,
-          "cameraCollisionMs": 0.4387499963243802,
-          "rideUpdateMs": 1.2637499968210857
+          "surfaceQueries": 36.68333333333333,
+          "surfaceQueryMs": 0.19666666717578968,
+          "staticObstacleQueryMs": 0.047083333445092045,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.19666666680326064,
+          "rideUpdateMs": 0.4379166675110658
         }
       }
     },
@@ -1531,31 +1531,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 34.47739999999997,
+          "time": 32.342499999999596,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1017,
+          "vehicles": 1018,
           "target": 1020,
-          "ticks": 689,
+          "ticks": 646,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 0,
+          "hiddenTunnelVehicles": 1,
           "bridgeVehicles": {
-            "yangtze-first": 12,
+            "yangtze-first": 13,
             "yingwuzhou": 13,
             "yangsigang": 17,
             "erqi": 15,
             "qingchuan": 11,
-            "yangtze-second": 19
+            "yangtze-second": 17
           },
-          "visibleVehicles": 266,
-          "nearVehicles": 37,
-          "farVehicles": 229,
+          "visibleVehicles": 254,
+          "nearVehicles": 35,
+          "farVehicles": 219,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 689,
+          "vesselTicks": 646,
           "routes": 3,
           "routeCounts": [
             {
@@ -1577,9 +1577,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 6.798750000198682,
-          "vesselSimulationMs": 0.022083335121472678,
-          "dynamicUpdateMs": 9.834583336114884
+          "trafficSimulationMs": 4.240833333383004,
+          "vesselSimulationMs": 0.01583333294838667,
+          "dynamicUpdateMs": 6.324999999875824
         },
         "phase": 6,
         "placesReady": true,
@@ -1591,15 +1591,15 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 193,
+          "loadedBuildingChunks": 189,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 122644,
-          "buildingCount": 7542,
+          "buildingTriangles": 117189,
+          "buildingCount": 7139,
           "surfacesReady": true,
           "roadTriangles": 145270,
           "loadedSurfaceChunks": 18
@@ -1607,27 +1607,27 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 333245,
-        "estimatedGeometryBytes": 93344328,
+        "estimatedGeometryBytes": 93156516,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
-          -20.08947758155297,
-          0.3315285229734076,
-          0.940602592370356
+          -20.08995561954838,
+          0.33151932243513965,
+          0.9404293715772732
         ],
         "target": [
-          -20.20386931725957,
-          0.30923946416754017,
-          0.9070393302762543
+          -20.204514266322306,
+          0.3092234092053297,
+          0.9068109475728869
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 443,
-        "triangles": 1171254,
-        "geometries": 556,
+        "drawCalls": 438,
+        "triangles": 1166060,
+        "geometries": 550,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
         "disposed": false
@@ -1659,22 +1659,22 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": -20.151996028685232,
-          "z": 0.9254081636663284,
+          "x": -20.152147475946986,
+          "z": 0.9253545347256233,
           "radius": 4,
-          "lookahead": 3.663108549158208,
+          "lookahead": 3.6816560593762286,
           "points": [
             [
-              -20.151996028685232,
-              0.9254081636663284
+              -20.152147475946986,
+              0.9253545347256233
             ],
             [
-              -21.87849991439415,
-              0.3140364327521562
+              -21.887393212472475,
+              0.31088722985453277
             ],
             [
-              -23.60500380010307,
-              -0.297335298162016
+              -23.622638948997963,
+              -0.3035800750165578
             ]
           ]
         },
@@ -1693,14 +1693,14 @@
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": -20.157422119787466,
-          "z": 0.9234867323062657,
-          "y": 0.3001441018235807,
+          "x": -20.158073517630893,
+          "z": 0.923256066027261,
+          "y": 0.30012064996222887,
           "heading": -1.9111276253516,
-          "speed": 2.1095394670344922,
+          "speed": 2.1645400231389305,
           "steering": 0,
           "roadClass": "residential",
-          "height": 0.3001441018235807,
+          "height": 0.30012064996222887,
           "normal": [
             -0.02052389860320469,
             0.9988385421638774,
@@ -1724,14 +1724,14 @@
           ]
         },
         "state": {
-          "x": -20.157422119787466,
-          "z": 0.9234867323062657,
-          "y": 0.3001441018235807,
+          "x": -20.158073517630893,
+          "z": 0.923256066027261,
+          "y": 0.30012064996222887,
           "heading": -1.9111276253516,
-          "speed": 2.1095394670344922,
+          "speed": 2.1645400231389305,
           "steering": 0,
           "roadClass": "residential",
-          "height": 0.3001441018235807,
+          "height": 0.30012064996222887,
           "normal": [
             -0.02052389860320469,
             0.9988385421638774,
@@ -1754,8 +1754,770 @@
             "osm-way-438309781"
           ]
         },
-        "travelMeters": 11.002546287522879,
-        "wheel": 6.033947189104536,
+        "travelMeters": 11.071689325232171,
+        "wheel": 4.815324514307844,
+        "contactError": 0,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7638,
+            7639,
+            7640,
+            7550,
+            7551,
+            7552,
+            7594,
+            7595,
+            7596,
+            7698,
+            7699,
+            7700,
+            7704,
+            7705,
+            7709,
+            7710,
+            7721,
+            7722,
+            7723,
+            7724,
+            7684,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7693,
+            7343,
+            7342,
+            7730,
+            7731,
+            7732,
+            7738,
+            7739,
+            7740,
+            7524,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7532,
+            7741
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": 0.03044332419587531,
+        "roll": 0.03147290586119267,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          -20.090312146168127,
+          0.33151107505397504,
+          0.940303562312939
+        ],
+        "cameraQuaternion": [
+          -0.0738068001604788,
+          0.5967881712402145,
+          0.05526021198546363,
+          0.797083900156786
+        ],
+        "cameraTarget": [
+          -20.20485190850569,
+          0.30921356841643133,
+          0.906691385208855
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57.42310233212621,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 69,
+          "surfaceQueryMs": 0.3999999910593033,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3999999910593033,
+          "rideUpdateMs": 0.5
+        },
+        "meanMetrics": {
+          "surfaceQueries": 68.4625,
+          "surfaceQueryMs": 0.22458333298563957,
+          "staticObstacleQueryMs": 0.08708333323399226,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3087499996647239,
+          "rideUpdateMs": 0.5341666666790843
+        }
+      }
+    },
+    {
+      "name": "donghu",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 15134,
+          "visibleInstances": 17784,
+          "drawCalls": 200,
+          "triangles": 951468
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 38.63100000000007,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1018,
+          "target": 1020,
+          "ticks": 772,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 2,
+          "bridgeVehicles": {
+            "yangtze-first": 13,
+            "yingwuzhou": 14,
+            "yangsigang": 17,
+            "erqi": 14,
+            "qingchuan": 11,
+            "yangtze-second": 20
+          },
+          "visibleVehicles": 228,
+          "nearVehicles": 7,
+          "farVehicles": 221,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 772,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 4.07083333308498,
+          "vesselSimulationMs": 0.013333333469927312,
+          "dynamicUpdateMs": 5.976666666877766
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1879.9000000059605,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 231,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 298714,
+          "buildingCount": 17919,
+          "surfacesReady": true,
+          "roadTriangles": 71318,
+          "loadedSurfaceChunks": 23
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 359596,
+        "estimatedGeometryBytes": 116762124,
+        "datasetId": "f2b6a5b9c82d0b04",
+        "region": "place-yellow-crane",
+        "flying": false,
+        "camera": [
+          42.6861438203848,
+          0.32682078905955436,
+          -6.627125445310764
+        ],
+        "target": [
+          42.69204235938427,
+          0.3086065353401123,
+          -6.508037249140579
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 365,
+        "triangles": 1780607,
+        "geometries": 580,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "residentRoadChunks": [
+          "road-surface-51-49.bin",
+          "road-surface-51-50.bin",
+          "road-surface-52-49.bin",
+          "road-surface-52-50.bin"
+        ],
+        "residentBridgeChunks": [],
+        "pinnedBridges": [],
+        "pendingRoadLoads": [],
+        "visualBuildingChunks": [
+          "buildings-51-49.json",
+          "buildings-51-50.json",
+          "buildings-52-49.json",
+          "buildings-52-50.json"
+        ],
+        "pendingVisualLoads": [],
+        "residentBuildingChunks": [
+          "buildings-51-49.json",
+          "buildings-51-50.json",
+          "buildings-52-49.json",
+          "buildings-52-50.json"
+        ],
+        "pendingBuildingLoads": [],
+        "pendingRideLoads": [],
+        "window": {
+          "x": 42.692339617231944,
+          "z": -6.5626923136349795,
+          "radius": 4,
+          "lookahead": 3.6631198981750477,
+          "points": [
+            [
+              42.692339617231944,
+              -6.5626923136349795
+            ],
+            [
+              42.68237828023463,
+              -4.731159453196293
+            ],
+            [
+              42.67241694323731,
+              -2.8996265927576057
+            ]
+          ]
+        },
+        "lastBlock": null,
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
+        "lastBlockBounds": null,
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "osm-way-1487068333",
+        "layerId": "ground-0",
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": 42.69231211618878,
+          "z": -6.557635857430888,
+          "y": 0.29582317091018706,
+          "heading": -0.00543874423096992,
+          "speed": 2.122052423910015,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.29582317091018706,
+          "normal": [
+            0.13138514533046824,
+            0.9902194035741719,
+            -0.04694120121708761
+          ],
+          "surfaceId": "osm-way-1487068333",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            40.454315185546875,
+            -8.275568962097168,
+            42.71444320678711,
+            -5.925884246826172
+          ],
+          "source": "OSM 1487068333",
+          "roadIds": [
+            "osm-way-1487068333"
+          ]
+        },
+        "state": {
+          "x": 42.69231211618878,
+          "z": -6.557635857430888,
+          "y": 0.29582317091018706,
+          "heading": -0.00543874423096992,
+          "speed": 2.122052423910015,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.29582317091018706,
+          "normal": [
+            0.13138514533046824,
+            0.9902194035741719,
+            -0.04694120121708761
+          ],
+          "surfaceId": "osm-way-1487068333",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            40.454315185546875,
+            -8.275568962097168,
+            42.71444320678711,
+            -5.925884246826172
+          ],
+          "source": "OSM 1487068333",
+          "roadIds": [
+            "osm-way-1487068333"
+          ]
+        },
+        "travelMeters": 10.943791470936551,
+        "wheel": 2.910590199583095,
+        "contactError": 0,
+        "avatarStatus": "procedural-adult-moped",
+        "avatarResources": {
+          "geometries": [
+            7638,
+            7639,
+            7640,
+            7550,
+            7551,
+            7552,
+            7594,
+            7595,
+            7596,
+            7698,
+            7699,
+            7700,
+            7704,
+            7705,
+            7709,
+            7710,
+            7721,
+            7722,
+            7723,
+            7724,
+            7684,
+            7685,
+            7686,
+            7687,
+            7688,
+            7689,
+            7690,
+            7691,
+            7692,
+            7693,
+            7343,
+            7342,
+            7730,
+            7731,
+            7732,
+            7738,
+            7739,
+            7740,
+            7524,
+            7525,
+            7526,
+            7527,
+            7528,
+            7529,
+            7530,
+            7531,
+            7532,
+            7741
+          ],
+          "materials": [
+            78,
+            79,
+            77,
+            74,
+            84,
+            85,
+            75,
+            80,
+            81,
+            82,
+            83,
+            86,
+            87,
+            76,
+            88,
+            89,
+            90
+          ],
+          "triangles": 51724,
+          "drawCalls": 56
+        },
+        "feet": [
+          [
+            -0.17,
+            0.456,
+            0.12
+          ],
+          [
+            0.17,
+            0.456,
+            0.12
+          ]
+        ],
+        "pitch": -0.04808866940288162,
+        "roll": -0.13165707109683544,
+        "collision": null,
+        "nearestTrafficDistance": null,
+        "camera": [
+          42.6861438203848,
+          0.32682078905955436,
+          -6.627125445310764
+        ],
+        "cameraQuaternion": [
+          0.001873556641865958,
+          0.9968237251305978,
+          0.07569848787812165,
+          -0.024671638276248478
+        ],
+        "cameraTarget": [
+          42.69204235938427,
+          0.3086065353401123,
+          -6.508037249140579
+        ],
+        "cameraNear": 0.0005,
+        "cameraFar": 2300,
+        "cameraFov": 57.41536427840482,
+        "cameraZoom": 1,
+        "cameraView": null,
+        "controlsEnabled": false,
+        "cameraBlock": null,
+        "cameraOffset": 0,
+        "cameraSwing": 0,
+        "indexBytes": 45260168,
+        "metrics": {
+          "surfaceQueries": 69,
+          "surfaceQueryMs": 0.20000001788139343,
+          "staticObstacleQueryMs": 0.29999999701976776,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.4000000059604645,
+          "rideUpdateMs": 0.7000000029802322
+        },
+        "meanMetrics": {
+          "surfaceQueries": 68.475,
+          "surfaceQueryMs": 0.29666666574776174,
+          "staticObstacleQueryMs": 0.08208333402872085,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.359583333072563,
+          "rideUpdateMs": 0.5887499998013178
+        }
+      }
+    },
+    {
+      "name": "luojia",
+      "metrics": {
+        "runtimePhase": 6,
+        "vegetation": {
+          "trees": 265907,
+          "shrubs": 30966,
+          "flowers": 28631,
+          "visibleTrees": 12591,
+          "visibleInstances": 14698,
+          "drawCalls": 179,
+          "triangles": 785510
+        },
+        "dynamics": {
+          "ready": true,
+          "errors": [],
+          "paused": false,
+          "reducedMotion": false,
+          "focused": true,
+          "qualityLevel": "high",
+          "mode": "day",
+          "time": 45.08630000000051,
+          "demonstration": true,
+          "capacity": 1200,
+          "vehicles": 1017,
+          "target": 1020,
+          "ticks": 901,
+          "simulationHz": 20,
+          "laneCount": 6298,
+          "junctionCount": 5168,
+          "cachedRoutes": 900,
+          "hiddenTunnelVehicles": 4,
+          "bridgeVehicles": {
+            "yangtze-first": 13,
+            "yingwuzhou": 14,
+            "yangsigang": 18,
+            "erqi": 14,
+            "qingchuan": 11,
+            "yangtze-second": 21
+          },
+          "visibleVehicles": 131,
+          "nearVehicles": 14,
+          "farVehicles": 117,
+          "maxDrawCalls": 5,
+          "vessels": 18,
+          "vesselTicks": 901,
+          "routes": 3,
+          "routeCounts": [
+            {
+              "id": "yangtze-main",
+              "count": 12
+            },
+            {
+              "id": "han-main",
+              "count": 3
+            },
+            {
+              "id": "yangtze-ferry",
+              "count": 3
+            }
+          ],
+          "estimated": true,
+          "visibleVessels": 0,
+          "wakes": 0,
+          "maxWakeSegments": 144,
+          "visibleBirds": 0,
+          "maxBirds": 12,
+          "trafficSimulationMs": 3.987083333233992,
+          "vesselSimulationMs": 0.015833333258827527,
+          "dynamicUpdateMs": 5.9033333331967395
+        },
+        "phase": 6,
+        "placesReady": true,
+        "selectedPlace": null,
+        "landmarks": {
+          "loaded": 12,
+          "triangles": 69652,
+          "drawCalls": 55,
+          "geometryBytes": 2799888
+        },
+        "placeErrors": [],
+        "initialLoadMs": 1879.9000000059605,
+        "urbanReady": true,
+        "urban": {
+          "roadsReady": true,
+          "bridgesReady": true,
+          "loadedBuildingChunks": 262,
+          "totalBuildingChunks": 477,
+          "buildingTriangles": 303886,
+          "buildingCount": 18372,
+          "surfacesReady": true,
+          "roadTriangles": 149014,
+          "loadedSurfaceChunks": 24
+        },
+        "urbanErrors": [],
+        "mainLoopCount": 1,
+        "terrainTriangles": 340874,
+        "estimatedGeometryBytes": 127749948,
+        "datasetId": "f2b6a5b9c82d0b04",
+        "region": "place-yellow-crane",
+        "flying": false,
+        "camera": [
+          42.90930324715858,
+          0.4726865084101563,
+          21.187519525400972
+        ],
+        "target": [
+          42.92720078255182,
+          0.45821627447200547,
+          21.30563729568832
+        ],
+        "light": "day",
+        "wireframe": false,
+        "labelsVisible": true,
+        "rendererCount": 1,
+        "drawCalls": 356,
+        "triangles": 1641927,
+        "geometries": 612,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
+        "disposed": false
+      },
+      "ride": {
+        "residentRoadChunks": [
+          "road-surface-51-50.bin",
+          "road-surface-51-51.bin",
+          "road-surface-52-50.bin",
+          "road-surface-52-51.bin"
+        ],
+        "residentBridgeChunks": [],
+        "pinnedBridges": [],
+        "pendingRoadLoads": [],
+        "visualBuildingChunks": [
+          "buildings-51-50.json",
+          "buildings-51-51.json",
+          "buildings-52-50.json",
+          "buildings-52-51.json"
+        ],
+        "pendingVisualLoads": [],
+        "residentBuildingChunks": [
+          "buildings-51-49.json",
+          "buildings-51-50.json",
+          "buildings-51-51.json",
+          "buildings-52-49.json",
+          "buildings-52-50.json",
+          "buildings-52-51.json"
+        ],
+        "pendingBuildingLoads": [],
+        "pendingRideLoads": [],
+        "window": {
+          "x": 42.92189498111326,
+          "z": 21.25025729945394,
+          "radius": 4,
+          "lookahead": 3.6888195361981935,
+          "points": [
+            [
+              42.92189498111326,
+              21.25025729945394
+            ],
+            [
+              43.09779722478094,
+              23.086259966481425
+            ],
+            [
+              43.27369946844861,
+              24.92226263350891
+            ]
+          ]
+        },
+        "lastBlock": null,
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
+        "lastBlockBounds": null,
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "osm-way-103940635",
+        "layerId": "ground-0",
+        "active": true,
+        "pending": false,
+        "recoveryCount": 0,
+        "recoveryReason": null,
+        "lastSafeState": {
+          "x": 42.92246630411055,
+          "z": 21.25622055793728,
+          "y": 0.4424436245509047,
+          "heading": 0.09551564844497126,
+          "speed": 2.1945265796986178,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.4424436245509047,
+          "normal": [
+            0.2613215079670155,
+            0.9352519805342611,
+            -0.2387777258887169
+          ],
+          "surfaceId": "osm-way-103940635",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            42.78572463989258,
+            19.668880462646484,
+            44.669227600097656,
+            21.673288345336914
+          ],
+          "source": "OSM 103940635",
+          "roadIds": [
+            "osm-way-103940635"
+          ]
+        },
+        "state": {
+          "x": 42.92246630411055,
+          "z": 21.25622055793728,
+          "y": 0.4424436245509047,
+          "heading": 0.09551564844497126,
+          "speed": 2.1945265796986178,
+          "steering": 0,
+          "roadClass": "service",
+          "height": 0.4424436245509047,
+          "normal": [
+            0.2613215079670155,
+            0.9352519805342611,
+            -0.2387777258887169
+          ],
+          "surfaceId": "osm-way-103940635",
+          "layerId": "ground-0",
+          "kind": "road",
+          "rideAllowed": true,
+          "traversable": true,
+          "canonical": true,
+          "bounds": [
+            42.78572463989258,
+            19.668880462646484,
+            44.669227600097656,
+            21.673288345336914
+          ],
+          "source": "OSM 103940635",
+          "roadIds": [
+            "osm-way-103940635"
+          ]
+        },
+        "travelMeters": 11.54741996912957,
+        "wheel": 3.7661010926183414,
         "contactError": 5.551115123125783e-17,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -1843,29 +2605,29 @@
             0.12
           ]
         ],
-        "pitch": 0.029336230479235854,
-        "roll": 0.03085991643959913,
+        "pitch": -0.2236898392870992,
+        "roll": -0.21999999999999992,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          -20.0898211028118,
-          0.3315208633824912,
-          0.9404813826291766
+          42.90930324715858,
+          0.4726865084101563,
+          21.187519525400972
         ],
         "cameraQuaternion": [
-          -0.07389019302152262,
-          0.5968022744830773,
-          0.05532554057639362,
-          0.7970610824190313
+          0.004524549918907257,
+          0.9953641353728104,
+          0.06006188483044036,
+          -0.07498224091198942
         ],
         "cameraTarget": [
-          -20.20419326225221,
-          0.30923007036272204,
-          0.9069246182199935
+          42.92720078255182,
+          0.45821627447200547,
+          21.30563729568832
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 57.41305459431858,
+        "cameraFov": 57.42859125486491,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
@@ -1874,782 +2636,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 86,
-          "surfaceQueryMs": 0.19999992847442627,
-          "staticObstacleQueryMs": 0.2999999523162842,
-          "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.3999999761581421,
-          "rideUpdateMs": 0.7999999523162842
-        },
-        "meanMetrics": {
-          "surfaceQueries": 92.75833333333334,
-          "surfaceQueryMs": 0.43791665832201637,
-          "staticObstacleQueryMs": 0.12875000486771265,
-          "dynamicQueryMs": 0.030416666467984518,
-          "cameraCollisionMs": 0.45791666160027183,
-          "rideUpdateMs": 0.9520833258827527
-        }
-      }
-    },
-    {
-      "name": "donghu",
-      "metrics": {
-        "runtimePhase": 6,
-        "vegetation": {
-          "trees": 265907,
-          "shrubs": 30966,
-          "flowers": 28631,
-          "visibleTrees": 15260,
-          "visibleInstances": 17955,
-          "drawCalls": 205,
-          "triangles": 957808
-        },
-        "dynamics": {
-          "ready": true,
-          "errors": [],
-          "paused": false,
-          "reducedMotion": false,
-          "focused": true,
-          "qualityLevel": "high",
-          "mode": "day",
-          "time": 41.13270000000012,
-          "demonstration": true,
-          "capacity": 1200,
-          "vehicles": 1016,
-          "target": 1020,
-          "ticks": 822,
-          "simulationHz": 20,
-          "laneCount": 6298,
-          "junctionCount": 5168,
-          "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 1,
-          "bridgeVehicles": {
-            "yangtze-first": 12,
-            "yingwuzhou": 13,
-            "yangsigang": 18,
-            "erqi": 16,
-            "qingchuan": 11,
-            "yangtze-second": 19
-          },
-          "visibleVehicles": 233,
-          "nearVehicles": 10,
-          "farVehicles": 223,
-          "maxDrawCalls": 5,
-          "vessels": 18,
-          "vesselTicks": 822,
-          "routes": 3,
-          "routeCounts": [
-            {
-              "id": "yangtze-main",
-              "count": 12
-            },
-            {
-              "id": "han-main",
-              "count": 3
-            },
-            {
-              "id": "yangtze-ferry",
-              "count": 3
-            }
-          ],
-          "estimated": true,
-          "visibleVessels": 0,
-          "wakes": 0,
-          "maxWakeSegments": 144,
-          "visibleBirds": 0,
-          "maxBirds": 12,
-          "trafficSimulationMs": 9.837500002483527,
-          "vesselSimulationMs": 0.04083332965771357,
-          "dynamicUpdateMs": 13.264583333333333
-        },
-        "phase": 6,
-        "placesReady": true,
-        "selectedPlace": null,
-        "landmarks": {
-          "loaded": 12,
-          "triangles": 69652,
-          "drawCalls": 55,
-          "geometryBytes": 2799888
-        },
-        "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
-        "urbanReady": true,
-        "urban": {
-          "roadsReady": true,
-          "bridgesReady": true,
-          "loadedBuildingChunks": 237,
-          "totalBuildingChunks": 477,
-          "buildingTriangles": 298834,
-          "buildingCount": 17931,
-          "surfacesReady": true,
-          "roadTriangles": 71318,
-          "loadedSurfaceChunks": 23
-        },
-        "urbanErrors": [],
-        "mainLoopCount": 1,
-        "terrainTriangles": 359596,
-        "estimatedGeometryBytes": 117014160,
-        "datasetId": "f2b6a5b9c82d0b04",
-        "region": "place-yellow-crane",
-        "flying": false,
-        "camera": [
-          42.6861208282021,
-          0.3269851108690962,
-          -6.623757696308733
-        ],
-        "target": [
-          42.69202293019764,
-          0.30872035161805345,
-          -6.50446491806018
-        ],
-        "light": "day",
-        "wireframe": false,
-        "labelsVisible": true,
-        "rendererCount": 1,
-        "drawCalls": 369,
-        "triangles": 1786621,
-        "geometries": 584,
-        "frameSamples": 149,
-        "p95FrameMs": 33.5,
-        "disposed": false
-      },
-      "ride": {
-        "residentRoadChunks": [
-          "road-surface-51-49.bin",
-          "road-surface-51-50.bin",
-          "road-surface-52-49.bin",
-          "road-surface-52-50.bin"
-        ],
-        "residentBridgeChunks": [],
-        "pinnedBridges": [],
-        "pendingRoadLoads": [],
-        "visualBuildingChunks": [
-          "buildings-51-49.json",
-          "buildings-51-50.json",
-          "buildings-52-49.json",
-          "buildings-52-50.json"
-        ],
-        "pendingVisualLoads": [],
-        "residentBuildingChunks": [
-          "buildings-51-49.json",
-          "buildings-51-50.json",
-          "buildings-52-49.json",
-          "buildings-52-50.json"
-        ],
-        "pendingBuildingLoads": [],
-        "pendingRideLoads": [],
-        "window": {
-          "x": 42.692325550763655,
-          "z": -6.560105994260898,
-          "radius": 4,
-          "lookahead": 3.6887313998699636,
-          "points": [
-            [
-              42.692325550763655,
-              -6.560105994260898
-            ],
-            [
-              42.68229456690615,
-              -4.715767572370949
-            ],
-            [
-              42.672263583048654,
-              -2.8714291504810006
-            ]
-          ]
-        },
-        "lastBlock": null,
-        "lastBlockKind": null,
-        "lastBlockId": null,
-        "lastBlockSource": null,
-        "lastBlockBounds": null,
-        "lastRejectedPosition": null,
-        "lastRejected": null,
-        "blockCounts": {},
-        "surfaceId": "osm-way-1487068333",
-        "layerId": "ground-0",
-        "active": true,
-        "pending": false,
-        "recoveryCount": 0,
-        "recoveryReason": null,
-        "lastSafeState": {
-          "x": 42.692289038067216,
-          "z": -6.553392617991376,
-          "y": 0.29602738310595733,
-          "heading": -0.00543874423096992,
-          "speed": 2.18169778427256,
-          "steering": 0,
-          "roadClass": "service",
-          "height": 0.29602738310595733,
-          "normal": [
-            0.13138514533046824,
-            0.9902194035741719,
-            -0.04694120121708761
-          ],
-          "surfaceId": "osm-way-1487068333",
-          "layerId": "ground-0",
-          "kind": "road",
-          "rideAllowed": true,
-          "traversable": true,
-          "canonical": true,
-          "bounds": [
-            40.454315185546875,
-            -8.275568962097168,
-            42.71444320678711,
-            -5.925884246826172
-          ],
-          "source": "OSM 1487068333",
-          "roadIds": [
-            "osm-way-1487068333"
-          ]
-        },
-        "state": {
-          "x": 42.692289038067216,
-          "z": -6.553392617991376,
-          "y": 0.29602738310595733,
-          "heading": -0.00543874423096992,
-          "speed": 2.18169778427256,
-          "steering": 0,
-          "roadClass": "service",
-          "height": 0.29602738310595733,
-          "normal": [
-            0.13138514533046824,
-            0.9902194035741719,
-            -0.04694120121708761
-          ],
-          "surfaceId": "osm-way-1487068333",
-          "layerId": "ground-0",
-          "kind": "road",
-          "rideAllowed": true,
-          "traversable": true,
-          "canonical": true,
-          "bounds": [
-            40.454315185546875,
-            -8.275568962097168,
-            42.71444320678711,
-            -5.925884246826172
-          ],
-          "source": "OSM 1487068333",
-          "roadIds": [
-            "osm-way-1487068333"
-          ]
-        },
-        "travelMeters": 11.368612799987138,
-        "wheel": 0.4208854205651861,
-        "contactError": 0,
-        "avatarStatus": "procedural-adult-moped",
-        "avatarResources": {
-          "geometries": [
-            7638,
-            7639,
-            7640,
-            7550,
-            7551,
-            7552,
-            7594,
-            7595,
-            7596,
-            7698,
-            7699,
-            7700,
-            7704,
-            7705,
-            7709,
-            7710,
-            7721,
-            7722,
-            7723,
-            7724,
-            7684,
-            7685,
-            7686,
-            7687,
-            7688,
-            7689,
-            7690,
-            7691,
-            7692,
-            7693,
-            7343,
-            7342,
-            7730,
-            7731,
-            7732,
-            7738,
-            7739,
-            7740,
-            7524,
-            7525,
-            7526,
-            7527,
-            7528,
-            7529,
-            7530,
-            7531,
-            7532,
-            7741
-          ],
-          "materials": [
-            78,
-            79,
-            77,
-            74,
-            84,
-            85,
-            75,
-            80,
-            81,
-            82,
-            83,
-            86,
-            87,
-            76,
-            88,
-            89,
-            90
-          ],
-          "triangles": 51724,
-          "drawCalls": 56
-        },
-        "feet": [
-          [
-            -0.17,
-            0.456,
-            0.12
-          ],
-          [
-            0.17,
-            0.456,
-            0.12
-          ]
-        ],
-        "pitch": -0.04808866940288279,
-        "roll": -0.1316570710968341,
-        "collision": null,
-        "nearestTrafficDistance": null,
-        "camera": [
-          42.68611741786493,
-          0.3270224220622243,
-          -6.622973922231998
-        ],
-        "cameraQuaternion": [
-          0.0018754765788299458,
-          0.9968128011867534,
-          0.07585006779500134,
-          -0.02464729586209851
-        ],
-        "cameraTarget": [
-          42.692018830844845,
-          0.3087443641375966,
-          -6.503711194000696
-        ],
-        "cameraNear": 0.0005,
-        "cameraFar": 2300,
-        "cameraFov": 57.42598210768334,
-        "cameraZoom": 1,
-        "cameraView": null,
-        "controlsEnabled": false,
-        "cameraBlock": null,
-        "cameraOffset": 0,
-        "cameraSwing": 0,
-        "indexBytes": 45260168,
-        "metrics": {
-          "surfaceQueries": 116,
-          "surfaceQueryMs": 1,
-          "staticObstacleQueryMs": 0.19999992847442627,
-          "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.7999999523162842,
-          "rideUpdateMs": 1.899999976158142
-        },
-        "meanMetrics": {
-          "surfaceQueries": 97.4125,
-          "surfaceQueryMs": 0.7483333339293797,
-          "staticObstacleQueryMs": 0.13583333094914754,
-          "dynamicQueryMs": 0.04749999592701594,
-          "cameraCollisionMs": 0.6620833307504654,
-          "rideUpdateMs": 1.3200000027815502
-        }
-      }
-    },
-    {
-      "name": "luojia",
-      "metrics": {
-        "runtimePhase": 6,
-        "vegetation": {
-          "trees": 265907,
-          "shrubs": 30966,
-          "flowers": 28631,
-          "visibleTrees": 12591,
-          "visibleInstances": 14698,
-          "drawCalls": 179,
-          "triangles": 785510
-        },
-        "dynamics": {
-          "ready": true,
-          "errors": [],
-          "paused": false,
-          "reducedMotion": false,
-          "focused": true,
-          "qualityLevel": "high",
-          "mode": "day",
-          "time": 48.054600000000384,
-          "demonstration": true,
-          "capacity": 1200,
-          "vehicles": 1017,
-          "target": 1020,
-          "ticks": 961,
-          "simulationHz": 20,
-          "laneCount": 6298,
-          "junctionCount": 5168,
-          "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
-          "bridgeVehicles": {
-            "yangtze-first": 12,
-            "yingwuzhou": 13,
-            "yangsigang": 17,
-            "erqi": 15,
-            "qingchuan": 11,
-            "yangtze-second": 21
-          },
-          "visibleVehicles": 141,
-          "nearVehicles": 13,
-          "farVehicles": 128,
-          "maxDrawCalls": 5,
-          "vessels": 18,
-          "vesselTicks": 961,
-          "routes": 3,
-          "routeCounts": [
-            {
-              "id": "yangtze-main",
-              "count": 12
-            },
-            {
-              "id": "han-main",
-              "count": 3
-            },
-            {
-              "id": "yangtze-ferry",
-              "count": 3
-            }
-          ],
-          "estimated": true,
-          "visibleVessels": 0,
-          "wakes": 0,
-          "maxWakeSegments": 144,
-          "visibleBirds": 0,
-          "maxBirds": 12,
-          "trafficSimulationMs": 6.88916666607062,
-          "vesselSimulationMs": 0.01500000109275182,
-          "dynamicUpdateMs": 9.776666671037674
-        },
-        "phase": 6,
-        "placesReady": true,
-        "selectedPlace": null,
-        "landmarks": {
-          "loaded": 12,
-          "triangles": 69652,
-          "drawCalls": 55,
-          "geometryBytes": 2799888
-        },
-        "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
-        "urbanReady": true,
-        "urban": {
-          "roadsReady": true,
-          "bridgesReady": true,
-          "loadedBuildingChunks": 257,
-          "totalBuildingChunks": 477,
-          "buildingTriangles": 303740,
-          "buildingCount": 18364,
-          "surfacesReady": true,
-          "roadTriangles": 149014,
-          "loadedSurfaceChunks": 24
-        },
-        "urbanErrors": [],
-        "mainLoopCount": 1,
-        "terrainTriangles": 340874,
-        "estimatedGeometryBytes": 126989712,
-        "datasetId": "f2b6a5b9c82d0b04",
-        "region": "place-yellow-crane",
-        "flying": false,
-        "camera": [
-          42.90945893710277,
-          0.47306893277850187,
-          21.189169501605647
-        ],
-        "target": [
-          42.9273695748749,
-          0.45826084033332803,
-          21.30739908763039
-        ],
-        "light": "day",
-        "wireframe": false,
-        "labelsVisible": true,
-        "rendererCount": 1,
-        "drawCalls": 355,
-        "triangles": 1641835,
-        "geometries": 608,
-        "frameSamples": 180,
-        "p95FrameMs": 16.80000000000291,
-        "disposed": false
-      },
-      "ride": {
-        "residentRoadChunks": [
-          "road-surface-51-50.bin",
-          "road-surface-51-51.bin",
-          "road-surface-52-50.bin",
-          "road-surface-52-51.bin"
-        ],
-        "residentBridgeChunks": [],
-        "pinnedBridges": [],
-        "pendingRoadLoads": [],
-        "visualBuildingChunks": [
-          "buildings-51-50.json",
-          "buildings-51-51.json",
-          "buildings-52-50.json",
-          "buildings-52-51.json"
-        ],
-        "pendingVisualLoads": [],
-        "residentBuildingChunks": [
-          "buildings-51-49.json",
-          "buildings-51-50.json",
-          "buildings-51-51.json",
-          "buildings-52-49.json",
-          "buildings-52-50.json",
-          "buildings-52-51.json"
-        ],
-        "pendingBuildingLoads": [],
-        "pendingRideLoads": [],
-        "window": {
-          "x": 42.92216330513604,
-          "z": 21.253057966525212,
-          "radius": 4,
-          "lookahead": 3.693830260080664,
-          "points": [
-            [
-              42.92216330513604,
-              21.253057966525212
-            ],
-            [
-              43.09830448637295,
-              23.091554575672035
-            ],
-            [
-              43.27444566760986,
-              24.930051184818854
-            ]
-          ]
-        },
-        "lastBlock": null,
-        "lastBlockKind": null,
-        "lastBlockId": null,
-        "lastBlockSource": null,
-        "lastBlockBounds": null,
-        "lastRejectedPosition": null,
-        "lastRejected": null,
-        "blockCounts": {},
-        "surfaceId": "osm-way-103940635",
-        "layerId": "ground-0",
-        "active": true,
-        "pending": false,
-        "recoveryCount": 0,
-        "recoveryReason": null,
-        "lastSafeState": {
-          "x": 42.92266828171772,
-          "z": 21.25832872562086,
-          "y": 0.4429254223998,
-          "heading": 0.09551564844497126,
-          "speed": 2.223785520603032,
-          "steering": 0,
-          "roadClass": "service",
-          "height": 0.4429254223998,
-          "normal": [
-            0.2613215079670155,
-            0.9352519805342611,
-            -0.2387777258887169
-          ],
-          "surfaceId": "osm-way-103940635",
-          "layerId": "ground-0",
-          "kind": "road",
-          "rideAllowed": true,
-          "traversable": true,
-          "canonical": true,
-          "bounds": [
-            42.78572463989258,
-            19.668880462646484,
-            44.669227600097656,
-            21.673288345336914
-          ],
-          "source": "OSM 103940635",
-          "roadIds": [
-            "osm-way-103940635"
-          ]
-        },
-        "state": {
-          "x": 42.92266828171772,
-          "z": 21.25832872562086,
-          "y": 0.4429254223998,
-          "heading": 0.09551564844497126,
-          "speed": 2.223785520603032,
-          "steering": 0,
-          "roadClass": "service",
-          "height": 0.4429254223998,
-          "normal": [
-            0.2613215079670155,
-            0.9352519805342611,
-            -0.2387777258887169
-          ],
-          "surfaceId": "osm-way-103940635",
-          "layerId": "ground-0",
-          "kind": "road",
-          "rideAllowed": true,
-          "traversable": true,
-          "canonical": true,
-          "bounds": [
-            42.78572463989258,
-            19.668880462646484,
-            44.669227600097656,
-            21.673288345336914
-          ],
-          "source": "OSM 103940635",
-          "roadIds": [
-            "osm-way-103940635"
-          ]
-        },
-        "travelMeters": 11.764613299221638,
-        "wheel": 3.325543483211684,
-        "contactError": 0,
-        "avatarStatus": "procedural-adult-moped",
-        "avatarResources": {
-          "geometries": [
-            7638,
-            7639,
-            7640,
-            7550,
-            7551,
-            7552,
-            7594,
-            7595,
-            7596,
-            7698,
-            7699,
-            7700,
-            7704,
-            7705,
-            7709,
-            7710,
-            7721,
-            7722,
-            7723,
-            7724,
-            7684,
-            7685,
-            7686,
-            7687,
-            7688,
-            7689,
-            7690,
-            7691,
-            7692,
-            7693,
-            7343,
-            7342,
-            7730,
-            7731,
-            7732,
-            7738,
-            7739,
-            7740,
-            7524,
-            7525,
-            7526,
-            7527,
-            7528,
-            7529,
-            7530,
-            7531,
-            7532,
-            7741
-          ],
-          "materials": [
-            78,
-            79,
-            77,
-            74,
-            84,
-            85,
-            75,
-            80,
-            81,
-            82,
-            83,
-            86,
-            87,
-            76,
-            88,
-            89,
-            90
-          ],
-          "triangles": 51724,
-          "drawCalls": 56
-        },
-        "feet": [
-          [
-            -0.17,
-            0.456,
-            0.12
-          ],
-          [
-            0.17,
-            0.456,
-            0.12
-          ]
-        ],
-        "pitch": -0.22368982067180854,
-        "roll": -0.21999999999999995,
-        "collision": null,
-        "nearestTrafficDistance": null,
-        "camera": [
-          42.90949611797771,
-          0.473155699347576,
-          21.189553234982387
-        ],
-        "cameraQuaternion": [
-          0.0046485990908732245,
-          0.9952637185482391,
-          0.06171935836458765,
-          -0.07496160264486833
-        ],
-        "cameraTarget": [
-          42.927404451616454,
-          0.4582700496696066,
-          21.30776311818041
-        ],
-        "cameraNear": 0.0005,
-        "cameraFar": 2300,
-        "cameraFov": 57.43392971835717,
-        "cameraZoom": 1,
-        "cameraView": null,
-        "controlsEnabled": false,
-        "cameraBlock": null,
-        "cameraOffset": 0,
-        "cameraSwing": 0,
-        "indexBytes": 45260168,
-        "metrics": {
-          "surfaceQueries": 86,
-          "surfaceQueryMs": 1.1000001430511475,
+          "surfaceQueries": 69,
+          "surfaceQueryMs": 0.29999999701976776,
           "staticObstacleQueryMs": 0,
-          "dynamicQueryMs": 0.10000002384185791,
-          "cameraCollisionMs": 0.7999999523162842,
-          "rideUpdateMs": 1.7000000476837158
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.30000001192092896,
+          "rideUpdateMs": 0.5999999940395355
         },
         "meanMetrics": {
-          "surfaceQueries": 92.8125,
-          "surfaceQueryMs": 0.5154166584213574,
-          "staticObstacleQueryMs": 0.1537499984105428,
-          "dynamicQueryMs": 0.03875000377496084,
-          "cameraCollisionMs": 0.5249999980131785,
-          "rideUpdateMs": 1.0116666639844576
+          "surfaceQueries": 68.46666666666667,
+          "surfaceQueryMs": 0.23874999980131786,
+          "staticObstacleQueryMs": 0.0904166666790843,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3108333335568508,
+          "rideUpdateMs": 0.5250000000620881
         }
       }
     },
@@ -2674,31 +2674,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 55.060000000000706,
+          "time": 51.47480000000095,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1019,
+          "vehicles": 1016,
           "target": 1020,
-          "ticks": 1101,
+          "ticks": 1029,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 5,
           "bridgeVehicles": {
             "yangtze-first": 13,
-            "yingwuzhou": 13,
-            "yangsigang": 16,
-            "erqi": 16,
+            "yingwuzhou": 14,
+            "yangsigang": 17,
+            "erqi": 14,
             "qingchuan": 11,
-            "yangtze-second": 21
+            "yangtze-second": 22
           },
-          "visibleVehicles": 59,
-          "nearVehicles": 17,
-          "farVehicles": 42,
+          "visibleVehicles": 62,
+          "nearVehicles": 19,
+          "farVehicles": 43,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1101,
+          "vesselTicks": 1029,
           "routes": 3,
           "routeCounts": [
             {
@@ -2720,9 +2720,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 6.797083333134651,
-          "vesselSimulationMs": 0.02208333561817805,
-          "dynamicUpdateMs": 9.717916669448217
+          "trafficSimulationMs": 3.993333333420257,
+          "vesselSimulationMs": 0.012916666517655054,
+          "dynamicUpdateMs": 5.915416666616996
         },
         "phase": 6,
         "placesReady": true,
@@ -2734,15 +2734,15 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 281,
+          "loadedBuildingChunks": 288,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 126722,
-          "buildingCount": 8276,
+          "buildingTriangles": 129066,
+          "buildingCount": 8456,
           "surfacesReady": true,
           "roadTriangles": 103102,
           "loadedSurfaceChunks": 29
@@ -2750,27 +2750,27 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 297550,
-        "estimatedGeometryBytes": 136142976,
+        "estimatedGeometryBytes": 136172484,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
-          80.51157249472293,
-          0.3283205773727618,
-          59.78900431884262
+          80.50750334376535,
+          0.32810619841016614,
+          59.78840764972716
         ],
         "target": [
-          80.6305191389505,
-          0.31073792994398086,
-          59.79970867811686
+          80.62625831770418,
+          0.310507059358067,
+          59.79908812477492
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 381,
-        "triangles": 1616926,
-        "geometries": 641,
+        "drawCalls": 384,
+        "triangles": 1619026,
+        "geometries": 646,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
         "disposed": false
@@ -2804,22 +2804,22 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": 80.57548841924125,
-          "z": 59.79169390935458,
+          "x": 80.57253968731867,
+          "z": 59.79126445096068,
           "radius": 4,
-          "lookahead": 3.684920307765938,
+          "lookahead": 3.6612197744312684,
           "points": [
             [
-              80.57548841924125,
-              59.79169390935458
+              80.57253968731867,
+              59.79126445096068
             ],
             [
-              82.39871336181544,
-              60.05723152895266
+              82.38403807954195,
+              60.05509419557661
             ],
             [
-              84.22193830438962,
-              60.32276914855075
+              84.19553647176522,
+              60.318923940192526
             ]
           ]
         },
@@ -2838,14 +2838,14 @@
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": 80.58173766885068,
-          "z": 59.79260406082674,
-          "y": 0.29736289266669164,
+          "x": 80.57717682972945,
+          "z": 59.79193981236496,
+          "y": 0.2971129662603723,
           "heading": 1.4261714551538631,
-          "speed": 2.1753765961169207,
+          "speed": 2.1220902394645487,
           "steering": 0,
           "roadClass": "tertiary",
-          "height": 0.29736289266669164,
+          "height": 0.2971129662603723,
           "normal": [
             -0.08212475730373452,
             0.9771107623793384,
@@ -2869,14 +2869,14 @@
           ]
         },
         "state": {
-          "x": 80.58173766885068,
-          "z": 59.79260406082674,
-          "y": 0.29736289266669164,
+          "x": 80.57717682972945,
+          "z": 59.79193981236496,
+          "y": 0.2971129662603723,
           "heading": 1.4261714551538631,
-          "speed": 2.1753765961169207,
+          "speed": 2.1220902394645487,
           "steering": 0,
           "roadClass": "tertiary",
-          "height": 0.29736289266669164,
+          "height": 0.2971129662603723,
           "normal": [
             -0.08212475730373452,
             0.9771107623793384,
@@ -2899,9 +2899,9 @@
             "osm-way-316755269"
           ]
         },
-        "travelMeters": 11.436741949634412,
-        "wheel": 4.733918073664123,
-        "contactError": 5.551115123125783e-17,
+        "travelMeters": 10.975175947563871,
+        "wheel": 2.5081714473705325,
+        "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
           "geometries": [
@@ -2988,29 +2988,29 @@
             0.12
           ]
         ],
-        "pitch": -0.05417221168388272,
-        "roll": 0.20779675458796973,
+        "pitch": -0.054165500874528184,
+        "roll": 0.2077622159924902,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          80.51194459256018,
-          0.3283399147081747,
-          59.78905809486627
+          80.50750334376535,
+          0.32810619841016614,
+          59.78840764972716
         ],
         "cameraQuaternion": [
-          -0.0492753860946984,
-          -0.7361427899593045,
-          -0.05390862690303945,
-          0.6728741257186062
+          -0.049391709333046124,
+          -0.7361169593738212,
+          -0.05403320970873163,
+          0.6728838632483113
         ],
         "cameraTarget": [
-          80.63087068212894,
-          0.3107570374119469,
-          59.7997598774706
+          80.62625831770418,
+          0.310507059358067,
+          59.79908812477492
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 57.42510290414517,
+        "cameraFov": 57.415371142883515,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
@@ -3019,20 +3019,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 86,
-          "surfaceQueryMs": 0.49999988079071045,
-          "staticObstacleQueryMs": 0.20000004768371582,
-          "dynamicQueryMs": 0.10000002384185791,
-          "cameraCollisionMs": 0.7999999523162842,
-          "rideUpdateMs": 1.399999976158142
+          "surfaceQueries": 69,
+          "surfaceQueryMs": 0.30000001192092896,
+          "staticObstacleQueryMs": 0,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.30000001192092896,
+          "rideUpdateMs": 0.5
         },
         "meanMetrics": {
-          "surfaceQueries": 92.8625,
-          "surfaceQueryMs": 0.5799999977151553,
-          "staticObstacleQueryMs": 0.1237499992052714,
-          "dynamicQueryMs": 0.031666663785775505,
-          "cameraCollisionMs": 0.5837499991059303,
-          "rideUpdateMs": 1.1004166642824809
+          "surfaceQueries": 68.47083333333333,
+          "surfaceQueryMs": 0.2516666660706202,
+          "staticObstacleQueryMs": 0.08791666689018408,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.35500000007450583,
+          "rideUpdateMs": 0.5720833336934448
         }
       }
     },
@@ -3057,31 +3057,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 61.648700000001064,
+          "time": 57.64650000000143,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1019,
+          "vehicles": 1018,
           "target": 1020,
-          "ticks": 1232,
+          "ticks": 1152,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 3,
+          "hiddenTunnelVehicles": 4,
           "bridgeVehicles": {
             "yangtze-first": 13,
-            "yingwuzhou": 13,
-            "yangsigang": 13,
+            "yingwuzhou": 14,
+            "yangsigang": 14,
             "erqi": 15,
             "qingchuan": 11,
-            "yangtze-second": 21
+            "yangtze-second": 23
           },
-          "visibleVehicles": 147,
-          "nearVehicles": 22,
-          "farVehicles": 125,
+          "visibleVehicles": 148,
+          "nearVehicles": 19,
+          "farVehicles": 129,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1232,
+          "vesselTicks": 1152,
           "routes": 3,
           "routeCounts": [
             {
@@ -3103,9 +3103,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 7.073333329955736,
-          "vesselSimulationMs": 0.02458333323399226,
-          "dynamicUpdateMs": 10.171666663885116
+          "trafficSimulationMs": 4.349583333233992,
+          "vesselSimulationMs": 0.012083333420256774,
+          "dynamicUpdateMs": 6.3612500004470345
         },
         "phase": 6,
         "placesReady": true,
@@ -3117,15 +3117,15 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 238,
+          "loadedBuildingChunks": 234,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 120217,
-          "buildingCount": 8446,
+          "buildingTriangles": 116841,
+          "buildingCount": 8187,
           "surfacesReady": true,
           "roadTriangles": 289090,
           "loadedSurfaceChunks": 28
@@ -3133,29 +3133,29 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 211612,
-        "estimatedGeometryBytes": 129147480,
+        "estimatedGeometryBytes": 128783436,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
-          -42.37439408596454,
-          0.3276898738131194,
-          8.83123661823229
+          -42.37399772291418,
+          0.3276985906296398,
+          8.830381635337803
         ],
         "target": [
-          -42.41823650157277,
-          0.30670175245169745,
-          8.942341864291635
+          -42.41777972071313,
+          0.3067116218177284,
+          8.941347752575394
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 396,
-        "triangles": 1102093,
-        "geometries": 582,
-        "frameSamples": 177,
-        "p95FrameMs": 33.30000000000291,
+        "drawCalls": 397,
+        "triangles": 1098645,
+        "geometries": 579,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
         "disposed": false
       },
       "ride": {
@@ -3190,22 +3190,22 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": -42.39500892958872,
-          "z": 8.891790706205361,
+          "x": -42.39384241553277,
+          "z": 8.889251971786813,
           "radius": 4,
-          "lookahead": 3.6868311325376695,
+          "lookahead": 3.6817214311786044,
           "points": [
             [
-              -42.39500892958872,
-              8.891790706205361
+              -42.39384241553277,
+              8.889251971786813
             ],
             [
-              -43.16467256946678,
-              10.566842595375338
+              -43.16243935308427,
+              10.561982351072851
             ],
             [
-              -43.93433620934484,
-              12.241894484545313
+              -43.93103629063577,
+              12.234712730358888
             ]
           ]
         },
@@ -3224,14 +3224,14 @@
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": -42.39750183603701,
-          "z": 8.897216125101876,
-          "y": 0.29642349584236816,
+          "x": -42.39721522260059,
+          "z": 8.896592356024913,
+          "y": 0.29642969951270803,
           "heading": -0.43071479399801343,
-          "speed": 2.187983906685159,
+          "speed": 2.133251919603415,
           "steering": 0,
           "roadClass": "service",
-          "height": 0.29642349584236816,
+          "height": 0.29642969951270803,
           "normal": [
             0.003788646036219464,
             0.9999245443000809,
@@ -3255,14 +3255,14 @@
           ]
         },
         "state": {
-          "x": -42.39750183603701,
-          "z": 8.897216125101876,
-          "y": 0.29642349584236816,
+          "x": -42.39721522260059,
+          "z": 8.896592356024913,
+          "y": 0.29642969951270803,
           "heading": -0.43071479399801343,
-          "speed": 2.187983906685159,
+          "speed": 2.133251919603415,
           "steering": 0,
           "roadClass": "service",
-          "height": 0.29642349584236816,
+          "height": 0.29642969951270803,
           "normal": [
             0.003788646036219464,
             0.9999245443000809,
@@ -3285,8 +3285,8 @@
             "osm-way-675321092"
           ]
         },
-        "travelMeters": 11.319672850302581,
-        "wheel": 5.086595695320555,
+        "travelMeters": 11.251023479669271,
+        "wheel": 2.075302398091308,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -3374,29 +3374,29 @@
             0.12
           ]
         ],
-        "pitch": 0.009036870578955154,
-        "roll": -0.008322007471540733,
+        "pitch": 0.009036870578955726,
+        "roll": -0.008322007471537317,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          -42.37439408596454,
-          0.3276898738131194,
-          8.83123661823229
+          -42.37415300810322,
+          0.3276951818284869,
+          8.830720584175502
         ],
         "cameraQuaternion": [
-          -0.01622724941635298,
-          0.9786814598143556,
-          0.08533191524093015,
-          0.18611217271671396
+          -0.016246992113076977,
+          0.9786759782438689,
+          0.08544706898274756,
+          0.1860864402849965
         ],
         "cameraTarget": [
-          -42.41823650157277,
-          0.30670175245169745,
-          8.942341864291635
+          -42.41792708016978,
+          0.30670835544523223,
+          8.941668457261784
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 57.427348439654466,
+        "cameraFov": 57.41746300912122,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
@@ -3405,20 +3405,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 96,
-          "surfaceQueryMs": 0.6999999284744263,
-          "staticObstacleQueryMs": 0.10000002384185791,
+          "surfaceQueries": 69,
+          "surfaceQueryMs": 0.29999999701976776,
+          "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.7000000476837158,
-          "rideUpdateMs": 1.2000000476837158
+          "cameraCollisionMs": 0.29999999701976776,
+          "rideUpdateMs": 0.5
         },
         "meanMetrics": {
-          "surfaceQueries": 93.68333333333334,
-          "surfaceQueryMs": 0.4699999983112017,
-          "staticObstacleQueryMs": 0.16125000417232513,
-          "dynamicQueryMs": 0.03874999682108561,
-          "cameraCollisionMs": 0.500000003973643,
-          "rideUpdateMs": 0.9787500008940697
+          "surfaceQueries": 68.52083333333333,
+          "surfaceQueryMs": 0.213749999490877,
+          "staticObstacleQueryMs": 0.09999999968955914,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.31541666587193806,
+          "rideUpdateMs": 0.5258333321660758
         }
       }
     },
@@ -3443,31 +3443,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 68.12060000000191,
+          "time": 63.851600000001895,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 1018,
           "target": 1020,
-          "ticks": 1362,
+          "ticks": 1277,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 3,
           "bridgeVehicles": {
-            "yangtze-first": 13,
+            "yangtze-first": 12,
             "yingwuzhou": 14,
             "yangsigang": 13,
-            "erqi": 15,
+            "erqi": 14,
             "qingchuan": 11,
-            "yangtze-second": 21
+            "yangtze-second": 22
           },
           "visibleVehicles": 20,
-          "nearVehicles": 2,
-          "farVehicles": 18,
+          "nearVehicles": 1,
+          "farVehicles": 19,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1362,
+          "vesselTicks": 1277,
           "routes": 3,
           "routeCounts": [
             {
@@ -3489,9 +3489,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 6.535833331445853,
-          "vesselSimulationMs": 0.02500000347693761,
-          "dynamicUpdateMs": 9.349999997516473
+          "trafficSimulationMs": 4.130833333358169,
+          "vesselSimulationMs": 0.013333333469927312,
+          "dynamicUpdateMs": 5.925416667262713
         },
         "phase": 6,
         "placesReady": true,
@@ -3503,12 +3503,12 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 185,
+          "loadedBuildingChunks": 188,
           "totalBuildingChunks": 477,
           "buildingTriangles": 51895,
           "buildingCount": 3841,
@@ -3519,27 +3519,27 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 207207,
-        "estimatedGeometryBytes": 121568868,
+        "estimatedGeometryBytes": 120097596,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
-          85.1325161174168,
-          0.33046122358438634,
-          15.224147248086314
+          85.13252373498365,
+          0.3304607584235819,
+          15.22414852194682
         ],
         "target": [
-          85.25116167408848,
-          0.30638487021658745,
-          15.237086712983949
+          85.25117009004937,
+          0.3063843131435154,
+          15.237088101620598
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 347,
-        "triangles": 1821546,
-        "geometries": 538,
+        "triangles": 1821522,
+        "geometries": 536,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
         "disposed": false
@@ -3565,22 +3565,22 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": 85.19639319579508,
-          "z": 15.228049893877438,
+          "x": 85.19639855920488,
+          "z": 15.228050778842023,
           "radius": 4,
-          "lookahead": 3.6777518070282427,
+          "lookahead": 3.6778399626525156,
           "points": [
             [
-              85.19639319579508,
-              15.228049893877438
+              85.19639855920488,
+              15.228050778842023
             ],
             [
-              87.01073708332585,
-              15.527417304102054
+              87.01078593651594,
+              15.527425364896418
             ],
             [
-              88.82508097085663,
-              15.826784714326669
+              88.82517331382701,
+              15.82679995095081
             ]
           ]
         },
@@ -3599,14 +3599,14 @@
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": 85.20255966964932,
-          "z": 15.229067364336386,
-          "y": 0.29878565977368365,
+          "x": 85.20256585006645,
+          "z": 15.229068384107498,
+          "y": 0.2987852728766378,
           "heading": 1.4072693491351098,
-          "speed": 2.1516235217704187,
+          "speed": 2.1519151693334733,
           "steering": 0,
           "roadClass": "service",
-          "height": 0.29878565977368365,
+          "height": 0.2987852728766378,
           "normal": [
             0.06406736156010902,
             0.9978985548854811,
@@ -3630,14 +3630,14 @@
           ]
         },
         "state": {
-          "x": 85.20255966964932,
-          "z": 15.229067364336386,
-          "y": 0.29878565977368365,
+          "x": 85.20256585006645,
+          "z": 15.229068384107498,
+          "y": 0.2987852728766378,
           "heading": 1.4072693491351098,
-          "speed": 2.1516235217704187,
+          "speed": 2.1519151693334733,
           "steering": 0,
           "roadClass": "service",
-          "height": 0.29878565977368365,
+          "height": 0.2987852728766378,
           "normal": [
             0.06406736156010902,
             0.9978985548854811,
@@ -3660,8 +3660,8 @@
             "osm-way-693270614"
           ]
         },
-        "travelMeters": 11.161035151313966,
-        "wheel": 5.063198251896452,
+        "travelMeters": 11.161662744626856,
+        "wheel": 1.4092703632881287,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -3749,29 +3749,29 @@
             0.12
           ]
         ],
-        "pitch": 0.06168697152931364,
-        "roll": -0.020027771050217608,
+        "pitch": 0.06168697152931268,
+        "roll": -0.020027771050220793,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          85.13288938588293,
-          0.3304375871478603,
-          15.224208414064483
+          85.13289474250712,
+          0.3304372659759075,
+          15.224209317493916
         ],
         "cameraQuaternion": [
-          -0.06635807942674593,
-          -0.7407640784840537,
-          -0.07398812359704018,
-          0.6643725934210815
+          -0.06635780481056137,
+          -0.7407641916930411,
+          -0.07398783614963088,
+          0.6643725266354519
         ],
         "cameraTarget": [
-          85.25151515946052,
-          0.3063600113433123,
-          15.237145038200632
+          85.25152140652648,
+          0.30635960795862727,
+          15.23714606896882
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 57.42077552974302,
+        "cameraFov": 57.42082825649225,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
@@ -3780,35 +3780,35 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 96,
-          "surfaceQueryMs": 0.6000000238418579,
-          "staticObstacleQueryMs": 0.20000004768371582,
+          "surfaceQueries": 69,
+          "surfaceQueryMs": 0.09999999403953552,
+          "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.6000000238418579,
-          "rideUpdateMs": 1.100000023841858
+          "cameraCollisionMs": 0.09999999403953552,
+          "rideUpdateMs": 0.29999999701976776
         },
         "meanMetrics": {
-          "surfaceQueries": 92.4625,
-          "surfaceQueryMs": 0.5566666762034098,
-          "staticObstacleQueryMs": 0.049999999503294625,
-          "dynamicQueryMs": 0.031666664282480876,
-          "cameraCollisionMs": 0.4787499969204267,
-          "rideUpdateMs": 0.9454166715343794
+          "surfaceQueries": 68.49166666666666,
+          "surfaceQueryMs": 0.24666666612029076,
+          "staticObstacleQueryMs": 0.026249999615053334,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.2666666666045785,
+          "rideUpdateMs": 0.4708333333333333
         }
       }
     },
     {
-      "name": "donghu-shore-stop",
+      "name": "donghu-shore-pass",
       "metrics": {
         "runtimePhase": 6,
         "vegetation": {
           "trees": 265907,
           "shrubs": 30966,
           "flowers": 28631,
-          "visibleTrees": 20048,
-          "visibleInstances": 23769,
-          "drawCalls": 190,
-          "triangles": 995916
+          "visibleTrees": 20168,
+          "visibleInstances": 23913,
+          "drawCalls": 200,
+          "triangles": 1001872
         },
         "dynamics": {
           "ready": true,
@@ -3818,31 +3818,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 75.54330000000307,
+          "time": 70.57380000000319,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1019,
+          "vehicles": 1016,
           "target": 1020,
-          "ticks": 1510,
+          "ticks": 1411,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 3,
           "bridgeVehicles": {
-            "yangtze-first": 13,
-            "yingwuzhou": 13,
-            "yangsigang": 14,
-            "erqi": 15,
+            "yangtze-first": 12,
+            "yingwuzhou": 15,
+            "yangsigang": 13,
+            "erqi": 14,
             "qingchuan": 11,
-            "yangtze-second": 20
+            "yangtze-second": 23
           },
-          "visibleVehicles": 133,
+          "visibleVehicles": 142,
           "nearVehicles": 0,
-          "farVehicles": 133,
+          "farVehicles": 142,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1510,
+          "vesselTicks": 1411,
           "routes": 3,
           "routeCounts": [
             {
@@ -3864,9 +3864,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 6.977083332836628,
-          "vesselSimulationMs": 0.022499999900658926,
-          "dynamicUpdateMs": 9.842500000198681
+          "trafficSimulationMs": 3.8750000004346172,
+          "vesselSimulationMs": 0.014166666691501935,
+          "dynamicUpdateMs": 5.652083333519598
         },
         "phase": 6,
         "placesReady": true,
@@ -3878,43 +3878,43 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 188,
+          "loadedBuildingChunks": 191,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 194837,
-          "buildingCount": 12900,
+          "buildingTriangles": 196274,
+          "buildingCount": 13002,
           "surfacesReady": true,
           "roadTriangles": 37703,
           "loadedSurfaceChunks": 29
         },
         "urbanErrors": [],
         "mainLoopCount": 1,
-        "terrainTriangles": 325652,
-        "estimatedGeometryBytes": 119991156,
+        "terrainTriangles": 328974,
+        "estimatedGeometryBytes": 119902644,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
-          45.02883015492482,
-          0.22695461739220846,
-          -6.28387240380796
+          45.30983939409447,
+          0.2262000000000278,
+          -6.112905493358303
         ],
         "target": [
-          45.1276301657177,
-          0.2057061508732142,
-          -6.231414064974865
+          45.42647903849246,
+          0.20570000000000024,
+          -6.050134769778414
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 392,
-        "triangles": 1662504,
-        "geometries": 548,
+        "drawCalls": 403,
+        "triangles": 1675851,
+        "geometries": 546,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
         "disposed": false
@@ -3922,7 +3922,8 @@
       "ride": {
         "residentRoadChunks": [
           "road-surface-51-49.bin",
-          "road-surface-52-49.bin"
+          "road-surface-52-49.bin",
+          "road-surface-52-50.bin"
         ],
         "residentBridgeChunks": [],
         "pinnedBridges": [],
@@ -3938,121 +3939,79 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": 45.08659029937577,
-          "z": -6.256308514053246,
+          "x": 45.35659556901597,
+          "z": -6.092525513885824,
           "radius": 4,
-          "lookahead": 3,
+          "lookahead": 4.941395701454051,
           "points": [
             [
-              45.08659029937577,
-              -6.256308514053246
+              45.35659556901597,
+              -6.092525513885824
             ],
             [
-              46.36908494686373,
-              -5.478357693522322
+              47.469033415094245,
+              -4.811137900381105
             ],
             [
-              47.65157959435169,
-              -4.700406872991399
+              49.581471261172524,
+              -3.5297502868763857
             ]
           ]
         },
         "lastBlock": null,
-        "lastBlockKind": "water",
-        "lastBlockId": "water-717",
-        "lastBlockSource": "terrain/water",
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
         "lastBlockBounds": null,
-        "lastRejectedPosition": {
-          "x": 45.09155070367345,
-          "y": 0.195,
-          "z": -6.253299573157393
-        },
-        "lastRejected": {
-          "blockReason": "water",
-          "blockKind": "water",
-          "blockId": "water-717",
-          "blockSource": "terrain/water",
-          "blockBounds": null,
-          "blockPosition": {
-            "x": 45.09155070367345,
-            "y": 0.195,
-            "z": -6.253299573157393
-          },
-          "distance": 0,
-          "surfaceId": "water-717",
-          "layerId": "water",
-          "candidateSurface": {
-            "kind": "water",
-            "height": 0.195,
-            "surfaceId": "water-717",
-            "layerId": "water",
-            "traversable": false,
-            "rideAllowed": false,
-            "normal": [
-              0,
-              1,
-              0
-            ]
-          },
-          "previousSurfaceId": "terrain",
-          "previousLayerId": "ground",
-          "normal": [
-            0,
-            1,
-            0
-          ],
-          "slopeDegrees": 0,
-          "maxRideSlope": 26.000000000000004
-        },
-        "blockCounts": {
-          "water": 150
-        },
-        "surfaceId": "terrain",
-        "layerId": "ground",
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "water-717",
+        "layerId": "water",
         "active": true,
         "pending": false,
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": 45.08659029937577,
-          "z": -6.256308514053246,
-          "y": 0.19574846651899394,
+          "x": 45.38275942468523,
+          "z": -6.076654731870469,
+          "y": 0.195,
           "heading": 1.0255439592667988,
-          "surfaceId": "terrain",
+          "surfaceId": "water-717",
           "normal": [
-            0.10940114739057388,
-            0.9917800538088566,
-            0.06636048384790072
+            0,
+            1,
+            0
           ],
-          "height": 0.19574846651899394,
-          "kind": "terrain",
-          "layerId": "ground",
+          "height": 0.195,
+          "kind": "water",
+          "layerId": "water",
           "traversable": true,
           "rideAllowed": true,
-          "speed": 0,
+          "speed": 6.185654930815914,
           "steering": 0
         },
         "state": {
-          "x": 45.08659029937577,
-          "z": -6.256308514053246,
-          "y": 0.19574846651899394,
+          "x": 45.38275942468523,
+          "z": -6.076654731870469,
+          "y": 0.195,
           "heading": 1.0255439592667988,
-          "surfaceId": "terrain",
+          "surfaceId": "water-717",
           "normal": [
-            0.10940114739057388,
-            0.9917800538088566,
-            0.06636048384790072
+            0,
+            1,
+            0
           ],
-          "height": 0.19574846651899394,
-          "kind": "terrain",
-          "layerId": "ground",
+          "height": 0.195,
+          "kind": "water",
+          "layerId": "water",
           "traversable": true,
           "rideAllowed": true,
-          "speed": 0,
+          "speed": 6.185654930815914,
           "steering": 0
         },
-        "travelMeters": 1.9358280369634477,
-        "wheel": 3.054733574078942,
+        "travelMeters": 36.580385812635086,
+        "wheel": 4.456744918790185,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -4140,29 +4099,29 @@
             0.12
           ]
         ],
-        "pitch": 0.12830613541803104,
-        "roll": -0.0000011743461632417207,
+        "pitch": 1.4688611167691103e-28,
+        "roll": -1.8980634583741216e-24,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          45.0288301554579,
-          0.22695461739220843,
-          -6.28387240355357
+          45.310739469063414,
+          0.2262000000000256,
+          -6.112360285710237
         ],
         "cameraQuaternion": [
-          -0.0482927642700032,
-          -0.8532436772558634,
-          -0.08031911300767201,
-          0.5130222960337248
+          -0.039347260285883874,
+          -0.8559242586657858,
+          -0.06585779281700227,
+          0.5113787321161222
         ],
         "cameraTarget": [
-          45.12763016448608,
-          0.2057061508732142,
-          -6.231414065721957
+          45.42735188689177,
+          0.20570000000000024,
+          -6.049605307039703
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 57.000477862790376,
+        "cameraFov": 58.16626184027678,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
@@ -4171,20 +4130,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 92,
-          "surfaceQueryMs": 0.7000000476837158,
-          "staticObstacleQueryMs": 0.20000004768371582,
+          "surfaceQueries": 73,
+          "surfaceQueryMs": 0.10000000894069672,
+          "staticObstacleQueryMs": 0.09999999403953552,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.7000000476837158,
-          "rideUpdateMs": 1.399999976158142
+          "cameraCollisionMs": 0.20000000298023224,
+          "rideUpdateMs": 0.3999999910593033
         },
         "meanMetrics": {
-          "surfaceQueries": 84.46666666666667,
-          "surfaceQueryMs": 0.5824999988079071,
-          "staticObstacleQueryMs": 0.11833333124717077,
-          "dynamicQueryMs": 0.01541666438182195,
-          "cameraCollisionMs": 0.6016666655739148,
-          "rideUpdateMs": 1.066249997417132
+          "surfaceQueries": 74.05833333333334,
+          "surfaceQueryMs": 0.2158333346247673,
+          "staticObstacleQueryMs": 0.08749999987582366,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.3012500009189049,
+          "rideUpdateMs": 0.48875000067055224
         }
       }
     },
@@ -4209,31 +4168,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 80.04710000000355,
+          "time": 74.91070000000404,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1020,
+          "vehicles": 1019,
           "target": 1020,
-          "ticks": 1600,
+          "ticks": 1498,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 1,
+          "hiddenTunnelVehicles": 4,
           "bridgeVehicles": {
-            "yangtze-first": 13,
-            "yingwuzhou": 13,
-            "yangsigang": 14,
-            "erqi": 15,
+            "yangtze-first": 12,
+            "yingwuzhou": 16,
+            "yangsigang": 13,
+            "erqi": 14,
             "qingchuan": 11,
-            "yangtze-second": 20
+            "yangtze-second": 23
           },
-          "visibleVehicles": 249,
-          "nearVehicles": 13,
-          "farVehicles": 236,
+          "visibleVehicles": 260,
+          "nearVehicles": 16,
+          "farVehicles": 244,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1600,
+          "vesselTicks": 1498,
           "routes": 3,
           "routeCounts": [
             {
@@ -4255,9 +4214,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 8.76708333392938,
-          "vesselSimulationMs": 0.027083332339922588,
-          "dynamicUpdateMs": 11.660833336412907
+          "trafficSimulationMs": 4.006250000372529,
+          "vesselSimulationMs": 0.015833333072563013,
+          "dynamicUpdateMs": 5.822916666542491
         },
         "phase": 6,
         "placesReady": true,
@@ -4269,34 +4228,34 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 193,
+          "loadedBuildingChunks": 197,
           "totalBuildingChunks": 477,
           "buildingTriangles": 388165,
           "buildingCount": 24188,
           "surfacesReady": true,
           "roadTriangles": 276664,
-          "loadedSurfaceChunks": 26
+          "loadedSurfaceChunks": 28
         },
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 345813,
-        "estimatedGeometryBytes": 115920528,
+        "estimatedGeometryBytes": 125135292,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
           -22.409834084836344,
-          0.4447279237348679,
+          0.44472792377699316,
           14.999182903717239
         ],
         "target": [
           -22.309559670997377,
-          0.4224455338035105,
+          0.422445533803749,
           15.048764629390305
         ],
         "light": "day",
@@ -4304,10 +4263,10 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 469,
-        "triangles": 1864755,
-        "geometries": 550,
-        "frameSamples": 146,
-        "p95FrameMs": 33.40000000000873,
+        "triangles": 1864827,
+        "geometries": 551,
+        "frameSamples": 180,
+        "p95FrameMs": 16.80000000000291,
         "disposed": false
       },
       "ride": {
@@ -4449,7 +4408,7 @@
           ]
         },
         "travelMeters": 0,
-        "wheel": 3.054733574078942,
+        "wheel": 0.40958096228667973,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -4537,24 +4496,24 @@
             0.12
           ]
         ],
-        "pitch": 0.03783827379268471,
-        "roll": 0.15120371465285773,
+        "pitch": 0.0378382737926847,
+        "roll": 0.15120371465234386,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -22.409834084836344,
-          0.44472792372924635,
+          0.4447279237680164,
           14.999182903717239
         ],
         "cameraQuaternion": [
-          -0.051786757766730515,
-          -0.8453794334299376,
-          -0.08337812960568658,
-          0.5250712644557356
+          -0.051786757853769634,
+          -0.8453794334161162,
+          -0.08337812974582201,
+          0.5250712644471511
         ],
         "cameraTarget": [
           -22.309559670997377,
-          0.42244553380348066,
+          0.422445533803693,
           15.048764629390305
         ],
         "cameraNear": 0.0005,
@@ -4568,20 +4527,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 82,
-          "surfaceQueryMs": 1.3000000715255737,
-          "staticObstacleQueryMs": 0.10000002384185791,
+          "surfaceQueries": 64,
+          "surfaceQueryMs": 0.699999988079071,
+          "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 1.399999976158142,
-          "rideUpdateMs": 2.200000047683716
+          "cameraCollisionMs": 0.800000011920929,
+          "rideUpdateMs": 1.1000000089406967
         },
         "meanMetrics": {
-          "surfaceQueries": 92.41666666666667,
-          "surfaceQueryMs": 1.3749999895691871,
-          "staticObstacleQueryMs": 0.07708333233992258,
-          "dynamicQueryMs": 0.03375000059604645,
-          "cameraCollisionMs": 1.3070833320418993,
-          "rideUpdateMs": 2.214583333830039
+          "surfaceQueries": 66.55,
+          "surfaceQueryMs": 0.60708333371828,
+          "staticObstacleQueryMs": 0.04624999991307656,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.8529166666790843,
+          "rideUpdateMs": 1.1287500002110997
         }
       }
     },
@@ -4606,31 +4565,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 85.01770000000377,
+          "time": 79.54780000000478,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1018,
+          "vehicles": 1020,
           "target": 1020,
-          "ticks": 1700,
+          "ticks": 1590,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 4,
           "bridgeVehicles": {
-            "yangtze-first": 13,
-            "yingwuzhou": 13,
+            "yangtze-first": 12,
+            "yingwuzhou": 15,
             "yangsigang": 14,
             "erqi": 14,
             "qingchuan": 11,
-            "yangtze-second": 20
+            "yangtze-second": 23
           },
-          "visibleVehicles": 338,
+          "visibleVehicles": 350,
           "nearVehicles": 29,
-          "farVehicles": 309,
+          "farVehicles": 321,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1700,
+          "vesselTicks": 1590,
           "routes": 3,
           "routeCounts": [
             {
@@ -4652,9 +4611,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 11.852916665375233,
-          "vesselSimulationMs": 0.03458333214124044,
-          "dynamicUpdateMs": 15.047083331644535
+          "trafficSimulationMs": 5.829166666418314,
+          "vesselSimulationMs": 0.02333333306014538,
+          "dynamicUpdateMs": 8.155416666405896
         },
         "phase": 6,
         "placesReady": true,
@@ -4666,12 +4625,12 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 213,
+          "loadedBuildingChunks": 216,
           "totalBuildingChunks": 477,
           "buildingTriangles": 433095,
           "buildingCount": 28308,
@@ -4682,29 +4641,29 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 333187,
-        "estimatedGeometryBytes": 116017356,
+        "estimatedGeometryBytes": 115928844,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
           -55.00658320441597,
-          0.39709138404863736,
+          0.3970913840487671,
           4.860923125971352
         ],
         "target": [
           -54.89532585328376,
-          0.3791838171421273,
+          0.37918381714212734,
           4.872546697303476
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 570,
-        "triangles": 1868190,
-        "geometries": 570,
-        "frameSamples": 113,
-        "p95FrameMs": 50,
+        "drawCalls": 568,
+        "triangles": 1865998,
+        "geometries": 566,
+        "frameSamples": 160,
+        "p95FrameMs": 33.40000000000873,
         "disposed": false
       },
       "ride": {
@@ -4840,7 +4799,7 @@
           ]
         },
         "travelMeters": 0,
-        "wheel": 3.054733574078942,
+        "wheel": 0.40958096228667973,
         "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
@@ -4929,23 +4888,23 @@
           ]
         ],
         "pitch": -0.05395621342350288,
-        "roll": 0.13353161804670585,
+        "roll": 0.13353161804670582,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -55.00658320441597,
-          0.397091384048617,
+          0.3970913840487671,
           4.860923125971352
         ],
         "cameraQuaternion": [
-          -0.053070866694186966,
-          -0.7405976193643171,
-          -0.05890427307984286,
-          0.6672547758638894
+          -0.053070866694623305,
+          -0.7405976193642785,
+          -0.05890427308032715,
+          0.6672547758638547
         ],
         "cameraTarget": [
           -54.89532585328376,
-          0.3791838171421273,
+          0.37918381714212734,
           4.872546697303476
         ],
         "cameraNear": 0.0005,
@@ -4959,20 +4918,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 112,
-          "surfaceQueryMs": 3.200000047683716,
-          "staticObstacleQueryMs": 0.10000002384185791,
+          "surfaceQueries": 67,
+          "surfaceQueryMs": 1.3999999910593033,
+          "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 2.600000023841858,
-          "rideUpdateMs": 4.100000023841858
+          "cameraCollisionMs": 2.5999999940395355,
+          "rideUpdateMs": 3.0999999940395355
         },
         "meanMetrics": {
-          "surfaceQueries": 99.54166666666667,
-          "surfaceQueryMs": 2.5299999927481016,
-          "staticObstacleQueryMs": 0.05333333214124044,
-          "dynamicQueryMs": 0.03666666348775228,
-          "cameraCollisionMs": 2.3079166665673254,
-          "rideUpdateMs": 3.8600000008940696
+          "surfaceQueries": 64.91666666666667,
+          "surfaceQueryMs": 1.2758333341528971,
+          "staticObstacleQueryMs": 0.047083332762122156,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 1.8804166662196318,
+          "rideUpdateMs": 2.338333332973222
         }
       }
     },
@@ -4984,10 +4943,10 @@
           "trees": 265907,
           "shrubs": 30966,
           "flowers": 28631,
-          "visibleTrees": 6078,
-          "visibleInstances": 7841,
-          "drawCalls": 173,
-          "triangles": 457032
+          "visibleTrees": 6122,
+          "visibleInstances": 7912,
+          "drawCalls": 178,
+          "triangles": 459260
         },
         "dynamics": {
           "ready": true,
@@ -4997,31 +4956,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 615.163999999786,
+          "time": 609.1099333331257,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1018,
+          "vehicles": 1019,
           "target": 1020,
-          "ticks": 12303,
+          "ticks": 12182,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 1,
+          "hiddenTunnelVehicles": 3,
           "bridgeVehicles": {
-            "yangtze-first": 11,
-            "yingwuzhou": 20,
-            "yangsigang": 18,
-            "erqi": 16,
-            "qingchuan": 12,
-            "yangtze-second": 19
+            "yangtze-first": 12,
+            "yingwuzhou": 17,
+            "yangsigang": 15,
+            "erqi": 20,
+            "qingchuan": 10,
+            "yangtze-second": 39
           },
-          "visibleVehicles": 115,
-          "nearVehicles": 13,
-          "farVehicles": 102,
+          "visibleVehicles": 122,
+          "nearVehicles": 11,
+          "farVehicles": 111,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 12303,
+          "vesselTicks": 12182,
           "routes": 3,
           "routeCounts": [
             {
@@ -5043,9 +5002,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 4.469583331545194,
-          "vesselSimulationMs": 0.012083335220813752,
-          "dynamicUpdateMs": 6.134583334128062
+          "trafficSimulationMs": 4.233749999850988,
+          "vesselSimulationMs": 0.011666666592160861,
+          "dynamicUpdateMs": 5.854166666790843
         },
         "phase": 6,
         "placesReady": true,
@@ -5057,49 +5016,50 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 2837.7000000476837,
+        "initialLoadMs": 1879.9000000059605,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 38,
+          "loadedBuildingChunks": 37,
           "totalBuildingChunks": 477,
-          "buildingTriangles": 66198,
-          "buildingCount": 4600,
+          "buildingTriangles": 57674,
+          "buildingCount": 3870,
           "surfacesReady": true,
           "roadTriangles": 295437,
-          "loadedSurfaceChunks": 17
+          "loadedSurfaceChunks": 16
         },
         "urbanErrors": [],
         "mainLoopCount": 1,
-        "terrainTriangles": 224784,
-        "estimatedGeometryBytes": 70650576,
+        "terrainTriangles": 230028,
+        "estimatedGeometryBytes": 70471380,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "place-yellow-crane",
         "flying": false,
         "camera": [
-          -56.929534430095394,
-          0.31906495581832583,
-          4.241125171901184
+          -57.05845148235221,
+          0.30759282487334233,
+          4.246328976550104
         ],
         "target": [
-          -57.043570631189844,
-          0.293788223442438,
-          4.253664134200381
+          -57.2066159090953,
+          0.2833800655335714,
+          4.260921821325386
         ],
         "light": "day",
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 327,
-        "triangles": 1122328,
-        "geometries": 406,
+        "drawCalls": 329,
+        "triangles": 1130140,
+        "geometries": 400,
         "frameSamples": 180,
         "p95FrameMs": 16.79999999998836,
         "disposed": false
       },
       "ride": {
         "residentRoadChunks": [
+          "road-surface-45-49.bin",
           "road-surface-46-49.bin",
           "road-surface-46-50.bin",
           "road-surface-46-51.bin",
@@ -5135,113 +5095,50 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": -56.993619746127564,
-          "z": 4.251010510497922,
+          "x": -57.14743184389128,
+          "z": 4.257961405416818,
           "radius": 4,
-          "lookahead": 3,
+          "lookahead": 6.335325242547761,
           "points": [
             [
-              -56.993619746127564,
-              4.251010510497922
+              -57.14743184389128,
+              4.257961405416818
             ],
             [
-              -58.49150753357469,
-              4.33058548279916
+              -60.31113901723461,
+              4.416212482985595
             ],
             [
-              -59.989395321021824,
-              4.410160455100398
+              -63.47484619057794,
+              4.574463560554372
             ]
           ]
         },
         "lastBlock": null,
-        "lastBlockKind": "forbidden-surface",
-        "lastBlockId": "osm-way-99463463",
-        "lastBlockSource": "OSM 99463463",
-        "lastBlockBounds": [
-          -57.50585174560547,
-          3.549630880355835,
-          -56.62196731567383,
-          4.437005043029785
-        ],
-        "lastRejectedPosition": {
-          "x": -57.00017437973021,
-          "y": 0.28702181754461137,
-          "z": 4.2557649296884845
-        },
-        "lastRejected": {
-          "blockReason": "forbidden-surface",
-          "blockKind": "forbidden-surface",
-          "blockId": "osm-way-99463463",
-          "blockSource": "OSM 99463463",
-          "blockBounds": [
-            -57.50585174560547,
-            3.549630880355835,
-            -56.62196731567383,
-            4.437005043029785
-          ],
-          "blockPosition": {
-            "x": -57.00017437973021,
-            "y": 0.28702181754461137,
-            "z": 4.2557649296884845
-          },
-          "distance": 0,
-          "surfaceId": "osm-way-99463463",
-          "layerId": "ground-0",
-          "candidateSurface": {
-            "height": 0.28702181754461137,
-            "normal": [
-              -0.0925084423779779,
-              0.9945857928660932,
-              0.04734225087303027
-            ],
-            "surfaceId": "osm-way-99463463",
-            "layerId": "ground-0",
-            "kind": "road",
-            "rideAllowed": false,
-            "traversable": false,
-            "canonical": true,
-            "bounds": [
-              -57.50585174560547,
-              3.549630880355835,
-              -56.62196731567383,
-              4.437005043029785
-            ],
-            "source": "OSM 99463463",
-            "roadIds": [
-              "osm-way-99463463"
-            ]
-          },
-          "previousSurfaceId": "junction-1182230239-ground-0",
-          "previousLayerId": "ground-0",
-          "normal": [
-            -0.0925084423779779,
-            0.9945857928660932,
-            0.04734225087303027
-          ],
-          "slopeDegrees": 5.964873050791318,
-          "maxRideSlope": 26.000000000000004
-        },
-        "blockCounts": {
-          "forbidden-surface": 1
-        },
-        "surfaceId": "junction-1182230239-ground-0",
+        "lastBlockKind": null,
+        "lastBlockId": null,
+        "lastBlockSource": null,
+        "lastBlockBounds": null,
+        "lastRejectedPosition": null,
+        "lastRejected": null,
+        "blockCounts": {},
+        "surfaceId": "osm-way-99463463",
         "layerId": "ground-0",
         "active": true,
         "pending": false,
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": -56.993619746127564,
-          "z": 4.251010510497922,
-          "y": 0.28785777621012093,
-          "surfaceId": "junction-1182230239-ground-0",
-          "heading": 4.765463876583192,
-          "height": 0.28785777621012093,
+          "x": -57.152978963085395,
+          "z": 4.258238876608356,
+          "y": 0.2726913465629676,
+          "surfaceId": "osm-way-99463463",
+          "heading": 4.762368097899135,
+          "height": 0.2726913465629676,
           "normal": [
-            -0.09250988097451612,
-            0.9945856049818673,
-            0.047343386918700534
+            -0.09250161381155046,
+            0.9945867461013098,
+            0.04733556719706092
           ],
           "layerId": "ground-0",
           "kind": "road",
@@ -5249,31 +5146,29 @@
           "traversable": true,
           "canonical": true,
           "bounds": [
-            -57.005489349365234,
-            4.183518409729004,
-            -56.79989242553711,
-            4.415191650390625
+            -57.50585174560547,
+            3.549630880355835,
+            -56.62196731567383,
+            4.437005043029785
           ],
-          "source": "OSM 99463463,233478865",
+          "source": "OSM 99463463",
           "roadIds": [
-            "osm-way-99463463",
-            "osm-way-233478865"
+            "osm-way-99463463"
           ],
-          "nodeId": 1182230239,
-          "speed": 0,
-          "steering": 2.164120947048423e-10
+          "speed": 11.063212388908639,
+          "steering": 1.6153985066515801e-9
         },
         "state": {
-          "x": -56.993619746127564,
-          "z": 4.251010510497922,
-          "y": 0.28785777621012093,
-          "surfaceId": "junction-1182230239-ground-0",
-          "heading": 4.765463876583192,
-          "height": 0.28785777621012093,
+          "x": -57.152978963085395,
+          "z": 4.258238876608356,
+          "y": 0.2726913465629676,
+          "surfaceId": "osm-way-99463463",
+          "heading": 4.762368097899135,
+          "height": 0.2726913465629676,
           "normal": [
-            -0.09250988097451612,
-            0.9945856049818673,
-            0.047343386918700534
+            -0.09250161381155046,
+            0.9945867461013098,
+            0.04733556719706092
           ],
           "layerId": "ground-0",
           "kind": "road",
@@ -5281,23 +5176,21 @@
           "traversable": true,
           "canonical": true,
           "bounds": [
-            -57.005489349365234,
-            4.183518409729004,
-            -56.79989242553711,
-            4.415191650390625
+            -57.50585174560547,
+            3.549630880355835,
+            -56.62196731567383,
+            4.437005043029785
           ],
-          "source": "OSM 99463463,233478865",
+          "source": "OSM 99463463",
           "roadIds": [
-            "osm-way-99463463",
-            "osm-way-233478865"
+            "osm-way-99463463"
           ],
-          "nodeId": 1182230239,
-          "speed": 0,
-          "steering": 2.164120947048423e-10
+          "speed": 11.063212388908639,
+          "steering": 1.6153985066515801e-9
         },
-        "travelMeters": 4221.8661806505925,
-        "wheel": 4.228180350612221,
-        "contactError": 5.551115123125783e-17,
+        "travelMeters": 4237.881361745631,
+        "wheel": 0.8733185846721001,
+        "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
           "geometries": [
@@ -5384,51 +5277,51 @@
             0.12
           ]
         ],
-        "pitch": 0.09511850849438455,
-        "roll": -0.042573983947043086,
+        "pitch": 0.09499570685733302,
+        "roll": -0.0428733607586289,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          -56.92956239157619,
-          0.31906458391210946,
-          4.241129333131352
+          -57.0603462892,
+          0.3074109031303533,
+          4.246425082209416
         ],
         "cameraQuaternion": [
-          -0.07225749445383899,
-          0.74037642485627,
-          0.08064000061213174,
-          0.6634144966109624
+          -0.05375608210227674,
+          0.7385770307826222,
+          0.059311330863308816,
+          0.6694000442699134
         ],
         "cameraTarget": [
-          -57.043504823883396,
-          0.293794480945589,
-          4.253660638732921
+          -57.208448962244475,
+          0.28335391263602333,
+          4.261013513365897
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 57.13318195405248,
+        "cameraFov": 59.094345116218115,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
         "cameraBlock": null,
         "cameraOffset": 0,
-        "cameraSwing": 9.01349633191887e-7,
+        "cameraSwing": 0.0000011583070948953667,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 84,
-          "surfaceQueryMs": 0.39999985694885254,
+          "surfaceQueries": 80,
+          "surfaceQueryMs": 0.29999999701976776,
           "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.3999999761581421,
-          "rideUpdateMs": 0.7999999523162842
+          "cameraCollisionMs": 0.5,
+          "rideUpdateMs": 0.7999999970197678
         },
         "meanMetrics": {
-          "surfaceQueries": 105.8125,
-          "surfaceQueryMs": 0.5604166691501935,
-          "staticObstacleQueryMs": 0.03333333035310109,
-          "dynamicQueryMs": 0.013750000794728597,
-          "cameraCollisionMs": 0.5408333336313565,
-          "rideUpdateMs": 0.9354166656732559
+          "surfaceQueries": 83.05833333333334,
+          "surfaceQueryMs": 0.4795833332464099,
+          "staticObstacleQueryMs": 0.034999999962747094,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.5862500000745058,
+          "rideUpdateMs": 0.7987499997640649
         }
       }
     },
@@ -5453,12 +5346,12 @@
           "focused": true,
           "qualityLevel": "low",
           "mode": "day",
-          "time": 5.821200000000013,
+          "time": 6.0213000000000205,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 340,
           "target": 340,
-          "ticks": 116,
+          "ticks": 120,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -5477,7 +5370,7 @@
           "farVehicles": 6,
           "maxDrawCalls": 5,
           "vessels": 6,
-          "vesselTicks": 116,
+          "vesselTicks": 120,
           "routes": 3,
           "routeCounts": [
             {
@@ -5499,9 +5392,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 1.5216666693488756,
-          "vesselSimulationMs": 0.0066666667660077415,
-          "dynamicUpdateMs": 2.1670833334326742
+          "trafficSimulationMs": 1.4891666666294137,
+          "vesselSimulationMs": 0.008749999975164732,
+          "dynamicUpdateMs": 2.167916666654249
         },
         "phase": 6,
         "placesReady": true,
@@ -5513,12 +5406,12 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1699.2999999523163,
+        "initialLoadMs": 1619.8999999910593,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
           "bridgesReady": true,
-          "loadedBuildingChunks": 34,
+          "loadedBuildingChunks": 35,
           "totalBuildingChunks": 477,
           "buildingTriangles": 27056,
           "buildingCount": 1737,
@@ -5529,19 +5422,19 @@
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 191716,
-        "estimatedGeometryBytes": 77918100,
+        "estimatedGeometryBytes": 78147384,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "confluence",
         "flying": false,
         "camera": [
-          -28.638282647083287,
-          0.29682667801536394,
-          -29.140459742182045
+          -28.63761253218696,
+          0.2968118222423114,
+          -29.141655539191767
         ],
         "target": [
-          -28.58547758660641,
-          0.27078141568545366,
-          -29.249932729130595
+          -28.584750107649825,
+          0.27076549005942724,
+          -29.25123659855848
         ],
         "light": "day",
         "wireframe": false,
@@ -5549,7 +5442,7 @@
         "rendererCount": 1,
         "drawCalls": 176,
         "triangles": 567300,
-        "geometries": 211,
+        "geometries": 212,
         "frameSamples": 180,
         "p95FrameMs": 16.799999999999272,
         "disposed": false
@@ -5573,22 +5466,22 @@
         "pendingBuildingLoads": [],
         "pendingRideLoads": [],
         "window": {
-          "x": -28.609299728934662,
-          "z": -29.207236012190585,
+          "x": -28.608474175548995,
+          "z": -29.20871566161674,
           "radius": 4,
-          "lookahead": 3.1104008444159383,
+          "lookahead": 3.115007100305337,
           "points": [
             [
-              -28.609299728934662,
-              -29.207236012190585
+              -28.608474175548995,
+              -29.20871566161674
             ],
             [
-              -27.851555855154515,
-              -30.565349621202916
+              -27.849608143450403,
+              -30.56884052870252
             ],
             [
-              -27.09381198137437,
-              -31.92346323021525
+              -27.090742111351815,
+              -31.928965395788296
             ]
           ]
         },
@@ -5607,14 +5500,14 @@
         "recoveryCount": 0,
         "recoveryReason": null,
         "lastSafeState": {
-          "x": -28.609129358095842,
-          "z": -29.207541369927924,
-          "y": 0.260611666961177,
+          "x": -28.608412799659114,
+          "z": -29.20882566637455,
+          "y": 0.260595414479103,
           "heading": 2.6326750599875015,
-          "speed": 0.33285831039748165,
+          "speed": 0.3716031369410417,
           "steering": 0,
           "roadClass": "tertiary",
-          "height": 0.260611666961177,
+          "height": 0.260595414479103,
           "normal": [
             0.019950999294015188,
             0.9997998023417708,
@@ -5638,14 +5531,14 @@
           ]
         },
         "state": {
-          "x": -28.609129358095842,
-          "z": -29.207541369927924,
-          "y": 0.260611666961177,
+          "x": -28.608412799659114,
+          "z": -29.20882566637455,
+          "y": 0.260595414479103,
           "heading": 2.6326750599875015,
-          "speed": 0.33285831039748165,
+          "speed": 0.3716031369410417,
           "steering": 0,
           "roadClass": "tertiary",
-          "height": 0.260611666961177,
+          "height": 0.260595414479103,
           "normal": [
             0.019950999294015188,
             0.9997998023417708,
@@ -5668,34 +5561,32 @@
             "osm-way-177632990"
           ]
         },
-        "travelMeters": 3.191653754020208,
-        "wheel": 1.3103848379026009,
-        "contactError": 5.551115123125783e-17,
+        "travelMeters": 3.3387298397459326,
+        "wheel": 1.9498460801883557,
+        "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
           "geometries": [
-            7636,
-            7637,
             7638,
-            7548,
-            7549,
+            7639,
+            7640,
             7550,
-            7592,
-            7593,
+            7551,
+            7552,
             7594,
-            7696,
-            7697,
+            7595,
+            7596,
             7698,
-            7702,
-            7703,
-            7707,
-            7708,
-            7719,
-            7720,
+            7699,
+            7700,
+            7704,
+            7705,
+            7709,
+            7710,
             7721,
             7722,
-            7682,
-            7683,
+            7723,
+            7724,
             7684,
             7685,
             7686,
@@ -5704,16 +5595,16 @@
             7689,
             7690,
             7691,
-            7341,
-            7340,
-            7728,
-            7729,
+            7692,
+            7693,
+            7343,
+            7342,
             7730,
-            7736,
-            7737,
+            7731,
+            7732,
             7738,
-            7522,
-            7523,
+            7739,
+            7740,
             7524,
             7525,
             7526,
@@ -5721,7 +5612,9 @@
             7528,
             7529,
             7530,
-            7739
+            7531,
+            7532,
+            7741
           ],
           "materials": [
             78,
@@ -5757,29 +5650,29 @@
             0.12
           ]
         ],
-        "pitch": 0.011050615591119153,
-        "roll": 0.016683461347796663,
+        "pitch": 0.011050615591116425,
+        "roll": 0.016683461347794994,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
-          -28.638282647083287,
-          0.29682667801536394,
-          -29.140459742182045
+          -28.63761253218696,
+          0.2968118222423114,
+          -29.141655539191767
         ],
         "cameraQuaternion": [
-          -0.10270324155379795,
-          -0.22159035479994216,
-          -0.023475648324236244,
-          0.9694321290166397
+          -0.10260706158490314,
+          -0.22161145554342593,
+          -0.02345575573459266,
+          0.9694379718206602
         ],
         "cameraTarget": [
-          -28.58547758660641,
-          0.27078141568545366,
-          -29.249932729130595
+          -28.584750107649825,
+          0.27076549005942724,
+          -29.25123659855848
         ],
         "cameraNear": 0.0005,
         "cameraFar": 2300,
-        "cameraFov": 63.09069346621861,
+        "cameraFov": 63.097685216947596,
         "cameraZoom": 1,
         "cameraView": null,
         "controlsEnabled": false,
@@ -5788,20 +5681,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 100,
-          "surfaceQueryMs": 0.2999999523162842,
-          "staticObstacleQueryMs": 0.10000002384185791,
+          "surfaceQueries": 74,
+          "surfaceQueryMs": 0.19999998807907104,
+          "staticObstacleQueryMs": 0.09999999403953552,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.3999999761581421,
-          "rideUpdateMs": 0.8000000715255737
+          "cameraCollisionMs": 0.3999999910593033,
+          "rideUpdateMs": 0.699999988079071
         },
         "meanMetrics": {
-          "surfaceQueries": 97.94166666666666,
-          "surfaceQueryMs": 0.4337499941388766,
-          "staticObstacleQueryMs": 0.0837500015894572,
-          "dynamicQueryMs": 0.020416666567325593,
-          "cameraCollisionMs": 0.4583333323399226,
-          "rideUpdateMs": 0.859583331644535
+          "surfaceQueries": 73.52916666666667,
+          "surfaceQueryMs": 0.35375000021109976,
+          "staticObstacleQueryMs": 0.08708333342025677,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.4575000003601114,
+          "rideUpdateMs": 0.7412500003973643
         }
       }
     }
@@ -5809,7 +5702,7 @@
   "bridgeRun": [
     {
       "done": true,
-      "samples": 14838,
+      "samples": 14883,
       "blocked": {},
       "layers": [
         "ground-0",
@@ -5817,12 +5710,12 @@
       ],
       "maxKmh": 60.00000000000001,
       "recoveryCount": 0,
-      "travel": 4194.407683733443,
+      "travel": 4194.365766888276,
       "reverse": false
     },
     {
       "done": true,
-      "samples": 14880,
+      "samples": 14879,
       "blocked": {},
       "layers": [
         "ground-0",
@@ -5830,37 +5723,37 @@
       ],
       "maxKmh": 60.00000000000001,
       "recoveryCount": 0,
-      "travel": 4194.494158877375,
+      "travel": 4194.282693485942,
       "reverse": true
     }
   ],
   "cycles": {
     "before": {
       "documents": 1,
-      "nodes": 362,
-      "jsEventListeners": 112
+      "nodes": 384,
+      "jsEventListeners": 118
     },
     "after": {
       "documents": 1,
-      "nodes": 362,
-      "jsEventListeners": 112
+      "nodes": 384,
+      "jsEventListeners": 118
     },
     "heapBefore": {
-      "usedSize": 154616780,
-      "totalSize": 188747776,
-      "embedderHeapUsedSize": 2557512,
-      "backingStorageSize": 269352090
+      "usedSize": 152674228,
+      "totalSize": 185946112,
+      "embedderHeapUsedSize": 2518400,
+      "backingStorageSize": 262819332
     },
     "heapAfter": {
-      "usedSize": 157113424,
-      "totalSize": 160960512,
-      "embedderHeapUsedSize": 2645616,
-      "backingStorageSize": 275437866
+      "usedSize": 153678384,
+      "totalSize": 158420992,
+      "embedderHeapUsedSize": 2488488,
+      "backingStorageSize": 270907208
     },
     "resources": [
       {
-        "dom": 167,
-        "geometries": 456,
+        "dom": 176,
+        "geometries": 451,
         "avatar": {
           "geometries": [
             7638,
@@ -5936,8 +5829,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 456,
+        "dom": 176,
+        "geometries": 451,
         "avatar": {
           "geometries": [
             7638,
@@ -6013,8 +5906,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 456,
+        "dom": 176,
+        "geometries": 451,
         "avatar": {
           "geometries": [
             7638,
@@ -6090,8 +5983,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 453,
         "avatar": {
           "geometries": [
             7638,
@@ -6167,8 +6060,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 453,
         "avatar": {
           "geometries": [
             7638,
@@ -6244,8 +6137,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 453,
         "avatar": {
           "geometries": [
             7638,
@@ -6321,8 +6214,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 455,
         "avatar": {
           "geometries": [
             7638,
@@ -6398,8 +6291,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 455,
         "avatar": {
           "geometries": [
             7638,
@@ -6475,8 +6368,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 455,
         "avatar": {
           "geometries": [
             7638,
@@ -6552,8 +6445,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 455,
         "avatar": {
           "geometries": [
             7638,
@@ -6629,8 +6522,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 455,
         "avatar": {
           "geometries": [
             7638,
@@ -6706,8 +6599,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 455,
         "avatar": {
           "geometries": [
             7638,
@@ -6783,8 +6676,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 458,
+        "dom": 176,
+        "geometries": 457,
         "avatar": {
           "geometries": [
             7638,
@@ -6860,8 +6753,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 460,
+        "dom": 176,
+        "geometries": 457,
         "avatar": {
           "geometries": [
             7638,
@@ -6937,8 +6830,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 460,
+        "dom": 176,
+        "geometries": 457,
         "avatar": {
           "geometries": [
             7638,
@@ -7014,8 +6907,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 460,
+        "dom": 176,
+        "geometries": 459,
         "avatar": {
           "geometries": [
             7638,
@@ -7091,8 +6984,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 460,
+        "dom": 176,
+        "geometries": 459,
         "avatar": {
           "geometries": [
             7638,
@@ -7168,8 +7061,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 460,
+        "dom": 176,
+        "geometries": 459,
         "avatar": {
           "geometries": [
             7638,
@@ -7245,8 +7138,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 462,
+        "dom": 176,
+        "geometries": 459,
         "avatar": {
           "geometries": [
             7638,
@@ -7322,8 +7215,8 @@
         }
       },
       {
-        "dom": 167,
-        "geometries": 462,
+        "dom": 176,
+        "geometries": 461,
         "avatar": {
           "geometries": [
             7638,

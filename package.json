@@ -39,7 +39,11 @@
     "wuhan:phase61:browser": "node tools/wuhan/browser-check-phase61.mjs",
     "wuhan:phase61:browser-report": "node tools/wuhan/verify-phase61-browser-report.mjs",
     "wuhan:diagnostics:browser": "node tools/wuhan/browser-check-phase61-diagnostics.mjs",
-    "wuhan:explore:browser": "node tools/wuhan/browser-explore-phase61.mjs"
+    "wuhan:explore:browser": "node tools/wuhan/browser-explore-phase61.mjs",
+    "wuhan:free:verify": "node tools/wuhan/verify-free-ride.mjs && node tools/wuhan/verify-landmark-collision.mjs",
+    "wuhan:music:browser": "node tools/wuhan/browser-check-free-music.mjs",
+    "wuhan:free:browser": "node tools/wuhan/browser-check-free-pass.mjs",
+    "wuhan:free:bridge-report": "node tools/wuhan/verify-free-browser-report.mjs"
   },
   "dependencies": {
     "three": "0.185.0"

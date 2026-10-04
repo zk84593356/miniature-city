@@ -26,5 +26,13 @@ export async function findSpawn(adapter,target){
   }
   candidates.sort((a,b)=>a.score-b.score);
   for(const s of candidates){const hit=adapter.validate(s);if(hit){Object.assign(s,hit,{y:hit.height});delete s.score;return s;}}
+  // Remote hills and open water need no nearby road in free exploration mode.
+  // Prefer a clear point close to the view target, still respecting buildings.
+  for(const radius of [0,.03,.1,.3,1])for(let i=0;i<(radius?12:1);i++){
+    const angle=i*Math.PI/6,x=target.x+Math.sin(angle)*radius,z=target.z+Math.cos(angle)*radius;
+    const support=adapter.sample(x,z);if(!support)continue;
+    const s={x,z,y:support.height,heading:0,speed:0,steering:0,surfaceId:support.surfaceId};
+    const hit=adapter.validate(s);if(hit)return {...s,...hit,y:hit.height};
+  }
   return null;
 }

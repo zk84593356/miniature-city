@@ -132,26 +132,28 @@
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
           "geometries": [
+            7637,
+            7638,
             7639,
-            7640,
-            7641,
+            7549,
+            7550,
             7551,
-            7552,
-            7553,
+            7593,
+            7594,
             7595,
-            7596,
-            7597,
+            7697,
+            7698,
             7699,
-            7700,
-            7701,
-            7705,
-            7706,
-            7710,
-            7711,
+            7703,
+            7704,
+            7708,
+            7709,
+            7720,
+            7721,
             7722,
             7723,
-            7724,
-            7725,
+            7683,
+            7684,
             7685,
             7686,
             7687,
@@ -160,16 +162,16 @@
             7690,
             7691,
             7692,
-            7693,
-            7694,
-            7344,
-            7343,
+            7342,
+            7341,
+            7729,
+            7730,
             7731,
-            7732,
-            7733,
+            7737,
+            7738,
             7739,
-            7740,
-            7741,
+            7523,
+            7524,
             7525,
             7526,
             7527,
@@ -177,9 +179,7 @@
             7529,
             7530,
             7531,
-            7532,
-            7533,
-            7742
+            7740
           ],
           "materials": [
             78,
@@ -215,8 +215,8 @@
             0.12
           ]
         ],
-        "pitch": -0.03742032086481403,
-        "roll": 0.06187361563730514,
+        "pitch": -0.037420324788957696,
+        "roll": 0.06187415333214132,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
@@ -246,20 +246,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 92,
-          "surfaceQueryMs": 0.49999988079071045,
-          "staticObstacleQueryMs": 0,
+          "surfaceQueries": 65,
+          "surfaceQueryMs": 0.4000000059604645,
+          "staticObstacleQueryMs": 0.09999999403953552,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.3999999761581421,
-          "rideUpdateMs": 0.8999999761581421
+          "cameraCollisionMs": 0.3999999910593033,
+          "rideUpdateMs": 0.800000011920929
         },
         "meanMetrics": {
-          "surfaceQueries": 90.46153846153847,
-          "surfaceQueryMs": 0.6061538531230046,
-          "staticObstacleQueryMs": 0.02461538498218243,
-          "dynamicQueryMs": 0.0061538457870483395,
-          "cameraCollisionMs": 0.5307692215992854,
-          "rideUpdateMs": 1.046153842485868
+          "surfaceQueries": 65.03225806451613,
+          "surfaceQueryMs": 0.4419354851688108,
+          "staticObstacleQueryMs": 0.02741935440609532,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.5064516125186798,
+          "rideUpdateMs": 0.7967741948462301
         }
       },
       "surface": {
@@ -495,30 +495,32 @@
         },
         "travelMeters": 0,
         "wheel": 0,
-        "contactError": 5.551115123125783e-17,
+        "contactError": 0,
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
           "geometries": [
+            7637,
+            7638,
             7639,
-            7640,
-            7641,
+            7549,
+            7550,
             7551,
-            7552,
-            7553,
+            7593,
+            7594,
             7595,
-            7596,
-            7597,
+            7697,
+            7698,
             7699,
-            7700,
-            7701,
-            7705,
-            7706,
-            7710,
-            7711,
+            7703,
+            7704,
+            7708,
+            7709,
+            7720,
+            7721,
             7722,
             7723,
-            7724,
-            7725,
+            7683,
+            7684,
             7685,
             7686,
             7687,
@@ -527,16 +529,16 @@
             7690,
             7691,
             7692,
-            7693,
-            7694,
-            7344,
-            7343,
+            7342,
+            7341,
+            7729,
+            7730,
             7731,
-            7732,
-            7733,
+            7737,
+            7738,
             7739,
-            7740,
-            7741,
+            7523,
+            7524,
             7525,
             7526,
             7527,
@@ -544,9 +546,7 @@
             7529,
             7530,
             7531,
-            7532,
-            7533,
-            7742
+            7740
           ],
           "materials": [
             78,
@@ -582,24 +582,24 @@
             0.12
           ]
         ],
-        "pitch": 0.04727443369030642,
-        "roll": -0.009329067893668363,
+        "pitch": 0.04727444070939881,
+        "roll": -0.009329196159305624,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -49.11052416657779,
-          0.6294616611562063,
+          0.6294612784544846,
           4.179674138665397
         ],
         "cameraQuaternion": [
-          -0.07195838880388183,
-          -0.6832442794684973,
-          -0.06795924531203441,
-          0.7234506104987001
+          -0.07195753899181231,
+          -0.6832443592973642,
+          -0.06795844272893241,
+          0.7234506950251929
         ],
         "cameraTarget": [
           -48.9988439,
-          0.6069863038941038,
+          0.6069861946039818,
           4.1732848
         ],
         "cameraNear": 0.0005,
@@ -613,20 +613,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 92,
-          "surfaceQueryMs": 1,
+          "surfaceQueries": 65,
+          "surfaceQueryMs": 0.6000000089406967,
           "staticObstacleQueryMs": 0,
           "dynamicQueryMs": 0,
-          "cameraCollisionMs": 0.7000000476837158,
-          "rideUpdateMs": 1.2000000476837158
+          "cameraCollisionMs": 0.699999988079071,
+          "rideUpdateMs": 1
         },
         "meanMetrics": {
-          "surfaceQueries": 91.4578313253012,
-          "surfaceQueryMs": 0.6722891639514141,
-          "staticObstacleQueryMs": 0.026506024670888143,
-          "dynamicQueryMs": 0.00963855292423662,
-          "cameraCollisionMs": 0.6295180701347719,
-          "rideUpdateMs": 2.4253012013722617
+          "surfaceQueries": 64.9585798816568,
+          "surfaceQueryMs": 0.5065088764097564,
+          "staticObstacleQueryMs": 0.03431952687410208,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.6366863909381382,
+          "rideUpdateMs": 2.0899408291253816
         }
       },
       "surface": {
@@ -855,26 +855,28 @@
         "avatarStatus": "procedural-adult-moped",
         "avatarResources": {
           "geometries": [
+            7637,
+            7638,
             7639,
-            7640,
-            7641,
+            7549,
+            7550,
             7551,
-            7552,
-            7553,
+            7593,
+            7594,
             7595,
-            7596,
-            7597,
+            7697,
+            7698,
             7699,
-            7700,
-            7701,
-            7705,
-            7706,
-            7710,
-            7711,
+            7703,
+            7704,
+            7708,
+            7709,
+            7720,
+            7721,
             7722,
             7723,
-            7724,
-            7725,
+            7683,
+            7684,
             7685,
             7686,
             7687,
@@ -883,16 +885,16 @@
             7690,
             7691,
             7692,
-            7693,
-            7694,
-            7344,
-            7343,
+            7342,
+            7341,
+            7729,
+            7730,
             7731,
-            7732,
-            7733,
+            7737,
+            7738,
             7739,
-            7740,
-            7741,
+            7523,
+            7524,
             7525,
             7526,
             7527,
@@ -900,9 +902,7 @@
             7529,
             7530,
             7531,
-            7532,
-            7533,
-            7742
+            7740
           ],
           "materials": [
             78,
@@ -938,24 +938,24 @@
             0.12
           ]
         ],
-        "pitch": -0.00006022716803312513,
+        "pitch": -0.00006022716803312514,
         "roll": -0.00003866030098404511,
         "collision": null,
         "nearestTrafficDistance": null,
         "camera": [
           -39.81903016657779,
-          0.49821440193251043,
+          0.49821440193251176,
           6.159584038665397
         ],
         "cameraQuaternion": [
-          -0.0657956795848154,
-          -0.683798175612418,
-          -0.06213903345672563,
-          0.7240371013271109
+          -0.06579567958481834,
+          -0.6837981756124178,
+          -0.06213903345672842,
+          0.7240371013271105
         ],
         "cameraTarget": [
           -39.7073499,
-          0.47771440215130295,
+          0.47771440215130334,
           6.1531947
         ],
         "cameraNear": 0.0005,
@@ -969,20 +969,20 @@
         "cameraSwing": 0,
         "indexBytes": 45260168,
         "metrics": {
-          "surfaceQueries": 92,
-          "surfaceQueryMs": 0.8000000715255737,
-          "staticObstacleQueryMs": 0,
-          "dynamicQueryMs": 0.10000002384185791,
-          "cameraCollisionMs": 0.8000000715255737,
-          "rideUpdateMs": 1.3000000715255737
+          "surfaceQueries": 65,
+          "surfaceQueryMs": 0.6000000089406967,
+          "staticObstacleQueryMs": 0.10000000894069672,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.7000000029802322,
+          "rideUpdateMs": 1
         },
         "meanMetrics": {
-          "surfaceQueries": 90.91666666666667,
-          "surfaceQueryMs": 0.7633333434661229,
-          "staticObstacleQueryMs": 0.03458333065112432,
-          "dynamicQueryMs": 0.00833333283662796,
-          "cameraCollisionMs": 0.7520833313465118,
-          "rideUpdateMs": 2.697916665673256
+          "surfaceQueries": 64.90416666666667,
+          "surfaceQueryMs": 0.5454166671261191,
+          "staticObstacleQueryMs": 0.03291666687776645,
+          "dynamicQueryMs": 0,
+          "cameraCollisionMs": 0.7233333339293798,
+          "rideUpdateMs": 2.7862500002607704
         }
       },
       "surface": {
@@ -1024,8 +1024,8 @@
           "height": 0.14701436942251006,
           "surfaceId": "water-537",
           "layerId": "water",
-          "traversable": false,
-          "rideAllowed": false,
+          "traversable": true,
+          "rideAllowed": true,
           "normal": [
             0.000008577409019356371,
             0.9999999998978168,
@@ -1063,124 +1063,7 @@
           }
         ]
       },
-      "collision": [
-        {
-          "id": "yangtze-first-pier-1621.1873966088237",
-          "kind": "bridge-pier",
-          "center": [
-            -39.75534992854451,
-            0.20675927525684967,
-            6.1531946816912715
-          ],
-          "size": [
-            0.18000000000000002,
-            0.31948981166860835,
-            0.12
-          ],
-          "rotationY": 1.000483615861566,
-          "source": "estimated structural layout",
-          "estimated": true,
-          "stationMeters": 1621.1873966088237,
-          "originalStationMeters": 1621.1873966088237,
-          "adjustmentReason": null,
-          "bottom": 0.0470143694225455,
-          "top": 0.36650418109115385,
-          "bounds": [
-            -39.863516466808434,
-            6.045028143427352,
-            -39.64718339028059,
-            6.261361219955191
-          ],
-          "distance": 0,
-          "visualResident": true,
-          "collisionResident": true
-        },
-        {
-          "id": "yangtze-first-portal-1621.1873966088237--0.2225",
-          "kind": "bridge-portal",
-          "center": [
-            -39.63553121956175,
-            0.5220143999951785,
-            5.965712077224341
-          ],
-          "size": [
-            0.12,
-            0.24,
-            0.15
-          ],
-          "estimated": true,
-          "source": "published-bridge-structure",
-          "bottom": 0.4020143999951785,
-          "top": 0.6420143999951785,
-          "bounds": [
-            -39.73157808312324,
-            5.869665213662848,
-            -39.53948435600026,
-            6.061758940785833
-          ],
-          "distance": 9.447537954775996,
-          "visualResident": true,
-          "collisionResident": true
-        },
-        {
-          "id": "yangtze-first-portal-1621.1873966088237-0.2225",
-          "kind": "bridge-portal",
-          "center": [
-            -39.875168637527274,
-            0.5220143999951785,
-            6.340677286158202
-          ],
-          "size": [
-            0.12,
-            0.24,
-            0.15
-          ],
-          "estimated": true,
-          "source": "published-bridge-structure",
-          "bottom": 0.4020143999951785,
-          "top": 0.6420143999951785,
-          "bounds": [
-            -39.971215501088764,
-            6.2446304225967095,
-            -39.779121773965784,
-            6.436724149719695
-          ],
-          "distance": 9.447535847313597,
-          "visualResident": true,
-          "collisionResident": true
-        },
-        {
-          "id": "yangtze-first-pier-1580",
-          "kind": "bridge-pier",
-          "center": [
-            -40.10203746240409,
-            0.3256145508647501,
-            5.9308260017498995
-          ],
-          "size": [
-            0.18000000000000002,
-            0.28131357103937843,
-            0.065
-          ],
-          "rotationY": 1.0004843240058217,
-          "source": "estimated structural layout",
-          "estimated": true,
-          "stationMeters": 1580,
-          "originalStationMeters": 1580,
-          "adjustmentReason": null,
-          "bottom": 0.1849577653450609,
-          "top": 0.4662713363844393,
-          "bounds": [
-            -40.19772575844912,
-            5.835137705704876,
-            -40.006349166359065,
-            6.026514297794923
-          ],
-          "distance": 28.1155750458051,
-          "visualResident": true,
-          "collisionResident": true
-        }
-      ]
+      "collision": []
     }
   ],
   "errors": []

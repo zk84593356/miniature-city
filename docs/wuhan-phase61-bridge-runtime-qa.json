@@ -1,12 +1,13 @@
 {
   "result": "PASS",
-  "scope": "10 cm replay of full capsule against production surface adapter and streamed canonical triangles; browser input cases reported separately",
+  "scope": "10 cm runtime replay plus nine-point bridge footprint geometry checks every metre and at segment ends; matching visible/CPU position and index identities required independently of movement policy; browser input cases reported separately",
   "datasetId": "f2b6a5b9c82d0b04",
   "results": [
     {
       "id": "yangtze-first",
       "reverse": false,
       "samples": 42542,
+      "footprintSamples": 35883,
       "layers": [
         "ground-0",
         "bridge-yangtze-first",
@@ -24,6 +25,7 @@
       "id": "yangtze-first",
       "reverse": true,
       "samples": 42542,
+      "footprintSamples": 35883,
       "layers": [
         "ground-0",
         "bridge-yangtze-first",
@@ -41,6 +43,7 @@
       "id": "yingwuzhou",
       "reverse": false,
       "samples": 36804,
+      "footprintSamples": 33786,
       "layers": [
         "ground-0",
         "bridge-1",
@@ -63,6 +66,7 @@
       "id": "yingwuzhou",
       "reverse": true,
       "samples": 36804,
+      "footprintSamples": 33795,
       "layers": [
         "ground-0",
         "bridge-1",
@@ -86,6 +90,7 @@
       "id": "yangsigang",
       "reverse": false,
       "samples": 103764,
+      "footprintSamples": 100386,
       "layers": [
         "ground-0",
         "bridge-1",
@@ -104,7 +109,7 @@
         "osm-way-733669076",
         "bridge-yangsigang",
         "osm-way-963226093",
-        "osm-way-1238493940"
+        "osm-way-1238493938"
       ],
       "failed": null
     },
@@ -112,6 +117,7 @@
       "id": "yangsigang",
       "reverse": true,
       "samples": 103764,
+      "footprintSamples": 100395,
       "layers": [
         "ground-0",
         "bridge-3",
@@ -122,7 +128,7 @@
         "ground-0"
       ],
       "surfaces": [
-        "osm-way-1238493940",
+        "osm-way-1238493938",
         "osm-way-963226093",
         "bridge-yangsigang",
         "osm-way-733669076",
@@ -136,6 +142,7 @@
       "id": "erqi",
       "reverse": false,
       "samples": 78158,
+      "footprintSamples": 74799,
       "layers": [
         "ground-0",
         "bridge-1",
@@ -145,7 +152,7 @@
         "ground-0"
       ],
       "surfaces": [
-        "junction-2418537654-ground-0",
+        "osm-way-456207635",
         "osm-way-233473964",
         "osm-way-233473928",
         "osm-way-815995622",
@@ -160,6 +167,7 @@
       "id": "erqi",
       "reverse": true,
       "samples": 78158,
+      "footprintSamples": 74799,
       "layers": [
         "ground-0",
         "bridge-2",
@@ -177,7 +185,7 @@
         "osm-way-815995622",
         "osm-way-233473928",
         "osm-way-233473964",
-        "junction-2418537654-ground-0"
+        "osm-way-456207635"
       ],
       "failed": null
     },
@@ -185,6 +193,7 @@
       "id": "qingchuan",
       "reverse": false,
       "samples": 21135,
+      "footprintSamples": 20430,
       "layers": [
         "ground-0",
         "bridge-qingchuan",
@@ -203,6 +212,7 @@
       "id": "qingchuan",
       "reverse": true,
       "samples": 21135,
+      "footprintSamples": 20421,
       "layers": [
         "ground-0",
         "bridge-qingchuan",
@@ -220,6 +230,7 @@
       "id": "yangtze-second",
       "reverse": false,
       "samples": 81836,
+      "footprintSamples": 78930,
       "layers": [
         "ground-0",
         "bridge-yangtze-second",
@@ -239,6 +250,7 @@
       "id": "yangtze-second",
       "reverse": true,
       "samples": 81836,
+      "footprintSamples": 78930,
       "layers": [
         "ground-0",
         "bridge-1",

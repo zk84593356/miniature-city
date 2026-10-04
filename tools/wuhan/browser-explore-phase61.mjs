@@ -46,7 +46,7 @@ try{
   regions.push({name,wallDurationMs:Date.now()-start,travelMeters:state.travelMeters,recoveryCount:state.recoveryCount,blockCounts:state.blockCounts,events,samples});
   await writeFile('docs/wuhan-phase61-exploration-qa.json',JSON.stringify({status:'IN_PROGRESS',method:'Real elapsed RAF browser exploration with keyboard inputs; nine ordinary-road district starts, no position writes while riding',regions:compactRegions(),errors},null,2)+'\n');
  }
- const unexpected=regions.flatMap(r=>r.events.filter(e=>['loading','surface-missing','tree','shrub','flower'].includes(e.blockKind))),invisible=regions.flatMap(r=>r.samples.flatMap(s=>s.invisible));
+ const unexpected=regions.flatMap(r=>r.events.filter(e=>!['building','dataset-end','fatal-invalid-state'].includes(e.blockKind))),invisible=regions.flatMap(r=>r.samples.flatMap(s=>s.invisible));
  const elapsed=regions.reduce((n,r)=>n+r.wallDurationMs,0),recovery=regions.reduce((n,r)=>n+r.recoveryCount,0);
  const report={status:unexpected.length||recovery||invisible.length||errors.length?'FAIL':'PASS',wallDurationMs:elapsed,unexpectedBlocks:unexpected,loadingBlocks:regions.reduce((n,r)=>n+(r.blockCounts.loading??0),0),surfaceMissing:regions.reduce((n,r)=>n+(r.blockCounts['surface-missing']??0),0),recovery,invisibleColliders:invisible,method:'100-second real elapsed browser exploration segments across nine districts; keyboard controls and live traffic, retries retained. District relocation only between segments.',regions,errors};
  await writeFile('probe/wuhan/phase61-exploration-raw.json',JSON.stringify(report)+'\n');

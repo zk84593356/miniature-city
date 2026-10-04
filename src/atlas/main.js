@@ -10,6 +10,7 @@ import {createDynamics} from './simulation/dynamics.js';
 import {createNightLighting} from './render/night-lighting.js';
 import {landmarkMaterials} from './render/landmark-models.js';
 import {createRide} from './ride/ride-controller.js';
+import {createCityMusic} from './audio/city-music.js';
 
 const $ = selector => document.querySelector(selector);
 const abort = new AbortController();
@@ -64,6 +65,7 @@ async function start() {
   reducedMotion.addEventListener('change',onMotionChange);
   const frameTimes = [];
   const places=createPlaces({pack,scene,surface,projection,camera,geography,urban,onFocus:id=>fly(id)});
+  const music=createCityMusic();
   const ride=createRide({pack,surface,urban,places,dynamics,scene,camera,controls,projection,reducedMotion,root:$('#app'),canvas:renderer.domElement,cancelFlight:()=>{flight=null;}});
 
   function fly(id, immediate = false) {
@@ -187,7 +189,7 @@ async function start() {
     cancelAnimationFrame(frame);
     window.removeEventListener('resize', resize);
     reducedMotion.removeEventListener('change',onMotionChange);
-    ride.dispose(); controls.dispose(); dynamics.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
+    void music.dispose(); ride.dispose(); controls.dispose(); dynamics.dispose(); places.dispose(); urban.dispose(); geography.dispose(); renderer.dispose(); renderer.domElement.remove();
   };
   // Explicit diagnostics for browser verification and future surface adapters.
   function terrainTriangles() {
@@ -197,6 +199,7 @@ async function start() {
     return triangles;
   }
   window.__wuhan = {
+    getMusicState:()=>music.getState(),
     roadDebug:value=>urban.canonical?.setDebug(value),
     vegetationDebug:()=>['localhost','127.0.0.1'].includes(location.hostname)?urban.vegetation.entries.flatMap(e=>e.items??[]):[],
     roadDebugProbe:(x,z)=>['localhost','127.0.0.1'].includes(location.hostname)?surface.getRoadTriangles().candidates(x,z):null,

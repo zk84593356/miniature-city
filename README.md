@@ -99,3 +99,9 @@ npm run verify
 - `docs/city-pack-contract.md`：深圳与未来大理等真实城市包的扩展合同。
 
 此项目仅用于私下研究。原站文案、音频、城市数据、视觉资产与品牌表达的权利归各自权利人所有。
+
+### 武汉自由探索与城市音乐
+
+当前产品规则：建筑是唯一硬碰撞实体，其余城市元素不阻断自由探索。音乐默认关闭，工具栏开启，数据面板调音量。详见 [自由探索与音乐](docs/wuhan-free-exploration.md)。
+
+新增验收：`npm run wuhan:free:verify`、`npm run wuhan:free:browser`、`npm run wuhan:music:browser`、`npm run wuhan:free:bridge-report`。

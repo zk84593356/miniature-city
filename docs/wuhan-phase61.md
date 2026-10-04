@@ -1,5 +1,7 @@
 # 武汉 Phase 6.1：桥梁实骑、Surface 连续性与空气墙修复
 
+> 历史验收：本页的水体、坡度、车辆和桥结构碰撞规则已由 [2026-10-03 自由探索调整](wuhan-free-exploration.md) 覆盖。桥面几何修复记录仍保留。
+
 本次只修改武汉 Atlas、对应 canonical road surface 和验收工具。深圳、Cloudflare Pages 配置、DEM、水体、OSM 道路中心线及普通建筑源数据保持不变。City Pack 完整性校验继续启用。
 
 ## 1–2. 发现的问题及分类

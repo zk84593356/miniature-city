@@ -98,7 +98,7 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
       if (water) {
         const model=water.surface;
         const normal=model ? new THREE.Vector3(model.gradient*model.direction[0],1,model.gradient*model.direction[1]).normalize().toArray() : [0,1,0];
-        return { kind: 'water', height: waterHeight(water, x, z), surfaceId: water.id, layerId: 'water', traversable: false, rideAllowed: false, normal };
+        return { kind: 'water', height: waterHeight(water, x, z), surfaceId: water.id, layerId: 'water', traversable: true, rideAllowed: true, normal };
       }
       if(fastTerrain){const hit=fastTerrain.sample(x,z);return hit?{...hit,kind:'ground',surfaceId:'terrain',layerId:'ground',traversable:true,rideAllowed:true}:null;}
       ray.set(new THREE.Vector3(x, 100, z), down);
@@ -148,12 +148,15 @@ export function createTerrainSurface(terrain, waters, projection, bounds) {
           break;
         }
       }
+      // Access tags describe source roads; this virtual exploration mode allows
+      // every support. Keep the original feature metadata intact in the pack.
+      for(let i=0;i<candidates.length;i++)candidates[i]={...candidates[i],rideAllowed:true,traversable:true};
       if(referenceY===undefined) return candidates.find(c=>c.surfaceId==='terrain'||c.kind==='water')??null;
       // Coplanar junction ribbons can differ by Float32 roundoff. That must not
       // let a forbidden arm mask a rideable intersection at the SAME elevation.
       candidates.sort((a,b)=>{const d=Math.abs(a.height-referenceY)-Math.abs(b.height-referenceY);return Math.abs(d)>1e-6?d:Number(b.rideAllowed)-Number(a.rideAllowed);});
       const previous=candidates.find(c=>c.surfaceId===previousSurfaceId);
-      if(previous?.rideAllowed&&Math.abs(previous.height-referenceY)<=.003){
+      if(previous?.rideAllowed&&(previous.kind==='bridge'||Math.abs(previous.height-referenceY)<=.003)){
         if(previous.kind==='terrain'||previous.kind==='road'){
           const top=candidates.find(c=>c.canonical&&c.rideAllowed&&Math.abs(c.height-referenceY)<=.003&&(c.kind==='road'&&previous.kind==='terrain'||c.kind==='bridge'&&(
             roadTriangles.connected(previous,c)||candidates.some(j=>j.nodeId&&j.roadIds?.some(id=>c.roadIds?.includes(id)))||bridgeConnections.some(p=>p.roadIds?.some(id=>c.roadIds?.includes(id))&&Math.hypot(x-p.position[0],z-p.position[1])<(p.radius??.3))

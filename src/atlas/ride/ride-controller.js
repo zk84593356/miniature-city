@@ -48,7 +48,7 @@ class WuhanRide{
       await new Promise(resolve=>setTimeout(resolve,0));
       const state=await findSpawn(this.adapter,target);
       if(generation!==this.generation){this.urban.releaseRide?.();return false;}
-      if(!state){this.notify('附近暂未找到安全骑行道路，请换一个浏览位置。');return false;}
+      if(!state){this.notify('附近没有可用的骑行位置，请换一个浏览位置。');return false;}
       this.activate(state);return true;
     }catch(error){if(generation===this.generation)this.notify('骑行数据加载失败，请重试。');console.error(error);return false;}
     finally{if(generation===this.generation){this.pending=false;this.button.removeAttribute('aria-busy');}}
@@ -76,8 +76,8 @@ class WuhanRide{
     // Recovery is reserved for an invalid simulation state, never a blocked move.
     const finite=[s.x,s.y,s.z,s.speed,s.heading].every(Number.isFinite);
     const current=finite?this.adapter.sample(s.x,s.z,s.y,s.surfaceId):null;
-    if(!finite||Math.abs(s.y-this.lastSafeState.y)>.05||!current?.rideAllowed||Math.abs(current.height-s.y)>.05){
-      this.recoveryReason=!finite?'non-finite-state':!current?.rideAllowed?'surface-missing':'invalid-support-height';this.recoveryCount++;Object.assign(s,this.lastSafeState,{speed:0});remaining=0;
+    if(!finite||!current||!Number.isFinite(current.height)){
+      this.recoveryReason=!finite?'fatal-invalid-state':!current?'dataset-end':'fatal-invalid-state';this.recoveryCount++;Object.assign(s,this.lastSafeState,{speed:0});remaining=0;
     }
     while(remaining>1e-8){
       const step=Math.min(remaining,1/120,RIDE_MOTION.maxStepMeters/(Math.abs(s.speed)+RIDE_MOTION.acceleration/120));remaining-=step;

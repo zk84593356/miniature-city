@@ -1,6 +1,6 @@
 {
   "result": "PASS",
-  "date": "2026-09-30T05:32:14.855Z",
+  "date": "2026-10-03T15:31:11.820Z",
   "views": [
     {
       "view": "confluence",
@@ -24,12 +24,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 10.141400000000013,
+          "time": 10.158000000000008,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1017,
+          "vehicles": 1016,
           "target": 1020,
-          "ticks": 202,
+          "ticks": 203,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -48,7 +48,7 @@
           "farVehicles": 401,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 202,
+          "vesselTicks": 203,
           "routes": 3,
           "routeCounts": [
             {
@@ -70,9 +70,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 4.088749999801318,
-          "vesselSimulationMs": 0.015000001589457194,
-          "dynamicUpdateMs": 5.9820833340287205
+          "trafficSimulationMs": 3.697083333383004,
+          "vesselSimulationMs": 0.014583333240201076,
+          "dynamicUpdateMs": 5.504999999701977
         },
         "phase": 6,
         "placesReady": true,
@@ -84,7 +84,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -148,7 +148,7 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 18.197999999999883,
+          "time": 18.197899999999876,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 540,
@@ -194,9 +194,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.653333332637946,
-          "vesselSimulationMs": 0.012499999006589253,
-          "dynamicUpdateMs": 3.898333331445853
+          "trafficSimulationMs": 2.2808333333892126,
+          "vesselSimulationMs": 0.009166666648040216,
+          "dynamicUpdateMs": 3.4045833332774538
         },
         "phase": 6,
         "placesReady": true,
@@ -208,7 +208,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -272,12 +272,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "sunset",
-          "time": 26.254599999999716,
+          "time": 26.221099999999694,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 1200,
           "target": 1200,
-          "ticks": 525,
+          "ticks": 524,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -291,12 +291,12 @@
             "qingchuan": 11,
             "yangtze-second": 16
           },
-          "visibleVehicles": 437,
+          "visibleVehicles": 438,
           "nearVehicles": 0,
-          "farVehicles": 437,
+          "farVehicles": 438,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 525,
+          "vesselTicks": 524,
           "routes": 3,
           "routeCounts": [
             {
@@ -318,9 +318,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 4.861666667958101,
-          "vesselSimulationMs": 0.010833332935969034,
-          "dynamicUpdateMs": 6.95083333303531
+          "trafficSimulationMs": 4.91416666659837,
+          "vesselSimulationMs": 0.015416666679084302,
+          "dynamicUpdateMs": 7.160416666635623
         },
         "phase": 6,
         "placesReady": true,
@@ -332,7 +332,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -370,7 +370,7 @@
         "triangles": 2532922,
         "geometries": 385,
         "frameSamples": 180,
-        "p95FrameMs": 16.799999999999272,
+        "p95FrameMs": 16.80000000000291,
         "disposed": false
       }
     },
@@ -396,12 +396,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 34.311199999999715,
+          "time": 34.29449999999967,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 538,
           "target": 540,
-          "ticks": 686,
+          "ticks": 685,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -413,14 +413,14 @@
             "yangsigang": 12,
             "erqi": 15,
             "qingchuan": 10,
-            "yangtze-second": 12
+            "yangtze-second": 11
           },
-          "visibleVehicles": 142,
+          "visibleVehicles": 147,
           "nearVehicles": 6,
-          "farVehicles": 136,
+          "farVehicles": 141,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 686,
+          "vesselTicks": 685,
           "routes": 3,
           "routeCounts": [
             {
@@ -442,9 +442,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.2837500010927516,
-          "vesselSimulationMs": 0.014583330353101094,
-          "dynamicUpdateMs": 3.3237499977151552
+          "trafficSimulationMs": 2.416666666759799,
+          "vesselSimulationMs": 0.019583333283662796,
+          "dynamicUpdateMs": 3.6083333336748185
         },
         "phase": 6,
         "placesReady": true,
@@ -456,7 +456,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -520,10 +520,10 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 42.384500000000365,
+          "time": 42.367700000000305,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 537,
+          "vehicles": 538,
           "target": 540,
           "ticks": 847,
           "simulationHz": 20,
@@ -534,10 +534,10 @@
           "bridgeVehicles": {
             "yangtze-first": 12,
             "yingwuzhou": 11,
-            "yangsigang": 12,
+            "yangsigang": 13,
             "erqi": 16,
             "qingchuan": 9,
-            "yangtze-second": 12
+            "yangtze-second": 11
           },
           "visibleVehicles": 6,
           "nearVehicles": 6,
@@ -566,9 +566,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.188750001291434,
-          "vesselSimulationMs": 0.011666666964689891,
-          "dynamicUpdateMs": 3.1729166676600773
+          "trafficSimulationMs": 2.3087500001614294,
+          "vesselSimulationMs": 0.018333333389212687,
+          "dynamicUpdateMs": 3.4358333335258067
         },
         "phase": 6,
         "placesReady": true,
@@ -580,7 +580,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -644,10 +644,10 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "day",
-          "time": 50.25750000000093,
+          "time": 50.27420000000097,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 1015,
+          "vehicles": 1017,
           "target": 1020,
           "ticks": 1005,
           "simulationHz": 20,
@@ -656,16 +656,16 @@
           "cachedRoutes": 900,
           "hiddenTunnelVehicles": 1,
           "bridgeVehicles": {
-            "yangtze-first": 14,
-            "yingwuzhou": 13,
+            "yangtze-first": 13,
+            "yingwuzhou": 12,
             "yangsigang": 13,
-            "erqi": 19,
+            "erqi": 18,
             "qingchuan": 9,
-            "yangtze-second": 19
+            "yangtze-second": 15
           },
-          "visibleVehicles": 21,
-          "nearVehicles": 7,
-          "farVehicles": 14,
+          "visibleVehicles": 16,
+          "nearVehicles": 5,
+          "farVehicles": 11,
           "maxDrawCalls": 5,
           "vessels": 18,
           "vesselTicks": 1005,
@@ -690,9 +690,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 4.067083332439264,
-          "vesselSimulationMs": 0.010416667163372039,
-          "dynamicUpdateMs": 5.7904166688521705
+          "trafficSimulationMs": 4.312916666641831,
+          "vesselSimulationMs": 0.012500000093132258,
+          "dynamicUpdateMs": 6.322916666511446
         },
         "phase": 6,
         "placesReady": true,
@@ -704,7 +704,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -739,10 +739,10 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 189,
-        "triangles": 1414136,
+        "triangles": 1414088,
         "geometries": 478,
         "frameSamples": 180,
-        "p95FrameMs": 16.80000000000291,
+        "p95FrameMs": 16.799999999995634,
         "disposed": false
       }
     },
@@ -768,31 +768,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 58.31410000000145,
+          "time": 58.23070000000162,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 540,
           "target": 540,
-          "ticks": 1166,
+          "ticks": 1164,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 3,
           "bridgeVehicles": {
             "yangtze-first": 12,
             "yingwuzhou": 11,
-            "yangsigang": 9,
-            "erqi": 16,
-            "qingchuan": 11,
-            "yangtze-second": 13
+            "yangsigang": 10,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 11
           },
-          "visibleVehicles": 207,
+          "visibleVehicles": 212,
           "nearVehicles": 0,
-          "farVehicles": 207,
+          "farVehicles": 212,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1166,
+          "vesselTicks": 1164,
           "routes": 3,
           "routeCounts": [
             {
@@ -814,9 +814,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.3616666649778684,
-          "vesselSimulationMs": 0.016249999403953552,
-          "dynamicUpdateMs": 3.4391666680574415
+          "trafficSimulationMs": 2.4704166668777665,
+          "vesselSimulationMs": 0.018333333202948172,
+          "dynamicUpdateMs": 3.655416666623205
         },
         "phase": 6,
         "placesReady": true,
@@ -828,7 +828,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -892,31 +892,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 66.27060000000233,
+          "time": 66.20390000000256,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 536,
+          "vehicles": 539,
           "target": 540,
-          "ticks": 1325,
+          "ticks": 1324,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 2,
+          "hiddenTunnelVehicles": 3,
           "bridgeVehicles": {
-            "yangtze-first": 12,
+            "yangtze-first": 11,
             "yingwuzhou": 11,
-            "yangsigang": 8,
-            "erqi": 16,
-            "qingchuan": 11,
-            "yangtze-second": 14
+            "yangsigang": 10,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 11
           },
-          "visibleVehicles": 27,
-          "nearVehicles": 23,
-          "farVehicles": 4,
+          "visibleVehicles": 29,
+          "nearVehicles": 21,
+          "farVehicles": 8,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1325,
+          "vesselTicks": 1324,
           "routes": 3,
           "routeCounts": [
             {
@@ -938,9 +938,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.1654166653752327,
-          "vesselSimulationMs": 0.013749998311201732,
-          "dynamicUpdateMs": 3.226249997317791
+          "trafficSimulationMs": 2.254583333308498,
+          "vesselSimulationMs": 0.015000000068296989,
+          "dynamicUpdateMs": 3.492083333308498
         },
         "phase": 6,
         "placesReady": true,
@@ -952,7 +952,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -987,7 +987,7 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 189,
-        "triangles": 1206183,
+        "triangles": 1206087,
         "geometries": 544,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
@@ -1016,31 +1016,31 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 74.24380000000384,
+          "time": 74.1770000000042,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 539,
           "target": 540,
-          "ticks": 1484,
+          "ticks": 1483,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 3,
+          "hiddenTunnelVehicles": 4,
           "bridgeVehicles": {
             "yangtze-first": 11,
-            "yingwuzhou": 11,
-            "yangsigang": 9,
-            "erqi": 15,
-            "qingchuan": 11,
-            "yangtze-second": 14
+            "yingwuzhou": 12,
+            "yangsigang": 10,
+            "erqi": 14,
+            "qingchuan": 10,
+            "yangtze-second": 11
           },
-          "visibleVehicles": 40,
-          "nearVehicles": 12,
-          "farVehicles": 28,
+          "visibleVehicles": 45,
+          "nearVehicles": 14,
+          "farVehicles": 31,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1484,
+          "vesselTicks": 1483,
           "routes": 3,
           "routeCounts": [
             {
@@ -1062,9 +1062,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 6,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.131249996026357,
-          "vesselSimulationMs": 0.017500000695387524,
-          "dynamicUpdateMs": 3.1749999980131784
+          "trafficSimulationMs": 2.3216666666480403,
+          "vesselSimulationMs": 0.01708333327745398,
+          "dynamicUpdateMs": 3.5683333334513008
         },
         "phase": 6,
         "placesReady": true,
@@ -1076,7 +1076,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1111,7 +1111,7 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 266,
-        "triangles": 1232161,
+        "triangles": 1232257,
         "geometries": 543,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
@@ -1140,10 +1140,10 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 82.21710000000544,
+          "time": 82.20030000000575,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 539,
+          "vehicles": 538,
           "target": 540,
           "ticks": 1644,
           "simulationHz": 20,
@@ -1153,14 +1153,14 @@
           "hiddenTunnelVehicles": 3,
           "bridgeVehicles": {
             "yangtze-first": 11,
-            "yingwuzhou": 11,
-            "yangsigang": 10,
+            "yingwuzhou": 12,
+            "yangsigang": 11,
             "erqi": 14,
-            "qingchuan": 11,
-            "yangtze-second": 14
+            "qingchuan": 10,
+            "yangtze-second": 11
           },
-          "visibleVehicles": 37,
-          "nearVehicles": 2,
+          "visibleVehicles": 35,
+          "nearVehicles": 0,
           "farVehicles": 35,
           "maxDrawCalls": 5,
           "vessels": 18,
@@ -1186,9 +1186,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.123749999701977,
-          "vesselSimulationMs": 0.014583333333333334,
-          "dynamicUpdateMs": 3.1424999917546907
+          "trafficSimulationMs": 2.291666666790843,
+          "vesselSimulationMs": 0.015416666648040216,
+          "dynamicUpdateMs": 3.458750000068297
         },
         "phase": 6,
         "placesReady": true,
@@ -1200,7 +1200,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1234,8 +1234,8 @@
         "wireframe": false,
         "labelsVisible": true,
         "rendererCount": 1,
-        "drawCalls": 266,
-        "triangles": 1216549,
+        "drawCalls": 262,
+        "triangles": 1216453,
         "geometries": 527,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
@@ -1264,12 +1264,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 90.15670000000704,
+          "time": 90.10670000000736,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 539,
+          "vehicles": 540,
           "target": 540,
-          "ticks": 1803,
+          "ticks": 1802,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -1277,18 +1277,18 @@
           "hiddenTunnelVehicles": 2,
           "bridgeVehicles": {
             "yangtze-first": 11,
-            "yingwuzhou": 11,
-            "yangsigang": 12,
-            "erqi": 14,
-            "qingchuan": 11,
-            "yangtze-second": 14
+            "yingwuzhou": 12,
+            "yangsigang": 13,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 11
           },
-          "visibleVehicles": 14,
-          "nearVehicles": 13,
-          "farVehicles": 1,
+          "visibleVehicles": 13,
+          "nearVehicles": 11,
+          "farVehicles": 2,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 1803,
+          "vesselTicks": 1802,
           "routes": 3,
           "routeCounts": [
             {
@@ -1310,9 +1310,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.3166666656732557,
-          "vesselSimulationMs": 0.011250000198682148,
-          "dynamicUpdateMs": 3.4108333324392635
+          "trafficSimulationMs": 2.465416666679084,
+          "vesselSimulationMs": 0.015833333289871614,
+          "dynamicUpdateMs": 3.709166666585952
         },
         "phase": 6,
         "placesReady": true,
@@ -1324,7 +1324,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1359,7 +1359,7 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 177,
-        "triangles": 769881,
+        "triangles": 769785,
         "geometries": 289,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
@@ -1388,28 +1388,28 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 98.09650000000856,
+          "time": 98.07990000000893,
           "demonstration": true,
           "capacity": 1200,
-          "vehicles": 538,
+          "vehicles": 540,
           "target": 540,
           "ticks": 1961,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 3,
+          "hiddenTunnelVehicles": 4,
           "bridgeVehicles": {
             "yangtze-first": 11,
-            "yingwuzhou": 11,
-            "yangsigang": 13,
-            "erqi": 14,
-            "qingchuan": 11,
-            "yangtze-second": 14
+            "yingwuzhou": 12,
+            "yangsigang": 14,
+            "erqi": 15,
+            "qingchuan": 10,
+            "yangtze-second": 11
           },
-          "visibleVehicles": 23,
-          "nearVehicles": 15,
-          "farVehicles": 8,
+          "visibleVehicles": 25,
+          "nearVehicles": 16,
+          "farVehicles": 9,
           "maxDrawCalls": 5,
           "vessels": 18,
           "vesselTicks": 1961,
@@ -1434,9 +1434,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 3,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.197916665673256,
-          "vesselSimulationMs": 0.009583333631356557,
-          "dynamicUpdateMs": 3.324583334227403
+          "trafficSimulationMs": 2.3487499999813735,
+          "vesselSimulationMs": 0.014166666567325592,
+          "dynamicUpdateMs": 3.6687499999068676
         },
         "phase": 6,
         "placesReady": true,
@@ -1448,7 +1448,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1483,7 +1483,7 @@
         "labelsVisible": true,
         "rendererCount": 1,
         "drawCalls": 196,
-        "triangles": 1211955,
+        "triangles": 1212003,
         "geometries": 293,
         "frameSamples": 180,
         "p95FrameMs": 16.80000000000291,
@@ -1512,7 +1512,7 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 106.05300000001007,
+          "time": 106.05310000001052,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 538,
@@ -1522,18 +1522,18 @@
           "laneCount": 6298,
           "junctionCount": 5168,
           "cachedRoutes": 900,
-          "hiddenTunnelVehicles": 3,
+          "hiddenTunnelVehicles": 4,
           "bridgeVehicles": {
             "yangtze-first": 11,
-            "yingwuzhou": 11,
-            "yangsigang": 12,
-            "erqi": 13,
+            "yingwuzhou": 12,
+            "yangsigang": 13,
+            "erqi": 14,
             "qingchuan": 11,
-            "yangtze-second": 14
+            "yangtze-second": 11
           },
-          "visibleVehicles": 28,
+          "visibleVehicles": 24,
           "nearVehicles": 10,
-          "farVehicles": 18,
+          "farVehicles": 14,
           "maxDrawCalls": 5,
           "vessels": 18,
           "vesselTicks": 2121,
@@ -1558,9 +1558,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 2.2345833336313565,
-          "vesselSimulationMs": 0.012916666269302369,
-          "dynamicUpdateMs": 3.29958333025376
+          "trafficSimulationMs": 2.389999999944121,
+          "vesselSimulationMs": 0.012500000031044086,
+          "dynamicUpdateMs": 3.607916666381061
         },
         "phase": 6,
         "placesReady": true,
@@ -1572,7 +1572,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1758.6999999284744,
+        "initialLoadMs": 1712.3000000044703,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1610,7 +1610,7 @@
         "triangles": 1052884,
         "geometries": 306,
         "frameSamples": 180,
-        "p95FrameMs": 16.80000000000291,
+        "p95FrameMs": 16.79999999998836,
         "disposed": false
       }
     },
@@ -1636,12 +1636,12 @@
           "focused": true,
           "qualityLevel": "high",
           "mode": "night",
-          "time": 10.375000000000005,
+          "time": 10.3416,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 540,
           "target": 540,
-          "ticks": 207,
+          "ticks": 206,
           "simulationHz": 20,
           "laneCount": 6298,
           "junctionCount": 5168,
@@ -1660,7 +1660,7 @@
           "farVehicles": 0,
           "maxDrawCalls": 5,
           "vessels": 18,
-          "vesselTicks": 207,
+          "vesselTicks": 206,
           "routes": 3,
           "routeCounts": [
             {
@@ -1682,9 +1682,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 1.967083332935969,
-          "vesselSimulationMs": 0.015416667362054189,
-          "dynamicUpdateMs": 2.8745833352208137
+          "trafficSimulationMs": 2.1004166666107875,
+          "vesselSimulationMs": 0.01125000004346172,
+          "dynamicUpdateMs": 3.1825000000807147
         },
         "phase": 6,
         "placesReady": true,
@@ -1696,7 +1696,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1591.3999999761581,
+        "initialLoadMs": 1713.7999999970198,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1760,7 +1760,7 @@
           "focused": true,
           "qualityLevel": "low",
           "mode": "night",
-          "time": 10.391800000000016,
+          "time": 10.391699999999993,
           "demonstration": true,
           "capacity": 1200,
           "vehicles": 180,
@@ -1806,9 +1806,9 @@
           "maxWakeSegments": 144,
           "visibleBirds": 0,
           "maxBirds": 12,
-          "trafficSimulationMs": 0.7166666661699613,
-          "vesselSimulationMs": 0.006250000993410746,
-          "dynamicUpdateMs": 1.0979166686534882
+          "trafficSimulationMs": 1.3316666667349637,
+          "vesselSimulationMs": 0.012083333296080431,
+          "dynamicUpdateMs": 1.9795833331843218
         },
         "phase": 6,
         "placesReady": true,
@@ -1820,7 +1820,7 @@
           "geometryBytes": 2799888
         },
         "placeErrors": [],
-        "initialLoadMs": 1672.6000000238419,
+        "initialLoadMs": 1660.8999999985099,
         "urbanReady": true,
         "urban": {
           "roadsReady": true,
@@ -1831,12 +1831,12 @@
           "buildingCount": 2769,
           "surfacesReady": true,
           "roadTriangles": 573574,
-          "loadedSurfaceChunks": 84
+          "loadedSurfaceChunks": 81
         },
         "urbanErrors": [],
         "mainLoopCount": 1,
         "terrainTriangles": 215390,
-        "estimatedGeometryBytes": 128705212,
+        "estimatedGeometryBytes": 125273596,
         "datasetId": "f2b6a5b9c82d0b04",
         "region": "wuhan-iconic",
         "flying": false,
@@ -1858,7 +1858,7 @@
         "triangles": 1047304,
         "geometries": 252,
         "frameSamples": 180,
-        "p95FrameMs": 16.80000000000109,
+        "p95FrameMs": 16.799999999999272,
         "disposed": false
       }
     }

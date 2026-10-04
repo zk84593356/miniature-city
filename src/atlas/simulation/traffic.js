@@ -22,7 +22,6 @@ export function createTraffic(network,{heightAt}={}) {
     return best;
   });
   const reservations=new Map(),grid=new Map();
-  let rider=null;
   const riderBody={length:.022,width:.010};
   function locate(v,s,out) {
     const r=v.route;let lo=0,hi=r.parts.length-1;
@@ -53,7 +52,6 @@ export function createTraffic(network,{heightAt}={}) {
       if(v.type>=2&&!v.route.parts.every(p=>!p.lane||p.lane.allowedVehicleTypes?.includes(v.type===2?'bus':'truck'))){v.type=0;v.length=.045;}
       v.part=locate(v,v.s,v.pose);
       if(v.pose.hidden||!v.route.parts[v.part].lane)continue;
-      if(rider&&overlaps(v,v.pose,riderBody,rider))continue;
       if(near(v.pose,o=>Math.abs(v.pose.y-o.pose.y)<.03&&Math.hypot(v.pose.x-o.pose.x,v.pose.z-o.pose.z)<(v.length+o.length)/2+.055))continue;
       v.active=true;v.speed=0;v.age=initial?3:0;insert(v);return true;
     }
@@ -95,7 +93,6 @@ export function createTraffic(network,{heightAt}={}) {
     // Test oriented vehicle footprints against both current and candidate poses
     // before applying any movement. This guard never invents a graph connection.
     for(const v of vehicles)if(v.active)locate(v,v.s+(v.advance??0),v.candidate);
-    for(const v of vehicles)if(v.active&&rider&&overlaps(v,v.candidate,riderBody,rider)){v.advance=0;v.speed=0;}
     for(const v of vehicles)if(v.active&&v.advance>0&&near(v.candidate,o=>o!==v&&(overlaps(v,v.candidate,o,o.pose)||overlaps(v,v.candidate,o,o.candidate)))){v.advance=0;v.speed=0;}
     for(const v of vehicles)if(v.active){v.s+=v.advance??0;if(v.s>=v.route.length-v.length/2){v.active=false;v.speed=0;}}
     // Publish accepted poses at the same 20 Hz. Ride only visits adjacent cells;
@@ -104,8 +101,8 @@ export function createTraffic(network,{heightAt}={}) {
   }
   function describe(v){const p=v.pose,width=v.type===2?.025:v.type===3?.024:.019,height=v.type>=2?.034:.016,r=Math.hypot(v.length,width)/2;return {id:'traffic-'+v.id,kind:'traffic',source:'live-traffic',center:[p.x,p.y+height/2,p.z],size:[width,height,v.length],rotationY:p.heading,bounds:[p.x-r,p.z-r,p.x+r,p.z+r],bottom:p.y,top:p.y+height,visualResident:true,collisionResident:true};}
   return {rideObstacles(p,radius=.3){return vehicles.filter(v=>v.active&&!v.pose.hidden&&Math.hypot(v.pose.x-p.x,v.pose.z-p.z)<=radius+v.length).map(describe);},vehicles,lanes,routes,setCount(n){target=Math.max(0,Math.min(MAX,Math.floor(n)));for(const v of vehicles)if(v.id>=target)v.active=false;},
-    setRider(value){rider=value?{x:value.x,y:value.y,z:value.z,heading:value.heading}:null;},
-    rideQuery(p){let blocked=false,obstacle=null,distance=Infinity,candidates=0;near(p,v=>{if(!v.active||v.pose.hidden||Math.abs(p.y-v.pose.y)>.035)return false;candidates++;distance=Math.min(distance,Math.hypot(v.pose.x-p.x,v.pose.z-p.z));locate(v,v.previous,v.renderPose);if(overlaps(riderBody,p,v,v.pose)||overlaps(riderBody,p,v,v.renderPose)){blocked=true;obstacle=describe(v);}return false;});return {...obstacle,blocked,distance:Number.isFinite(distance)?distance:null,candidates};},
+    setRider(){/* The explorer is not a traffic participant. */},
+    rideQuery(p){let blocked=false,obstacle=null,distance=Infinity,candidates=0;near(p,v=>{if(!v.active||v.pose.hidden||Math.abs(p.y-v.pose.y)>.035)return false;candidates++;distance=Math.min(distance,Math.hypot(v.pose.x-p.x,v.pose.z-p.z));locate(v,v.previous,v.renderPose);if(overlaps(riderBody,p,v,v.pose)||overlaps(riderBody,p,v,v.renderPose)){blocked=true;obstacle=describe(v);}return false;});return {...obstacle,overlapping:blocked,blocked:false,distance:Number.isFinite(distance)?distance:null,candidates};},
     update(dt){accumulator+=Math.min(.15,dt);let count=0;while(accumulator>=STEP&&count++<3){tick();accumulator-=STEP;}},
     sample(v){locate(v,v.previous+(v.s-v.previous)*Math.min(1,accumulator/STEP),v.renderPose);return v.renderPose;},
     get stats(){const active=vehicles.filter(v=>v.active);return {capacity:MAX,vehicles:active.length,target,ticks,simulationHz:20,laneCount:lanes.length,junctionCount:network.junctions.length,cachedRoutes:routes.length,hiddenTunnelVehicles:active.filter(v=>v.pose.hidden).length,bridgeVehicles:Object.fromEntries(Object.keys(network.counts.bridgeCoverage).map(id=>[id,active.filter(v=>v.pose.bridge===id).length]))};},
