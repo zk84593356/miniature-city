@@ -1,11 +1,13 @@
 import { SCALE, RIDE_MOTION, clamp, damp } from './ride-motion.js';
-export const RIDE_CAMERA = Object.freeze({ distance: 6.4, height: 3.1, lead: 4.8, fov: 57, followRate: 5, swingRate: 3.4 });
+export const RIDE_CAMERA = Object.freeze({ distance: 6.4, height: 3.1, lead: 4.8, fov: 57, followRate: 5, swingRate: 3.4, pitchDefault: -10*Math.PI/180, pitchMin: -25*Math.PI/180, pitchMax: 70*Math.PI/180, anchorHeight: 2 });
 
 export class RideCamera {
   constructor(T, camera, controller, collision) {
     Object.assign(this, { camera, controller, collision });
     this.target = new T.Vector3(); this.desired = new T.Vector3(); this.anchor = new T.Vector3();
     this.safe = new T.Vector3(); this.candidate = new T.Vector3();
+    this.direction = new T.Vector3();
+    this.pitch = this.renderPitch = RIDE_CAMERA.pitchDefault;
     this.offset = 0; this.heading = 0; this.dragging = false;
     this.swing = 0; this.pace = 0; this.height = 0;
   }
@@ -20,8 +22,10 @@ export class RideCamera {
     controls.enabled = false;
     c.near = .0005; c.fov = RIDE_CAMERA.fov; c.zoom=1; c.clearViewOffset(); c.updateProjectionMatrix();
     this.offset = 0; this.swing = 0; this.pace = 0; this.dragging = false; this.initialized = false;
+    this.pitch = this.renderPitch = RIDE_CAMERA.pitchDefault;
   }
-  drag(dx) { this.offset = clamp(this.offset - dx * .006, -1.15, 1.15); }
+  drag(dx, dy = 0) { this.offset = clamp(this.offset - dx * .006, -1.15, 1.15); this.pitch = clamp(this.pitch - dy * .005, RIDE_CAMERA.pitchMin, RIDE_CAMERA.pitchMax); }
+  reset() { this.offset = 0; this.pitch = RIDE_CAMERA.pitchDefault; }
   update(state, dt, snap = false, supportY = state.y) {
     snap ||= !this.initialized; this.initialized = true;
     dt = clamp(Number.isFinite(dt) ? dt : 0, 0, .08);
@@ -32,23 +36,34 @@ export class RideCamera {
     this.swing = snap || reduced ? 0 : damp(this.swing, clamp(state.steering * state.speed * .075, -.14, .14), RIDE_CAMERA.swingRate, dt);
     this.pace = reduced?0:damp(this.pace, clamp(Math.abs(state.speed) / RIDE_MOTION.maxSpeed, 0, 1), 2, dt);
     this.height = snap ? supportY : damp(this.height, supportY, 10, dt);
+    this.renderPitch = snap ? this.pitch : damp(this.renderPitch, this.pitch, 10, dt);
     const y = Math.max(state.y, supportY, this.height), portrait = this.camera.aspect < .85;
     const angle = this.heading + this.offset + this.swing + (reduced ? 0 : .10);
-    const distance = (this.inspection?3.2:RIDE_CAMERA.distance + this.pace * 1.1 + (portrait ? .8 : 0)) * SCALE;
-    this.desired.set(state.x - Math.sin(angle) * distance, y + (this.inspection?1.6:RIDE_CAMERA.height + (portrait ? .5 : 0)) * SCALE, state.z - Math.cos(angle) * distance);
+    let distance = (this.inspection?3.2:RIDE_CAMERA.distance + this.pace * 1.1 + (portrait ? .8 : 0)) * SCALE;
+    this.anchor.set(state.x, y + (this.inspection?1.05:RIDE_CAMERA.anchorHeight) * SCALE, state.z);
+    this.direction.set(Math.sin(angle)*Math.cos(this.renderPitch), Math.sin(this.renderPitch), Math.cos(angle)*Math.cos(this.renderPitch));
+    // A low-angle orbit shortens its boom near the floor instead of lifting the
+    // rider's pivot toward the roof or pushing the camera underground.
+    const boomPitch=this.renderPitch>0?this.renderPitch*.72:this.renderPitch;
+    if(boomPitch>0)distance=Math.min(distance,(this.anchor.y-y-.005)/Math.sin(boomPitch));
+    this.desired.set(state.x-Math.sin(angle)*Math.cos(boomPitch)*distance,this.anchor.y-Math.sin(boomPitch)*distance,state.z-Math.cos(angle)*Math.cos(boomPitch)*distance);
+    // Ease into an over-shoulder view as the boom approaches the scooter. This
+    // keeps the lens out of the rear shell and the rider beside the sightline.
+    const shoulder=.35*SCALE*clamp((this.renderPitch-.15)/.65,0,1);
+    this.desired.x+=Math.cos(angle)*shoulder;this.desired.z-=Math.sin(angle)*shoulder;
     const lead = (this.inspection?0:RIDE_CAMERA.lead + this.pace * 3.2) * SCALE;
-    this.target.set(state.x + Math.sin(this.heading) * lead, y + 1.05 * SCALE, state.z + Math.cos(this.heading) * lead);
     // Follow the road's pitch without snapping to an overhead bridge layer.
-    const road = this.collision.height(this.target.x, this.target.z, state.y,state.surfaceId);
-    if (Number.isFinite(road)) this.target.y += clamp(road - state.y, -.015, .015);
+    const road = this.collision.height(state.x+Math.sin(this.heading)*lead, state.z+Math.cos(this.heading)*lead, state.y,state.surfaceId);
     // Occlusion starts at the rider, NEVER at the distant road look-ahead target.
-    this.anchor.set(state.x, y + 1.05 * SCALE, state.z);
     this.obstruction = null;
     this.constrain(this.desired, state);
     const c = this.camera;
     this.candidate.copy(c.position).lerp(this.desired, snap||reduced ? 1 : 1 - Math.exp(-RIDE_CAMERA.followRate * dt));
     // Validate AFTER damping as well: a moving/rotating boom may cut a corner.
     this.constrain(this.candidate, state); c.position.copy(this.candidate);
+    this.distance = c.position.distanceTo(this.anchor)/SCALE;
+    this.target.copy(c.position).addScaledVector(this.direction,distance+lead);
+    if (Number.isFinite(road)) this.target.y += clamp(road - state.y, -.015, .015)*Math.max(0,1-Math.abs(this.renderPitch-RIDE_CAMERA.pitchDefault)/.35);
     this.controller.controls.target.lerp(this.target, snap ? 1 : 1 - Math.exp(-7 * dt));
     const fov = RIDE_CAMERA.fov + this.pace * 3 + (portrait ? 6 : 0);
     if (Math.abs(c.fov - fov) > .001) { c.fov = fov; c.updateProjectionMatrix(); }

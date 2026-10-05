@@ -104,4 +104,6 @@ npm run verify
 
 当前产品规则：建筑是唯一硬碰撞实体，其余城市元素不阻断自由探索。音乐默认关闭，工具栏开启，数据面板调音量。详见 [自由探索与音乐](docs/wuhan-free-exploration.md)。
 
+Ride 支持鼠标和触摸自由仰俯：上拖抬头，松手保持，按 R 平滑复位。详见 [相机操作与验收](docs/wuhan-ride-camera.md)。
+
 新增验收：`npm run wuhan:free:verify`、`npm run wuhan:free:browser`、`npm run wuhan:music:browser`、`npm run wuhan:free:bridge-report`。

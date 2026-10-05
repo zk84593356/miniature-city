@@ -43,7 +43,9 @@
     "wuhan:free:verify": "node tools/wuhan/verify-free-ride.mjs && node tools/wuhan/verify-landmark-collision.mjs",
     "wuhan:music:browser": "node tools/wuhan/browser-check-free-music.mjs",
     "wuhan:free:browser": "node tools/wuhan/browser-check-free-pass.mjs",
-    "wuhan:free:bridge-report": "node tools/wuhan/verify-free-browser-report.mjs"
+    "wuhan:free:bridge-report": "node tools/wuhan/verify-free-browser-report.mjs",
+    "wuhan:camera:verify": "node tools/wuhan/verify-ride-camera.mjs",
+    "wuhan:camera:browser": "node tools/wuhan/browser-check-ride-camera.mjs"
   },
   "dependencies": {
     "three": "0.185.0"
